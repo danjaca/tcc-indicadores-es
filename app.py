@@ -14,6 +14,9 @@ arquivos=list((Path(__file__).parent/'dados').glob('dataset.zip')) or list((Path
 versao=tuple((p.name,p.stat().st_mtime_ns) for p in arquivos if p.is_file())
 f,p,g,meta=dados(versao)
 fmt=lambda n,dec=0: f'{n:,.{dec}f}'.replace(',','X').replace('.',',').replace('X','.') if n is not None and pd.notna(n) else 'Sem denominador'
+def rotulos(valores,medida):
+    return [fmt(float(v),2 if medida=='Taxa por 100 mil' else 0) if pd.notna(v) else '' for v in valores]
+
 with st.sidebar:
     st.title('Observatório • ES')
     st.caption('TCC · Engenharia de Produção · UFES\n\nDaniel Breda Bigossi')
@@ -64,7 +67,7 @@ with tabs[0]:
     st.caption(f'Período aplicado em todos os anos: {periodo}. Meses: '+', '.join(map(str,meses))+'.')
     met=st.radio('Medida da série',['Taxa por 100 mil','Óbitos'],horizontal=True)
     fig=px.line(serie,x='Ano',y=met,markers=True,hover_data=['Óbitos','População'],color_discrete_sequence=['#126c83'])
-    fig.update_traces(connectgaps=False); fig.update_xaxes(dtick=1); st.plotly_chart(fig,width='stretch')
+    fig.update_traces(connectgaps=False,text=rotulos(serie[met],met),mode='lines+markers+text',textposition='top center',textfont={'size':12},cliponaxis=False); fig.update_xaxes(dtick=1); st.plotly_chart(fig,width='stretch')
     st.caption('Anos ou períodos sem cobertura completa aparecem como lacunas na série. O acumulado usa os mesmos meses do ano selecionado em todos os anos.')
     st.subheader('Ano anterior × ano selecionado')
     comparativo=comparacao_mensal(nf,np,ano,meses)
@@ -73,9 +76,9 @@ with tabs[0]:
     nomes_meses=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
     eixo=[nomes_meses[m-1] for m in meses]
     combinado=go.Figure()
-    combinado.add_trace(go.Bar(x=eixo,y=anterior_m[met],name=f'{ano-1} · ano anterior',marker_color='#9db7c4',customdata=anterior_m[['Óbitos','População']].values,hovertemplate='%{x}<br>'+met+': %{y:.2f}<br>Óbitos: %{customdata[0]}<br>População: %{customdata[1]:,.0f}<extra>%{fullData.name}</extra>'))
-    combinado.add_trace(go.Scatter(x=eixo,y=atual_m[met],name=f'{ano} · ano selecionado',mode='lines+markers',line={'color':'#126c83','width':3},connectgaps=False,customdata=atual_m[['Óbitos','População']].values,hovertemplate='%{x}<br>'+met+': %{y:.2f}<br>Óbitos: %{customdata[0]}<br>População: %{customdata[1]:,.0f}<extra>%{fullData.name}</extra>'))
-    combinado.update_layout(xaxis_title='Mês',yaxis_title=met,hovermode='x unified',legend={'orientation':'h','y':1.15},yaxis={'rangemode':'tozero'},xaxis={'type':'category','categoryorder':'array','categoryarray':eixo})
+    combinado.add_trace(go.Bar(x=eixo,y=anterior_m[met],name=f'{ano-1} · ano anterior',text=rotulos(anterior_m[met],met),textposition='inside',insidetextanchor='end',textfont={'size':12,'color':'#153147'},cliponaxis=False,marker_color='#9db7c4',customdata=anterior_m[['Óbitos','População']].values,hovertemplate='%{x}<br>'+met+': %{y:.2f}<br>Óbitos: %{customdata[0]}<br>População: %{customdata[1]:,.0f}<extra>%{fullData.name}</extra>'))
+    combinado.add_trace(go.Scatter(x=eixo,y=atual_m[met],name=f'{ano} · ano selecionado',mode='lines+markers+text',text=rotulos(atual_m[met],met),textposition='top center',textfont={'size':12,'color':'#126c83'},cliponaxis=False,line={'color':'#126c83','width':3},connectgaps=False,customdata=atual_m[['Óbitos','População']].values,hovertemplate='%{x}<br>'+met+': %{y:.2f}<br>Óbitos: %{customdata[0]}<br>População: %{customdata[1]:,.0f}<extra>%{fullData.name}</extra>'))
+    combinado.update_layout(xaxis_title='Mês',yaxis_title=met,hovermode='x unified',legend={'orientation':'h','y':1.15},yaxis={'rangemode':'tozero'},margin={'t':65,'b':55},xaxis={'type':'category','categoryorder':'array','categoryarray':eixo})
     st.plotly_chart(combinado,width='stretch')
     st.caption(f'Barras: {ano-1}. Linha: {ano}. Medida: {met}. Somente os meses selecionados, na mesma escala. Nas taxas mensais, cada ano utiliza sua população anual elegível.')
     if not anterior:
@@ -92,7 +95,8 @@ with tabs[1]:
     territorial=agrupado(nf,np,ano,meses,['cod_mun_res']).merge(g,on='cod_mun_res',how='left')
     ordem=st.radio('Ordenar municípios por',['Óbitos','Taxa por 100 mil'],horizontal=True)
     top=territorial.sort_values(ordem,ascending=False).head(15).sort_values(ordem)
-    st.plotly_chart(px.bar(top,x=ordem,y='no_municipio',orientation='h',hover_data=['Óbitos','População','Taxa por 100 mil'],labels={'no_municipio':'Município'},color_discrete_sequence=['#126c83']),width='stretch')
+    top['Rótulo']=rotulos(top[ordem],ordem)
+    st.plotly_chart(px.bar(top,x=ordem,y='no_municipio',orientation='h',text='Rótulo',hover_data=['Óbitos','População','Taxa por 100 mil'],labels={'no_municipio':'Município'},color_discrete_sequence=['#126c83']).update_traces(textposition='outside',cliponaxis=False).update_layout(margin={'r':90}),width='stretch')
     mapa=territorial[territorial['Óbitos']>0].copy()
     if not mapa.empty:
         st.plotly_chart(px.scatter_map(mapa,lat='latitude',lon='longitude',size='Óbitos',color='Taxa por 100 mil',hover_name='no_municipio',hover_data=['Óbitos','População'],zoom=6,center={'lat':-19.6,'lon':-40.5},map_style='carto-positron',color_continuous_scale='OrRd',size_max=35),width='stretch')
@@ -106,11 +110,13 @@ with tabs[2]:
     ef=nf[nf.faixa_etaria.isin(idades)]; ep=np[np.faixa_etaria.isin(idades)]
     dem=agrupado(ef,ep,ano,meses,['faixa_etaria','sexo'])
     metdem=st.radio('Medida demográfica',['Óbitos','Taxa por 100 mil'],horizontal=True)
-    st.plotly_chart(px.bar(dem,x='faixa_etaria',y=metdem,color='sexo',barmode='group',category_orders={'faixa_etaria':IDADES},labels={'faixa_etaria':'Faixa etária','sexo':'Sexo'},hover_data=['Óbitos','População']),width='stretch')
+    dem['Rótulo']=rotulos(dem[metdem],metdem)
+    st.plotly_chart(px.bar(dem,x='faixa_etaria',y=metdem,text='Rótulo',color='sexo',barmode='group',category_orders={'faixa_etaria':IDADES},labels={'faixa_etaria':'Faixa etária','sexo':'Sexo'},hover_data=['Óbitos','População']).update_traces(textposition='outside',cliponaxis=False,textfont={'size':10}).update_layout(height=500),width='stretch')
     st.caption('As faixas têm amplitudes diferentes. Idade ou sexo ignorado não possui denominador correspondente e, portanto, não recebe taxa.')
     pir=dem[dem.sexo.isin(['Masculino','Feminino'])].copy()
     pir['Óbitos espelhados']=pir['Óbitos'].where(pir.sexo=='Feminino',-pir['Óbitos'])
-    st.plotly_chart(px.bar(pir,y='faixa_etaria',x='Óbitos espelhados',color='sexo',orientation='h',barmode='relative',category_orders={'faixa_etaria':IDADES},hover_data={'Óbitos':True,'Óbitos espelhados':False},labels={'faixa_etaria':'Faixa etária','sexo':'Sexo'}),width='stretch')
+    pir['Rótulo']=rotulos(pir['Óbitos'],'Óbitos')
+    st.plotly_chart(px.bar(pir,y='faixa_etaria',x='Óbitos espelhados',text='Rótulo',color='sexo',orientation='h',barmode='relative',category_orders={'faixa_etaria':IDADES},hover_data={'Óbitos':True,'Óbitos espelhados':False},labels={'faixa_etaria':'Faixa etária','sexo':'Sexo'}).update_traces(textposition='outside',cliponaxis=False).update_layout(margin={'l':80,'r':80}),width='stretch')
     st.caption('Distribuição espelhada de óbitos: o sinal negativo apenas posiciona os homens à esquerda. Este gráfico não é uma pirâmide da população residente.')
 with tabs[3]:
     st.subheader('Definições e disponibilidade')
