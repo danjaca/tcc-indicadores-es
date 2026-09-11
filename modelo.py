@@ -56,3 +56,18 @@ def meses_disponiveis(f,ano):
 
 def cobertura_completa(f,ano,meses):
     return bool(meses) and set(meses).issubset(meses_disponiveis(f,ano))
+
+def serie_historica(f,p,anos,meses):
+    linhas=[]
+    for ano in anos:
+        n,d,t=medidas(f,p,ano,meses)
+        linhas.append({'Ano':ano,'Óbitos':n,'População':d,'Taxa por 100 mil':t})
+    return pd.DataFrame(linhas)
+
+def comparacao_mensal(f,p,ano,meses):
+    linhas=[]
+    for y in [ano-1,ano]:
+        for mes in sorted(meses):
+            n,d,t=medidas(f,p,y,[mes])
+            linhas.append({'Ano':y,'Mês':mes,'Óbitos':n,'População':d,'Taxa por 100 mil':t})
+    return pd.DataFrame(linhas)
