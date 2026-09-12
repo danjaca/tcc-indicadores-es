@@ -17,6 +17,9 @@ fmt=lambda n,dec=0: f'{n:,.{dec}f}'.replace(',','X').replace('.',',').replace('X
 def rotulos(valores,medida):
     return [fmt(float(v),2 if medida=='Taxa por 100 mil' else 0) if pd.notna(v) else '' for v in valores]
 
+CORES_SEXO = {'Masculino':'#2878B5','Feminino':'#D45479','Ignorado':'#8A9099'}
+ORDEM_SEXO = ['Masculino','Feminino','Ignorado']
+
 with st.sidebar:
     st.title('Observatório • ES')
     st.caption('TCC · Engenharia de Produção · UFES\n\nDaniel Breda Bigossi')
@@ -104,19 +107,28 @@ with tabs[1]:
     st.dataframe(territorial[['no_municipio','Óbitos','População','Taxa por 100 mil']].sort_values(ordem,ascending=False),hide_index=True,width='stretch',column_config={'Taxa por 100 mil':st.column_config.NumberColumn(format='%.2f')})
 with tabs[2]:
     st.subheader('Como os óbitos se distribuem por idade e sexo?')
-    st.caption('Os filtros abaixo alteram apenas esta análise exploratória; os cartões acima preservam a definição do indicador.')
+    if INDICADORES[indicador]['idades']:
+        faixa_total = '15 a 29 anos' if INDICADORES[indicador]['sexo'] is None else 'mulheres de 10 a 59 anos'
+        st.markdown(f'**Indicador completo · {faixa_total}**')
+        resumo=agrupado(nf,np,ano,meses,['faixa_etaria'])
+        resumo=resumo.set_index('faixa_etaria').reindex(INDICADORES[indicador]['idades']).reset_index()
+        resumo=resumo.rename(columns={'faixa_etaria':'Faixa etária'})
+        resumo=pd.concat([resumo,pd.DataFrame([{'Faixa etária':f'TOTAL · {faixa_total}','Óbitos':n,'População':den,'Taxa por 100 mil':taxa}])],ignore_index=True)
+        st.dataframe(resumo,hide_index=True,width='stretch',column_config={'Óbitos':st.column_config.NumberColumn(format='%d'),'População':st.column_config.NumberColumn(format='%d'),'Taxa por 100 mil':st.column_config.NumberColumn(format='%.2f')})
+        st.caption('O TOTAL reúne todas as faixas do indicador e respeita ano, período e municípios selecionados. A taxa total é calculada com a soma dos óbitos dividida pela soma das populações anuais elegíveis; não é a soma das taxas por idade.')
+    st.caption('Os filtros de idade abaixo alteram apenas os gráficos exploratórios; o total do indicador permanece completo. Cores fixas: masculino em azul, feminino em rosa e sexo ignorado em cinza.')
     elegiveis=INDICADORES[indicador]['idades'] or IDADES
     idades=st.multiselect('Faixas etárias da análise',elegiveis,default=elegiveis)
     ef=nf[nf.faixa_etaria.isin(idades)]; ep=np[np.faixa_etaria.isin(idades)]
     dem=agrupado(ef,ep,ano,meses,['faixa_etaria','sexo'])
     metdem=st.radio('Medida demográfica',['Óbitos','Taxa por 100 mil'],horizontal=True)
     dem['Rótulo']=rotulos(dem[metdem],metdem)
-    st.plotly_chart(px.bar(dem,x='faixa_etaria',y=metdem,text='Rótulo',color='sexo',barmode='group',category_orders={'faixa_etaria':IDADES},labels={'faixa_etaria':'Faixa etária','sexo':'Sexo'},hover_data=['Óbitos','População']).update_traces(textposition='outside',cliponaxis=False,textfont={'size':10}).update_layout(height=500),width='stretch')
+    st.plotly_chart(px.bar(dem,x='faixa_etaria',y=metdem,text='Rótulo',color='sexo',color_discrete_map=CORES_SEXO,barmode='group',category_orders={'faixa_etaria':IDADES,'sexo':ORDEM_SEXO},labels={'faixa_etaria':'Faixa etária','sexo':'Sexo'},hover_data=['Óbitos','População']).update_traces(textposition='outside',cliponaxis=False,textfont={'size':10}).update_layout(height=500),width='stretch')
     st.caption('As faixas têm amplitudes diferentes. Idade ou sexo ignorado não possui denominador correspondente e, portanto, não recebe taxa.')
     pir=dem[dem.sexo.isin(['Masculino','Feminino'])].copy()
     pir['Óbitos espelhados']=pir['Óbitos'].where(pir.sexo=='Feminino',-pir['Óbitos'])
     pir['Rótulo']=rotulos(pir['Óbitos'],'Óbitos')
-    st.plotly_chart(px.bar(pir,y='faixa_etaria',x='Óbitos espelhados',text='Rótulo',color='sexo',orientation='h',barmode='relative',category_orders={'faixa_etaria':IDADES},hover_data={'Óbitos':True,'Óbitos espelhados':False},labels={'faixa_etaria':'Faixa etária','sexo':'Sexo'}).update_traces(textposition='outside',cliponaxis=False).update_layout(margin={'l':80,'r':80}),width='stretch')
+    st.plotly_chart(px.bar(pir,y='faixa_etaria',x='Óbitos espelhados',text='Rótulo',color='sexo',color_discrete_map=CORES_SEXO,orientation='h',barmode='relative',category_orders={'faixa_etaria':IDADES,'sexo':ORDEM_SEXO},hover_data={'Óbitos':True,'Óbitos espelhados':False},labels={'faixa_etaria':'Faixa etária','sexo':'Sexo'}).update_traces(textposition='outside',cliponaxis=False).update_layout(margin={'l':80,'r':80}),width='stretch')
     st.caption('Distribuição espelhada de óbitos: o sinal negativo apenas posiciona os homens à esquerda. Este gráfico não é uma pirâmide da população residente.')
 with tabs[3]:
     st.subheader('Definições e disponibilidade')
