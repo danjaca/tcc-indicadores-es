@@ -143,17 +143,6 @@ with tabs[2]:
         else:
             st.info('Sem óbitos no recorte: a frequência relativa não é definida.')
     st.caption('Frequência relativa = óbitos da faixa ÷ total de óbitos do indicador no recorte × 100. A tabela e os setores respeitam ano, meses, municípios e sexo. O total mantém todas as idades elegíveis. A taxa total usa a soma das populações anuais elegíveis; não é a soma das taxas por idade.')
-    st.subheader('Ano anterior × ano selecionado · comparação mensal')
-    medida_perfil=st.radio('Medida da comparação no perfil',['Óbitos','Taxa por 100 mil'],horizontal=True)
-    comparativo_perfil=go.Figure(combinado)
-    comparativo_perfil.data[0].y=anterior_m[medida_perfil]
-    comparativo_perfil.data[0].text=rotulos(anterior_m[medida_perfil],medida_perfil)
-    comparativo_perfil.data[1].y=atual_m[medida_perfil]
-    comparativo_perfil.data[1].text=rotulos(atual_m[medida_perfil],medida_perfil)
-    comparativo_perfil.update_traces(hovertemplate='%{x}<br>'+medida_perfil+': %{y}<br>Óbitos: %{customdata[0]}<br>População: %{customdata[1]:,.0f}<extra>%{fullData.name}</extra>')
-    comparativo_perfil.update_layout(height=500,yaxis_title=medida_perfil)
-    st.plotly_chart(comparativo_perfil,width='stretch',key='comparacao_mensal_perfil')
-    st.caption(f'Barras: {ano-1}. Linha: {ano}. Mesmos meses, municípios e sexo da tabela e dos setores. O gráfico reúne todas as idades elegíveis do indicador; cada taxa mensal usa a população anual correspondente.')
     st.caption('Os filtros de idade abaixo alteram apenas os gráficos exploratórios; o total do indicador permanece completo. Cores fixas: masculino em azul, feminino em rosa e sexo ignorado em cinza.')
     elegiveis=INDICADORES[indicador]['idades'] or IDADES
     idades=st.multiselect('Faixas etárias da análise',elegiveis,default=elegiveis)
