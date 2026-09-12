@@ -129,19 +129,31 @@ with tabs[2]:
     resumo['Frequência relativa (%)']=resumo['Óbitos']/n*100 if n else float('nan')
     setores=resumo[resumo['Óbitos'].gt(0)].copy()
     resumo=pd.concat([resumo,pd.DataFrame([{'Faixa etária':f'TOTAL · {faixa_total}','Óbitos':n,'População':den,'Taxa por 100 mil':taxa,'Frequência relativa (%)':100.0 if n else float('nan')}])],ignore_index=True)
+    altura_resumo=max(450,38+35*len(resumo))
     tabela_col,setores_col=st.columns([1.25,1],gap='large')
     with tabela_col:
-        st.dataframe(resumo,hide_index=True,width='stretch',height=450,column_config={'Óbitos':st.column_config.NumberColumn(format='%d'),'População':st.column_config.NumberColumn(format='%d'),'Taxa por 100 mil':st.column_config.NumberColumn(format='%.2f'),'Frequência relativa (%)':st.column_config.NumberColumn(format='%.1f%%')})
+        st.dataframe(resumo,hide_index=True,width='stretch',height=altura_resumo,row_height=35,column_config={'Óbitos':st.column_config.NumberColumn(format='%d'),'População':st.column_config.NumberColumn(format='%d'),'Taxa por 100 mil':st.column_config.NumberColumn(format='%.2f'),'Frequência relativa (%)':st.column_config.NumberColumn(format='%.1f%%')})
     with setores_col:
         st.markdown('**Participação das faixas etárias nos óbitos**')
         if n:
             pizza=px.pie(setores,names='Faixa etária',values='Óbitos',color='Faixa etária',color_discrete_map=dict(zip(IDADES,px.colors.qualitative.Safe+['#8A9099'])),hole=0.35)
             pizza.update_traces(textinfo='percent',textposition='inside',sort=False,hovertemplate='%{label}<br>Óbitos: %{value}<br>Participação: %{percent}<extra></extra>')
-            pizza.update_layout(height=430,margin={'l':5,'r':5,'t':10,'b':10},legend={'orientation':'h','y':-0.12,'x':0},uniformtext_minsize=10,uniformtext_mode='hide')
+            pizza.update_layout(height=altura_resumo-25,margin={'l':5,'r':5,'t':10,'b':10},legend={'orientation':'h','y':-0.12,'x':0},uniformtext_minsize=10,uniformtext_mode='hide')
             st.plotly_chart(pizza,width='stretch')
         else:
             st.info('Sem óbitos no recorte: a frequência relativa não é definida.')
     st.caption('Frequência relativa = óbitos da faixa ÷ total de óbitos do indicador no recorte × 100. A tabela e os setores respeitam ano, meses, municípios e sexo. O total mantém todas as idades elegíveis. A taxa total usa a soma das populações anuais elegíveis; não é a soma das taxas por idade.')
+    st.subheader('Ano anterior × ano selecionado · comparação mensal')
+    medida_perfil=st.radio('Medida da comparação no perfil',['Óbitos','Taxa por 100 mil'],horizontal=True)
+    comparativo_perfil=go.Figure(combinado)
+    comparativo_perfil.data[0].y=anterior_m[medida_perfil]
+    comparativo_perfil.data[0].text=rotulos(anterior_m[medida_perfil],medida_perfil)
+    comparativo_perfil.data[1].y=atual_m[medida_perfil]
+    comparativo_perfil.data[1].text=rotulos(atual_m[medida_perfil],medida_perfil)
+    comparativo_perfil.update_traces(hovertemplate='%{x}<br>'+medida_perfil+': %{y}<br>Óbitos: %{customdata[0]}<br>População: %{customdata[1]:,.0f}<extra>%{fullData.name}</extra>')
+    comparativo_perfil.update_layout(height=500,yaxis_title=medida_perfil)
+    st.plotly_chart(comparativo_perfil,width='stretch',key='comparacao_mensal_perfil')
+    st.caption(f'Barras: {ano-1}. Linha: {ano}. Mesmos meses, municípios e sexo da tabela e dos setores. O gráfico reúne todas as idades elegíveis do indicador; cada taxa mensal usa a população anual correspondente.')
     st.caption('Os filtros de idade abaixo alteram apenas os gráficos exploratórios; o total do indicador permanece completo. Cores fixas: masculino em azul, feminino em rosa e sexo ignorado em cinza.')
     elegiveis=INDICADORES[indicador]['idades'] or IDADES
     idades=st.multiselect('Faixas etárias da análise',elegiveis,default=elegiveis)
