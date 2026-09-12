@@ -29,6 +29,7 @@ with st.sidebar:
         quadrimestres=st.multiselect('Quadrimestres da análise',[1,2,3],default=sorted({(m-1)//4+1 for m in meses_disponiveis(f,max(meta['anos_disponiveis']))}),format_func=lambda q:f'{q}º quadrimestre',help='Selecione um, dois ou três quadrimestres e refine os meses abaixo.')
         meses_personalizados=st.multiselect('Meses personalizados',list(range(1,13)),default=list(range(1,13)),format_func=lambda m: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'][m-1],help='Sempre disponível. Entram na análise os meses marcados que pertencem aos quadrimestres selecionados. Mantenha todos para analisar os quadrimestres completos.')
         municipios=st.multiselect('Municípios',sorted(g.no_municipio),placeholder='Todos os municípios do ES')
+        sexo_filtro=st.selectbox('Sexo',['Todos','Masculino','Feminino'],help='Filtra óbitos e população pelo mesmo sexo. Masculino não se aplica ao indicador de homicídios de mulheres.')
         st.form_submit_button('Atualizar',type='primary',width='stretch')
     st.caption('Escolha os filtros e clique em Atualizar para aplicá-los ao painel. Sem seleção municipal = todo o Espírito Santo.')
     st.caption('A base não contém agrupamento por região de saúde.')
@@ -45,12 +46,22 @@ if not cobertura_completa(f,ano,meses):
     st.stop()
 codigos=g[g.no_municipio.isin(municipios)].cod_mun_res.tolist() if municipios else g.cod_mun_res.tolist()
 nf,np=recortar(f,p,indicador,codigos)
+if INDICADORES[indicador]['sexo']=='Feminino' and sexo_filtro=='Masculino':
+    st.title(indicador)
+    st.info('Não aplicável: o filtro Masculino é incompatível com o indicador de homicídios de mulheres. Resultados nulos; selecione Feminino ou Todos.')
+    for coluna,label in zip(st.columns(3),['Óbitos no período','Taxa por 100 mil','População anual de referência']):
+        coluna.metric(label,'—')
+    st.stop()
+if sexo_filtro!='Todos':
+    nf=nf[nf.sexo.eq(sexo_filtro)]
+    np=np[np.sexo.eq(sexo_filtro)]
 n,den,taxa=medidas(nf,np,ano,meses)
 anterior=cobertura_completa(nf,ano-1,meses)
 na,da,ta=medidas(nf,np,ano-1,meses) if anterior else (None,None,None)
 delta=((taxa/ta)-1)*100 if ta and taxa is not None else None
 st.title(indicador)
 st.caption(f'{ano} · {periodo} · '+(', '.join(municipios) if municipios else 'Espírito Santo · 78 municípios'))
+st.caption('Sexo: '+('Feminino' if INDICADORES[indicador]['sexo']=='Feminino' else sexo_filtro))
 st.caption('Meses efetivamente analisados: '+', '.join(nomes_meses_completos[m-1] for m in meses)+'.')
 st.write(INDICADORES[indicador]['descricao'])
 if len(cobertura)<12:
@@ -110,15 +121,27 @@ with tabs[1]:
     st.dataframe(territorial[['no_municipio','Óbitos','População','Taxa por 100 mil']].sort_values(ordem,ascending=False),hide_index=True,width='stretch',column_config={'Taxa por 100 mil':st.column_config.NumberColumn(format='%.2f')})
 with tabs[2]:
     st.subheader('Como os óbitos se distribuem por idade e sexo?')
-    if INDICADORES[indicador]['idades']:
-        faixa_total = '15 a 29 anos' if INDICADORES[indicador]['sexo'] is None else 'mulheres de 10 a 59 anos'
-        st.markdown(f'**Indicador completo · {faixa_total}**')
-        resumo=agrupado(nf,np,ano,meses,['faixa_etaria'])
-        resumo=resumo.set_index('faixa_etaria').reindex(INDICADORES[indicador]['idades']).reset_index()
-        resumo=resumo.rename(columns={'faixa_etaria':'Faixa etária'})
-        resumo=pd.concat([resumo,pd.DataFrame([{'Faixa etária':f'TOTAL · {faixa_total}','Óbitos':n,'População':den,'Taxa por 100 mil':taxa}])],ignore_index=True)
-        st.dataframe(resumo,hide_index=True,width='stretch',column_config={'Óbitos':st.column_config.NumberColumn(format='%d'),'População':st.column_config.NumberColumn(format='%d'),'Taxa por 100 mil':st.column_config.NumberColumn(format='%.2f')})
-        st.caption('O TOTAL reúne todas as faixas do indicador e respeita ano, período e municípios selecionados. A taxa total é calculada com a soma dos óbitos dividida pela soma das populações anuais elegíveis; não é a soma das taxas por idade.')
+    faixa_total = ('15 a 29 anos' if INDICADORES[indicador]['sexo'] is None else 'mulheres de 10 a 59 anos') if INDICADORES[indicador]['idades'] else 'todas as idades'
+    st.markdown(f'**Indicador completo · {faixa_total}**')
+    resumo=agrupado(nf,np,ano,meses,['faixa_etaria'])
+    resumo=resumo.set_index('faixa_etaria').reindex(INDICADORES[indicador]['idades'] or IDADES).reset_index()
+    resumo=resumo.rename(columns={'faixa_etaria':'Faixa etária'})
+    resumo['Frequência relativa (%)']=resumo['Óbitos']/n*100 if n else float('nan')
+    setores=resumo[resumo['Óbitos'].gt(0)].copy()
+    resumo=pd.concat([resumo,pd.DataFrame([{'Faixa etária':f'TOTAL · {faixa_total}','Óbitos':n,'População':den,'Taxa por 100 mil':taxa,'Frequência relativa (%)':100.0 if n else float('nan')}])],ignore_index=True)
+    tabela_col,setores_col=st.columns([1.25,1],gap='large')
+    with tabela_col:
+        st.dataframe(resumo,hide_index=True,width='stretch',height=450,column_config={'Óbitos':st.column_config.NumberColumn(format='%d'),'População':st.column_config.NumberColumn(format='%d'),'Taxa por 100 mil':st.column_config.NumberColumn(format='%.2f'),'Frequência relativa (%)':st.column_config.NumberColumn(format='%.1f%%')})
+    with setores_col:
+        st.markdown('**Participação das faixas etárias nos óbitos**')
+        if n:
+            pizza=px.pie(setores,names='Faixa etária',values='Óbitos',color='Faixa etária',color_discrete_map=dict(zip(IDADES,px.colors.qualitative.Safe+['#8A9099'])),hole=0.35)
+            pizza.update_traces(textinfo='percent',textposition='inside',sort=False,hovertemplate='%{label}<br>Óbitos: %{value}<br>Participação: %{percent}<extra></extra>')
+            pizza.update_layout(height=430,margin={'l':5,'r':5,'t':10,'b':10},legend={'orientation':'h','y':-0.12,'x':0},uniformtext_minsize=10,uniformtext_mode='hide')
+            st.plotly_chart(pizza,width='stretch')
+        else:
+            st.info('Sem óbitos no recorte: a frequência relativa não é definida.')
+    st.caption('Frequência relativa = óbitos da faixa ÷ total de óbitos do indicador no recorte × 100. A tabela e os setores respeitam ano, meses, municípios e sexo. O total mantém todas as idades elegíveis. A taxa total usa a soma das populações anuais elegíveis; não é a soma das taxas por idade.')
     st.caption('Os filtros de idade abaixo alteram apenas os gráficos exploratórios; o total do indicador permanece completo. Cores fixas: masculino em azul, feminino em rosa e sexo ignorado em cinza.')
     elegiveis=INDICADORES[indicador]['idades'] or IDADES
     idades=st.multiselect('Faixas etárias da análise',elegiveis,default=elegiveis)
