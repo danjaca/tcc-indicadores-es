@@ -1,0 +1,14 @@
+{
+  "fonte_agrupamento": "http://tabnet.saude.es.gov.br/cgi/deftohtm.exe?tabnet/SIM/SIM2006/sim2006.def",
+  "campo": "SReg_PDR2024/Mun_res",
+  "revisao": "Última Atualização em: 09/09/2026. Observação: Banco atualizado até o dia 09/09/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)",
+  "fonte_pdr": "https://saude.es.gov.br/GrupodeArquivos/plano-diretor-de-regionalizacao_pdr-es-2024",
+  "malha": "IBGE 2025",
+  "quantidades": {
+    "Sul": 26,
+    "Metropolitana": 23,
+    "Central": 15,
+    "Norte": 14
+  },
+  "nota": "Limites regionais derivados da união dos municípios do PDR 2024; classificação fixa aplicada a todos os anos para comparabilidade."
+}
