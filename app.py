@@ -1,4 +1,5 @@
 from pathlib import Path
+import gzip,json
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
@@ -114,10 +115,23 @@ with tabs[1]:
     top=territorial.sort_values(ordem,ascending=False).head(15).sort_values(ordem)
     top['Rótulo']=rotulos(top[ordem],ordem)
     st.plotly_chart(px.bar(top,x=ordem,y='no_municipio',orientation='h',text='Rótulo',hover_data=['Óbitos','População','Taxa por 100 mil'],labels={'no_municipio':'Município'},color_discrete_sequence=['#126c83']).update_traces(textposition='outside',cliponaxis=False).update_layout(margin={'r':90}),width='stretch')
-    mapa=territorial[territorial['Óbitos']>0].copy()
-    if not mapa.empty:
-        st.plotly_chart(px.scatter_map(mapa,lat='latitude',lon='longitude',size='Óbitos',color='Taxa por 100 mil',hover_name='no_municipio',hover_data=['Óbitos','População'],zoom=6,center={'lat':-19.6,'lon':-40.5},map_style='carto-positron',color_continuous_scale='OrRd',size_max=35),width='stretch')
-    st.caption('Municípios sem óbitos não recebem bolhas. O mapa exige internet. Taxas em populações pequenas podem oscilar com poucos eventos; interprete contagem e população em conjunto.')
+    st.subheader('Mapa municipal do Espírito Santo')
+    medida_mapa=st.radio('Medida do mapa',['Taxa por 100 mil','Óbitos'],horizontal=True)
+    @st.cache_data
+    def malha_municipal():
+        with gzip.open(Path(__file__).parent/'dados/municipios_es.geojson.gz','rt',encoding='utf-8') as arquivo:
+            return json.load(arquivo)
+    malha=malha_municipal()
+    base_mapa=g[['cod_mun_res','no_municipio']].copy()
+    mapa=go.Figure(go.Choropleth(geojson=malha,featureidkey='properties.cod_mun_res',locations=base_mapa.cod_mun_res,z=[0]*len(base_mapa),colorscale=[[0,'#e2e8f0'],[1,'#e2e8f0']],showscale=False,marker_line_color='white',marker_line_width=0.7,text=base_mapa.no_municipio,hovertemplate='%{text}<br>Fora do recorte ou sem taxa disponível<extra></extra>'))
+    validos=territorial[territorial[medida_mapa].notna()].copy()
+    if not validos.empty:
+        validos['valor_formatado']=rotulos(validos[medida_mapa],medida_mapa)
+        mapa.add_trace(go.Choropleth(geojson=malha,featureidkey='properties.cod_mun_res',locations=validos.cod_mun_res,z=validos[medida_mapa],zmin=0,zmax=max(float(validos[medida_mapa].max()),1),colorscale='YlOrRd',marker_line_color='#7b8794',marker_line_width=0.6,colorbar={'title':medida_mapa,'thickness':18},customdata=validos[['no_municipio','valor_formatado','Óbitos','População']].values,hovertemplate='<b>%{customdata[0]}</b><br>'+medida_mapa+': %{customdata[1]}<br>Óbitos: %{customdata[2]}<br>População anual: %{customdata[3]:,.0f}<extra></extra>'))
+    mapa.update_geos(fitbounds=False,visible=False,projection_type='mercator',center={'lon':-40.7,'lat':-19.55},lonaxis_range=[-42,-39.4],lataxis_range=[-21.4,-17.7],bgcolor='rgba(0,0,0,0)')
+    mapa.update_layout(height=720,margin={'l':0,'r':0,'t':10,'b':10},paper_bgcolor='rgba(0,0,0,0)')
+    st.plotly_chart(mapa,width='stretch',key='mapa_municipal_es')
+    st.caption('Limites municipais: IBGE, malha de 2025. Enquadramento na porção continental do ES. Cores claras representam valores menores, inclusive zero; cinza indica município fora do recorte ou sem taxa disponível. A escala se ajusta ao recorte. Taxas em populações pequenas podem oscilar com poucos eventos: interprete contagem e população em conjunto.')
     st.dataframe(territorial[['no_municipio','Óbitos','População','Taxa por 100 mil']].sort_values(ordem,ascending=False),hide_index=True,width='stretch',column_config={'Taxa por 100 mil':st.column_config.NumberColumn(format='%.2f')})
 with tabs[2]:
     st.subheader('Como os óbitos se distribuem por idade e sexo?')
