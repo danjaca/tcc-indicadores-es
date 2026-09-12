@@ -219,7 +219,20 @@ with tabs[2]:
             if residual: st.info(f'{residual} óbito(s) não aparecem nas sete categorias de raça/cor tabuladas pela fonte. A diferença para o total sem filtro racial é exibida separadamente, sem atribuir raça/cor.')
             figrc=px.bar(rct.sort_values('Óbitos'),y='Raça/cor',x='Óbitos',orientation='h',text='Óbitos',hover_data=['Frequência relativa (%)'],color_discrete_sequence=['#126c83']).update_layout(height=460,margin={'r':70})
             figrc.update_traces(textposition='outside',cliponaxis=False);st.plotly_chart(figrc,width='stretch')
-            st.dataframe(rct,hide_index=True,width='stretch',column_config={'Frequência relativa (%)':st.column_config.NumberColumn(format='%.1f%%')})
+            tabela_raca,setores_raca=st.columns([1.1,1],gap='large')
+            with tabela_raca:
+                st.dataframe(rct,hide_index=True,width='stretch',height=360,column_config={'Frequência relativa (%)':st.column_config.NumberColumn(format='%.1f%%')})
+            with setores_raca:
+                st.markdown('**Participação por raça/cor nos óbitos**')
+                if totalrc:
+                    positivos=rct[rct['Óbitos'].gt(0)].copy()
+                    cores_raca=dict(zip(['Branca','Preta','Amarela','Parda','Indígena','Não informado','Ignorado','Sem classificação disponível na tabulação'],['#2878B5','#E69F00','#009E73','#9B65AC','#56B4E9','#B8BEC5','#7D8792','#495461']))
+                    pizza_raca=px.pie(positivos,names='Raça/cor',values='Óbitos',color='Raça/cor',color_discrete_map=cores_raca,hole=.35)
+                    pizza_raca.update_traces(text=[fmt(v,1)+'%' for v in positivos['Frequência relativa (%)']],textinfo='text',textposition='inside',sort=False,hovertemplate='%{label}<br>Óbitos: %{value}<br>Participação: %{text}<extra></extra>')
+                    pizza_raca.update_layout(height=400,margin={'l':5,'r':5,'t':10,'b':10},legend={'orientation':'h','y':-0.12,'x':0},uniformtext_minsize=10,uniformtext_mode='hide')
+                    st.plotly_chart(pizza_raca,width='stretch',key='setores_raca_cor')
+                else:
+                    st.info('Sem óbitos no recorte: a frequência relativa não é definida.')
             st.caption('Raça/cor registrada no SIM/SESA-ES. Frequência relativa sobre todos os óbitos do indicador nesta extração, incluindo Não informado, Ignorado e o residual sem classificação na tabulação. O residual é calculado por diferença, não é uma categoria racial atribuída. Respeita ano, meses, municípios e sexo; mantém todas as idades elegíveis do indicador. Não se calcula taxa por raça/cor sem população correspondente.')
     else:
         st.info('Extração de raça/cor em preparação; nenhum valor ausente foi convertido em zero.')
