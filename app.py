@@ -26,18 +26,22 @@ with st.sidebar:
     with st.form('filtros_painel'):
         indicador=st.selectbox('Indicador',list(INDICADORES))
         ano=st.selectbox('Ano',sorted(meta['anos_disponiveis'],reverse=True))
-        periodo=st.radio('Período',['Acumulado disponível','Ano completo','1º quadrimestre','2º quadrimestre','3º quadrimestre','Meses personalizados'])
-        meses_personalizados=st.multiselect('Meses personalizados',list(range(1,13)),default=list(range(1,13)),help='Utilizado somente quando o período escolhido é Meses personalizados.')
+        periodo=st.radio('Período',['Acumulado disponível','Ano completo','1º quadrimestre','2º quadrimestre','3º quadrimestre','Vários quadrimestres','Meses personalizados'])
+        meses_personalizados=st.multiselect('Meses personalizados',list(range(1,13)),default=list(range(1,13)),format_func=lambda m: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'][m-1],help='Refina qualquer período: somente os meses selecionados que pertencem ao período escolhido entram na análise. Mantenha todos para analisar o período inteiro.')
         municipios=st.multiselect('Municípios',sorted(g.no_municipio),placeholder='Todos os municípios do ES')
+        quadrimestres=st.multiselect('Quadrimestres da análise',[1,2,3],default=[1,2],format_func=lambda q:f'{q}º quadrimestre',help='Usado quando Período = Vários quadrimestres. Depois refine a seleção em Meses personalizados.')
         st.form_submit_button('Atualizar',type='primary',width='stretch')
     st.caption('Escolha os filtros e clique em Atualizar para aplicá-los ao painel. Sem seleção municipal = todo o Espírito Santo.')
     st.caption('A base não contém agrupamento por região de saúde.')
     st.info(meta['nota'])
 cobertura=meses_disponiveis(f,ano)
-op={'Acumulado disponível':cobertura,'Ano completo':list(range(1,13)),'1º quadrimestre':list(range(1,5)),'2º quadrimestre':list(range(5,9)),'3º quadrimestre':list(range(9,13)),'Meses personalizados':meses_personalizados}
-meses=sorted(op[periodo])
+op={'Acumulado disponível':cobertura,'Ano completo':list(range(1,13)),'1º quadrimestre':list(range(1,5)),'2º quadrimestre':list(range(5,9)),'3º quadrimestre':list(range(9,13)),'Meses personalizados':meses_personalizados,'Vários quadrimestres':[m for q in quadrimestres for m in range((q-1)*4+1,q*4+1)]}
+meses=sorted(set(op[periodo]) & set(meses_personalizados))
+if periodo=='Vários quadrimestres':
+    periodo=' + '.join(f'{q}º quadrimestre' for q in sorted(quadrimestres)) or 'Nenhum quadrimestre'
+nomes_meses_completos=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']
 if not meses:
-    st.info('Selecione pelo menos um mês para analisar.'); st.stop()
+    st.info('Selecione pelo menos um mês pertencente ao período e aos quadrimestres escolhidos.'); st.stop()
 if not cobertura_completa(f,ano,meses):
     st.warning(f'O período selecionado contém meses ainda não disponíveis em {ano}. Meses disponíveis: '+', '.join(map(str,cobertura))+'. Selecione Acumulado disponível ou um período já coberto.')
     st.stop()
@@ -49,6 +53,7 @@ na,da,ta=medidas(nf,np,ano-1,meses) if anterior else (None,None,None)
 delta=((taxa/ta)-1)*100 if ta and taxa is not None else None
 st.title(indicador)
 st.caption(f'{ano} · {periodo} · '+(', '.join(municipios) if municipios else 'Espírito Santo · 78 municípios'))
+st.caption('Meses efetivamente analisados: '+', '.join(nomes_meses_completos[m-1] for m in meses)+'.')
 st.write(INDICADORES[indicador]['descricao'])
 if len(cobertura)<12:
     st.warning(f'{ano}: dados parciais, com cobertura de janeiro até o mês {max(cobertura)}. Meses seguintes não são zeros. Registros sujeitos a revisão.')
