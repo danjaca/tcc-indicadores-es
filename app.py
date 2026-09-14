@@ -7,6 +7,7 @@ import plotly.graph_objects as go
 import streamlit as st
 import streamlit.components.v1 as components
 from mapa import mapa_html
+from meios import mostrar_meios
 from modelo import carregar,recortar,medidas,agrupado,INDICADORES,IDADES,meses_disponiveis,cobertura_completa,serie_historica,comparacao_mensal
 
 st.set_page_config(page_title='Observatório de mortalidade | ES',page_icon='📊',layout='wide')
@@ -195,6 +196,7 @@ with tabs[2]:
             razoes['Razão M/F']=razoes['Razão M/F'].apply(fmt_razao)
             st.dataframe(razoes[['Faixa etária','Masculino','Feminino','Razão M/F']],hide_index=True,width='stretch',height=38+35*len(razoes)+8,row_height=35)
             st.caption('Razão = óbitos masculinos ÷ óbitos femininos da mesma faixa etária. O total divide a soma dos óbitos masculinos pela soma dos femininos nas faixas selecionadas; não soma nem tira a média das razões. Com todas as faixas selecionadas, corresponde ao total do indicador no recorte. 7 = sete óbitos masculinos para cada feminino; 0,50 = um masculino para cada dois femininos. 1 indica igualdade entre contagens. Respeita ano, meses, municípios e as faixas etárias da análise. Sexo ignorado excluído. Sem óbitos femininos, inclusive 0/0, a razão não é definida. Não é uma razão de taxas ou uma comparação de risco.')
+    mostrar_meios(indicador,ano,meses,codigos,sexo_filtro,n)
     st.subheader('Distribuição dos óbitos por raça/cor')
     arquivo_raca=Path(__file__).parent/'dados/f_raca_cor.csv.gz'
     if arquivo_raca.exists():
