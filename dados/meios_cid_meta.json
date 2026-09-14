@@ -1,0 +1,1113 @@
+{
+  "auditoria": [
+    {
+      "ano": 2026,
+      "indicador": "Suicídio geral",
+      "sexo": "Masculino",
+      "total": 116,
+      "cids_positivos": 13,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2026,
+      "indicador": "Suicídio geral",
+      "sexo": "Feminino",
+      "total": 44,
+      "cids_positivos": 12,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2026,
+      "indicador": "Suicídio geral",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2026,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Masculino",
+      "total": 176,
+      "cids_positivos": 10,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2026,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Feminino",
+      "total": 18,
+      "cids_positivos": 5,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2026,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2026,
+      "indicador": "Homicídios — mulheres de 10 a 59 anos",
+      "sexo": "Feminino",
+      "total": 48,
+      "cids_positivos": 7,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2025,
+      "indicador": "Suicídio geral",
+      "sexo": "Masculino",
+      "total": 243,
+      "cids_positivos": 15,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2025,
+      "indicador": "Suicídio geral",
+      "sexo": "Feminino",
+      "total": 85,
+      "cids_positivos": 13,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2025,
+      "indicador": "Suicídio geral",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2025,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Masculino",
+      "total": 359,
+      "cids_positivos": 10,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2025,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Feminino",
+      "total": 30,
+      "cids_positivos": 4,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2025,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Ignorado",
+      "total": 1,
+      "cids_positivos": 1,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2025,
+      "indicador": "Homicídios — mulheres de 10 a 59 anos",
+      "sexo": "Feminino",
+      "total": 58,
+      "cids_positivos": 7,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2024,
+      "indicador": "Suicídio geral",
+      "sexo": "Masculino",
+      "total": 243,
+      "cids_positivos": 17,
+      "diferenca_base_principal": -1,
+      "celulas_divergentes": 1
+    },
+    {
+      "ano": 2024,
+      "indicador": "Suicídio geral",
+      "sexo": "Feminino",
+      "total": 111,
+      "cids_positivos": 13,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2024,
+      "indicador": "Suicídio geral",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2024,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Masculino",
+      "total": 435,
+      "cids_positivos": 7,
+      "diferenca_base_principal": -2,
+      "celulas_divergentes": 2
+    },
+    {
+      "ano": 2024,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Feminino",
+      "total": 33,
+      "cids_positivos": 7,
+      "diferenca_base_principal": -2,
+      "celulas_divergentes": 2
+    },
+    {
+      "ano": 2024,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2024,
+      "indicador": "Homicídios — mulheres de 10 a 59 anos",
+      "sexo": "Feminino",
+      "total": 90,
+      "cids_positivos": 8,
+      "diferenca_base_principal": -4,
+      "celulas_divergentes": 4
+    },
+    {
+      "ano": 2023,
+      "indicador": "Suicídio geral",
+      "sexo": "Masculino",
+      "total": 218,
+      "cids_positivos": 17,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 2
+    },
+    {
+      "ano": 2023,
+      "indicador": "Suicídio geral",
+      "sexo": "Feminino",
+      "total": 81,
+      "cids_positivos": 12,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2023,
+      "indicador": "Suicídio geral",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2023,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Masculino",
+      "total": 543,
+      "cids_positivos": 9,
+      "diferenca_base_principal": -10,
+      "celulas_divergentes": 10
+    },
+    {
+      "ano": 2023,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Feminino",
+      "total": 29,
+      "cids_positivos": 6,
+      "diferenca_base_principal": -1,
+      "celulas_divergentes": 1
+    },
+    {
+      "ano": 2023,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2023,
+      "indicador": "Homicídios — mulheres de 10 a 59 anos",
+      "sexo": "Feminino",
+      "total": 80,
+      "cids_positivos": 11,
+      "diferenca_base_principal": -2,
+      "celulas_divergentes": 2
+    },
+    {
+      "ano": 2022,
+      "indicador": "Suicídio geral",
+      "sexo": "Masculino",
+      "total": 189,
+      "cids_positivos": 14,
+      "diferenca_base_principal": 10,
+      "celulas_divergentes": 9
+    },
+    {
+      "ano": 2022,
+      "indicador": "Suicídio geral",
+      "sexo": "Feminino",
+      "total": 63,
+      "cids_positivos": 12,
+      "diferenca_base_principal": 5,
+      "celulas_divergentes": 5
+    },
+    {
+      "ano": 2022,
+      "indicador": "Suicídio geral",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2022,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Masculino",
+      "total": 540,
+      "cids_positivos": 9,
+      "diferenca_base_principal": -1,
+      "celulas_divergentes": 11
+    },
+    {
+      "ano": 2022,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Feminino",
+      "total": 38,
+      "cids_positivos": 5,
+      "diferenca_base_principal": 1,
+      "celulas_divergentes": 1
+    },
+    {
+      "ano": 2022,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2022,
+      "indicador": "Homicídios — mulheres de 10 a 59 anos",
+      "sexo": "Feminino",
+      "total": 90,
+      "cids_positivos": 8,
+      "diferenca_base_principal": 1,
+      "celulas_divergentes": 3
+    },
+    {
+      "ano": 2021,
+      "indicador": "Suicídio geral",
+      "sexo": "Masculino",
+      "total": 189,
+      "cids_positivos": 16,
+      "diferenca_base_principal": 1,
+      "celulas_divergentes": 3
+    },
+    {
+      "ano": 2021,
+      "indicador": "Suicídio geral",
+      "sexo": "Feminino",
+      "total": 72,
+      "cids_positivos": 11,
+      "diferenca_base_principal": 1,
+      "celulas_divergentes": 1
+    },
+    {
+      "ano": 2021,
+      "indicador": "Suicídio geral",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2021,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Masculino",
+      "total": 524,
+      "cids_positivos": 10,
+      "diferenca_base_principal": -8,
+      "celulas_divergentes": 8
+    },
+    {
+      "ano": 2021,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Feminino",
+      "total": 28,
+      "cids_positivos": 6,
+      "diferenca_base_principal": -2,
+      "celulas_divergentes": 2
+    },
+    {
+      "ano": 2021,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Ignorado",
+      "total": 1,
+      "cids_positivos": 1,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2021,
+      "indicador": "Homicídios — mulheres de 10 a 59 anos",
+      "sexo": "Feminino",
+      "total": 103,
+      "cids_positivos": 9,
+      "diferenca_base_principal": -3,
+      "celulas_divergentes": 3
+    },
+    {
+      "ano": 2020,
+      "indicador": "Suicídio geral",
+      "sexo": "Masculino",
+      "total": 197,
+      "cids_positivos": 14,
+      "diferenca_base_principal": 5,
+      "celulas_divergentes": 7
+    },
+    {
+      "ano": 2020,
+      "indicador": "Suicídio geral",
+      "sexo": "Feminino",
+      "total": 62,
+      "cids_positivos": 12,
+      "diferenca_base_principal": 3,
+      "celulas_divergentes": 3
+    },
+    {
+      "ano": 2020,
+      "indicador": "Suicídio geral",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2020,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Masculino",
+      "total": 616,
+      "cids_positivos": 9,
+      "diferenca_base_principal": 4,
+      "celulas_divergentes": 19
+    },
+    {
+      "ano": 2020,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Feminino",
+      "total": 51,
+      "cids_positivos": 8,
+      "diferenca_base_principal": 1,
+      "celulas_divergentes": 1
+    },
+    {
+      "ano": 2020,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2020,
+      "indicador": "Homicídios — mulheres de 10 a 59 anos",
+      "sexo": "Feminino",
+      "total": 90,
+      "cids_positivos": 8,
+      "diferenca_base_principal": 1,
+      "celulas_divergentes": 1
+    },
+    {
+      "ano": 2019,
+      "indicador": "Suicídio geral",
+      "sexo": "Masculino",
+      "total": 186,
+      "cids_positivos": 14,
+      "diferenca_base_principal": 7,
+      "celulas_divergentes": 7
+    },
+    {
+      "ano": 2019,
+      "indicador": "Suicídio geral",
+      "sexo": "Feminino",
+      "total": 70,
+      "cids_positivos": 12,
+      "diferenca_base_principal": 1,
+      "celulas_divergentes": 1
+    },
+    {
+      "ano": 2019,
+      "indicador": "Suicídio geral",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2019,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Masculino",
+      "total": 535,
+      "cids_positivos": 10,
+      "diferenca_base_principal": 2,
+      "celulas_divergentes": 12
+    },
+    {
+      "ano": 2019,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Feminino",
+      "total": 33,
+      "cids_positivos": 7,
+      "diferenca_base_principal": 2,
+      "celulas_divergentes": 2
+    },
+    {
+      "ano": 2019,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2019,
+      "indicador": "Homicídios — mulheres de 10 a 59 anos",
+      "sexo": "Feminino",
+      "total": 86,
+      "cids_positivos": 10,
+      "diferenca_base_principal": 1,
+      "celulas_divergentes": 3
+    },
+    {
+      "ano": 2018,
+      "indicador": "Suicídio geral",
+      "sexo": "Masculino",
+      "total": 179,
+      "cids_positivos": 15,
+      "diferenca_base_principal": -1,
+      "celulas_divergentes": 1
+    },
+    {
+      "ano": 2018,
+      "indicador": "Suicídio geral",
+      "sexo": "Feminino",
+      "total": 58,
+      "cids_positivos": 12,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2018,
+      "indicador": "Suicídio geral",
+      "sexo": "Ignorado",
+      "total": 1,
+      "cids_positivos": 1,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2018,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Masculino",
+      "total": 564,
+      "cids_positivos": 8,
+      "diferenca_base_principal": -11,
+      "celulas_divergentes": 13
+    },
+    {
+      "ano": 2018,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Feminino",
+      "total": 41,
+      "cids_positivos": 5,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2018,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2018,
+      "indicador": "Homicídios — mulheres de 10 a 59 anos",
+      "sexo": "Feminino",
+      "total": 91,
+      "cids_positivos": 8,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2017,
+      "indicador": "Suicídio geral",
+      "sexo": "Masculino",
+      "total": 160,
+      "cids_positivos": 13,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2017,
+      "indicador": "Suicídio geral",
+      "sexo": "Feminino",
+      "total": 47,
+      "cids_positivos": 11,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2017,
+      "indicador": "Suicídio geral",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2017,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Masculino",
+      "total": 785,
+      "cids_positivos": 9,
+      "diferenca_base_principal": -2,
+      "celulas_divergentes": 10
+    },
+    {
+      "ano": 2017,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Feminino",
+      "total": 59,
+      "cids_positivos": 8,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2017,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2017,
+      "indicador": "Homicídios — mulheres de 10 a 59 anos",
+      "sexo": "Feminino",
+      "total": 141,
+      "cids_positivos": 11,
+      "diferenca_base_principal": -1,
+      "celulas_divergentes": 1
+    },
+    {
+      "ano": 2016,
+      "indicador": "Suicídio geral",
+      "sexo": "Masculino",
+      "total": 125,
+      "cids_positivos": 18,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2016,
+      "indicador": "Suicídio geral",
+      "sexo": "Feminino",
+      "total": 50,
+      "cids_positivos": 12,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2016,
+      "indicador": "Suicídio geral",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2016,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Masculino",
+      "total": 669,
+      "cids_positivos": 9,
+      "diferenca_base_principal": 2,
+      "celulas_divergentes": 9
+    },
+    {
+      "ano": 2016,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Feminino",
+      "total": 36,
+      "cids_positivos": 7,
+      "diferenca_base_principal": -1,
+      "celulas_divergentes": 1
+    },
+    {
+      "ano": 2016,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2016,
+      "indicador": "Homicídios — mulheres de 10 a 59 anos",
+      "sexo": "Feminino",
+      "total": 92,
+      "cids_positivos": 8,
+      "diferenca_base_principal": -4,
+      "celulas_divergentes": 4
+    }
+  ],
+  "cobertura": {
+    "2026": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "2025": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2024": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2023": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2022": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2021": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2020": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2019": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2018": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2017": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2016": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "fonte": "http://tabnet.saude.es.gov.br/cgi/deftohtm.exe?tabnet/SIM/SIM2006/sim2006.def",
+  "extraido_utc": "2026-09-14T13:12:43.151910+00:00",
+  "revisao": "Última Atualização em: 09/09/2026. Observação: Banco atualizado até o dia 09/09/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)",
+  "dimensao_cid": [
+    {
+      "cid": "X60",
+      "descricao_cid": "Auto-int int analg antipir anti-reum n-opiac",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X61",
+      "descricao_cid": "Auto-int int a-conv sed hip a-park psic NCOP",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X62",
+      "descricao_cid": "Auto-intox intenc narcot psicodislept NCOP",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X63",
+      "descricao_cid": "Auto-int int outr subst farm sist nerv auton",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X64",
+      "descricao_cid": "Auto-int intenc out drog med subst biolog NE",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X65",
+      "descricao_cid": "Auto-intox voluntaria p/alcool",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X66",
+      "descricao_cid": "Auto-int int solv org hidrocarb halog vapor",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X67",
+      "descricao_cid": "Auto-intox intenc p/outr gases e vapores",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X68",
+      "descricao_cid": "Auto-intox intenc a pesticidas",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X69",
+      "descricao_cid": "Auto-int intenc outr prod quim subst noc NE",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X70",
+      "descricao_cid": "Lesao autoprov intenc enforc estrang sufoc",
+      "meio": "Enforcamento, estrangulamento e sufocação"
+    },
+    {
+      "cid": "X71",
+      "descricao_cid": "Lesao autoprov intenc p/afogamento submersao",
+      "meio": "Afogamento e submersão"
+    },
+    {
+      "cid": "X72",
+      "descricao_cid": "Lesao autoprov intenc disp arma fogo de mao",
+      "meio": "Arma de fogo"
+    },
+    {
+      "cid": "X73",
+      "descricao_cid": "Les autoprov int disp arm fog maior calibre",
+      "meio": "Arma de fogo"
+    },
+    {
+      "cid": "X74",
+      "descricao_cid": "Lesao autopr intenc disp outr arma fogo e NE",
+      "meio": "Arma de fogo"
+    },
+    {
+      "cid": "X75",
+      "descricao_cid": "Lesao autoprov intenc p/disp explosivos",
+      "meio": "Explosivos"
+    },
+    {
+      "cid": "X76",
+      "descricao_cid": "Lesao autoprov intenc fumaca fogo e chamas",
+      "meio": "Fumaça, fogo e chamas"
+    },
+    {
+      "cid": "X77",
+      "descricao_cid": "Lesao autopr int vapor agua gas  obj quent",
+      "meio": "Vapor, gases ou objetos quentes"
+    },
+    {
+      "cid": "X78",
+      "descricao_cid": "Lesao autoprov intenc obj cortante  penetr",
+      "meio": "Objeto cortante ou penetrante"
+    },
+    {
+      "cid": "X79",
+      "descricao_cid": "Lesao autoprov intenc p/objeto contundente",
+      "meio": "Objeto contundente"
+    },
+    {
+      "cid": "X80",
+      "descricao_cid": "Lesao autoprov intenc precip lugar elevado",
+      "meio": "Precipitação de lugar elevado"
+    },
+    {
+      "cid": "X81",
+      "descricao_cid": "Lesao autoprov intenc precip perm obj movim",
+      "meio": "Objeto em movimento"
+    },
+    {
+      "cid": "X82",
+      "descricao_cid": "Lesao autoprov intenc impacto veic a motor",
+      "meio": "Impacto de veículo a motor"
+    },
+    {
+      "cid": "X83",
+      "descricao_cid": "Lesao autoprov intenc p/outr meios espec",
+      "meio": "Outros meios especificados"
+    },
+    {
+      "cid": "X84",
+      "descricao_cid": "Lesao autoprov intenc p/meios NE",
+      "meio": "Meio não especificado"
+    },
+    {
+      "cid": "X85",
+      "descricao_cid": "Agressao meio drog medic e subst biologicas",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X86",
+      "descricao_cid": "Agressao p/meio de subst corrosivas",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X87",
+      "descricao_cid": "Agressao p/pesticidas",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X88",
+      "descricao_cid": "Agressao p/meio de gases e vapores",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X89",
+      "descricao_cid": "Agressao outr prod quim subst nocivas espec",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X90",
+      "descricao_cid": "Agressao prod quimicos e subst nocivas NE",
+      "meio": "Intoxicação e exposição a substâncias"
+    },
+    {
+      "cid": "X91",
+      "descricao_cid": "Agressao enforc estrangulamento sufocacao",
+      "meio": "Enforcamento, estrangulamento e sufocação"
+    },
+    {
+      "cid": "X92",
+      "descricao_cid": "Agressao p/meio de afogamento e submersao",
+      "meio": "Afogamento e submersão"
+    },
+    {
+      "cid": "X93",
+      "descricao_cid": "Agressao disparo de arma de fogo de mao",
+      "meio": "Arma de fogo"
+    },
+    {
+      "cid": "X94",
+      "descricao_cid": "Agressao disparo arma fogo de maior calibre",
+      "meio": "Arma de fogo"
+    },
+    {
+      "cid": "X95",
+      "descricao_cid": "Agressao disparo outr arma de fogo ou NE",
+      "meio": "Arma de fogo"
+    },
+    {
+      "cid": "X96",
+      "descricao_cid": "Agressao p/meio de material explosivo",
+      "meio": "Explosivos"
+    },
+    {
+      "cid": "X97",
+      "descricao_cid": "Agressao p/meio de fumaca fogo e chamas",
+      "meio": "Fumaça, fogo e chamas"
+    },
+    {
+      "cid": "X98",
+      "descricao_cid": "Agressao vapor agua gases ou objetos quentes",
+      "meio": "Vapor, gases ou objetos quentes"
+    },
+    {
+      "cid": "X99",
+      "descricao_cid": "Agressao objeto cortante ou penetrante",
+      "meio": "Objeto cortante ou penetrante"
+    },
+    {
+      "cid": "Y00",
+      "descricao_cid": "Agressao p/meio de um objeto contundente",
+      "meio": "Objeto contundente"
+    },
+    {
+      "cid": "Y01",
+      "descricao_cid": "Agressao p/meio projecao de um lugar elevado",
+      "meio": "Precipitação de lugar elevado"
+    },
+    {
+      "cid": "Y02",
+      "descricao_cid": "Agressao proj coloc vitima obj movimento",
+      "meio": "Objeto em movimento"
+    },
+    {
+      "cid": "Y03",
+      "descricao_cid": "Agressao p/meio de impacto veic a motor",
+      "meio": "Impacto de veículo a motor"
+    },
+    {
+      "cid": "Y04",
+      "descricao_cid": "Agressao p/meio de forca corporal",
+      "meio": "Força corporal"
+    },
+    {
+      "cid": "Y05",
+      "descricao_cid": "Agressao sexual p/meio de forca fisica",
+      "meio": "Agressão sexual por força física"
+    },
+    {
+      "cid": "Y06",
+      "descricao_cid": "Negligencia e abandono",
+      "meio": "Negligência e abandono"
+    },
+    {
+      "cid": "Y07",
+      "descricao_cid": "Outr sindr de maus tratos",
+      "meio": "Outras síndromes de maus-tratos"
+    },
+    {
+      "cid": "Y08",
+      "descricao_cid": "Agressao p/outr meios espec",
+      "meio": "Outros meios especificados"
+    },
+    {
+      "cid": "Y09",
+      "descricao_cid": "Agressao p/meios NE",
+      "meio": "Meio não especificado"
+    }
+  ],
+  "grao": [
+    "indicador",
+    "cod_mun_res",
+    "ano",
+    "mes",
+    "sexo",
+    "cid"
+  ],
+  "nota": "Fato esparsa: somente contagens positivas. Zeros são válidos apenas dentro dos anos e meses com extração validada. Mesmos recortes de residência, idade elegível e sexo dos indicadores. Grupos de meios são agregações analíticas dos códigos CID-10."
+}
