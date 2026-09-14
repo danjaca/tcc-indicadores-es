@@ -172,11 +172,6 @@ with tabs[2]:
     dem['Rótulo']=rotulos(dem[metdem],metdem)
     st.plotly_chart(px.bar(dem,x='faixa_etaria',y=metdem,text='Rótulo',color='sexo',color_discrete_map=CORES_SEXO,barmode='group',category_orders={'faixa_etaria':IDADES,'sexo':ORDEM_SEXO},labels={'faixa_etaria':'Faixa etária','sexo':'Sexo'},hover_data=['Óbitos','População']).update_traces(textposition='outside',cliponaxis=False,textfont={'size':10}).update_layout(height=500),width='stretch')
     st.caption('As faixas têm amplitudes diferentes. Idade ou sexo ignorado não possui denominador correspondente e, portanto, não recebe taxa.')
-    pir=dem[dem.sexo.isin(['Masculino','Feminino'])].copy()
-    pir['Óbitos espelhados']=pir['Óbitos'].where(pir.sexo=='Feminino',-pir['Óbitos'])
-    pir['Rótulo']=rotulos(pir['Óbitos'],'Óbitos')
-    st.plotly_chart(px.bar(pir,y='faixa_etaria',x='Óbitos espelhados',text='Rótulo',color='sexo',color_discrete_map=CORES_SEXO,orientation='h',barmode='relative',category_orders={'faixa_etaria':IDADES,'sexo':ORDEM_SEXO},hover_data={'Óbitos':True,'Óbitos espelhados':False},labels={'faixa_etaria':'Faixa etária','sexo':'Sexo'}).update_traces(textposition='outside',cliponaxis=False).update_layout(margin={'l':80,'r':80}),width='stretch')
-    st.caption('Distribuição espelhada de óbitos: o sinal negativo apenas posiciona os homens à esquerda. Este gráfico não é uma pirâmide da população residente.')
     if indicador in ['Suicídio geral','Homicídios — jovens de 15 a 29 anos']:
         st.subheader('Razão entre os sexos nos óbitos por '+('suicídio' if indicador=='Suicídio geral' else 'homicídio de jovens de 15 a 29 anos'))
         if sexo_filtro!='Todos':
