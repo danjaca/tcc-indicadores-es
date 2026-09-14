@@ -177,8 +177,8 @@ with tabs[2]:
     pir['Rótulo']=rotulos(pir['Óbitos'],'Óbitos')
     st.plotly_chart(px.bar(pir,y='faixa_etaria',x='Óbitos espelhados',text='Rótulo',color='sexo',color_discrete_map=CORES_SEXO,orientation='h',barmode='relative',category_orders={'faixa_etaria':IDADES,'sexo':ORDEM_SEXO},hover_data={'Óbitos':True,'Óbitos espelhados':False},labels={'faixa_etaria':'Faixa etária','sexo':'Sexo'}).update_traces(textposition='outside',cliponaxis=False).update_layout(margin={'l':80,'r':80}),width='stretch')
     st.caption('Distribuição espelhada de óbitos: o sinal negativo apenas posiciona os homens à esquerda. Este gráfico não é uma pirâmide da população residente.')
-    if indicador=='Suicídio geral':
-        st.subheader('Razão entre os sexos nos óbitos por suicídio')
+    if indicador in ['Suicídio geral','Homicídios — jovens de 15 a 29 anos']:
+        st.subheader('Razão entre os sexos nos óbitos por '+('suicídio' if indicador=='Suicídio geral' else 'homicídio de jovens de 15 a 29 anos'))
         if sexo_filtro!='Todos':
             st.info('Selecione Sexo = Todos para calcular a razão entre masculino e feminino.')
         else:
@@ -195,9 +195,11 @@ with tabs[2]:
                 figsexo.update_layout(height=max(420,len(validas)*42+90),margin={'r':90,'t':50},xaxis_title='Óbitos masculinos por óbito feminino',yaxis_title='Faixa etária',xaxis_range=[0,max(1.25,float(validas['Razão M/F'].max())*1.2)])
                 st.plotly_chart(figsexo,width='stretch')
             else: st.info('Não há óbitos femininos nas faixas selecionadas: razão não definida.')
+            total_m=int(cont['Masculino'].sum());total_f=int(cont['Feminino'].sum())
+            razoes=pd.concat([razoes,pd.DataFrame([{'Faixa etária':'Total das faixas selecionadas','Masculino':total_m,'Feminino':total_f,'Razão M/F':total_m/total_f if total_f else float('nan')}])],ignore_index=True)
             razoes['Razão M/F']=razoes['Razão M/F'].apply(fmt_razao)
-            st.dataframe(razoes[['Faixa etária','Masculino','Feminino','Razão M/F']],hide_index=True,width='stretch')
-            st.caption('Razão = óbitos masculinos ÷ óbitos femininos da mesma faixa etária. 7 = sete óbitos masculinos para cada feminino; 0,50 = um masculino para cada dois femininos. 1 indica igualdade entre contagens. Respeita ano, meses, municípios e as faixas etárias da análise. Sexo ignorado excluído. Sem óbitos femininos, inclusive 0/0, a razão não é definida. Não é uma razão de taxas ou uma comparação de risco.')
+            st.dataframe(razoes[['Faixa etária','Masculino','Feminino','Razão M/F']],hide_index=True,width='stretch',height=38+35*len(razoes)+8,row_height=35)
+            st.caption('Razão = óbitos masculinos ÷ óbitos femininos da mesma faixa etária. O total divide a soma dos óbitos masculinos pela soma dos femininos nas faixas selecionadas; não soma nem tira a média das razões. Com todas as faixas selecionadas, corresponde ao total do indicador no recorte. 7 = sete óbitos masculinos para cada feminino; 0,50 = um masculino para cada dois femininos. 1 indica igualdade entre contagens. Respeita ano, meses, municípios e as faixas etárias da análise. Sexo ignorado excluído. Sem óbitos femininos, inclusive 0/0, a razão não é definida. Não é uma razão de taxas ou uma comparação de risco.')
     st.subheader('Distribuição dos óbitos por raça/cor')
     arquivo_raca=Path(__file__).parent/'dados/f_raca_cor.csv.gz'
     if arquivo_raca.exists():
