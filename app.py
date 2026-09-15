@@ -8,6 +8,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 from mapa import mapa_html
 from meios import mostrar_meios
+from piramide import mostrar_piramide
 from modelo import carregar,recortar,medidas,agrupado,INDICADORES,IDADES,meses_disponiveis,cobertura_completa,serie_historica,comparacao_mensal
 
 st.set_page_config(page_title='Observatório de mortalidade | ES',page_icon='📊',layout='wide')
@@ -173,6 +174,7 @@ with tabs[2]:
     dem['Rótulo']=rotulos(dem[metdem],metdem)
     st.plotly_chart(px.bar(dem,x='faixa_etaria',y=metdem,text='Rótulo',color='sexo',color_discrete_map=CORES_SEXO,barmode='group',category_orders={'faixa_etaria':IDADES,'sexo':ORDEM_SEXO},labels={'faixa_etaria':'Faixa etária','sexo':'Sexo'},hover_data=['Óbitos','População']).update_traces(textposition='outside',cliponaxis=False,textfont={'size':10}).update_layout(height=500),width='stretch')
     st.caption('As faixas têm amplitudes diferentes. Idade ou sexo ignorado não possui denominador correspondente e, portanto, não recebe taxa.')
+    mostrar_piramide(nf,indicador,ano,meses,idades,sexo_filtro,meta['anos_disponiveis'])
     if indicador in ['Suicídio geral','Homicídios — jovens de 15 a 29 anos']:
         st.subheader('Razão entre os sexos nos óbitos por '+('suicídio' if indicador=='Suicídio geral' else 'homicídio de jovens de 15 a 29 anos'))
         if sexo_filtro!='Todos':
