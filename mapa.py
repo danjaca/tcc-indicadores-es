@@ -1,3 +1,4 @@
+from configuracao import DADOS
 """Mapa Leaflet: malha local, rótulos no zoom e limites PDR 2024."""
 from pathlib import Path
 import gzip,json
@@ -6,7 +7,7 @@ import pandas as pd
 
 @lru_cache(maxsize=1)
 def malhas():
-    with gzip.open(Path(__file__).parent/'dados/mapa_pdr2024.json.gz','rt') as f:return json.load(f)
+    with gzip.open(DADOS/'mapa_pdr2024.json.gz','rt') as f:return json.load(f)
 
 def mapa_html(territorial,medida):
     valores={str(r.cod_mun_res):{'nome':r.no_municipio,'valor':None if pd.isna(r[medida]) else float(r[medida]),'obitos':int(r['Óbitos']),'populacao':None if pd.isna(r['População']) else int(r['População'])} for _,r in territorial.iterrows()}

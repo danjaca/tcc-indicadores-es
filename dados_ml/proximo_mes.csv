@@ -1,0 +1,25 @@
+date,region,prediction,lower,upper,method,indicator
+2026-09-01,Central,1.6823797171297339,0.0,7.6968025193218885,ELM PSO,Suicídio geral
+2026-09-01,Metropolitana,12.658732079576719,6.644309277384565,18.673154881768873,ELM PSO,Suicídio geral
+2026-09-01,Norte,1.1820963337034396,0.0,7.196519135895594,ELM PSO,Suicídio geral
+2026-09-01,Sul,2.676784917018439,0.0,8.691207719210594,ELM PSO,Suicídio geral
+2026-09-01,Central,2.5833333333333335,0.0,7.416666666666668,Média móvel 12,Suicídio geral
+2026-09-01,Metropolitana,15.166666666666666,10.333333333333332,20.0,Média móvel 12,Suicídio geral
+2026-09-01,Norte,1.3333333333333333,0.0,6.166666666666667,Média móvel 12,Suicídio geral
+2026-09-01,Sul,3.3333333333333335,0.0,8.166666666666668,Média móvel 12,Suicídio geral
+2026-09-01,Central,2.653672492021476,0.0,9.143089742947032,ELM aleatória,Homicídios — jovens de 15 a 29 anos
+2026-09-01,Metropolitana,11.514103156926843,5.024685906001288,18.0035204078524,ELM aleatória,Homicídios — jovens de 15 a 29 anos
+2026-09-01,Norte,2.685486459001889,0.0,9.174903709927445,ELM aleatória,Homicídios — jovens de 15 a 29 anos
+2026-09-01,Sul,0.9240138872502621,0.0,7.413431138175818,ELM aleatória,Homicídios — jovens de 15 a 29 anos
+2026-09-01,Central,3.1666666666666665,0.0,9.5,Média móvel 6,Homicídios — jovens de 15 a 29 anos
+2026-09-01,Metropolitana,12.5,6.166666666666666,18.833333333333336,Média móvel 6,Homicídios — jovens de 15 a 29 anos
+2026-09-01,Norte,2.8333333333333335,0.0,9.166666666666668,Média móvel 6,Homicídios — jovens de 15 a 29 anos
+2026-09-01,Sul,1.0,0.0,7.333333333333334,Média móvel 6,Homicídios — jovens de 15 a 29 anos
+2026-09-01,Central,0.8312723582982462,0.0,3.226231327141295,ELM PSO,Homicídios — mulheres de 10 a 59 anos
+2026-09-01,Metropolitana,3.527505905993396,1.1325469371503472,5.922464874836445,ELM PSO,Homicídios — mulheres de 10 a 59 anos
+2026-09-01,Norte,0.9273715686963071,0.0,3.322330537539356,ELM PSO,Homicídios — mulheres de 10 a 59 anos
+2026-09-01,Sul,0.2045995463066446,0.0,2.5995585151496936,ELM PSO,Homicídios — mulheres de 10 a 59 anos
+2026-09-01,Central,0.75,0.0,3.0,Média móvel 12,Homicídios — mulheres de 10 a 59 anos
+2026-09-01,Metropolitana,3.6666666666666665,1.4166666666666665,5.916666666666666,Média móvel 12,Homicídios — mulheres de 10 a 59 anos
+2026-09-01,Norte,0.5833333333333334,0.0,2.8333333333333335,Média móvel 12,Homicídios — mulheres de 10 a 59 anos
+2026-09-01,Sul,0.5833333333333334,0.0,2.8333333333333335,Média móvel 12,Homicídios — mulheres de 10 a 59 anos

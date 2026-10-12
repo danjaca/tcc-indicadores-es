@@ -1,0 +1,388 @@
+indicator,method,config,mae_cv,seconds,cache
+Suicídio geral,Último mês,{},2.8541666666666665,0.0024046249454841018,False
+Suicídio geral,Mesmo mês ano anterior,{},2.7708333333333335,0.0016840830212458968,False
+Suicídio geral,Média móvel 3,{},2.375,0.0016526669496670365,False
+Suicídio geral,Média móvel 6,{},2.3159722222222223,0.0016242909478023648,False
+Suicídio geral,Média móvel 12,{},2.198784722222222,0.0016307079931721091,False
+Suicídio geral,Ridge,"{""alpha"": 0.01, ""residual"": false}",3.470664972091997,0.02129720791708678,False
+Suicídio geral,Ridge,"{""alpha"": 0.01, ""residual"": true}",3.4548466456048796,0.004936833982355893,False
+Suicídio geral,Ridge,"{""alpha"": 0.1, ""residual"": false}",3.169786667734836,0.004968749941326678,False
+Suicídio geral,Ridge,"{""alpha"": 0.1, ""residual"": true}",3.077020885798422,0.0048103329027071595,False
+Suicídio geral,Ridge,"{""alpha"": 1, ""residual"": false}",2.8085450185077367,0.004757084068842232,False
+Suicídio geral,Ridge,"{""alpha"": 1, ""residual"": true}",2.818924624138034,0.004779416020028293,False
+Suicídio geral,Ridge,"{""alpha"": 10, ""residual"": false}",2.5642734212379334,0.004702999955043197,False
+Suicídio geral,Ridge,"{""alpha"": 10, ""residual"": true}",2.644611188018144,0.004745665937662125,False
+Suicídio geral,Ridge,"{""alpha"": 100, ""residual"": false}",2.427020745214442,0.004721582983620465,False
+Suicídio geral,Ridge,"{""alpha"": 100, ""residual"": true}",2.514760087941584,0.004777750000357628,False
+Suicídio geral,Ridge,"{""alpha"": 1000, ""residual"": false}",2.9726607313616156,0.0047189160250127316,False
+Suicídio geral,Ridge,"{""alpha"": 1000, ""residual"": true}",2.4160152906252743,0.004730334039777517,False
+Suicídio geral,Random Forest,"{""depth"": 3, ""leaf"": 2, ""residual"": false}",2.880235265059626,0.11082970805000514,False
+Suicídio geral,Random Forest,"{""depth"": 3, ""leaf"": 2, ""residual"": true}",2.421780629830782,0.10679058299865574,False
+Suicídio geral,Random Forest,"{""depth"": null, ""leaf"": 2, ""residual"": false}",2.958961970899471,0.11523570807185024,False
+Suicídio geral,Random Forest,"{""depth"": null, ""leaf"": 2, ""residual"": true}",2.4613902918069583,0.11863312497735023,False
+Suicídio geral,Random Forest,"{""depth"": 3, ""leaf"": 5, ""residual"": false}",2.820608431799137,0.10550333303399384,False
+Suicídio geral,Random Forest,"{""depth"": 3, ""leaf"": 5, ""residual"": true}",2.463002040325795,0.10654274991247803,False
+Suicídio geral,Random Forest,"{""depth"": null, ""leaf"": 5, ""residual"": false}",2.848383830387926,0.108569375006482,False
+Suicídio geral,Random Forest,"{""depth"": null, ""leaf"": 5, ""residual"": true}",2.493486761898692,0.11059624992776662,False
+Suicídio geral,Random Forest,"{""depth"": 3, ""leaf"": 10, ""residual"": false}",2.813952891816644,0.10322262498084456,False
+Suicídio geral,Random Forest,"{""depth"": 3, ""leaf"": 10, ""residual"": true}",2.6078665621715644,0.10321712505538017,False
+Suicídio geral,Random Forest,"{""depth"": null, ""leaf"": 10, ""residual"": false}",2.816338539699618,0.10403733409475535,False
+Suicídio geral,Random Forest,"{""depth"": null, ""leaf"": 10, ""residual"": true}",2.6089637254169697,0.10439716698601842,False
+Suicídio geral,Rede pesos PSO,"{""alpha"": 0.01, ""hidden"": 4, ""residual"": true}",2.8477665578350506,0.25540916703175753,False
+Suicídio geral,Rede pesos PSO,"{""alpha"": 0.1, ""hidden"": 4, ""residual"": true}",2.907920353193416,0.25631570804398507,False
+Suicídio geral,Rede pesos PSO,"{""alpha"": 0.01, ""hidden"": 8, ""residual"": true}",2.914254669728796,0.2818325840635225,False
+Suicídio geral,Rede pesos PSO,"{""alpha"": 0.1, ""hidden"": 8, ""residual"": true}",2.6392637041288407,0.28142895794007927,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.13947474227905995, ""hidden"": 16, ""residual"": true, ""scale"": 2.328400412564218}",2.6436814036293246,0.007166167022660375,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.010320345386675363, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",2.7258187192983407,0.006021499983035028,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.0031039958082507728, ""hidden"": 32, ""residual"": false, ""scale"": 0.03603278310412322}",3.0818341398301925,0.006133415969088674,False
+Suicídio geral,ELM aleatória,"{""alpha"": 5.651711612416394, ""hidden"": 16, ""residual"": true, ""scale"": 0.14603397795379844}",2.58739085456739,0.006072750082239509,False
+Suicídio geral,ELM aleatória,"{""alpha"": 907.1970153005091, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",3.7394588505013933,0.006076875026337802,False
+Suicídio geral,ELM aleatória,"{""alpha"": 11.842593842755118, ""hidden"": 32, ""residual"": true, ""scale"": 0.2828556176570573}",2.568388473130362,0.006151334033347666,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.11682599428511652, ""hidden"": 32, ""residual"": false, ""scale"": 0.9867644747875147}",3.301051490783862,0.006066791946068406,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.0019358878537480873, ""hidden"": 64, ""residual"": true, ""scale"": 1.7080296016930578}",3.1036615601475526,0.01096937502734363,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.07871894559412346, ""hidden"": 64, ""residual"": true, ""scale"": 0.36279484863565203}",3.1268902840242543,0.006828790996223688,False
+Suicídio geral,ELM aleatória,"{""alpha"": 3757.4369219421933, ""hidden"": 4, ""residual"": false, ""scale"": 0.3094009011470149}",3.7836060686447315,0.005987792043015361,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.018349622245903714, ""hidden"": 4, ""residual"": false, ""scale"": 3.1598318380785475}",4.021278436839309,0.005906541948206723,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.5812443280812383, ""hidden"": 8, ""residual"": false, ""scale"": 0.6933178483016182}",2.613335789644198,0.005948582896962762,False
+Suicídio geral,ELM aleatória,"{""alpha"": 2055.678117299738, ""hidden"": 32, ""residual"": false, ""scale"": 0.07298362670623808}",3.7491358255474907,0.006087249959819019,False
+Suicídio geral,ELM aleatória,"{""alpha"": 4.813860750427017, ""hidden"": 4, ""residual"": true, ""scale"": 0.04015221361548586}",2.4396117446205143,0.005924458033405244,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.06554341810397571, ""hidden"": 4, ""residual"": false, ""scale"": 2.614560640937187}",4.022457556183505,0.005893166991882026,False
+Suicídio geral,ELM aleatória,"{""alpha"": 902.5280356561535, ""hidden"": 16, ""residual"": true, ""scale"": 0.052177846238454395}",2.388222295437971,0.006030791089870036,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.0016625215999621272, ""hidden"": 4, ""residual"": true, ""scale"": 0.3167108807167996}",2.694504889896797,0.005935042048804462,False
+Suicídio geral,ELM aleatória,"{""alpha"": 398.5525999705208, ""hidden"": 4, ""residual"": false, ""scale"": 0.15395070670450298}",3.657350659587108,0.005891084088943899,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.1142864166467796, ""hidden"": 64, ""residual"": true, ""scale"": 0.04172365439449989}",2.7677408679771482,0.006849458906799555,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.004492049353417694, ""hidden"": 4, ""residual"": true, ""scale"": 0.03682453641028058}",2.7127869283042876,0.005943416967056692,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.07477536207997788, ""hidden"": 4, ""residual"": false, ""scale"": 0.1466045668214306}",2.8796468863274107,0.005858040996827185,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.797563106330904, ""hidden"": 8, ""residual"": false, ""scale"": 0.2584196827750404}",2.5396321742121377,0.005931416992098093,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.10303563350826628, ""hidden"": 4, ""residual"": true, ""scale"": 0.42489604018138977}",2.6485583883162884,0.00591920898295939,False
+Suicídio geral,ELM aleatória,"{""alpha"": 0.020363610201412745, ""hidden"": 8, ""residual"": false, ""scale"": 1.1978168262301039}",2.7486859159329744,0.005931625026278198,False
+Suicídio geral,ELM PSO,"{""alpha"": 0.13947474227905995, ""hidden"": 16, ""residual"": true, ""scale"": 2.328400412564218}",2.6436814036293246,0.0060826659901067615,False
+Suicídio geral,ELM PSO,"{""alpha"": 0.010320345386675363, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",2.7258187192983407,0.0059227499878033996,False
+Suicídio geral,ELM PSO,"{""alpha"": 0.0031039958082507728, ""hidden"": 32, ""residual"": false, ""scale"": 0.03603278310412322}",3.0818341398301925,0.006070667062886059,False
+Suicídio geral,ELM PSO,"{""alpha"": 5.651711612416394, ""hidden"": 16, ""residual"": true, ""scale"": 0.14603397795379844}",2.58739085456739,0.006021333043463528,False
+Suicídio geral,ELM PSO,"{""alpha"": 907.1970153005091, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",3.7394588505013933,0.006076332996599376,False
+Suicídio geral,ELM PSO,"{""alpha"": 11.842593842755118, ""hidden"": 32, ""residual"": true, ""scale"": 0.2828556176570573}",2.568388473130362,0.006113208015449345,False
+Suicídio geral,ELM PSO,"{""alpha"": 7.843241140378898, ""hidden"": 32, ""residual"": true, ""scale"": 1.3111728406292438}",2.635038057429293,0.006099833059124649,False
+Suicídio geral,ELM PSO,"{""alpha"": 0.5803556701165129, ""hidden"": 8, ""residual"": true, ""scale"": 0.23652059061601774}",2.5797579907966064,0.0059874169528484344,False
+Suicídio geral,ELM PSO,"{""alpha"": 0.07692231234576162, ""hidden"": 32, ""residual"": false, ""scale"": 0.11394566504386149}",2.893149135518686,0.006052957964129746,False
+Suicídio geral,ELM PSO,"{""alpha"": 14.526839785809916, ""hidden"": 32, ""residual"": true, ""scale"": 0.16266192113370606}",2.549561198191307,0.006089125061407685,False
+Suicídio geral,ELM PSO,"{""alpha"": 738.8608384889928, ""hidden"": 32, ""residual"": false, ""scale"": 0.15601756651170787}",3.404158869232345,0.006060000043362379,False
+Suicídio geral,ELM PSO,"{""alpha"": 11.842593842755118, ""hidden"": 32, ""residual"": true, ""scale"": 0.2828556176570573}",2.568388473130362,0.0003987910458818078,True
+Suicídio geral,ELM PSO,"{""alpha"": 441.05786166681344, ""hidden"": 32, ""residual"": true, ""scale"": 0.4146292582541372}",2.4232544818683137,0.006100083002820611,False
+Suicídio geral,ELM PSO,"{""alpha"": 32.635797661505265, ""hidden"": 16, ""residual"": true, ""scale"": 0.1759364457128183}",2.4890981671156642,0.0059987090062350035,False
+Suicídio geral,ELM PSO,"{""alpha"": 4.325659506122154, ""hidden"": 32, ""residual"": true, ""scale"": 0.36032783104123217}",2.6262271778617623,0.006093874922953546,False
+Suicídio geral,ELM PSO,"{""alpha"": 28.129690532763245, ""hidden"": 32, ""residual"": true, ""scale"": 0.1754156287667591}",2.5181599691166983,0.0060732499696314335,False
+Suicídio geral,ELM PSO,"{""alpha"": 13.139010159690699, ""hidden"": 32, ""residual"": true, ""scale"": 0.4041302541367145}",2.5629639559574993,0.006074792006984353,False
+Suicídio geral,ELM PSO,"{""alpha"": 12.649958116316864, ""hidden"": 32, ""residual"": true, ""scale"": 0.13697437627849948}",2.5502550915383444,0.00605570909101516,False
+Suicídio geral,ELM PSO,"{""alpha"": 9647.621076058309, ""hidden"": 32, ""residual"": true, ""scale"": 0.1311172840629244}",2.3878517567041873,0.0060631249798461795,False
+Suicídio geral,ELM PSO,"{""alpha"": 1835.2457705614966, ""hidden"": 32, ""residual"": true, ""scale"": 0.1552645735618688}",2.39099692300517,0.006071124924346805,False
+Suicídio geral,ELM PSO,"{""alpha"": 243.2497098994963, ""hidden"": 32, ""residual"": true, ""scale"": 1.1394566504386148}",2.4500631444063354,0.006066457950510085,False
+Suicídio geral,ELM PSO,"{""alpha"": 1278.6674059546415, ""hidden"": 32, ""residual"": true, ""scale"": 0.2876736086435378}",2.3967670849597233,0.0061521249590441585,False
+Suicídio geral,ELM PSO,"{""alpha"": 4.19534294637112, ""hidden"": 32, ""residual"": true, ""scale"": 0.8071575793844292}",2.679944848576659,0.006070792092941701,False
+Suicídio geral,ELM PSO,"{""alpha"": 92.3077034620136, ""hidden"": 32, ""residual"": true, ""scale"": 0.19882446795556058}",2.467596158841467,0.006049624993465841,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.03402377896149173, ""hidden"": 16, ""residual"": true, ""scale"": 2.328400412564218}",3.1296655816381587,0.18680599995423108,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.005297455393610873, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",2.805563286543663,0.13807062502019107,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.0022458059749052126, ""hidden"": 16, ""residual"": false, ""scale"": 0.03603278310412322}",4.217630638836756,0.18361866706982255,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.4787718047621937, ""hidden"": 16, ""residual"": true, ""scale"": 0.14603397795379844}",3.1254828816551083,0.18456604203674942,False
+Suicídio geral,MLP aleatória,"{""alpha"": 18.009479113301822, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",2.432855056687213,0.09246091602835804,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.8120913451472037, ""hidden"": 16, ""residual"": true, ""scale"": 0.2828556176570573}",3.107688717826727,0.18138733389787376,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.029978777476918076, ""hidden"": 32, ""residual"": false, ""scale"": 0.9867644747875147}",3.5189554184640595,0.24567533400841057,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.0016029295122756714, ""hidden"": 32, ""residual"": true, ""scale"": 1.7080296016930578}",3.299082051174134,0.24634150008205324,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.02261217482264741, ""hidden"": 32, ""residual"": true, ""scale"": 0.36279484863565203}",3.15600554276758,0.24473120796028525,False
+Suicídio geral,MLP aleatória,"{""alpha"": 49.69940773249203, ""hidden"": 4, ""residual"": false, ""scale"": 0.3094009011470149}",2.651859761783791,0.016635459032841027,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.007990810024710169, ""hidden"": 4, ""residual"": false, ""scale"": 3.1598318380785475}",3.3901138772047905,0.1388702919939533,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.0943065697878084, ""hidden"": 8, ""residual"": false, ""scale"": 0.6933178483016182}",3.381521776995592,0.15060325001832098,False
+Suicídio geral,MLP aleatória,"{""alpha"": 32.30380291836191, ""hidden"": 16, ""residual"": false, ""scale"": 0.07298362670623808}",2.4556263684309596,0.04383766604587436,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.42692591382836265, ""hidden"": 4, ""residual"": true, ""scale"": 0.04015221361548586}",3.272078613125301,0.10887999995611608,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.019839045609208548, ""hidden"": 4, ""residual"": false, ""scale"": 2.614560640937187}",3.3841523482037448,0.138960791984573,False
+Suicídio geral,MLP aleatória,"{""alpha"": 17.94322491881026, ""hidden"": 16, ""residual"": true, ""scale"": 0.052177846238454395}",2.5577803645344757,0.05087445897515863,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.0014377749941304912, ""hidden"": 4, ""residual"": true, ""scale"": 0.3167108807167996}",3.0938858546076218,0.1403439169516787,False
+Suicídio geral,MLP aleatória,"{""alpha"": 10.007990638261004, ""hidden"": 4, ""residual"": false, ""scale"": 0.15395070670450298}",2.4535615886856834,0.027711582952179015,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.029511830935530996, ""hidden"": 32, ""residual"": true, ""scale"": 0.04172365439449989}",3.062090180548837,0.24819262500386685,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.0029243664944273344, ""hidden"": 4, ""residual"": true, ""scale"": 0.03682453641028058}",2.9486574741112874,0.13877433293964714,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.021797111520886404, ""hidden"": 4, ""residual"": false, ""scale"": 0.1466045668214306}",4.138361894919351,0.1396645000204444,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.11821955652122956, ""hidden"": 4, ""residual"": false, ""scale"": 0.2584196827750404}",3.345419898204888,0.1423362500499934,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.027406159156066767, ""hidden"": 4, ""residual"": true, ""scale"": 0.42489604018138977}",3.0543013033704374,0.14042025001253933,False
+Suicídio geral,MLP aleatória,"{""alpha"": 0.00860788126893228, ""hidden"": 4, ""residual"": false, ""scale"": 1.1978168262301039}",3.4773168461471706,0.13961954193655401,False
+Suicídio geral,MLP PSO,"{""alpha"": 0.03402377896149173, ""hidden"": 16, ""residual"": true, ""scale"": 2.328400412564218}",3.1296655816381587,0.18502433295361698,False
+Suicídio geral,MLP PSO,"{""alpha"": 0.005297455393610873, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",2.805563286543663,0.13846920791547745,False
+Suicídio geral,MLP PSO,"{""alpha"": 0.0022458059749052126, ""hidden"": 16, ""residual"": false, ""scale"": 0.03603278310412322}",4.217630638836756,0.1841665420215577,False
+Suicídio geral,MLP PSO,"{""alpha"": 0.4787718047621937, ""hidden"": 16, ""residual"": true, ""scale"": 0.14603397795379844}",3.1254828816551083,0.18530683405697346,False
+Suicídio geral,MLP PSO,"{""alpha"": 18.009479113301822, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",2.432855056687213,0.09191745799034834,False
+Suicídio geral,MLP PSO,"{""alpha"": 0.8120913451472037, ""hidden"": 16, ""residual"": true, ""scale"": 0.2828556176570573}",3.107688717826727,0.1817274580243975,False
+Suicídio geral,MLP PSO,"{""alpha"": 0.6050378557893623, ""hidden"": 16, ""residual"": true, ""scale"": 0.8148162504225976}",3.1079907403833538,0.1842617919901386,False
+Suicídio geral,MLP PSO,"{""alpha"": 0.09420355852057853, ""hidden"": 8, ""residual"": false, ""scale"": 0.20648079853089651}",3.4113466954554745,0.14872491697315127,False
+Suicídio geral,MLP PSO,"{""alpha"": 0.039936705241163294, ""hidden"": 16, ""residual"": false, ""scale"": 0.05661826353540898}",3.8391099599724163,0.18437608296517283,False
+Suicídio geral,MLP PSO,"{""alpha"": 8.513900425157843, ""hidden"": 16, ""residual"": true, ""scale"": 0.1223435825323747}",2.6477769403224833,0.07979945896659046,False
+Suicídio geral,MLP PSO,"{""alpha"": 18.009479113301822, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",2.432855056687213,0.00041341595351696014,True
+Suicídio geral,MLP PSO,"{""alpha"": 14.441253181460862, ""hidden"": 16, ""residual"": true, ""scale"": 0.11497054382459183}",2.5919311350702237,0.05649029091000557,False
+Suicídio geral,MLP PSO,"{""alpha"": 10.75926361244321, ""hidden"": 32, ""residual"": false, ""scale"": 0.2576675225853544}",2.4660305263856195,0.13225549994967878,False
+Suicídio geral,MLP PSO,"{""alpha"": 1.6752024846954152, ""hidden"": 16, ""residual"": false, ""scale"": 0.0652949616447982}",2.5300629523483935,0.15932550001889467,False
+Suicídio geral,MLP PSO,"{""alpha"": 0.7101862063515422, ""hidden"": 16, ""residual"": false, ""scale"": 0.06505022184489928}",3.1502193269370555,0.1853008340112865,False
+Suicídio geral,MLP PSO,"{""alpha"": 100.0, ""hidden"": 32, ""residual"": false, ""scale"": 0.05279386425642929}",2.9847098691167218,0.07766791700851172,False
+Suicídio geral,MLP PSO,"{""alpha"": 18.009479113301822, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",2.432855056687213,0.0004065419780090451,True
+Suicídio geral,MLP PSO,"{""alpha"": 100.0, ""hidden"": 16, ""residual"": false, ""scale"": 0.03635687823139164}",3.0080812314907432,0.046602917020209134,False
+Suicídio geral,MLP PSO,"{""alpha"": 100.0, ""hidden"": 32, ""residual"": false, ""scale"": 0.08148162504225977}",2.9847098691167218,0.07868449995294213,False
+Suicídio geral,MLP PSO,"{""alpha"": 29.789780861799034, ""hidden"": 32, ""residual"": false, ""scale"": 0.03162277660168379}",2.4438005187036986,0.0681089999852702,False
+Suicídio geral,MLP PSO,"{""alpha"": 12.62909508048601, ""hidden"": 32, ""residual"": false, ""scale"": 0.05845829719002587}",2.455813108586703,0.11294675001408905,False
+Suicídio geral,MLP PSO,"{""alpha"": 24.402338052130528, ""hidden"": 32, ""residual"": false, ""scale"": 0.0647419177192601}",2.431021111940526,0.09296925005037338,False
+Suicídio geral,MLP PSO,"{""alpha"": 18.009479113301822, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",2.432855056687213,0.0004117499338462949,True
+Suicídio geral,MLP PSO,"{""alpha"": 18.664623910595864, ""hidden"": 32, ""residual"": false, ""scale"": 0.03162277660168379}",2.43087664078022,0.08983220905065536,False
+Homicídios — jovens de 15 a 29 anos,Último mês,{},4.302083333333333,0.001747499918565154,False
+Homicídios — jovens de 15 a 29 anos,Mesmo mês ano anterior,{},4.354166666666667,0.0016259589465335011,False
+Homicídios — jovens de 15 a 29 anos,Média móvel 3,{},3.253472222222222,0.0016231660265475512,False
+Homicídios — jovens de 15 a 29 anos,Média móvel 6,{},3.1059027777777772,0.0016014579450711608,False
+Homicídios — jovens de 15 a 29 anos,Média móvel 12,{},3.171875,0.001605291967280209,False
+Homicídios — jovens de 15 a 29 anos,Ridge,"{""alpha"": 0.01, ""residual"": false}",5.029816610592234,0.004948541056364775,False
+Homicídios — jovens de 15 a 29 anos,Ridge,"{""alpha"": 0.01, ""residual"": true}",5.037998107206067,0.004780624993145466,False
+Homicídios — jovens de 15 a 29 anos,Ridge,"{""alpha"": 0.1, ""residual"": false}",4.725588852917507,0.004719333024695516,False
+Homicídios — jovens de 15 a 29 anos,Ridge,"{""alpha"": 0.1, ""residual"": true}",4.789659219478303,0.004755167057737708,False
+Homicídios — jovens de 15 a 29 anos,Ridge,"{""alpha"": 1, ""residual"": false}",3.8903113666695575,0.00469466601498425,False
+Homicídios — jovens de 15 a 29 anos,Ridge,"{""alpha"": 1, ""residual"": true}",4.0781643177757285,0.0047290000366047025,False
+Homicídios — jovens de 15 a 29 anos,Ridge,"{""alpha"": 10, ""residual"": false}",3.2790676575224165,0.004680125042796135,False
+Homicídios — jovens de 15 a 29 anos,Ridge,"{""alpha"": 10, ""residual"": true}",3.2858005535159065,0.004730083979666233,False
+Homicídios — jovens de 15 a 29 anos,Ridge,"{""alpha"": 100, ""residual"": false}",3.232922927913464,0.004671959090046585,False
+Homicídios — jovens de 15 a 29 anos,Ridge,"{""alpha"": 100, ""residual"": true}",3.1763129873082696,0.004727666964754462,False
+Homicídios — jovens de 15 a 29 anos,Ridge,"{""alpha"": 1000, ""residual"": false}",5.265035787130118,0.0046794580994173884,False
+Homicídios — jovens de 15 a 29 anos,Ridge,"{""alpha"": 1000, ""residual"": true}",3.1624119961044244,0.00470383302308619,False
+Homicídios — jovens de 15 a 29 anos,Random Forest,"{""depth"": 3, ""leaf"": 2, ""residual"": false}",3.393522772059684,0.12615362496580929,False
+Homicídios — jovens de 15 a 29 anos,Random Forest,"{""depth"": 3, ""leaf"": 2, ""residual"": true}",3.539796429705612,0.10750658297911286,False
+Homicídios — jovens de 15 a 29 anos,Random Forest,"{""depth"": null, ""leaf"": 2, ""residual"": false}",3.438723903218694,0.11795329197775573,False
+Homicídios — jovens de 15 a 29 anos,Random Forest,"{""depth"": null, ""leaf"": 2, ""residual"": true}",3.701706197641093,0.12159966700710356,False
+Homicídios — jovens de 15 a 29 anos,Random Forest,"{""depth"": 3, ""leaf"": 5, ""residual"": false}",3.275739477624784,0.10594887507613748,False
+Homicídios — jovens de 15 a 29 anos,Random Forest,"{""depth"": 3, ""leaf"": 5, ""residual"": true}",3.3532124499311244,0.10677545808721334,False
+Homicídios — jovens de 15 a 29 anos,Random Forest,"{""depth"": null, ""leaf"": 5, ""residual"": false}",3.2933367330088497,0.1098477499326691,False
+Homicídios — jovens de 15 a 29 anos,Random Forest,"{""depth"": null, ""leaf"": 5, ""residual"": true}",3.389497348828661,0.11199941602535546,False
+Homicídios — jovens de 15 a 29 anos,Random Forest,"{""depth"": 3, ""leaf"": 10, ""residual"": false}",3.6425757383744073,0.1041755829937756,False
+Homicídios — jovens de 15 a 29 anos,Random Forest,"{""depth"": 3, ""leaf"": 10, ""residual"": true}",3.185581939842521,0.10437429102603346,False
+Homicídios — jovens de 15 a 29 anos,Random Forest,"{""depth"": null, ""leaf"": 10, ""residual"": false}",3.6403180682985146,0.10470270900987089,False
+Homicídios — jovens de 15 a 29 anos,Random Forest,"{""depth"": null, ""leaf"": 10, ""residual"": true}",3.1934010634874093,0.10544866696000099,False
+Homicídios — jovens de 15 a 29 anos,Rede pesos PSO,"{""alpha"": 0.01, ""hidden"": 4, ""residual"": true}",4.2864500934772245,0.2549054999835789,False
+Homicídios — jovens de 15 a 29 anos,Rede pesos PSO,"{""alpha"": 0.1, ""hidden"": 4, ""residual"": true}",3.8741324793301666,0.2923227079445496,False
+Homicídios — jovens de 15 a 29 anos,Rede pesos PSO,"{""alpha"": 0.01, ""hidden"": 8, ""residual"": true}",4.147069232933814,0.343433125060983,False
+Homicídios — jovens de 15 a 29 anos,Rede pesos PSO,"{""alpha"": 0.1, ""hidden"": 8, ""residual"": true}",3.9576150789642894,0.34318712493404746,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.13947474227905995, ""hidden"": 16, ""residual"": true, ""scale"": 2.328400412564218}",3.635162361158507,0.0064085000194609165,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.010320345386675363, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",3.187523550575188,0.006047624978236854,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.0031039958082507728, ""hidden"": 32, ""residual"": false, ""scale"": 0.03603278310412322}",4.54121080906545,0.006172958062961698,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 5.651711612416394, ""hidden"": 16, ""residual"": true, ""scale"": 0.14603397795379844}",3.3257277770040354,0.006105749984271824,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 907.1970153005091, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",7.929761373524535,0.006122334045358002,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 11.842593842755118, ""hidden"": 32, ""residual"": true, ""scale"": 0.2828556176570573}",3.231121064026692,0.006202624994330108,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.11682599428511652, ""hidden"": 32, ""residual"": false, ""scale"": 0.9867644747875147}",4.336322299582898,0.00616966700181365,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.0019358878537480873, ""hidden"": 64, ""residual"": true, ""scale"": 1.7080296016930578}",5.632082677824073,0.0071541250217705965,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.07871894559412346, ""hidden"": 64, ""residual"": true, ""scale"": 0.36279484863565203}",4.302204486656809,0.007198790903203189,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 3757.4369219421933, ""hidden"": 4, ""residual"": false, ""scale"": 0.3094009011470149}",8.124188630759077,0.006023540976457298,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.018349622245903714, ""hidden"": 4, ""residual"": false, ""scale"": 3.1598318380785475}",8.73876218964208,0.005932332947850227,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.5812443280812383, ""hidden"": 8, ""residual"": false, ""scale"": 0.6933178483016182}",3.8287382442334823,0.005980707937851548,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 2055.678117299738, ""hidden"": 32, ""residual"": false, ""scale"": 0.07298362670623808}",7.967777846673439,0.006117042037658393,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 4.813860750427017, ""hidden"": 4, ""residual"": true, ""scale"": 0.04015221361548586}",3.1412362004673136,0.005977166933007538,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.06554341810397571, ""hidden"": 4, ""residual"": false, ""scale"": 2.614560640937187}",8.657602493640198,0.005978124914690852,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 902.5280356561535, ""hidden"": 16, ""residual"": true, ""scale"": 0.052177846238454395}",3.167498853009542,0.006080833030864596,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.0016625215999621272, ""hidden"": 4, ""residual"": true, ""scale"": 0.3167108807167996}",3.220447663497458,0.005981875001452863,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 398.5525999705208, ""hidden"": 4, ""residual"": false, ""scale"": 0.15395070670450298}",7.700205672399497,0.0059137080097571015,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.1142864166467796, ""hidden"": 64, ""residual"": true, ""scale"": 0.04172365439449989}",3.875626426542428,0.007160625071264803,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.004492049353417694, ""hidden"": 4, ""residual"": true, ""scale"": 0.03682453641028058}",3.146671805790998,0.006069250055588782,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.07477536207997788, ""hidden"": 4, ""residual"": false, ""scale"": 0.1466045668214306}",6.150575792309737,0.005930499988608062,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.797563106330904, ""hidden"": 8, ""residual"": false, ""scale"": 0.2584196827750404}",3.5586841129604054,0.005977958091534674,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.10303563350826628, ""hidden"": 4, ""residual"": true, ""scale"": 0.42489604018138977}",3.234685863192924,0.005941333016380668,False
+Homicídios — jovens de 15 a 29 anos,ELM aleatória,"{""alpha"": 0.020363610201412745, ""hidden"": 8, ""residual"": false, ""scale"": 1.1978168262301039}",3.9678636689899016,0.005928374943323433,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.13947474227905995, ""hidden"": 16, ""residual"": true, ""scale"": 2.328400412564218}",3.635162361158507,0.006072415970265865,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.010320345386675363, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",3.187523550575188,0.005939125083386898,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.0031039958082507728, ""hidden"": 32, ""residual"": false, ""scale"": 0.03603278310412322}",4.54121080906545,0.00610741600394249,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 5.651711612416394, ""hidden"": 16, ""residual"": true, ""scale"": 0.14603397795379844}",3.3257277770040354,0.006014541955664754,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 907.1970153005091, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",7.929761373524535,0.006076500052586198,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 11.842593842755118, ""hidden"": 32, ""residual"": true, ""scale"": 0.2828556176570573}",3.231121064026692,0.006160541903227568,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.004118836491272554, ""hidden"": 8, ""residual"": true, ""scale"": 1.2436808106611124}",3.6903673954235714,0.006041917018592358,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.010320345386675363, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",3.187523550575188,0.00040195800829678774,True
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.004954782095996206, ""hidden"": 32, ""residual"": false, ""scale"": 0.11394566504386149}",4.294972448094593,0.006123458035290241,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.10050322391837954, ""hidden"": 8, ""residual"": true, ""scale"": 0.15759544780847162}",3.3725369519980712,0.005994125036522746,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 529.4367477337465, ""hidden"": 32, ""residual"": false, ""scale"": 0.15601756651170787}",6.271009262772966,0.006075457902625203,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.21059440792025153, ""hidden"": 16, ""residual"": true, ""scale"": 0.2559360356902539}",3.709894271607331,0.006069374969229102,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.0022339967678805805, ""hidden"": 8, ""residual"": true, ""scale"": 0.3932864043933736}",3.487709400158321,0.006007540971040726,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.010320345386675363, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",3.187523550575188,0.0003980000037699938,True
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.01838662813097324, ""hidden"": 8, ""residual"": true, ""scale"": 0.36032783104123217}",3.4453203618080255,0.006015833001583815,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.0017872281373658573, ""hidden"": 4, ""residual"": true, ""scale"": 0.2147904425420113}",3.179766770915307,0.00593820889480412,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 9.414864674128937, ""hidden"": 16, ""residual"": true, ""scale"": 0.4907532301209034}",3.350742356363888,0.006113208015449345,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.0037449569947392114, ""hidden"": 16, ""residual"": true, ""scale"": 0.23749180762338434}",4.327068027873207,0.0060327500104904175,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.0014063452027481562, ""hidden"": 8, ""residual"": true, ""scale"": 0.12436808106611125}",3.4578992650738463,0.006008250056765974,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.010087630393210775, ""hidden"": 4, ""residual"": true, ""scale"": 0.23117092450495572}",3.186739626088862,0.005928124999627471,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.0014119481333926924, ""hidden"": 4, ""residual"": true, ""scale"": 1.1394566504386148}",3.208588507838595,0.005913791013881564,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.001, ""hidden"": 4, ""residual"": true, ""scale"": 0.2667748299448535}",3.2027253132351454,0.005922333104535937,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.16742259998306303, ""hidden"": 4, ""residual"": true, ""scale"": 0.48067479893064546}",3.234558982252793,0.005930457962676883,False
+Homicídios — jovens de 15 a 29 anos,ELM PSO,"{""alpha"": 0.21059440792025153, ""hidden"": 8, ""residual"": true, ""scale"": 0.2306443209163312}",3.3734731209902225,0.005995000014081597,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.03402377896149173, ""hidden"": 16, ""residual"": true, ""scale"": 2.328400412564218}",5.2437090076451085,0.18547683290671557,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.005297455393610873, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",5.186600445407845,0.13993408309761435,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.0022458059749052126, ""hidden"": 16, ""residual"": false, ""scale"": 0.03603278310412322}",5.65207151646366,0.1850833750795573,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.4787718047621937, ""hidden"": 16, ""residual"": true, ""scale"": 0.14603397795379844}",4.8477065202330385,0.18477399996481836,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 18.009479113301822, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",3.209050605058156,0.08850708301179111,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.8120913451472037, ""hidden"": 16, ""residual"": true, ""scale"": 0.2828556176570573}",4.422181837823018,0.18563766707666218,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.029978777476918076, ""hidden"": 32, ""residual"": false, ""scale"": 0.9867644747875147}",6.298998237777037,0.24566591600887477,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.0016029295122756714, ""hidden"": 32, ""residual"": true, ""scale"": 1.7080296016930578}",5.2407119482977125,0.24669225001707673,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.02261217482264741, ""hidden"": 32, ""residual"": true, ""scale"": 0.36279484863565203}",5.19920734505375,0.24598595895804465,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 49.69940773249203, ""hidden"": 4, ""residual"": false, ""scale"": 0.3094009011470149}",3.9486876264708908,0.015445416094735265,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.007990810024710169, ""hidden"": 4, ""residual"": false, ""scale"": 3.1598318380785475}",6.5201550135408555,0.14218125003390014,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.0943065697878084, ""hidden"": 8, ""residual"": false, ""scale"": 0.6933178483016182}",5.6073986852908675,0.15631687501445413,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 32.30380291836191, ""hidden"": 16, ""residual"": false, ""scale"": 0.07298362670623808}",3.306753736093286,0.047333499998785555,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.42692591382836265, ""hidden"": 4, ""residual"": true, ""scale"": 0.04015221361548586}",3.814592325731456,0.12826549995224923,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.019839045609208548, ""hidden"": 4, ""residual"": false, ""scale"": 2.614560640937187}",5.577667026283533,0.14482929196674377,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 17.94322491881026, ""hidden"": 16, ""residual"": true, ""scale"": 0.052177846238454395}",3.1479479397617793,0.05549583409447223,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.0014377749941304912, ""hidden"": 4, ""residual"": true, ""scale"": 0.3167108807167996}",5.5339856489240615,0.14588454109616578,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 10.007990638261004, ""hidden"": 4, ""residual"": false, ""scale"": 0.15395070670450298}",3.2407188945212155,0.020729583920910954,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.029511830935530996, ""hidden"": 32, ""residual"": true, ""scale"": 0.04172365439449989}",5.064930711692597,0.254718542098999,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.0029243664944273344, ""hidden"": 4, ""residual"": true, ""scale"": 0.03682453641028058}",5.481922206659927,0.1465636669890955,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.021797111520886404, ""hidden"": 4, ""residual"": false, ""scale"": 0.1466045668214306}",6.366310967762399,0.14589520799927413,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.11821955652122956, ""hidden"": 4, ""residual"": false, ""scale"": 0.2584196827750404}",5.631511581329633,0.14520333299878985,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.027406159156066767, ""hidden"": 4, ""residual"": true, ""scale"": 0.42489604018138977}",4.815759426211404,0.14484079205431044,False
+Homicídios — jovens de 15 a 29 anos,MLP aleatória,"{""alpha"": 0.00860788126893228, ""hidden"": 4, ""residual"": false, ""scale"": 1.1978168262301039}",6.2913285399294585,0.14317554200533777,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 0.03402377896149173, ""hidden"": 16, ""residual"": true, ""scale"": 2.328400412564218}",5.2437090076451085,0.1873783750925213,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 0.005297455393610873, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",5.186600445407845,0.14365854195784777,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 0.0022458059749052126, ""hidden"": 16, ""residual"": false, ""scale"": 0.03603278310412322}",5.65207151646366,0.18701287498697639,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 0.4787718047621937, ""hidden"": 16, ""residual"": true, ""scale"": 0.14603397795379844}",4.8477065202330385,0.1861456249607727,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 18.009479113301822, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",3.209050605058156,0.08970937505364418,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 0.8120913451472037, ""hidden"": 16, ""residual"": true, ""scale"": 0.2828556176570573}",4.422181837823018,0.1854722920106724,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 0.6050378557893623, ""hidden"": 16, ""residual"": true, ""scale"": 0.8148162504225976}",4.464815181596013,0.1874256250448525,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 0.09420355852057853, ""hidden"": 8, ""residual"": false, ""scale"": 0.20648079853089651}",5.748199172686007,0.15289945795666426,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 0.039936705241163294, ""hidden"": 16, ""residual"": false, ""scale"": 0.05661826353540898}",5.597080340749141,0.1867670000065118,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 8.513900425157843, ""hidden"": 16, ""residual"": true, ""scale"": 0.1223435825323747}",3.241858438269148,0.10392983304336667,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 18.009479113301822, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",3.209050605058156,0.000416541937738657,True
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 14.441253181460862, ""hidden"": 16, ""residual"": true, ""scale"": 0.11497054382459183}",3.1480237735812993,0.06431649997830391,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 10.75926361244321, ""hidden"": 32, ""residual"": false, ""scale"": 0.2576675225853544}",3.2083102296630783,0.1213868330232799,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 1.6752024846954152, ""hidden"": 8, ""residual"": true, ""scale"": 0.11819406574597217}",3.939558128327287,0.13617183302994817,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 0.7101862063515422, ""hidden"": 16, ""residual"": false, ""scale"": 0.1790426699355498}",4.641373117949825,0.18753004109021276,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 100.0, ""hidden"": 32, ""residual"": false, ""scale"": 0.1029133225574523}",5.145806815846011,0.08588783303275704,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 13.721616818368771, ""hidden"": 16, ""residual"": false, ""scale"": 0.09908314783365105}",3.2102989129088932,0.06001716700848192,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 100.0, ""hidden"": 16, ""residual"": false, ""scale"": 0.0612211988255197}",5.2577115588294125,0.04852274991571903,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 100.0, ""hidden"": 32, ""residual"": true, ""scale"": 0.08148162504225977}",3.167529611462441,0.01422195800114423,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 29.789780861799034, ""hidden"": 16, ""residual"": true, ""scale"": 0.07977119745436988}",3.167525140052078,0.022619292023591697,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 12.62909508048601, ""hidden"": 16, ""residual"": true, ""scale"": 0.30538315308837194}",3.1460511512224105,0.08294812496751547,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 15.88268646342594, ""hidden"": 16, ""residual"": true, ""scale"": 0.11442619807510258}",3.1463094559332703,0.0685810410650447,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 12.896652625008006, ""hidden"": 16, ""residual"": true, ""scale"": 0.0771393511287764}",3.1482576038139505,0.06322224996984005,False
+Homicídios — jovens de 15 a 29 anos,MLP PSO,"{""alpha"": 15.737322210309852, ""hidden"": 16, ""residual"": true, ""scale"": 0.09419015242367701}",3.145911519621611,0.0643763329135254,False
+Homicídios — mulheres de 10 a 59 anos,Último mês,{},1.6145833333333333,0.001830708933994174,False
+Homicídios — mulheres de 10 a 59 anos,Mesmo mês ano anterior,{},1.1979166666666667,0.0017601249273866415,False
+Homicídios — mulheres de 10 a 59 anos,Média móvel 3,{},1.2256944444444444,0.0017603749874979258,False
+Homicídios — mulheres de 10 a 59 anos,Média móvel 6,{},1.09375,0.001688541960902512,False
+Homicídios — mulheres de 10 a 59 anos,Média móvel 12,{},1.056423611111111,0.0016682499554008245,False
+Homicídios — mulheres de 10 a 59 anos,Ridge,"{""alpha"": 0.01, ""residual"": false}",1.252503504037451,0.005552666960284114,False
+Homicídios — mulheres de 10 a 59 anos,Ridge,"{""alpha"": 0.01, ""residual"": true}",1.2526746926167647,0.005092917010188103,False
+Homicídios — mulheres de 10 a 59 anos,Ridge,"{""alpha"": 0.1, ""residual"": false}",1.2377053194184873,0.005380957969464362,False
+Homicídios — mulheres de 10 a 59 anos,Ridge,"{""alpha"": 0.1, ""residual"": true}",1.2389270204989973,0.005242457962594926,False
+Homicídios — mulheres de 10 a 59 anos,Ridge,"{""alpha"": 1, ""residual"": false}",1.149367377252447,0.004819249967113137,False
+Homicídios — mulheres de 10 a 59 anos,Ridge,"{""alpha"": 1, ""residual"": true}",1.150712255773957,0.004829417099244893,False
+Homicídios — mulheres de 10 a 59 anos,Ridge,"{""alpha"": 10, ""residual"": false}",1.1071517811724292,0.004737959010526538,False
+Homicídios — mulheres de 10 a 59 anos,Ridge,"{""alpha"": 10, ""residual"": true}",1.1469941820526515,0.004813040955923498,False
+Homicídios — mulheres de 10 a 59 anos,Ridge,"{""alpha"": 100, ""residual"": false}",1.0671177578878892,0.004770583938807249,False
+Homicídios — mulheres de 10 a 59 anos,Ridge,"{""alpha"": 100, ""residual"": true}",1.0936248503400179,0.004799584043212235,False
+Homicídios — mulheres de 10 a 59 anos,Ridge,"{""alpha"": 1000, ""residual"": false}",1.1924793446024116,0.004784167045727372,False
+Homicídios — mulheres de 10 a 59 anos,Ridge,"{""alpha"": 1000, ""residual"": true}",1.0819612052992074,0.004856084007769823,False
+Homicídios — mulheres de 10 a 59 anos,Random Forest,"{""depth"": 3, ""leaf"": 2, ""residual"": false}",1.130463059530033,0.10668870795052499,False
+Homicídios — mulheres de 10 a 59 anos,Random Forest,"{""depth"": 3, ""leaf"": 2, ""residual"": true}",1.0737173862422977,0.10669254197273403,False
+Homicídios — mulheres de 10 a 59 anos,Random Forest,"{""depth"": null, ""leaf"": 2, ""residual"": false}",1.134703510802469,0.11536608391907066,False
+Homicídios — mulheres de 10 a 59 anos,Random Forest,"{""depth"": null, ""leaf"": 2, ""residual"": true}",1.082944687867431,0.11998454201966524,False
+Homicídios — mulheres de 10 a 59 anos,Random Forest,"{""depth"": 3, ""leaf"": 5, ""residual"": false}",1.126716426242638,0.10688254202250391,False
+Homicídios — mulheres de 10 a 59 anos,Random Forest,"{""depth"": 3, ""leaf"": 5, ""residual"": true}",1.0806895252332678,0.10548587492667139,False
+Homicídios — mulheres de 10 a 59 anos,Random Forest,"{""depth"": null, ""leaf"": 5, ""residual"": false}",1.1375991735908453,0.10869600006844848,False
+Homicídios — mulheres de 10 a 59 anos,Random Forest,"{""depth"": null, ""leaf"": 5, ""residual"": true}",1.0899000820509948,0.1100160829955712,False
+Homicídios — mulheres de 10 a 59 anos,Random Forest,"{""depth"": 3, ""leaf"": 10, ""residual"": false}",1.151571641551951,0.10274108301382512,False
+Homicídios — mulheres de 10 a 59 anos,Random Forest,"{""depth"": 3, ""leaf"": 10, ""residual"": true}",1.1044761537374932,0.10295004199724644,False
+Homicídios — mulheres de 10 a 59 anos,Random Forest,"{""depth"": null, ""leaf"": 10, ""residual"": false}",1.1522235369570095,0.10349941707681865,False
+Homicídios — mulheres de 10 a 59 anos,Random Forest,"{""depth"": null, ""leaf"": 10, ""residual"": true}",1.1050328407971761,0.10334720800165087,False
+Homicídios — mulheres de 10 a 59 anos,Rede pesos PSO,"{""alpha"": 0.01, ""hidden"": 4, ""residual"": true}",1.3569996249848615,0.258128207991831,False
+Homicídios — mulheres de 10 a 59 anos,Rede pesos PSO,"{""alpha"": 0.1, ""hidden"": 4, ""residual"": true}",1.4291637325348168,0.24952612502966076,False
+Homicídios — mulheres de 10 a 59 anos,Rede pesos PSO,"{""alpha"": 0.01, ""hidden"": 8, ""residual"": true}",1.2500632762235495,0.2618060000240803,False
+Homicídios — mulheres de 10 a 59 anos,Rede pesos PSO,"{""alpha"": 0.1, ""hidden"": 8, ""residual"": true}",1.3549879707252825,0.260983792017214,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.13947474227905995, ""hidden"": 16, ""residual"": true, ""scale"": 2.328400412564218}",1.1662137908753036,0.00645341700874269,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.010320345386675363, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",1.1484702319935856,0.00602066598366946,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.0031039958082507728, ""hidden"": 32, ""residual"": false, ""scale"": 0.03603278310412322}",1.216638937569536,0.006190416985191405,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 5.651711612416394, ""hidden"": 16, ""residual"": true, ""scale"": 0.14603397795379844}",1.101128212437289,0.006141874939203262,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 907.1970153005091, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",1.3420969614901193,0.0061772080371156335,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 11.842593842755118, ""hidden"": 32, ""residual"": true, ""scale"": 0.2828556176570573}",1.085333061936978,0.006211041938513517,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.11682599428511652, ""hidden"": 32, ""residual"": false, ""scale"": 0.9867644747875147}",1.2142595753292047,0.006285125040449202,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.0019358878537480873, ""hidden"": 64, ""residual"": true, ""scale"": 1.7080296016930578}",1.6598719063802994,0.0069785830564796925,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.07871894559412346, ""hidden"": 64, ""residual"": true, ""scale"": 0.36279484863565203}",1.7908370022443172,0.006842791917733848,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 3757.4369219421933, ""hidden"": 4, ""residual"": false, ""scale"": 0.3094009011470149}",1.3518437498264815,0.005970624973997474,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.018349622245903714, ""hidden"": 4, ""residual"": false, ""scale"": 3.1598318380785475}",1.4313727086675625,0.005972416023723781,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.5812443280812383, ""hidden"": 8, ""residual"": false, ""scale"": 0.6933178483016182}",1.166097322142991,0.00605091592296958,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 2055.678117299738, ""hidden"": 32, ""residual"": false, ""scale"": 0.07298362670623808}",1.3445983132413992,0.006348791066557169,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 4.813860750427017, ""hidden"": 4, ""residual"": true, ""scale"": 0.04015221361548586}",1.0715296523256495,0.006015834049321711,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.06554341810397571, ""hidden"": 4, ""residual"": false, ""scale"": 2.614560640937187}",1.4409305910855617,0.00591504096519202,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 902.5280356561535, ""hidden"": 16, ""residual"": true, ""scale"": 0.052177846238454395}",1.0869372204105106,0.006049624993465841,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.0016625215999621272, ""hidden"": 4, ""residual"": true, ""scale"": 0.3167108807167996}",1.1618736187265764,0.00616183306556195,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 398.5525999705208, ""hidden"": 4, ""residual"": false, ""scale"": 0.15395070670450298}",1.3149050549712133,0.006124084000475705,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.1142864166467796, ""hidden"": 64, ""residual"": true, ""scale"": 0.04172365439449989}",1.1645060131756366,0.007573041948489845,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.004492049353417694, ""hidden"": 4, ""residual"": true, ""scale"": 0.03682453641028058}",1.098446621452777,0.006508457940071821,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.07477536207997788, ""hidden"": 4, ""residual"": false, ""scale"": 0.1466045668214306}",1.3680883800004908,0.0060555828968063,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.797563106330904, ""hidden"": 8, ""residual"": false, ""scale"": 0.2584196827750404}",1.0966281669044067,0.006067291949875653,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.10303563350826628, ""hidden"": 4, ""residual"": true, ""scale"": 0.42489604018138977}",1.1511860693752325,0.006059125065803528,False
+Homicídios — mulheres de 10 a 59 anos,ELM aleatória,"{""alpha"": 0.020363610201412745, ""hidden"": 8, ""residual"": false, ""scale"": 1.1978168262301039}",1.1687319229433886,0.006240000016987324,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 0.13947474227905995, ""hidden"": 16, ""residual"": true, ""scale"": 2.328400412564218}",1.1662137908753036,0.006351374904625118,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 0.010320345386675363, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",1.1484702319935856,0.006337500060908496,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 0.0031039958082507728, ""hidden"": 32, ""residual"": false, ""scale"": 0.03603278310412322}",1.216638937569536,0.006343082990497351,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 5.651711612416394, ""hidden"": 16, ""residual"": true, ""scale"": 0.14603397795379844}",1.101128212437289,0.006300208973698318,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 907.1970153005091, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",1.3420969614901193,0.006335292011499405,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 11.842593842755118, ""hidden"": 32, ""residual"": true, ""scale"": 0.2828556176570573}",1.085333061936978,0.006396166048943996,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 7.843241140378898, ""hidden"": 32, ""residual"": true, ""scale"": 1.3111728406292438}",1.0466543548187384,0.006386540946550667,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 0.5803556701165129, ""hidden"": 8, ""residual"": true, ""scale"": 0.23652059061601774}",1.1342425479304876,0.0062362500466406345,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 0.07692231234576162, ""hidden"": 32, ""residual"": false, ""scale"": 0.11394566504386149}",1.1662386186977394,0.0063523330027237535,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 14.526839785809916, ""hidden"": 32, ""residual"": true, ""scale"": 0.16266192113370606}",1.0920566700653271,0.006406084052287042,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 738.8608384889928, ""hidden"": 32, ""residual"": false, ""scale"": 0.15601756651170787}",1.2675572588728243,0.006366582936607301,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 11.842593842755118, ""hidden"": 32, ""residual"": true, ""scale"": 0.2828556176570573}",1.085333061936978,0.00041812495328485966,True
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 441.05786166681344, ""hidden"": 32, ""residual"": true, ""scale"": 0.8771654935457363}",1.0808342487349243,0.0063527500024065375,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 32.635797661505265, ""hidden"": 16, ""residual"": true, ""scale"": 0.7479437798748637}",1.0977252393201826,0.006239333073608577,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 4.325659506122154, ""hidden"": 32, ""residual"": true, ""scale"": 0.36032783104123217}",1.0776713652118568,0.0063306670635938644,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 14.840843461300903, ""hidden"": 32, ""residual"": true, ""scale"": 0.5143821593611895}",1.075277842733143,0.006316000013612211,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 13.139010159690699, ""hidden"": 32, ""residual"": true, ""scale"": 0.49337086517380807}",1.0750477648523373,0.006308833020739257,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 10.367576329376364, ""hidden"": 32, ""residual"": true, ""scale"": 0.8944680007700408}",1.0606146301778063,0.006279124994762242,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 859.9485278406138, ""hidden"": 32, ""residual"": true, ""scale"": 1.1461845026856448}",1.081605245776075,0.006244582938961685,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 1835.2457705614966, ""hidden"": 32, ""residual"": true, ""scale"": 2.121678167983692}",1.0831718004275854,0.006311832927167416,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 243.2497098994963, ""hidden"": 32, ""residual"": true, ""scale"": 1.1394566504386148}",1.0796438221637843,0.006325541064143181,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 6.925276428927701, ""hidden"": 32, ""residual"": true, ""scale"": 1.6266192113370606}",1.0414934418723436,0.006299042026512325,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 0.2336483123527019, ""hidden"": 16, ""residual"": true, ""scale"": 1.5601756651170786}",1.166258532489631,0.006203667027875781,False
+Homicídios — mulheres de 10 a 59 anos,ELM PSO,"{""alpha"": 8.109593020387544, ""hidden"": 32, ""residual"": true, ""scale"": 2.8285561765705727}",1.040464758137034,0.006282374961301684,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.03402377896149173, ""hidden"": 16, ""residual"": true, ""scale"": 2.328400412564218}",1.8067108141286823,0.19008387497160584,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.005297455393610873, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",1.6234859462704536,0.14514408400282264,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.0022458059749052126, ""hidden"": 16, ""residual"": false, ""scale"": 0.03603278310412322}",1.8021088320314156,0.18994654202833772,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.4787718047621937, ""hidden"": 16, ""residual"": true, ""scale"": 0.14603397795379844}",1.5822085469733065,0.190028041950427,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 18.009479113301822, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",1.0626492269714984,0.11788575001992285,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.8120913451472037, ""hidden"": 16, ""residual"": true, ""scale"": 0.2828556176570573}",1.520121818512526,0.18638287496287376,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.029978777476918076, ""hidden"": 32, ""residual"": false, ""scale"": 0.9867644747875147}",1.882499319349699,0.25171254202723503,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.0016029295122756714, ""hidden"": 32, ""residual"": true, ""scale"": 1.7080296016930578}",1.8034101753425802,0.25366270798258483,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.02261217482264741, ""hidden"": 32, ""residual"": true, ""scale"": 0.36279484863565203}",1.8943071301937635,0.2541021249489859,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 49.69940773249203, ""hidden"": 4, ""residual"": false, ""scale"": 0.3094009011470149}",1.1240826457790412,0.017853916971944273,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.007990810024710169, ""hidden"": 4, ""residual"": false, ""scale"": 3.1598318380785475}",1.6045184318072234,0.14313679200131446,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.0943065697878084, ""hidden"": 8, ""residual"": false, ""scale"": 0.6933178483016182}",1.7773206210767676,0.15399283298756927,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 32.30380291836191, ""hidden"": 16, ""residual"": false, ""scale"": 0.07298362670623808}",1.0751134966894342,0.05107683304231614,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.42692591382836265, ""hidden"": 4, ""residual"": true, ""scale"": 0.04015221361548586}",1.7830786501573008,0.11483849992509931,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.019839045609208548, ""hidden"": 4, ""residual"": false, ""scale"": 2.614560640937187}",1.929138251724454,0.14484929095488042,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 17.94322491881026, ""hidden"": 16, ""residual"": true, ""scale"": 0.052177846238454395}",1.0891735390730057,0.05223391600884497,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.0014377749941304912, ""hidden"": 4, ""residual"": true, ""scale"": 0.3167108807167996}",1.7632362562557706,0.14484470803290606,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 10.007990638261004, ""hidden"": 4, ""residual"": false, ""scale"": 0.15395070670450298}",1.0607662628933923,0.02687829197384417,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.029511830935530996, ""hidden"": 32, ""residual"": true, ""scale"": 0.04172365439449989}",1.8919363696675504,0.2524170409888029,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.0029243664944273344, ""hidden"": 4, ""residual"": true, ""scale"": 0.03682453641028058}",1.6001045261926603,0.14560558297671378,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.021797111520886404, ""hidden"": 4, ""residual"": false, ""scale"": 0.1466045668214306}",1.7718569800988204,0.14394679199904203,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.11821955652122956, ""hidden"": 4, ""residual"": false, ""scale"": 0.2584196827750404}",1.63591018436762,0.14062187494710088,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.027406159156066767, ""hidden"": 4, ""residual"": true, ""scale"": 0.42489604018138977}",1.7422693071191953,0.14403416693676263,False
+Homicídios — mulheres de 10 a 59 anos,MLP aleatória,"{""alpha"": 0.00860788126893228, ""hidden"": 4, ""residual"": false, ""scale"": 1.1978168262301039}",1.9574879052278178,0.14328012499026954,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 0.03402377896149173, ""hidden"": 16, ""residual"": true, ""scale"": 2.328400412564218}",1.8067108141286823,0.18860966607462615,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 0.005297455393610873, ""hidden"": 4, ""residual"": true, ""scale"": 0.2329785273508554}",1.6234859462704536,0.1455752500332892,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 0.0022458059749052126, ""hidden"": 16, ""residual"": false, ""scale"": 0.03603278310412322}",1.8021088320314156,0.18866379093378782,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 0.4787718047621937, ""hidden"": 16, ""residual"": true, ""scale"": 0.14603397795379844}",1.5822085469733065,0.18895174993667752,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 18.009479113301822, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",1.0626492269714984,0.11811974993906915,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 0.8120913451472037, ""hidden"": 16, ""residual"": true, ""scale"": 0.2828556176570573}",1.520121818512526,0.18801837495993823,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 0.6050378557893623, ""hidden"": 16, ""residual"": true, ""scale"": 0.8148162504225976}",1.6052548492008045,0.1859777079662308,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 0.09420355852057853, ""hidden"": 8, ""residual"": false, ""scale"": 0.20648079853089651}",1.8510914687847266,0.15345025004353374,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 0.039936705241163294, ""hidden"": 16, ""residual"": false, ""scale"": 0.05661826353540898}",1.9520306559983158,0.1875214580213651,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 8.513900425157843, ""hidden"": 16, ""residual"": true, ""scale"": 0.1223435825323747}",1.120905385978998,0.07959879096597433,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 18.009479113301822, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",1.0626492269714984,0.00042333302553743124,True
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 14.441253181460862, ""hidden"": 16, ""residual"": true, ""scale"": 0.11497054382459183}",1.0908280955206477,0.05246958299539983,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 10.75926361244321, ""hidden"": 32, ""residual"": false, ""scale"": 0.2576675225853544}",1.0717227461388692,0.17481170792598277,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 1.6752024846954152, ""hidden"": 16, ""residual"": false, ""scale"": 0.0652949616447982}",1.385409534838109,0.13602008298039436,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 0.7101862063515422, ""hidden"": 16, ""residual"": false, ""scale"": 0.051903402814978454}",1.6674110915666445,0.1858950420282781,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 100.0, ""hidden"": 32, ""residual"": false, ""scale"": 0.05279386425642929}",1.228702942161809,0.1063137500314042,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 18.009479113301822, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",1.0626492269714984,0.0004208330065011978,True
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 100.0, ""hidden"": 16, ""residual"": false, ""scale"": 0.03635687823139164}",1.2321933062918295,0.05848495801910758,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 100.0, ""hidden"": 32, ""residual"": false, ""scale"": 0.08148162504225977}",1.228702942161809,0.1057239999063313,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 29.789780861799034, ""hidden"": 32, ""residual"": false, ""scale"": 0.03162277660168379}",1.0708072724741744,0.09140945901162922,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 12.62909508048601, ""hidden"": 32, ""residual"": false, ""scale"": 0.047044882270509306}",1.0668866928604073,0.13200529105961323,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 24.402338052130528, ""hidden"": 32, ""residual"": false, ""scale"": 0.0647419177192601}",1.0652454129883844,0.09490424999967217,False
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 18.009479113301822, ""hidden"": 32, ""residual"": false, ""scale"": 0.04933708651738081}",1.0626492269714984,0.00042579194996505976,True
+Homicídios — mulheres de 10 a 59 anos,MLP PSO,"{""alpha"": 18.664623910595864, ""hidden"": 32, ""residual"": false, ""scale"": 0.03162277660168379}",1.0629043732242134,0.11312062502838671,False

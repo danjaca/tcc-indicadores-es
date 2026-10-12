@@ -1,0 +1,39 @@
+{
+  "_como_usar": "Valores de regressão por definição de CID. Após reprocessar a série, rode 'python -m etl.gerar_referencias', confira os números com o TabNet/SESA e substitua o null da definição atual. Não ajuste dados para satisfazer testes.",
+  "legada_X85-Y09_X60-X84": {
+    "anual_2024": {
+      "Suicídio geral": [
+        355,
+        4102129
+      ],
+      "Homicídios — jovens de 15 a 29 anos": [
+        472,
+        874575
+      ],
+      "Homicídios — mulheres de 10 a 59 anos": [
+        94,
+        1454086
+      ]
+    },
+    "segundo_quadrimestre_2024": {
+      "Suicídio geral": [
+        113,
+        4102129
+      ],
+      "Homicídios — jovens de 15 a 29 anos": [
+        134,
+        874575
+      ],
+      "Homicídios — mulheres de 10 a 59 anos": [
+        36,
+        1454086
+      ]
+    },
+    "suicidio_jeronimo_monteiro_2024": [
+      4,
+      12079
+    ],
+    "suicidio_jan_ago_2024": 232
+  },
+  "8d8be8e86012": null
+}

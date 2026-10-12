@@ -1,0 +1,925 @@
+date,method,weight,indicator
+2023-01-01,Média móvel 3,0.14285714285714285,Suicídio geral
+2023-01-01,Média móvel 6,0.14285714285714285,Suicídio geral
+2023-01-01,Média móvel 12,0.14285714285714285,Suicídio geral
+2023-01-01,Ridge,0.14285714285714285,Suicídio geral
+2023-01-01,Random Forest,0.14285714285714285,Suicídio geral
+2023-01-01,ELM aleatória,0.14285714285714285,Suicídio geral
+2023-01-01,ELM PSO,0.14285714285714285,Suicídio geral
+2023-02-01,Média móvel 3,0.5248191219502446,Suicídio geral
+2023-02-01,Média móvel 6,0.08048361904626417,Suicídio geral
+2023-02-01,Média móvel 12,0.021661872198812618,Suicídio geral
+2023-02-01,Ridge,0.11111073663592354,Suicídio geral
+2023-02-01,Random Forest,0.09857746400720467,Suicídio geral
+2023-02-01,ELM aleatória,0.08213744323163619,Suicídio geral
+2023-02-01,ELM PSO,0.08120974292991422,Suicídio geral
+2023-03-01,Média móvel 3,0.13900716165175195,Suicídio geral
+2023-03-01,Média móvel 6,0.13900716165175195,Suicídio geral
+2023-03-01,Média móvel 12,0.3132574744539935,Suicídio geral
+2023-03-01,Ridge,0.11349254442709042,Suicídio geral
+2023-03-01,Random Forest,0.02006109209909609,Suicídio geral
+2023-03-01,ELM aleatória,0.13754241199596884,Suicídio geral
+2023-03-01,ELM PSO,0.13763215372034734,Suicídio geral
+2023-04-01,Média móvel 3,0.012467906683393993,Suicídio geral
+2023-04-01,Média móvel 6,0.0717478491644488,Suicídio geral
+2023-04-01,Média móvel 12,0.8211106519313576,Suicídio geral
+2023-04-01,Ridge,0.025638759311612417,Suicídio geral
+2023-04-01,Random Forest,0.001922550928148969,Suicídio geral
+2023-04-01,ELM aleatória,0.033484681050602864,Suicídio geral
+2023-04-01,ELM PSO,0.03362760093043542,Suicídio geral
+2023-05-01,Média móvel 3,0.005856895987849961,Suicídio geral
+2023-05-01,Média móvel 6,0.04327693301982535,Suicídio geral
+2023-05-01,Média móvel 12,0.9253016276872976,Suicídio geral
+2023-05-01,Ridge,0.0062672801190585894,Suicídio geral
+2023-05-01,Random Forest,0.00024211571822915263,Suicídio geral
+2023-05-01,ELM aleatória,0.009478781656914391,Suicídio geral
+2023-05-01,ELM PSO,0.009576365810824874,Suicídio geral
+2023-06-01,Média móvel 3,0.006683640673484422,Suicídio geral
+2023-06-01,Média móvel 6,0.1045497307015047,Suicídio geral
+2023-06-01,Média móvel 12,0.8753841775750106,Suicídio geral
+2023-06-01,Ridge,0.003050726116777232,Suicídio geral
+2023-06-01,Random Forest,6.240984381614714e-05,Suicídio geral
+2023-06-01,ELM aleatória,0.005096716733358372,Suicídio geral
+2023-06-01,ELM PSO,0.005172598356048678,Suicídio geral
+2023-07-01,Média móvel 3,0.1939273903876674,Suicídio geral
+2023-07-01,Média móvel 6,0.0808409636279856,Suicídio geral
+2023-07-01,Média móvel 12,0.7205276657228514,Suicídio geral
+2023-07-01,Ridge,0.0009335716236028123,Suicídio geral
+2023-07-01,Random Forest,4.54891279585332e-05,Suicídio geral
+2023-07-01,ELM aleatória,0.001838055057476077,Suicídio geral
+2023-07-01,ELM PSO,0.001886864452458234,Suicídio geral
+2023-08-01,Média móvel 3,0.16114062804961596,Suicídio geral
+2023-08-01,Média móvel 6,0.11075022603614565,Suicídio geral
+2023-08-01,Média móvel 12,0.7221821915173753,Suicídio geral
+2023-08-01,Ridge,0.0008826996674238046,Suicídio geral
+2023-08-01,Random Forest,2.083836041190294e-05,Suicídio geral
+2023-08-01,ELM aleatória,0.0024685752455171736,Suicídio geral
+2023-08-01,ELM PSO,0.0025548411235103304,Suicídio geral
+2023-09-01,Média móvel 3,0.008499812474037584,Suicídio geral
+2023-09-01,Média móvel 6,0.008499812474037645,Suicídio geral
+2023-09-01,Média móvel 12,0.9824447434268991,Suicídio geral
+2023-09-01,Ridge,0.00012331066339433156,Suicídio geral
+2023-09-01,Random Forest,3.6596680181196157e-05,Suicídio geral
+2023-09-01,ELM aleatória,0.00019606378069835547,Suicídio geral
+2023-09-01,ELM PSO,0.00019966050075157594,Suicídio geral
+2023-10-01,Média móvel 3,0.006963840943063906,Suicídio geral
+2023-10-01,Média móvel 6,0.02145014020601083,Suicídio geral
+2023-10-01,Média móvel 12,0.9709074811893774,Suicídio geral
+2023-10-01,Ridge,0.00010566253221115306,Suicídio geral
+2023-10-01,Random Forest,0.00010734496009368189,Suicídio geral
+2023-10-01,ELM aleatória,0.00022901805151189956,Suicídio geral
+2023-10-01,ELM PSO,0.00023651211773118767,Suicídio geral
+2023-11-01,Média móvel 3,0.014833875506553892,Suicídio geral
+2023-11-01,Média móvel 6,0.06648081772847811,Suicídio geral
+2023-11-01,Média móvel 12,0.9177393802831806,Suicídio geral
+2023-11-01,Ridge,0.00010379556199738746,Suicídio geral
+2023-11-01,Random Forest,0.00016957861008363087,Suicídio geral
+2023-11-01,ELM aleatória,0.000328908296491357,Suicídio geral
+2023-11-01,ELM PSO,0.0003436440132151584,Suicídio geral
+2023-12-01,Média móvel 3,0.002444901354273091,Suicídio geral
+2023-12-01,Média móvel 6,0.010957287677500444,Suicídio geral
+2023-12-01,Média móvel 12,0.9863436035631473,Suicídio geral
+2023-12-01,Ridge,4.422097918730587e-05,Suicídio geral
+2023-12-01,Random Forest,2.3028962024832904e-05,Suicídio geral
+2023-12-01,ELM aleatória,9.216616807809932e-05,Suicídio geral
+2023-12-01,ELM PSO,9.47912957890287e-05,Suicídio geral
+2024-01-01,Média móvel 3,0.001020675458264782,Suicídio geral
+2024-01-01,Média móvel 6,0.010973295310509197,Suicídio geral
+2024-01-01,Média móvel 12,0.9877845647654927,Suicídio geral
+2024-01-01,Ridge,2.8583499603798426e-05,Suicídio geral
+2024-01-01,Random Forest,4.734414081321934e-05,Suicídio geral
+2024-01-01,ELM aleatória,7.168446544646227e-05,Suicídio geral
+2024-01-01,ELM PSO,7.385235986982851e-05,Suicídio geral
+2024-02-01,Média móvel 3,0.002283203592334106,Suicídio geral
+2024-02-01,Média móvel 6,0.016870719429036694,Suicídio geral
+2024-02-01,Média móvel 12,0.9805165661577744,Suicídio geral
+2024-02-01,Ridge,5.181632411308205e-05,Suicídio geral
+2024-02-01,Random Forest,2.0008125990815327e-05,Suicídio geral
+2024-02-01,ELM aleatória,0.0001272444030715517,Suicídio geral
+2024-02-01,ELM PSO,0.00013044196767936434,Suicídio geral
+2024-03-01,Média móvel 3,0.0024805064744603308,Suicídio geral
+2024-03-01,Média móvel 6,0.05645606713753097,Suicídio geral
+2024-03-01,Média móvel 12,0.940077917605833,Suicídio geral
+2024-03-01,Ridge,0.00014860933815026033,Suicídio geral
+2024-03-01,Random Forest,3.325647669736155e-05,Suicídio geral
+2024-03-01,ELM aleatória,0.000397599701550233,Suicídio geral
+2024-03-01,ELM PSO,0.0004060432657776813,Suicídio geral
+2024-04-01,Média móvel 3,0.005835288210638143,Suicídio geral
+2024-04-01,Média móvel 6,0.07108836338506336,Suicídio geral
+2024-04-01,Média móvel 12,0.9218879233179054,Suicídio geral
+2024-04-01,Ridge,0.00014333012089871126,Suicídio geral
+2024-04-01,Random Forest,4.844204929759815e-05,Suicídio geral
+2024-04-01,ELM aleatória,0.0004903785615134395,Suicídio geral
+2024-04-01,ELM PSO,0.0005062743546833831,Suicídio geral
+2024-05-01,Média móvel 3,0.0002244229443608048,Suicídio geral
+2024-05-01,Média móvel 6,0.025939765455428466,Suicídio geral
+2024-05-01,Média móvel 12,0.9733825175399345,Suicídio geral
+2024-05-01,Ridge,6.964765220730462e-05,Suicídio geral
+2024-05-01,Random Forest,3.627099952630269e-05,Suicídio geral
+2024-05-01,ELM aleatória,0.0001719904070423386,Suicídio geral
+2024-05-01,ELM PSO,0.00017538500150003901,Suicídio geral
+2024-06-01,Média móvel 3,0.0010542673410491763,Suicídio geral
+2024-06-01,Média móvel 6,0.20090779314154336,Suicídio geral
+2024-06-01,Média móvel 12,0.7946057361074492,Suicídio geral
+2024-06-01,Ridge,0.000455773286922689,Suicídio geral
+2024-06-01,Random Forest,0.00013645664445732236,Suicídio geral
+2024-06-01,ELM aleatória,0.0014008204911545778,Suicídio geral
+2024-06-01,ELM PSO,0.001439152987423696,Suicídio geral
+2024-07-01,Média móvel 3,0.0005857577721254995,Suicídio geral
+2024-07-01,Média móvel 6,0.26777606878334637,Suicídio geral
+2024-07-01,Média móvel 12,0.7278908218699491,Suicídio geral
+2024-07-01,Ridge,0.0002866337938143789,Suicídio geral
+2024-07-01,Random Forest,4.369710869674466e-05,Suicídio geral
+2024-07-01,ELM aleatória,0.0016727708008274778,Suicídio geral
+2024-07-01,ELM PSO,0.0017442498712403338,Suicídio geral
+2024-08-01,Média móvel 3,0.001451736456424992,Suicídio geral
+2024-08-01,Média móvel 6,0.08981575416790641,Suicídio geral
+2024-08-01,Média móvel 12,0.9071069833074978,Suicídio geral
+2024-08-01,Ridge,0.00012796857913691706,Suicídio geral
+2024-08-01,Random Forest,0.0004064002327828785,Suicídio geral
+2024-08-01,ELM aleatória,0.0005384011036039357,Suicídio geral
+2024-08-01,ELM PSO,0.0005527561526470179,Suicídio geral
+2024-09-01,Média móvel 3,0.0002251322753332122,Suicídio geral
+2024-09-01,Média móvel 6,0.022964116394405508,Suicídio geral
+2024-09-01,Média móvel 12,0.976459076265475,Suicídio geral
+2024-09-01,Ridge,3.819244520669996e-05,Suicídio geral
+2024-09-01,Random Forest,4.9033238819711385e-05,Suicídio geral
+2024-09-01,ELM aleatória,0.000131193762819105,Suicídio geral
+2024-09-01,ELM PSO,0.00013325561794041632,Suicídio geral
+2024-10-01,Média móvel 3,0.0002267351525939048,Suicídio geral
+2024-10-01,Média móvel 6,0.01589536136608489,Suicídio geral
+2024-10-01,Média móvel 12,0.983411184962579,Suicídio geral
+2024-10-01,Ridge,2.7708276054825703e-05,Suicídio geral
+2024-10-01,Random Forest,0.00026683668111661694,Suicídio geral
+2024-10-01,ELM aleatória,8.591830517141285e-05,Suicídio geral
+2024-10-01,ELM PSO,8.625525639913625e-05,Suicídio geral
+2024-11-01,Média móvel 3,6.5248588507741e-06,Suicídio geral
+2024-11-01,Média móvel 6,0.0023230106582715127,Suicídio geral
+2024-11-01,Média móvel 12,0.997611619675039,Suicídio geral
+2024-11-01,Ridge,3.1628887759487306e-06,Suicídio geral
+2024-11-01,Random Forest,3.086894128383887e-05,Suicídio geral
+2024-11-01,ELM aleatória,1.2306971607240535e-05,Suicídio geral
+2024-11-01,ELM PSO,1.2506006171286882e-05,Suicídio geral
+2024-12-01,Média móvel 3,4.490731802967944e-06,Suicídio geral
+2024-12-01,Média móvel 6,0.0009697280521141119,Suicídio geral
+2024-12-01,Média móvel 12,0.9990056103134718,Suicídio geral
+2024-12-01,Ridge,1.0082862779980712e-06,Suicídio geral
+2024-12-01,Random Forest,8.955637902512493e-06,Suicídio geral
+2024-12-01,ELM aleatória,5.039424817666172e-06,Suicídio geral
+2024-12-01,ELM PSO,5.167553612690859e-06,Suicídio geral
+2025-01-01,Média móvel 3,3.0888171474894385e-06,Suicídio geral
+2025-01-01,Média móvel 6,0.00021654279978826108,Suicídio geral
+2025-01-01,Média móvel 12,0.9997776842092249,Suicídio geral
+2025-01-01,Ridge,1.6116723803491194e-07,Suicídio geral
+2025-01-01,Random Forest,1.0641410656562926e-07,Suicídio geral
+2025-01-01,ELM aleatória,1.1921792631967633e-06,Suicídio geral
+2025-01-01,ELM PSO,1.2244132317546696e-06,Suicídio geral
+2025-02-01,Média móvel 3,1.2089949458396159e-06,Suicídio geral
+2025-02-01,Média móvel 6,0.0007096624192899946,Suicídio geral
+2025-02-01,Média móvel 12,0.9992790931908865,Suicídio geral
+2025-02-01,Ridge,7.16713821718398e-07,Suicídio geral
+2025-02-01,Random Forest,1.247498842967796e-06,Suicídio geral
+2025-02-01,ELM aleatória,4.0035040431509585e-06,Suicídio geral
+2025-02-01,ELM PSO,4.06767816998042e-06,Suicídio geral
+2025-03-01,Média móvel 3,3.430092507287802e-08,Suicídio geral
+2025-03-01,Média móvel 6,0.000588405917070479,Suicídio geral
+2025-03-01,Média móvel 12,0.9994066630105441,Suicídio geral
+2025-03-01,Ridge,3.051583423263711e-07,Suicídio geral
+2025-03-01,Random Forest,4.2788149932573205e-07,Suicídio geral
+2025-03-01,ELM aleatória,2.0611851639658784e-06,Suicídio geral
+2025-03-01,ELM PSO,2.1025464547717893e-06,Suicídio geral
+2025-04-01,Média móvel 3,2.0608244796159574e-09,Suicídio geral
+2025-04-01,Média móvel 6,0.0001584360206419586,Suicídio geral
+2025-04-01,Média móvel 12,0.9998403113581553,Suicídio geral
+2025-04-01,Ridge,7.076375780934002e-08,Suicídio geral
+2025-04-01,Random Forest,7.083137850834964e-08,Suicídio geral
+2025-04-01,ELM aleatória,5.469226099604374e-07,Suicídio geral
+2025-04-01,ELM PSO,5.620426318171025e-07,Suicídio geral
+2025-05-01,Média móvel 3,5.257515394934311e-09,Suicídio geral
+2025-05-01,Média móvel 6,0.001098722343485699,Suicídio geral
+2025-05-01,Média móvel 12,0.9988933326377647,Suicídio geral
+2025-05-01,Ridge,3.252537324435287e-07,Suicídio geral
+2025-05-01,Random Forest,1.104718769909154e-07,Suicídio geral
+2025-05-01,ELM aleatória,3.6848985112071706e-06,Suicídio geral
+2025-05-01,ELM PSO,3.819137113595837e-06,Suicídio geral
+2025-06-01,Média móvel 3,1.6178832080438432e-08,Suicídio geral
+2025-06-01,Média móvel 6,0.002050724546751809,Suicídio geral
+2025-06-01,Média móvel 12,0.9979400138536101,Suicídio geral
+2025-06-01,Ridge,4.032830799477729e-07,Suicídio geral
+2025-06-01,Random Forest,1.4851948219274115e-08,Suicídio geral
+2025-06-01,ELM aleatória,4.350042799816914e-06,Suicídio geral
+2025-06-01,ELM PSO,4.477242978140264e-06,Suicídio geral
+2025-07-01,Média móvel 3,6.344812196983575e-09,Suicídio geral
+2025-07-01,Média móvel 6,0.0006263330279436752,Suicídio geral
+2025-07-01,Média móvel 12,0.9993718625586324,Suicídio geral
+2025-07-01,Ridge,8.406901208586066e-08,Suicídio geral
+2025-07-01,Random Forest,1.1972931213099337e-08,Suicídio geral
+2025-07-01,ELM aleatória,8.433998075531342e-07,Suicídio geral
+2025-07-01,ELM PSO,8.586268607410269e-07,Suicídio geral
+2025-08-01,Média móvel 3,1.4397732019566476e-07,Suicídio geral
+2025-08-01,Média móvel 6,0.003593566741401288,Suicídio geral
+2025-08-01,Média móvel 12,0.9963964599746893,Suicídio geral
+2025-08-01,Ridge,3.082958084958166e-07,Suicídio geral
+2025-08-01,Random Forest,1.0408179093761576e-08,Suicídio geral
+2025-08-01,ELM aleatória,4.687881722241101e-06,Suicídio geral
+2025-08-01,ELM PSO,4.822720879537671e-06,Suicídio geral
+2025-09-01,Média móvel 3,4.7115286926126833e-07,Suicídio geral
+2025-09-01,Média móvel 6,0.005554853480412024,Suicídio geral
+2025-09-01,Média móvel 12,0.994432324873413,Suicídio geral
+2025-09-01,Ridge,4.7204611859932975e-07,Suicídio geral
+2025-09-01,Random Forest,9.179808151841384e-08,Suicídio geral
+2025-09-01,ELM aleatória,5.836306228222064e-06,Suicídio geral
+2025-09-01,ELM PSO,5.9503428771940985e-06,Suicídio geral
+2025-10-01,Média móvel 3,2.2334308367810223e-07,Suicídio geral
+2025-10-01,Média móvel 6,0.0020507355282344685,Suicídio geral
+2025-10-01,Média móvel 12,0.9979453577507381,Suicídio geral
+2025-10-01,Ridge,1.7849362151312376e-07,Suicídio geral
+2025-10-01,Random Forest,8.015642774401123e-09,Suicídio geral
+2025-10-01,ELM aleatória,1.739364674097513e-06,Suicídio geral
+2025-10-01,ELM PSO,1.7575040055195087e-06,Suicídio geral
+2025-11-01,Média móvel 3,7.74010437510546e-07,Suicídio geral
+2025-11-01,Média móvel 6,0.009125519238420688,Suicídio geral
+2025-11-01,Média móvel 12,0.9908615336374724,Suicídio geral
+2025-11-01,Ridge,3.2218959268595005e-07,Suicídio geral
+2025-11-01,Random Forest,8.185312018396381e-10,Suicídio geral
+2025-11-01,ELM aleatória,5.847692346420817e-06,Suicídio geral
+2025-11-01,ELM PSO,6.002413199080955e-06,Suicídio geral
+2025-12-01,Média móvel 3,5.31182261313656e-06,Suicídio geral
+2025-12-01,Média móvel 6,0.020331669392949895,Suicídio geral
+2025-12-01,Média móvel 12,0.979634692114873,Suicídio geral
+2025-12-01,Ridge,1.177955657134904e-06,Suicídio geral
+2025-12-01,Random Forest,8.971742810084045e-10,Suicídio geral
+2025-12-01,ELM aleatória,1.347562745616198e-05,Suicídio geral
+2025-12-01,ELM PSO,1.3672189276337964e-05,Suicídio geral
+2026-01-01,Média móvel 3,4.173600803540878e-07,Suicídio geral
+2026-01-01,Média móvel 6,0.0018102026372250135,Suicídio geral
+2026-01-01,Média móvel 12,0.9981851631088332,Suicídio geral
+2026-01-01,Ridge,2.6804180321202324e-07,Suicídio geral
+2026-01-01,Random Forest,3.559545737880357e-11,Suicídio geral
+2026-01-01,ELM aleatória,1.966145632917479e-06,Suicídio geral
+2026-01-01,ELM PSO,1.98267082978066e-06,Suicídio geral
+2026-02-01,Média móvel 3,2.3979595412040153e-06,Suicídio geral
+2026-02-01,Média móvel 6,0.0033765784557680816,Suicídio geral
+2026-02-01,Média móvel 12,0.9966133742046522,Suicídio geral
+2026-02-01,Ridge,3.9161272518621314e-07,Suicídio geral
+2026-02-01,Random Forest,2.6370618185714025e-11,Suicídio geral
+2026-02-01,ELM aleatória,3.5959528548584656e-06,Suicídio geral
+2026-02-01,ELM PSO,3.661788087973226e-06,Suicídio geral
+2026-03-01,Média móvel 3,1.5430763295618044e-06,Suicídio geral
+2026-03-01,Média móvel 6,0.006692736015486812,Suicídio geral
+2026-03-01,Média móvel 12,0.9932900950980451,Suicídio geral
+2026-03-01,Ridge,9.443587124063242e-07,Suicídio geral
+2026-03-01,Random Forest,5.908702841793881e-11,Suicídio geral
+2026-03-01,ELM aleatória,7.305500976869354e-06,Suicídio geral
+2026-03-01,ELM PSO,7.375891362080233e-06,Suicídio geral
+2026-04-01,Média móvel 3,6.446013699321781e-07,Suicídio geral
+2026-04-01,Média móvel 6,0.004609509889241733,Suicídio geral
+2026-04-01,Média móvel 12,0.9953769768974293,Suicídio geral
+2026-04-01,Ridge,9.511500706711268e-07,Suicídio geral
+2026-04-01,Random Forest,5.746885355493836e-11,Suicídio geral
+2026-04-01,ELM aleatória,5.952465102024806e-06,Suicídio geral
+2026-04-01,ELM PSO,5.964939317485508e-06,Suicídio geral
+2026-05-01,Média móvel 3,1.4422744870699796e-06,Suicídio geral
+2026-05-01,Média móvel 6,0.011686871215328782,Suicídio geral
+2026-05-01,Média móvel 12,0.9882800345922492,Suicídio geral
+2026-05-01,Ridge,1.9186866481855534e-06,Suicídio geral
+2026-05-01,Random Forest,8.118751622303826e-11,Suicídio geral
+2026-05-01,ELM aleatória,1.4779689176730719e-05,Suicídio geral
+2026-05-01,ELM PSO,1.4953460922795496e-05,Suicídio geral
+2026-06-01,Média móvel 3,2.693670247666261e-07,Suicídio geral
+2026-06-01,Média móvel 6,0.0021827036090052484,Suicídio geral
+2026-06-01,Média móvel 12,0.9978114154897737,Suicídio geral
+2026-06-01,Ridge,4.081458772600375e-07,Suicídio geral
+2026-06-01,Random Forest,8.472181361292138e-12,Suicídio geral
+2026-06-01,ELM aleatória,2.590250974532835e-06,Suicídio geral
+2026-06-01,ELM PSO,2.6131288724403925e-06,Suicídio geral
+2026-07-01,Média móvel 3,9.326154210588471e-08,Suicídio geral
+2026-07-01,Média móvel 6,0.0003569702867117894,Suicídio geral
+2026-07-01,Média móvel 12,0.9996420539303681,Suicídio geral
+2026-07-01,Ridge,8.290743654166028e-08,Suicídio geral
+2026-07-01,Random Forest,6.598430762288031e-13,Suicídio geral
+2026-07-01,ELM aleatória,3.994496352030426e-07,Suicídio geral
+2026-07-01,ELM PSO,4.0016364620279525e-07,Suicídio geral
+2026-08-01,Média móvel 3,2.403452948584326e-06,Suicídio geral
+2026-08-01,Média móvel 6,0.0010987258090359579,Suicídio geral
+2026-08-01,Média móvel 12,0.9988964833110551,Suicídio geral
+2026-08-01,Ridge,2.593035629955733e-07,Suicídio geral
+2026-08-01,Random Forest,2.9381223261238296e-12,Suicídio geral
+2026-08-01,ELM aleatória,1.0651473369806337e-06,Suicídio geral
+2026-08-01,ELM PSO,1.062973122107782e-06,Suicídio geral
+2023-01-01,Média móvel 3,0.14285714285714285,Homicídios — jovens de 15 a 29 anos
+2023-01-01,Média móvel 6,0.14285714285714285,Homicídios — jovens de 15 a 29 anos
+2023-01-01,Média móvel 12,0.14285714285714285,Homicídios — jovens de 15 a 29 anos
+2023-01-01,Ridge,0.14285714285714285,Homicídios — jovens de 15 a 29 anos
+2023-01-01,Random Forest,0.14285714285714285,Homicídios — jovens de 15 a 29 anos
+2023-01-01,ELM aleatória,0.14285714285714285,Homicídios — jovens de 15 a 29 anos
+2023-01-01,ELM PSO,0.14285714285714285,Homicídios — jovens de 15 a 29 anos
+2023-02-01,Média móvel 3,0.1403599371036943,Homicídios — jovens de 15 a 29 anos
+2023-02-01,Média móvel 6,0.14319539591926006,Homicídios — jovens de 15 a 29 anos
+2023-02-01,Média móvel 12,0.14088727500843057,Homicídios — jovens de 15 a 29 anos
+2023-02-01,Ridge,0.14373167970097758,Homicídios — jovens de 15 a 29 anos
+2023-02-01,Random Forest,0.14363960836682085,Homicídios — jovens de 15 a 29 anos
+2023-02-01,ELM aleatória,0.143703897244439,Homicídios — jovens de 15 a 29 anos
+2023-02-01,ELM PSO,0.1444822066563776,Homicídios — jovens de 15 a 29 anos
+2023-03-01,Média móvel 3,0.14108072018650294,Homicídios — jovens de 15 a 29 anos
+2023-03-01,Média móvel 6,0.14357136234572088,Homicídios — jovens de 15 a 29 anos
+2023-03-01,Média móvel 12,0.14483312392285447,Homicídios — jovens de 15 a 29 anos
+2023-03-01,Ridge,0.14256673808364553,Homicídios — jovens de 15 a 29 anos
+2023-03-01,Random Forest,0.14260838221390099,Homicídios — jovens de 15 a 29 anos
+2023-03-01,ELM aleatória,0.14234914581462033,Homicídios — jovens de 15 a 29 anos
+2023-03-01,ELM PSO,0.14299052743275487,Homicídios — jovens de 15 a 29 anos
+2023-04-01,Média móvel 3,0.14131835625775246,Homicídios — jovens de 15 a 29 anos
+2023-04-01,Média móvel 6,0.14273862935020284,Homicídios — jovens de 15 a 29 anos
+2023-04-01,Média móvel 12,0.14318538525945962,Homicídios — jovens de 15 a 29 anos
+2023-04-01,Ridge,0.14342158401765534,Homicídios — jovens de 15 a 29 anos
+2023-04-01,Random Forest,0.1418725831352177,Homicídios — jovens de 15 a 29 anos
+2023-04-01,ELM aleatória,0.14361000297334994,Homicídios — jovens de 15 a 29 anos
+2023-04-01,ELM PSO,0.1438534590063622,Homicídios — jovens de 15 a 29 anos
+2023-05-01,Média móvel 3,0.142722557900805,Homicídios — jovens de 15 a 29 anos
+2023-05-01,Média móvel 6,0.14290107264665305,Homicídios — jovens de 15 a 29 anos
+2023-05-01,Média móvel 12,0.14125829460678718,Homicídios — jovens de 15 a 29 anos
+2023-05-01,Ridge,0.14387797961772716,Homicídios — jovens de 15 a 29 anos
+2023-05-01,Random Forest,0.14301550046028952,Homicídios — jovens de 15 a 29 anos
+2023-05-01,ELM aleatória,0.14397522974377264,Homicídios — jovens de 15 a 29 anos
+2023-05-01,ELM PSO,0.1422493650239655,Homicídios — jovens de 15 a 29 anos
+2023-06-01,Média móvel 3,0.1421869302097347,Homicídios — jovens de 15 a 29 anos
+2023-06-01,Média móvel 6,0.14406543438566144,Homicídios — jovens de 15 a 29 anos
+2023-06-01,Média móvel 12,0.1453996781896869,Homicídios — jovens de 15 a 29 anos
+2023-06-01,Ridge,0.14289622058011126,Homicídios — jovens de 15 a 29 anos
+2023-06-01,Random Forest,0.14229290622392293,Homicídios — jovens de 15 a 29 anos
+2023-06-01,ELM aleatória,0.14256579499944122,Homicídios — jovens de 15 a 29 anos
+2023-06-01,ELM PSO,0.1405930354114415,Homicídios — jovens de 15 a 29 anos
+2023-07-01,Média móvel 3,0.1468604270380748,Homicídios — jovens de 15 a 29 anos
+2023-07-01,Média móvel 6,0.14363784404464722,Homicídios — jovens de 15 a 29 anos
+2023-07-01,Média móvel 12,0.14349203591501355,Homicídios — jovens de 15 a 29 anos
+2023-07-01,Ridge,0.1424399748191964,Homicídios — jovens de 15 a 29 anos
+2023-07-01,Random Forest,0.14208836480349996,Homicídios — jovens de 15 a 29 anos
+2023-07-01,ELM aleatória,0.1422833381930242,Homicídios — jovens de 15 a 29 anos
+2023-07-01,ELM PSO,0.13919801518654382,Homicídios — jovens de 15 a 29 anos
+2023-08-01,Média móvel 3,0.15002529928818023,Homicídios — jovens de 15 a 29 anos
+2023-08-01,Média móvel 6,0.14380528424503755,Homicídios — jovens de 15 a 29 anos
+2023-08-01,Média móvel 12,0.14328381438547877,Homicídios — jovens de 15 a 29 anos
+2023-08-01,Ridge,0.1411689579201091,Homicídios — jovens de 15 a 29 anos
+2023-08-01,Random Forest,0.14188200831691944,Homicídios — jovens de 15 a 29 anos
+2023-08-01,ELM aleatória,0.14095353474576147,Homicídios — jovens de 15 a 29 anos
+2023-08-01,ELM PSO,0.13888110109851343,Homicídios — jovens de 15 a 29 anos
+2023-09-01,Média móvel 3,0.15145987399572716,Homicídios — jovens de 15 a 29 anos
+2023-09-01,Média móvel 6,0.14444500642700075,Homicídios — jovens de 15 a 29 anos
+2023-09-01,Média móvel 12,0.13913677616477432,Homicídios — jovens de 15 a 29 anos
+2023-09-01,Ridge,0.1417743324428884,Homicídios — jovens de 15 a 29 anos
+2023-09-01,Random Forest,0.14242304891189805,Homicídios — jovens de 15 a 29 anos
+2023-09-01,ELM aleatória,0.1417256210979938,Homicídios — jovens de 15 a 29 anos
+2023-09-01,ELM PSO,0.1390353409597176,Homicídios — jovens de 15 a 29 anos
+2023-10-01,Média móvel 3,0.14279407860930557,Homicídios — jovens de 15 a 29 anos
+2023-10-01,Média móvel 6,0.14513910759121698,Homicídios — jovens de 15 a 29 anos
+2023-10-01,Média móvel 12,0.13901709929830447,Homicídios — jovens de 15 a 29 anos
+2023-10-01,Ridge,0.14394291772538778,Homicídios — jovens de 15 a 29 anos
+2023-10-01,Random Forest,0.1428213947393452,Homicídios — jovens de 15 a 29 anos
+2023-10-01,ELM aleatória,0.1440268773821322,Homicídios — jovens de 15 a 29 anos
+2023-10-01,ELM PSO,0.14225852465430788,Homicídios — jovens de 15 a 29 anos
+2023-11-01,Média móvel 3,0.13920650487114625,Homicídios — jovens de 15 a 29 anos
+2023-11-01,Média móvel 6,0.14318006135072667,Homicídios — jovens de 15 a 29 anos
+2023-11-01,Média móvel 12,0.14539150769467624,Homicídios — jovens de 15 a 29 anos
+2023-11-01,Ridge,0.14313943563517903,Homicídios — jovens de 15 a 29 anos
+2023-11-01,Random Forest,0.14373704418938402,Homicídios — jovens de 15 a 29 anos
+2023-11-01,ELM aleatória,0.14299259672825368,Homicídios — jovens de 15 a 29 anos
+2023-11-01,ELM PSO,0.1423528495306342,Homicídios — jovens de 15 a 29 anos
+2023-12-01,Média móvel 3,0.13924212938724045,Homicídios — jovens de 15 a 29 anos
+2023-12-01,Média móvel 6,0.1440681744725787,Homicídios — jovens de 15 a 29 anos
+2023-12-01,Média móvel 12,0.1415920726521779,Homicídios — jovens de 15 a 29 anos
+2023-12-01,Ridge,0.14374970866000938,Homicídios — jovens de 15 a 29 anos
+2023-12-01,Random Forest,0.14364451506605513,Homicídios — jovens de 15 a 29 anos
+2023-12-01,ELM aleatória,0.1439262086896155,Homicídios — jovens de 15 a 29 anos
+2023-12-01,ELM PSO,0.14377719107232295,Homicídios — jovens de 15 a 29 anos
+2024-01-01,Média móvel 3,0.14262616018765345,Homicídios — jovens de 15 a 29 anos
+2024-01-01,Média móvel 6,0.1420264169976877,Homicídios — jovens de 15 a 29 anos
+2024-01-01,Média móvel 12,0.1438246519229028,Homicídios — jovens de 15 a 29 anos
+2024-01-01,Ridge,0.14304353510168966,Homicídios — jovens de 15 a 29 anos
+2024-01-01,Random Forest,0.14203379514032344,Homicídios — jovens de 15 a 29 anos
+2024-01-01,ELM aleatória,0.14313829317694204,Homicídios — jovens de 15 a 29 anos
+2024-01-01,ELM PSO,0.14330714747280096,Homicídios — jovens de 15 a 29 anos
+2024-02-01,Média móvel 3,0.13541945177610173,Homicídios — jovens de 15 a 29 anos
+2024-02-01,Média móvel 6,0.14457090483931445,Homicídios — jovens de 15 a 29 anos
+2024-02-01,Média móvel 12,0.14575628873172522,Homicídios — jovens de 15 a 29 anos
+2024-02-01,Ridge,0.1444318000673708,Homicídios — jovens de 15 a 29 anos
+2024-02-01,Random Forest,0.14138926192765544,Homicídios — jovens de 15 a 29 anos
+2024-02-01,ELM aleatória,0.1447517358794298,Homicídios — jovens de 15 a 29 anos
+2024-02-01,ELM PSO,0.14368055677840255,Homicídios — jovens de 15 a 29 anos
+2024-03-01,Média móvel 3,0.1385878862953639,Homicídios — jovens de 15 a 29 anos
+2024-03-01,Média móvel 6,0.14409188922364985,Homicídios — jovens de 15 a 29 anos
+2024-03-01,Média móvel 12,0.14577060135560274,Homicídios — jovens de 15 a 29 anos
+2024-03-01,Ridge,0.14327557617281333,Homicídios — jovens de 15 a 29 anos
+2024-03-01,Random Forest,0.13975983693595778,Homicídios — jovens de 15 a 29 anos
+2024-03-01,ELM aleatória,0.14394720260243601,Homicídios — jovens de 15 a 29 anos
+2024-03-01,ELM PSO,0.14456700741417633,Homicídios — jovens de 15 a 29 anos
+2024-04-01,Média móvel 3,0.1412991744112397,Homicídios — jovens de 15 a 29 anos
+2024-04-01,Média móvel 6,0.14300115590329263,Homicídios — jovens de 15 a 29 anos
+2024-04-01,Média móvel 12,0.14045598797539535,Homicídios — jovens de 15 a 29 anos
+2024-04-01,Ridge,0.14376043267083996,Homicídios — jovens de 15 a 29 anos
+2024-04-01,Random Forest,0.14437421791491312,Homicídios — jovens de 15 a 29 anos
+2024-04-01,ELM aleatória,0.1435696017846973,Homicídios — jovens de 15 a 29 anos
+2024-04-01,ELM PSO,0.14353942933962197,Homicídios — jovens de 15 a 29 anos
+2024-05-01,Média móvel 3,0.14244121021566628,Homicídios — jovens de 15 a 29 anos
+2024-05-01,Média móvel 6,0.14329651114016392,Homicídios — jovens de 15 a 29 anos
+2024-05-01,Média móvel 12,0.14416186412014295,Homicídios — jovens de 15 a 29 anos
+2024-05-01,Ridge,0.1430768891826985,Homicídios — jovens de 15 a 29 anos
+2024-05-01,Random Forest,0.140834527048138,Homicídios — jovens de 15 a 29 anos
+2024-05-01,ELM aleatória,0.143338691639628,Homicídios — jovens de 15 a 29 anos
+2024-05-01,ELM PSO,0.1428503066535624,Homicídios — jovens de 15 a 29 anos
+2024-06-01,Média móvel 3,0.14224653672819787,Homicídios — jovens de 15 a 29 anos
+2024-06-01,Média móvel 6,0.14196137917754909,Homicídios — jovens de 15 a 29 anos
+2024-06-01,Média móvel 12,0.1472770359326506,Homicídios — jovens de 15 a 29 anos
+2024-06-01,Ridge,0.14114057318548628,Homicídios — jovens de 15 a 29 anos
+2024-06-01,Random Forest,0.1427192343647347,Homicídios — jovens de 15 a 29 anos
+2024-06-01,ELM aleatória,0.14177426053843917,Homicídios — jovens de 15 a 29 anos
+2024-06-01,ELM PSO,0.14288098007294245,Homicídios — jovens de 15 a 29 anos
+2024-07-01,Média móvel 3,0.14195854745169878,Homicídios — jovens de 15 a 29 anos
+2024-07-01,Média móvel 6,0.14146208829710974,Homicídios — jovens de 15 a 29 anos
+2024-07-01,Média móvel 12,0.14764148526103701,Homicídios — jovens de 15 a 29 anos
+2024-07-01,Ridge,0.14039522826993436,Homicídios — jovens de 15 a 29 anos
+2024-07-01,Random Forest,0.1442346310624101,Homicídios — jovens de 15 a 29 anos
+2024-07-01,ELM aleatória,0.14114447162467902,Homicídios — jovens de 15 a 29 anos
+2024-07-01,ELM PSO,0.143163548033131,Homicídios — jovens de 15 a 29 anos
+2024-08-01,Média móvel 3,0.14025724298102468,Homicídios — jovens de 15 a 29 anos
+2024-08-01,Média móvel 6,0.14230555130165884,Homicídios — jovens de 15 a 29 anos
+2024-08-01,Média móvel 12,0.14601788404670232,Homicídios — jovens de 15 a 29 anos
+2024-08-01,Ridge,0.1420225418727221,Homicídios — jovens de 15 a 29 anos
+2024-08-01,Random Forest,0.14283119793561597,Homicídios — jovens de 15 a 29 anos
+2024-08-01,ELM aleatória,0.1422144958766579,Homicídios — jovens de 15 a 29 anos
+2024-08-01,ELM PSO,0.1443510859856181,Homicídios — jovens de 15 a 29 anos
+2024-09-01,Média móvel 3,0.14381152497673308,Homicídios — jovens de 15 a 29 anos
+2024-09-01,Média móvel 6,0.14287966214676695,Homicídios — jovens de 15 a 29 anos
+2024-09-01,Média móvel 12,0.14257655001708477,Homicídios — jovens de 15 a 29 anos
+2024-09-01,Ridge,0.1422279824220362,Homicídios — jovens de 15 a 29 anos
+2024-09-01,Random Forest,0.14193348447393309,Homicídios — jovens de 15 a 29 anos
+2024-09-01,ELM aleatória,0.1425727924007054,Homicídios — jovens de 15 a 29 anos
+2024-09-01,ELM PSO,0.14399800356274053,Homicídios — jovens de 15 a 29 anos
+2024-10-01,Média móvel 3,0.14213220584995706,Homicídios — jovens de 15 a 29 anos
+2024-10-01,Média móvel 6,0.14327376403345146,Homicídios — jovens de 15 a 29 anos
+2024-10-01,Média móvel 12,0.14107905145480096,Homicídios — jovens de 15 a 29 anos
+2024-10-01,Ridge,0.14235365503722344,Homicídios — jovens de 15 a 29 anos
+2024-10-01,Random Forest,0.14340385239382106,Homicídios — jovens de 15 a 29 anos
+2024-10-01,ELM aleatória,0.14303037602099736,Homicídios — jovens de 15 a 29 anos
+2024-10-01,ELM PSO,0.1447270952097487,Homicídios — jovens de 15 a 29 anos
+2024-11-01,Média móvel 3,0.1413371569600139,Homicídios — jovens de 15 a 29 anos
+2024-11-01,Média móvel 6,0.14208109857557677,Homicídios — jovens de 15 a 29 anos
+2024-11-01,Média móvel 12,0.14374696771758444,Homicídios — jovens de 15 a 29 anos
+2024-11-01,Ridge,0.1424627811933191,Homicídios — jovens de 15 a 29 anos
+2024-11-01,Random Forest,0.1456518566805763,Homicídios — jovens de 15 a 29 anos
+2024-11-01,ELM aleatória,0.14250681672319546,Homicídios — jovens de 15 a 29 anos
+2024-11-01,ELM PSO,0.14221332214973403,Homicídios — jovens de 15 a 29 anos
+2024-12-01,Média móvel 3,0.14164358604708827,Homicídios — jovens de 15 a 29 anos
+2024-12-01,Média móvel 6,0.142727731594936,Homicídios — jovens de 15 a 29 anos
+2024-12-01,Média móvel 12,0.14036794134788613,Homicídios — jovens de 15 a 29 anos
+2024-12-01,Ridge,0.1433679139157331,Homicídios — jovens de 15 a 29 anos
+2024-12-01,Random Forest,0.14559282817392574,Homicídios — jovens de 15 a 29 anos
+2024-12-01,ELM aleatória,0.14355043834686887,Homicídios — jovens de 15 a 29 anos
+2024-12-01,ELM PSO,0.142749560573562,Homicídios — jovens de 15 a 29 anos
+2025-01-01,Média móvel 3,0.14207429642695008,Homicídios — jovens de 15 a 29 anos
+2025-01-01,Média móvel 6,0.14513474442815294,Homicídios — jovens de 15 a 29 anos
+2025-01-01,Média móvel 12,0.13776877361538792,Homicídios — jovens de 15 a 29 anos
+2025-01-01,Ridge,0.14439265018183575,Homicídios — jovens de 15 a 29 anos
+2025-01-01,Random Forest,0.14178146631519625,Homicídios — jovens de 15 a 29 anos
+2025-01-01,ELM aleatória,0.14488282537119274,Homicídios — jovens de 15 a 29 anos
+2025-01-01,ELM PSO,0.14396524366128438,Homicídios — jovens de 15 a 29 anos
+2025-02-01,Média móvel 3,0.1449385847535115,Homicídios — jovens de 15 a 29 anos
+2025-02-01,Média móvel 6,0.14341124228367425,Homicídios — jovens de 15 a 29 anos
+2025-02-01,Média móvel 12,0.13695787474291038,Homicídios — jovens de 15 a 29 anos
+2025-02-01,Ridge,0.14368320277396987,Homicídios — jovens de 15 a 29 anos
+2025-02-01,Random Forest,0.1433355131979742,Homicídios — jovens de 15 a 29 anos
+2025-02-01,ELM aleatória,0.14390843965421135,Homicídios — jovens de 15 a 29 anos
+2025-02-01,ELM PSO,0.14376514259374842,Homicídios — jovens de 15 a 29 anos
+2025-03-01,Média móvel 3,0.13990299246124258,Homicídios — jovens de 15 a 29 anos
+2025-03-01,Média móvel 6,0.14484328768711827,Homicídios — jovens de 15 a 29 anos
+2025-03-01,Média móvel 12,0.1362519736940967,Homicídios — jovens de 15 a 29 anos
+2025-03-01,Ridge,0.1448863918857555,Homicídios — jovens de 15 a 29 anos
+2025-03-01,Random Forest,0.144289511100186,Homicídios — jovens de 15 a 29 anos
+2025-03-01,ELM aleatória,0.14487539496577434,Homicídios — jovens de 15 a 29 anos
+2025-03-01,ELM PSO,0.14495044820582662,Homicídios — jovens de 15 a 29 anos
+2025-04-01,Média móvel 3,0.13705459766068306,Homicídios — jovens de 15 a 29 anos
+2025-04-01,Média móvel 6,0.14496334617758141,Homicídios — jovens de 15 a 29 anos
+2025-04-01,Média móvel 12,0.1439775944569032,Homicídios — jovens de 15 a 29 anos
+2025-04-01,Ridge,0.14357842584508226,Homicídios — jovens de 15 a 29 anos
+2025-04-01,Random Forest,0.14701445475900118,Homicídios — jovens de 15 a 29 anos
+2025-04-01,ELM aleatória,0.14264909985128235,Homicídios — jovens de 15 a 29 anos
+2025-04-01,ELM PSO,0.1407624812494666,Homicídios — jovens de 15 a 29 anos
+2025-05-01,Média móvel 3,0.13724136210997318,Homicídios — jovens de 15 a 29 anos
+2025-05-01,Média móvel 6,0.1434579442689401,Homicídios — jovens de 15 a 29 anos
+2025-05-01,Média móvel 12,0.14296935476028255,Homicídios — jovens de 15 a 29 anos
+2025-05-01,Ridge,0.1438380549362306,Homicídios — jovens de 15 a 29 anos
+2025-05-01,Random Forest,0.1433285699340727,Homicídios — jovens de 15 a 29 anos
+2025-05-01,ELM aleatória,0.14414941251765162,Homicídios — jovens de 15 a 29 anos
+2025-05-01,ELM PSO,0.14501530147284927,Homicídios — jovens de 15 a 29 anos
+2025-06-01,Média móvel 3,0.13793105212133505,Homicídios — jovens de 15 a 29 anos
+2025-06-01,Média móvel 6,0.14404911632193682,Homicídios — jovens de 15 a 29 anos
+2025-06-01,Média móvel 12,0.14570346854224375,Homicídios — jovens de 15 a 29 anos
+2025-06-01,Ridge,0.14391017230761685,Homicídios — jovens de 15 a 29 anos
+2025-06-01,Random Forest,0.14259169148430664,Homicídios — jovens de 15 a 29 anos
+2025-06-01,ELM aleatória,0.14344344012084986,Homicídios — jovens de 15 a 29 anos
+2025-06-01,ELM PSO,0.1423710591017109,Homicídios — jovens de 15 a 29 anos
+2025-07-01,Média móvel 3,0.13906498485588792,Homicídios — jovens de 15 a 29 anos
+2025-07-01,Média móvel 6,0.1442635067505733,Homicídios — jovens de 15 a 29 anos
+2025-07-01,Média móvel 12,0.1427508968697051,Homicídios — jovens de 15 a 29 anos
+2025-07-01,Ridge,0.1447596269333655,Homicídios — jovens de 15 a 29 anos
+2025-07-01,Random Forest,0.14347246332399935,Homicídios — jovens de 15 a 29 anos
+2025-07-01,ELM aleatória,0.14424321675239932,Homicídios — jovens de 15 a 29 anos
+2025-07-01,ELM PSO,0.1414453045140695,Homicídios — jovens de 15 a 29 anos
+2025-08-01,Média móvel 3,0.14017627346814826,Homicídios — jovens de 15 a 29 anos
+2025-08-01,Média móvel 6,0.14384708477468172,Homicídios — jovens de 15 a 29 anos
+2025-08-01,Média móvel 12,0.1457081461481485,Homicídios — jovens de 15 a 29 anos
+2025-08-01,Ridge,0.14315583392810172,Homicídios — jovens de 15 a 29 anos
+2025-08-01,Random Forest,0.14400944859308365,Homicídios — jovens de 15 a 29 anos
+2025-08-01,ELM aleatória,0.1428658736573496,Homicídios — jovens de 15 a 29 anos
+2025-08-01,ELM PSO,0.1402373394304864,Homicídios — jovens de 15 a 29 anos
+2025-09-01,Média móvel 3,0.14358458702630209,Homicídios — jovens de 15 a 29 anos
+2025-09-01,Média móvel 6,0.14400519377273782,Homicídios — jovens de 15 a 29 anos
+2025-09-01,Média móvel 12,0.14259761258364395,Homicídios — jovens de 15 a 29 anos
+2025-09-01,Ridge,0.14339735694574732,Homicídios — jovens de 15 a 29 anos
+2025-09-01,Random Forest,0.14287088667005654,Homicídios — jovens de 15 a 29 anos
+2025-09-01,ELM aleatória,0.14305294612802433,Homicídios — jovens de 15 a 29 anos
+2025-09-01,ELM PSO,0.14049141687348793,Homicídios — jovens de 15 a 29 anos
+2025-10-01,Média móvel 3,0.14208319034370642,Homicídios — jovens de 15 a 29 anos
+2025-10-01,Média móvel 6,0.1433623380251172,Homicídios — jovens de 15 a 29 anos
+2025-10-01,Média móvel 12,0.14062390093595717,Homicídios — jovens de 15 a 29 anos
+2025-10-01,Ridge,0.14390429774851812,Homicídios — jovens de 15 a 29 anos
+2025-10-01,Random Forest,0.1434974722451079,Homicídios — jovens de 15 a 29 anos
+2025-10-01,ELM aleatória,0.14375080827843,Homicídios — jovens de 15 a 29 anos
+2025-10-01,ELM PSO,0.14277799242316314,Homicídios — jovens de 15 a 29 anos
+2025-11-01,Média móvel 3,0.14504000164096328,Homicídios — jovens de 15 a 29 anos
+2025-11-01,Média móvel 6,0.14298515875109583,Homicídios — jovens de 15 a 29 anos
+2025-11-01,Média móvel 12,0.14556135617749263,Homicídios — jovens de 15 a 29 anos
+2025-11-01,Ridge,0.14198599366181788,Homicídios — jovens de 15 a 29 anos
+2025-11-01,Random Forest,0.1423750180496591,Homicídios — jovens de 15 a 29 anos
+2025-11-01,ELM aleatória,0.14198529831367704,Homicídios — jovens de 15 a 29 anos
+2025-11-01,ELM PSO,0.14006717340529415,Homicídios — jovens de 15 a 29 anos
+2025-12-01,Média móvel 3,0.14368801798750475,Homicídios — jovens de 15 a 29 anos
+2025-12-01,Média móvel 6,0.1423103218853853,Homicídios — jovens de 15 a 29 anos
+2025-12-01,Média móvel 12,0.14331764541386338,Homicídios — jovens de 15 a 29 anos
+2025-12-01,Ridge,0.14249618308956613,Homicídios — jovens de 15 a 29 anos
+2025-12-01,Random Forest,0.14256271675233145,Homicídios — jovens de 15 a 29 anos
+2025-12-01,ELM aleatória,0.14283774915553163,Homicídios — jovens de 15 a 29 anos
+2025-12-01,ELM PSO,0.14278736571581718,Homicídios — jovens de 15 a 29 anos
+2026-01-01,Média móvel 3,0.14464731393278096,Homicídios — jovens de 15 a 29 anos
+2026-01-01,Média móvel 6,0.1419863998577002,Homicídios — jovens de 15 a 29 anos
+2026-01-01,Média móvel 12,0.1436504603094306,Homicídios — jovens de 15 a 29 anos
+2026-01-01,Ridge,0.14189165606039394,Homicídios — jovens de 15 a 29 anos
+2026-01-01,Random Forest,0.14353283450310575,Homicídios — jovens de 15 a 29 anos
+2026-01-01,ELM aleatória,0.14243052422759617,Homicídios — jovens de 15 a 29 anos
+2026-01-01,ELM PSO,0.14186081110899243,Homicídios — jovens de 15 a 29 anos
+2026-02-01,Média móvel 3,0.14132233354678642,Homicídios — jovens de 15 a 29 anos
+2026-02-01,Média móvel 6,0.1432025043177607,Homicídios — jovens de 15 a 29 anos
+2026-02-01,Média móvel 12,0.14458037753829767,Homicídios — jovens de 15 a 29 anos
+2026-02-01,Ridge,0.14285065077641718,Homicídios — jovens de 15 a 29 anos
+2026-02-01,Random Forest,0.14252999246188516,Homicídios — jovens de 15 a 29 anos
+2026-02-01,ELM aleatória,0.1427798527600385,Homicídios — jovens de 15 a 29 anos
+2026-02-01,ELM PSO,0.14273428859881446,Homicídios — jovens de 15 a 29 anos
+2026-03-01,Média móvel 3,0.1414162561865407,Homicídios — jovens de 15 a 29 anos
+2026-03-01,Média móvel 6,0.14378453822017406,Homicídios — jovens de 15 a 29 anos
+2026-03-01,Média móvel 12,0.14465532515414484,Homicídios — jovens de 15 a 29 anos
+2026-03-01,Ridge,0.14324360076764164,Homicídios — jovens de 15 a 29 anos
+2026-03-01,Random Forest,0.14238122561052755,Homicídios — jovens de 15 a 29 anos
+2026-03-01,ELM aleatória,0.14258260440082685,Homicídios — jovens de 15 a 29 anos
+2026-03-01,ELM PSO,0.14193644966014424,Homicídios — jovens de 15 a 29 anos
+2026-04-01,Média móvel 3,0.1372000243760231,Homicídios — jovens de 15 a 29 anos
+2026-04-01,Média móvel 6,0.1429141349331914,Homicídios — jovens de 15 a 29 anos
+2026-04-01,Média móvel 12,0.14569464500498133,Homicídios — jovens de 15 a 29 anos
+2026-04-01,Ridge,0.14349864835280857,Homicídios — jovens de 15 a 29 anos
+2026-04-01,Random Forest,0.14162089894866547,Homicídios — jovens de 15 a 29 anos
+2026-04-01,ELM aleatória,0.14426937201184334,Homicídios — jovens de 15 a 29 anos
+2026-04-01,ELM PSO,0.14480227637248677,Homicídios — jovens de 15 a 29 anos
+2026-05-01,Média móvel 3,0.13839870262902035,Homicídios — jovens de 15 a 29 anos
+2026-05-01,Média móvel 6,0.14107486685176304,Homicídios — jovens de 15 a 29 anos
+2026-05-01,Média móvel 12,0.1462291924392458,Homicídios — jovens de 15 a 29 anos
+2026-05-01,Ridge,0.14269873026116894,Homicídios — jovens de 15 a 29 anos
+2026-05-01,Random Forest,0.141404271498193,Homicídios — jovens de 15 a 29 anos
+2026-05-01,ELM aleatória,0.14426337690362181,Homicídios — jovens de 15 a 29 anos
+2026-05-01,ELM PSO,0.14593085941698702,Homicídios — jovens de 15 a 29 anos
+2026-06-01,Média móvel 3,0.14098096706558447,Homicídios — jovens de 15 a 29 anos
+2026-06-01,Média móvel 6,0.14056934439124136,Homicídios — jovens de 15 a 29 anos
+2026-06-01,Média móvel 12,0.14383159879437482,Homicídios — jovens de 15 a 29 anos
+2026-06-01,Ridge,0.14245059262807663,Homicídios — jovens de 15 a 29 anos
+2026-06-01,Random Forest,0.1424191649938611,Homicídios — jovens de 15 a 29 anos
+2026-06-01,ELM aleatória,0.14413488215246367,Homicídios — jovens de 15 a 29 anos
+2026-06-01,ELM PSO,0.14561344997439798,Homicídios — jovens de 15 a 29 anos
+2026-07-01,Média móvel 3,0.14617773196769962,Homicídios — jovens de 15 a 29 anos
+2026-07-01,Média móvel 6,0.13884542116108797,Homicídios — jovens de 15 a 29 anos
+2026-07-01,Média móvel 12,0.14106310688948417,Homicídios — jovens de 15 a 29 anos
+2026-07-01,Ridge,0.14141949725313047,Homicídios — jovens de 15 a 29 anos
+2026-07-01,Random Forest,0.14208411147522884,Homicídios — jovens de 15 a 29 anos
+2026-07-01,ELM aleatória,0.14344417679691332,Homicídios — jovens de 15 a 29 anos
+2026-07-01,ELM PSO,0.14696595445645558,Homicídios — jovens de 15 a 29 anos
+2026-08-01,Média móvel 3,0.14754685595915665,Homicídios — jovens de 15 a 29 anos
+2026-08-01,Média móvel 6,0.13989816977776254,Homicídios — jovens de 15 a 29 anos
+2026-08-01,Média móvel 12,0.13839167082589618,Homicídios — jovens de 15 a 29 anos
+2026-08-01,Ridge,0.14189723131048412,Homicídios — jovens de 15 a 29 anos
+2026-08-01,Random Forest,0.14362980690590338,Homicídios — jovens de 15 a 29 anos
+2026-08-01,ELM aleatória,0.1431483172535673,Homicídios — jovens de 15 a 29 anos
+2026-08-01,ELM PSO,0.14548794796722983,Homicídios — jovens de 15 a 29 anos
+2023-01-01,Média móvel 3,0.14285714285714285,Homicídios — mulheres de 10 a 59 anos
+2023-01-01,Média móvel 6,0.14285714285714285,Homicídios — mulheres de 10 a 59 anos
+2023-01-01,Média móvel 12,0.14285714285714285,Homicídios — mulheres de 10 a 59 anos
+2023-01-01,Ridge,0.14285714285714285,Homicídios — mulheres de 10 a 59 anos
+2023-01-01,Random Forest,0.14285714285714285,Homicídios — mulheres de 10 a 59 anos
+2023-01-01,ELM aleatória,0.14285714285714285,Homicídios — mulheres de 10 a 59 anos
+2023-01-01,ELM PSO,0.14285714285714285,Homicídios — mulheres de 10 a 59 anos
+2023-02-01,Média móvel 3,0.1386732864823798,Homicídios — mulheres de 10 a 59 anos
+2023-02-01,Média móvel 6,0.1421838174431999,Homicídios — mulheres de 10 a 59 anos
+2023-02-01,Média móvel 12,0.1430752491244298,Homicídios — mulheres de 10 a 59 anos
+2023-02-01,Ridge,0.1350428757319639,Homicídios — mulheres de 10 a 59 anos
+2023-02-01,Random Forest,0.14421404311329364,Homicídios — mulheres de 10 a 59 anos
+2023-02-01,ELM aleatória,0.13973938076745587,Homicídios — mulheres de 10 a 59 anos
+2023-02-01,ELM PSO,0.15707134733727707,Homicídios — mulheres de 10 a 59 anos
+2023-03-01,Média móvel 3,0.13724878796733816,Homicídios — mulheres de 10 a 59 anos
+2023-03-01,Média móvel 6,0.14249333825263008,Homicídios — mulheres de 10 a 59 anos
+2023-03-01,Média móvel 12,0.1416055321725433,Homicídios — mulheres de 10 a 59 anos
+2023-03-01,Ridge,0.13782964369565312,Homicídios — mulheres de 10 a 59 anos
+2023-03-01,Random Forest,0.14671653292200995,Homicídios — mulheres de 10 a 59 anos
+2023-03-01,ELM aleatória,0.14091849224108,Homicídios — mulheres de 10 a 59 anos
+2023-03-01,ELM PSO,0.1531876727487453,Homicídios — mulheres de 10 a 59 anos
+2023-04-01,Média móvel 3,0.12658383062155595,Homicídios — mulheres de 10 a 59 anos
+2023-04-01,Média móvel 6,0.14524250320365314,Homicídios — mulheres de 10 a 59 anos
+2023-04-01,Média móvel 12,0.14615311153549507,Homicídios — mulheres de 10 a 59 anos
+2023-04-01,Ridge,0.12778216352027522,Homicídios — mulheres de 10 a 59 anos
+2023-04-01,Random Forest,0.1568971881496069,Homicídios — mulheres de 10 a 59 anos
+2023-04-01,ELM aleatória,0.14537669741752998,Homicídios — mulheres de 10 a 59 anos
+2023-04-01,ELM PSO,0.15196450555188382,Homicídios — mulheres de 10 a 59 anos
+2023-05-01,Média móvel 3,0.1148314194535385,Homicídios — mulheres de 10 a 59 anos
+2023-05-01,Média móvel 6,0.14561485185501957,Homicídios — mulheres de 10 a 59 anos
+2023-05-01,Média móvel 12,0.15023716343537494,Homicídios — mulheres de 10 a 59 anos
+2023-05-01,Ridge,0.13607634926759846,Homicídios — mulheres de 10 a 59 anos
+2023-05-01,Random Forest,0.1542662655782645,Homicídios — mulheres de 10 a 59 anos
+2023-05-01,ELM aleatória,0.14405879614986442,Homicídios — mulheres de 10 a 59 anos
+2023-05-01,ELM PSO,0.15491515426033955,Homicídios — mulheres de 10 a 59 anos
+2023-06-01,Média móvel 3,0.12937441134146624,Homicídios — mulheres de 10 a 59 anos
+2023-06-01,Média móvel 6,0.14660041407801372,Homicídios — mulheres de 10 a 59 anos
+2023-06-01,Média móvel 12,0.15508302427386317,Homicídios — mulheres de 10 a 59 anos
+2023-06-01,Ridge,0.14593068532258063,Homicídios — mulheres de 10 a 59 anos
+2023-06-01,Random Forest,0.1414282674619211,Homicídios — mulheres de 10 a 59 anos
+2023-06-01,ELM aleatória,0.1449235385276672,Homicídios — mulheres de 10 a 59 anos
+2023-06-01,ELM PSO,0.13665965899448784,Homicídios — mulheres de 10 a 59 anos
+2023-07-01,Média móvel 3,0.12224725083768982,Homicídios — mulheres de 10 a 59 anos
+2023-07-01,Média móvel 6,0.14203104210262185,Homicídios — mulheres de 10 a 59 anos
+2023-07-01,Média móvel 12,0.15309300921604385,Homicídios — mulheres de 10 a 59 anos
+2023-07-01,Ridge,0.1507700713945441,Homicídios — mulheres de 10 a 59 anos
+2023-07-01,Random Forest,0.14236402183044755,Homicídios — mulheres de 10 a 59 anos
+2023-07-01,ELM aleatória,0.14503785221852764,Homicídios — mulheres de 10 a 59 anos
+2023-07-01,ELM PSO,0.14445675240012532,Homicídios — mulheres de 10 a 59 anos
+2023-08-01,Média móvel 3,0.1349165573059314,Homicídios — mulheres de 10 a 59 anos
+2023-08-01,Média móvel 6,0.13833198621487214,Homicídios — mulheres de 10 a 59 anos
+2023-08-01,Média móvel 12,0.1491058555014019,Homicídios — mulheres de 10 a 59 anos
+2023-08-01,Ridge,0.15788036495256738,Homicídios — mulheres de 10 a 59 anos
+2023-08-01,Random Forest,0.13261984638672733,Homicídios — mulheres de 10 a 59 anos
+2023-08-01,ELM aleatória,0.14524244781808612,Homicídios — mulheres de 10 a 59 anos
+2023-08-01,ELM PSO,0.14190294182041369,Homicídios — mulheres de 10 a 59 anos
+2023-09-01,Média móvel 3,0.13145434529563696,Homicídios — mulheres de 10 a 59 anos
+2023-09-01,Média móvel 6,0.14347482830033575,Homicídios — mulheres de 10 a 59 anos
+2023-09-01,Média móvel 12,0.13993242216788046,Homicídios — mulheres de 10 a 59 anos
+2023-09-01,Ridge,0.1581576572705503,Homicídios — mulheres de 10 a 59 anos
+2023-09-01,Random Forest,0.13936199860479337,Homicídios — mulheres de 10 a 59 anos
+2023-09-01,ELM aleatória,0.1467090149161233,Homicídios — mulheres de 10 a 59 anos
+2023-09-01,ELM PSO,0.14090973344467986,Homicídios — mulheres de 10 a 59 anos
+2023-10-01,Média móvel 3,0.11948455075543149,Homicídios — mulheres de 10 a 59 anos
+2023-10-01,Média móvel 6,0.13709677737408876,Homicídios — mulheres de 10 a 59 anos
+2023-10-01,Média móvel 12,0.1573050762423028,Homicídios — mulheres de 10 a 59 anos
+2023-10-01,Ridge,0.1615893864401658,Homicídios — mulheres de 10 a 59 anos
+2023-10-01,Random Forest,0.13933718819723426,Homicídios — mulheres de 10 a 59 anos
+2023-10-01,ELM aleatória,0.14036263153680223,Homicídios — mulheres de 10 a 59 anos
+2023-10-01,ELM PSO,0.14482438945397463,Homicídios — mulheres de 10 a 59 anos
+2023-11-01,Média móvel 3,0.12376045780129595,Homicídios — mulheres de 10 a 59 anos
+2023-11-01,Média móvel 6,0.1317423215626171,Homicídios — mulheres de 10 a 59 anos
+2023-11-01,Média móvel 12,0.16705914399271748,Homicídios — mulheres de 10 a 59 anos
+2023-11-01,Ridge,0.15982804874723122,Homicídios — mulheres de 10 a 59 anos
+2023-11-01,Random Forest,0.1332045305137274,Homicídios — mulheres de 10 a 59 anos
+2023-11-01,ELM aleatória,0.13435978499541312,Homicídios — mulheres de 10 a 59 anos
+2023-11-01,ELM PSO,0.15004571238699768,Homicídios — mulheres de 10 a 59 anos
+2023-12-01,Média móvel 3,0.11713603097643013,Homicídios — mulheres de 10 a 59 anos
+2023-12-01,Média móvel 6,0.137804486671975,Homicídios — mulheres de 10 a 59 anos
+2023-12-01,Média móvel 12,0.16110976733312546,Homicídios — mulheres de 10 a 59 anos
+2023-12-01,Ridge,0.15813391778845562,Homicídios — mulheres de 10 a 59 anos
+2023-12-01,Random Forest,0.13235448588909807,Homicídios — mulheres de 10 a 59 anos
+2023-12-01,ELM aleatória,0.142616061717906,Homicídios — mulheres de 10 a 59 anos
+2023-12-01,ELM PSO,0.15084524962300982,Homicídios — mulheres de 10 a 59 anos
+2024-01-01,Média móvel 3,0.1071887453190666,Homicídios — mulheres de 10 a 59 anos
+2024-01-01,Média móvel 6,0.13423490068317145,Homicídios — mulheres de 10 a 59 anos
+2024-01-01,Média móvel 12,0.15792042318584393,Homicídios — mulheres de 10 a 59 anos
+2024-01-01,Ridge,0.16421828141351608,Homicídios — mulheres de 10 a 59 anos
+2024-01-01,Random Forest,0.1346702697417672,Homicídios — mulheres de 10 a 59 anos
+2024-01-01,ELM aleatória,0.14079404726604478,Homicídios — mulheres de 10 a 59 anos
+2024-01-01,ELM PSO,0.16097333239058992,Homicídios — mulheres de 10 a 59 anos
+2024-02-01,Média móvel 3,0.10302599699185698,Homicídios — mulheres de 10 a 59 anos
+2024-02-01,Média móvel 6,0.135636885348599,Homicídios — mulheres de 10 a 59 anos
+2024-02-01,Média móvel 12,0.16157692650460265,Homicídios — mulheres de 10 a 59 anos
+2024-02-01,Ridge,0.16331557784083525,Homicídios — mulheres de 10 a 59 anos
+2024-02-01,Random Forest,0.12911872846991804,Homicídios — mulheres de 10 a 59 anos
+2024-02-01,ELM aleatória,0.14366610081906167,Homicídios — mulheres de 10 a 59 anos
+2024-02-01,ELM PSO,0.16365978402512632,Homicídios — mulheres de 10 a 59 anos
+2024-03-01,Média móvel 3,0.09841358331360311,Homicídios — mulheres de 10 a 59 anos
+2024-03-01,Média móvel 6,0.13792069365946671,Homicídios — mulheres de 10 a 59 anos
+2024-03-01,Média móvel 12,0.16429750451439173,Homicídios — mulheres de 10 a 59 anos
+2024-03-01,Ridge,0.15600004113785568,Homicídios — mulheres de 10 a 59 anos
+2024-03-01,Random Forest,0.134629076042204,Homicídios — mulheres de 10 a 59 anos
+2024-03-01,ELM aleatória,0.14430198571798755,Homicídios — mulheres de 10 a 59 anos
+2024-03-01,ELM PSO,0.16443711561449126,Homicídios — mulheres de 10 a 59 anos
+2024-04-01,Média móvel 3,0.0975591661764994,Homicídios — mulheres de 10 a 59 anos
+2024-04-01,Média móvel 6,0.14554117358339058,Homicídios — mulheres de 10 a 59 anos
+2024-04-01,Média móvel 12,0.15984570824959976,Homicídios — mulheres de 10 a 59 anos
+2024-04-01,Ridge,0.15085154009567991,Homicídios — mulheres de 10 a 59 anos
+2024-04-01,Random Forest,0.14359451864024902,Homicídios — mulheres de 10 a 59 anos
+2024-04-01,ELM aleatória,0.14810388163037363,Homicídios — mulheres de 10 a 59 anos
+2024-04-01,ELM PSO,0.15450401162420757,Homicídios — mulheres de 10 a 59 anos
+2024-05-01,Média móvel 3,0.08493999538449896,Homicídios — mulheres de 10 a 59 anos
+2024-05-01,Média móvel 6,0.13488803588979995,Homicídios — mulheres de 10 a 59 anos
+2024-05-01,Média móvel 12,0.1647526190786095,Homicídios — mulheres de 10 a 59 anos
+2024-05-01,Ridge,0.15702673058993738,Homicídios — mulheres de 10 a 59 anos
+2024-05-01,Random Forest,0.1409464858634089,Homicídios — mulheres de 10 a 59 anos
+2024-05-01,ELM aleatória,0.14720197957655953,Homicídios — mulheres de 10 a 59 anos
+2024-05-01,ELM PSO,0.1702441536171858,Homicídios — mulheres de 10 a 59 anos
+2024-06-01,Média móvel 3,0.07749680249281395,Homicídios — mulheres de 10 a 59 anos
+2024-06-01,Média móvel 6,0.13945426211416817,Homicídios — mulheres de 10 a 59 anos
+2024-06-01,Média móvel 12,0.16612436213397092,Homicídios — mulheres de 10 a 59 anos
+2024-06-01,Ridge,0.15703459984779305,Homicídios — mulheres de 10 a 59 anos
+2024-06-01,Random Forest,0.14380609162862534,Homicídios — mulheres de 10 a 59 anos
+2024-06-01,ELM aleatória,0.14699726177814518,Homicídios — mulheres de 10 a 59 anos
+2024-06-01,ELM PSO,0.16908662000448343,Homicídios — mulheres de 10 a 59 anos
+2024-07-01,Média móvel 3,0.06575868050239694,Homicídios — mulheres de 10 a 59 anos
+2024-07-01,Média móvel 6,0.13748181931404183,Homicídios — mulheres de 10 a 59 anos
+2024-07-01,Média móvel 12,0.1689734640592675,Homicídios — mulheres de 10 a 59 anos
+2024-07-01,Ridge,0.1603301051160574,Homicídios — mulheres de 10 a 59 anos
+2024-07-01,Random Forest,0.14365706271230208,Homicídios — mulheres de 10 a 59 anos
+2024-07-01,ELM aleatória,0.15099665138948482,Homicídios — mulheres de 10 a 59 anos
+2024-07-01,ELM PSO,0.17280221690644945,Homicídios — mulheres de 10 a 59 anos
+2024-08-01,Média móvel 3,0.06444834442128287,Homicídios — mulheres de 10 a 59 anos
+2024-08-01,Média móvel 6,0.14523658613165916,Homicídios — mulheres de 10 a 59 anos
+2024-08-01,Média móvel 12,0.165606425289388,Homicídios — mulheres de 10 a 59 anos
+2024-08-01,Ridge,0.14534707947835493,Homicídios — mulheres de 10 a 59 anos
+2024-08-01,Random Forest,0.13944155122178797,Homicídios — mulheres de 10 a 59 anos
+2024-08-01,ELM aleatória,0.15091735998995645,Homicídios — mulheres de 10 a 59 anos
+2024-08-01,ELM PSO,0.1890026534675706,Homicídios — mulheres de 10 a 59 anos
+2024-09-01,Média móvel 3,0.06275658237913223,Homicídios — mulheres de 10 a 59 anos
+2024-09-01,Média móvel 6,0.13966734261706773,Homicídios — mulheres de 10 a 59 anos
+2024-09-01,Média móvel 12,0.17165960427138513,Homicídios — mulheres de 10 a 59 anos
+2024-09-01,Ridge,0.15667582332033123,Homicídios — mulheres de 10 a 59 anos
+2024-09-01,Random Forest,0.13372555459844898,Homicídios — mulheres de 10 a 59 anos
+2024-09-01,ELM aleatória,0.14879690396682801,Homicídios — mulheres de 10 a 59 anos
+2024-09-01,ELM PSO,0.18671818884680677,Homicídios — mulheres de 10 a 59 anos
+2024-10-01,Média móvel 3,0.059821858523994284,Homicídios — mulheres de 10 a 59 anos
+2024-10-01,Média móvel 6,0.12664287548909675,Homicídios — mulheres de 10 a 59 anos
+2024-10-01,Média móvel 12,0.17310028719784643,Homicídios — mulheres de 10 a 59 anos
+2024-10-01,Ridge,0.16398258532502064,Homicídios — mulheres de 10 a 59 anos
+2024-10-01,Random Forest,0.15065738624767935,Homicídios — mulheres de 10 a 59 anos
+2024-10-01,ELM aleatória,0.1424979187682466,Homicídios — mulheres de 10 a 59 anos
+2024-10-01,ELM PSO,0.18329708844811599,Homicídios — mulheres de 10 a 59 anos
+2024-11-01,Média móvel 3,0.05504687411195083,Homicídios — mulheres de 10 a 59 anos
+2024-11-01,Média móvel 6,0.1304102275891425,Homicídios — mulheres de 10 a 59 anos
+2024-11-01,Média móvel 12,0.16745004682049192,Homicídios — mulheres de 10 a 59 anos
+2024-11-01,Ridge,0.16423566360104272,Homicídios — mulheres de 10 a 59 anos
+2024-11-01,Random Forest,0.14998937024257525,Homicídios — mulheres de 10 a 59 anos
+2024-11-01,ELM aleatória,0.14743137498826925,Homicídios — mulheres de 10 a 59 anos
+2024-11-01,ELM PSO,0.1854364426465276,Homicídios — mulheres de 10 a 59 anos
+2024-12-01,Média móvel 3,0.047393688204320654,Homicídios — mulheres de 10 a 59 anos
+2024-12-01,Média móvel 6,0.13209073325373497,Homicídios — mulheres de 10 a 59 anos
+2024-12-01,Média móvel 12,0.17499179018386837,Homicídios — mulheres de 10 a 59 anos
+2024-12-01,Ridge,0.1552802717915196,Homicídios — mulheres de 10 a 59 anos
+2024-12-01,Random Forest,0.15111914603699897,Homicídios — mulheres de 10 a 59 anos
+2024-12-01,ELM aleatória,0.14876147814696752,Homicídios — mulheres de 10 a 59 anos
+2024-12-01,ELM PSO,0.19036289238258994,Homicídios — mulheres de 10 a 59 anos
+2025-01-01,Média móvel 3,0.050208326619037784,Homicídios — mulheres de 10 a 59 anos
+2025-01-01,Média móvel 6,0.12982415511693046,Homicídios — mulheres de 10 a 59 anos
+2025-01-01,Média móvel 12,0.16985257957255653,Homicídios — mulheres de 10 a 59 anos
+2025-01-01,Ridge,0.15726511708648938,Homicídios — mulheres de 10 a 59 anos
+2025-01-01,Random Forest,0.14996706463741682,Homicídios — mulheres de 10 a 59 anos
+2025-01-01,ELM aleatória,0.1523480011310962,Homicídios — mulheres de 10 a 59 anos
+2025-01-01,ELM PSO,0.19053475583647284,Homicídios — mulheres de 10 a 59 anos
+2025-02-01,Média móvel 3,0.047643981180398115,Homicídios — mulheres de 10 a 59 anos
+2025-02-01,Média móvel 6,0.13278832367117221,Homicídios — mulheres de 10 a 59 anos
+2025-02-01,Média móvel 12,0.1715725671213614,Homicídios — mulheres de 10 a 59 anos
+2025-02-01,Ridge,0.1571312514881577,Homicídios — mulheres de 10 a 59 anos
+2025-02-01,Random Forest,0.1432672622026941,Homicídios — mulheres de 10 a 59 anos
+2025-02-01,ELM aleatória,0.15084181373100178,Homicídios — mulheres de 10 a 59 anos
+2025-02-01,ELM PSO,0.19675480060521458,Homicídios — mulheres de 10 a 59 anos
+2025-03-01,Média móvel 3,0.044710256839747865,Homicídios — mulheres de 10 a 59 anos
+2025-03-01,Média móvel 6,0.12617917678635193,Homicídios — mulheres de 10 a 59 anos
+2025-03-01,Média móvel 12,0.16716025027551443,Homicídios — mulheres de 10 a 59 anos
+2025-03-01,Ridge,0.16554524991360356,Homicídios — mulheres de 10 a 59 anos
+2025-03-01,Random Forest,0.15345655899660177,Homicídios — mulheres de 10 a 59 anos
+2025-03-01,ELM aleatória,0.1438478644006496,Homicídios — mulheres de 10 a 59 anos
+2025-03-01,ELM PSO,0.19910064278753095,Homicídios — mulheres de 10 a 59 anos
+2025-04-01,Média móvel 3,0.04582883192685281,Homicídios — mulheres de 10 a 59 anos
+2025-04-01,Média móvel 6,0.13261012218967014,Homicídios — mulheres de 10 a 59 anos
+2025-04-01,Média móvel 12,0.1650359635583636,Homicídios — mulheres de 10 a 59 anos
+2025-04-01,Ridge,0.1604745789614211,Homicídios — mulheres de 10 a 59 anos
+2025-04-01,Random Forest,0.15265323870508954,Homicídios — mulheres de 10 a 59 anos
+2025-04-01,ELM aleatória,0.15245261329742052,Homicídios — mulheres de 10 a 59 anos
+2025-04-01,ELM PSO,0.1909446513611822,Homicídios — mulheres de 10 a 59 anos
+2025-05-01,Média móvel 3,0.04562236591272995,Homicídios — mulheres de 10 a 59 anos
+2025-05-01,Média móvel 6,0.13201269296859516,Homicídios — mulheres de 10 a 59 anos
+2025-05-01,Média móvel 12,0.16532249423023396,Homicídios — mulheres de 10 a 59 anos
+2025-05-01,Ridge,0.16804061876969353,Homicídios — mulheres de 10 a 59 anos
+2025-05-01,Random Forest,0.1516453437366697,Homicídios — mulheres de 10 a 59 anos
+2025-05-01,ELM aleatória,0.15713114238987924,Homicídios — mulheres de 10 a 59 anos
+2025-05-01,ELM PSO,0.18022534199219847,Homicídios — mulheres de 10 a 59 anos
+2025-06-01,Média móvel 3,0.046958253943059844,Homicídios — mulheres de 10 a 59 anos
+2025-06-01,Média móvel 6,0.13587821315502507,Homicídios — mulheres de 10 a 59 anos
+2025-06-01,Média móvel 12,0.15885772543209192,Homicídios — mulheres de 10 a 59 anos
+2025-06-01,Ridge,0.16821508214620795,Homicídios — mulheres de 10 a 59 anos
+2025-06-01,Random Forest,0.1539732248512292,Homicídios — mulheres de 10 a 59 anos
+2025-06-01,ELM aleatória,0.16699756801197377,Homicídios — mulheres de 10 a 59 anos
+2025-06-01,ELM PSO,0.16911993246041232,Homicídios — mulheres de 10 a 59 anos
+2025-07-01,Média móvel 3,0.051362612631096594,Homicídios — mulheres de 10 a 59 anos
+2025-07-01,Média móvel 6,0.13788369322383082,Homicídios — mulheres de 10 a 59 anos
+2025-07-01,Média móvel 12,0.1495544479818701,Homicídios — mulheres de 10 a 59 anos
+2025-07-01,Ridge,0.17187159006381245,Homicídios — mulheres de 10 a 59 anos
+2025-07-01,Random Forest,0.16050339856272197,Homicídios — mulheres de 10 a 59 anos
+2025-07-01,ELM aleatória,0.17546129425313883,Homicídios — mulheres de 10 a 59 anos
+2025-07-01,ELM PSO,0.1533629632835292,Homicídios — mulheres de 10 a 59 anos
+2025-08-01,Média móvel 3,0.059885658720922844,Homicídios — mulheres de 10 a 59 anos
+2025-08-01,Média móvel 6,0.14187367600998343,Homicídios — mulheres de 10 a 59 anos
+2025-08-01,Média móvel 12,0.14276316323716637,Homicídios — mulheres de 10 a 59 anos
+2025-08-01,Ridge,0.16120348359320308,Homicídios — mulheres de 10 a 59 anos
+2025-08-01,Random Forest,0.15901531601348068,Homicídios — mulheres de 10 a 59 anos
+2025-08-01,ELM aleatória,0.1861654902726486,Homicídios — mulheres de 10 a 59 anos
+2025-08-01,ELM PSO,0.14909321215259516,Homicídios — mulheres de 10 a 59 anos
+2025-09-01,Média móvel 3,0.05654943897645386,Homicídios — mulheres de 10 a 59 anos
+2025-09-01,Média móvel 6,0.14083870250131947,Homicídios — mulheres de 10 a 59 anos
+2025-09-01,Média móvel 12,0.14805965719073919,Homicídios — mulheres de 10 a 59 anos
+2025-09-01,Ridge,0.1725424351810067,Homicídios — mulheres de 10 a 59 anos
+2025-09-01,Random Forest,0.1429496811637183,Homicídios — mulheres de 10 a 59 anos
+2025-09-01,ELM aleatória,0.18258387044530291,Homicídios — mulheres de 10 a 59 anos
+2025-09-01,ELM PSO,0.1564762145414594,Homicídios — mulheres de 10 a 59 anos
+2025-10-01,Média móvel 3,0.05683525364712712,Homicídios — mulheres de 10 a 59 anos
+2025-10-01,Média móvel 6,0.1433310222420939,Homicídios — mulheres de 10 a 59 anos
+2025-10-01,Média móvel 12,0.14243799696405643,Homicídios — mulheres de 10 a 59 anos
+2025-10-01,Ridge,0.17620241654868718,Homicídios — mulheres de 10 a 59 anos
+2025-10-01,Random Forest,0.13895162844141243,Homicídios — mulheres de 10 a 59 anos
+2025-10-01,ELM aleatória,0.18489171367402457,Homicídios — mulheres de 10 a 59 anos
+2025-10-01,ELM PSO,0.15734996848259836,Homicídios — mulheres de 10 a 59 anos
+2025-11-01,Média móvel 3,0.058791317104440514,Homicídios — mulheres de 10 a 59 anos
+2025-11-01,Média móvel 6,0.15201727652085237,Homicídios — mulheres de 10 a 59 anos
+2025-11-01,Média móvel 12,0.1455099073009238,Homicídios — mulheres de 10 a 59 anos
+2025-11-01,Ridge,0.17084730604424517,Homicídios — mulheres de 10 a 59 anos
+2025-11-01,Random Forest,0.1257640548176682,Homicídios — mulheres de 10 a 59 anos
+2025-11-01,ELM aleatória,0.19327540390856127,Homicídios — mulheres de 10 a 59 anos
+2025-11-01,ELM PSO,0.15379473430330884,Homicídios — mulheres de 10 a 59 anos
+2025-12-01,Média móvel 3,0.05939621729930708,Homicídios — mulheres de 10 a 59 anos
+2025-12-01,Média móvel 6,0.14427634781092982,Homicídios — mulheres de 10 a 59 anos
+2025-12-01,Média móvel 12,0.14609112086032972,Homicídios — mulheres de 10 a 59 anos
+2025-12-01,Ridge,0.18496934901964546,Homicídios — mulheres de 10 a 59 anos
+2025-12-01,Random Forest,0.13113644616982253,Homicídios — mulheres de 10 a 59 anos
+2025-12-01,ELM aleatória,0.18402912787414058,Homicídios — mulheres de 10 a 59 anos
+2025-12-01,ELM PSO,0.15010139096582473,Homicídios — mulheres de 10 a 59 anos
+2026-01-01,Média móvel 3,0.06641646370805278,Homicídios — mulheres de 10 a 59 anos
+2026-01-01,Média móvel 6,0.14967181140977995,Homicídios — mulheres de 10 a 59 anos
+2026-01-01,Média móvel 12,0.1496718114097802,Homicídios — mulheres de 10 a 59 anos
+2026-01-01,Ridge,0.18662715084505616,Homicídios — mulheres de 10 a 59 anos
+2026-01-01,Random Forest,0.1080489468546426,Homicídios — mulheres de 10 a 59 anos
+2026-01-01,ELM aleatória,0.18640746703747255,Homicídios — mulheres de 10 a 59 anos
+2026-01-01,ELM PSO,0.15315634873521575,Homicídios — mulheres de 10 a 59 anos
+2026-02-01,Média móvel 3,0.06964303585805508,Homicídios — mulheres de 10 a 59 anos
+2026-02-01,Média móvel 6,0.1456028496795861,Homicídios — mulheres de 10 a 59 anos
+2026-02-01,Média móvel 12,0.1492888033679254,Homicídios — mulheres de 10 a 59 anos
+2026-02-01,Ridge,0.19439945560169886,Homicídios — mulheres de 10 a 59 anos
+2026-02-01,Random Forest,0.11340449227011128,Homicídios — mulheres de 10 a 59 anos
+2026-02-01,ELM aleatória,0.17845437794475136,Homicídios — mulheres de 10 a 59 anos
+2026-02-01,ELM PSO,0.1492069852778718,Homicídios — mulheres de 10 a 59 anos
+2026-03-01,Média móvel 3,0.05777641191763495,Homicídios — mulheres de 10 a 59 anos
+2026-03-01,Média móvel 6,0.14034176047088937,Homicídios — mulheres de 10 a 59 anos
+2026-03-01,Média móvel 12,0.15902804877826338,Homicídios — mulheres de 10 a 59 anos
+2026-03-01,Ridge,0.19879163442202674,Homicídios — mulheres de 10 a 59 anos
+2026-03-01,Random Forest,0.12022859925783559,Homicídios — mulheres de 10 a 59 anos
+2026-03-01,ELM aleatória,0.17743914107254058,Homicídios — mulheres de 10 a 59 anos
+2026-03-01,ELM PSO,0.14639440408080945,Homicídios — mulheres de 10 a 59 anos
+2026-04-01,Média móvel 3,0.05644632712650696,Homicídios — mulheres de 10 a 59 anos
+2026-04-01,Média móvel 6,0.13711091876634451,Homicídios — mulheres de 10 a 59 anos
+2026-04-01,Média móvel 12,0.1623152163007487,Homicídios — mulheres de 10 a 59 anos
+2026-04-01,Ridge,0.2039527594800979,Homicídios — mulheres de 10 a 59 anos
+2026-04-01,Random Forest,0.12284085860672198,Homicídios — mulheres de 10 a 59 anos
+2026-04-01,ELM aleatória,0.177825148135543,Homicídios — mulheres de 10 a 59 anos
+2026-04-01,ELM PSO,0.13950877158403704,Homicídios — mulheres de 10 a 59 anos
+2026-05-01,Média móvel 3,0.0582062346532502,Homicídios — mulheres de 10 a 59 anos
+2026-05-01,Média móvel 6,0.14138582114209639,Homicídios — mulheres de 10 a 59 anos
+2026-05-01,Média móvel 12,0.1572351528486453,Homicídios — mulheres de 10 a 59 anos
+2026-05-01,Ridge,0.20378756711876428,Homicídios — mulheres de 10 a 59 anos
+2026-05-01,Random Forest,0.1252073322469102,Homicídios — mulheres de 10 a 59 anos
+2026-05-01,ELM aleatória,0.1759470514621296,Homicídios — mulheres de 10 a 59 anos
+2026-05-01,ELM PSO,0.13823084052820392,Homicídios — mulheres de 10 a 59 anos
+2026-06-01,Média móvel 3,0.05642052505237879,Homicídios — mulheres de 10 a 59 anos
+2026-06-01,Média móvel 6,0.15529600597066998,Homicídios — mulheres de 10 a 59 anos
+2026-06-01,Média móvel 12,0.15336688800199905,Homicídios — mulheres de 10 a 59 anos
+2026-06-01,Ridge,0.19400639870224967,Homicídios — mulheres de 10 a 59 anos
+2026-06-01,Random Forest,0.13215787170695198,Homicídios — mulheres de 10 a 59 anos
+2026-06-01,ELM aleatória,0.17968711301024679,Homicídios — mulheres de 10 a 59 anos
+2026-06-01,ELM PSO,0.12906519755550375,Homicídios — mulheres de 10 a 59 anos
+2026-07-01,Média móvel 3,0.043887926645023424,Homicídios — mulheres de 10 a 59 anos
+2026-07-01,Média móvel 6,0.13860653875129716,Homicídios — mulheres de 10 a 59 anos
+2026-07-01,Média móvel 12,0.1560832100470115,Homicídios — mulheres de 10 a 59 anos
+2026-07-01,Ridge,0.20962201284019988,Homicídios — mulheres de 10 a 59 anos
+2026-07-01,Random Forest,0.13513479131798115,Homicídios — mulheres de 10 a 59 anos
+2026-07-01,ELM aleatória,0.1749043205966168,Homicídios — mulheres de 10 a 59 anos
+2026-07-01,ELM PSO,0.14176119980186996,Homicídios — mulheres de 10 a 59 anos
+2026-08-01,Média móvel 3,0.036640971305635546,Homicídios — mulheres de 10 a 59 anos
+2026-08-01,Média móvel 6,0.1311270956789688,Homicídios — mulheres de 10 a 59 anos
+2026-08-01,Média móvel 12,0.15916112420343206,Homicídios — mulheres de 10 a 59 anos
+2026-08-01,Ridge,0.2140455349287462,Homicídios — mulheres de 10 a 59 anos
+2026-08-01,Random Forest,0.13867979229687424,Homicídios — mulheres de 10 a 59 anos
+2026-08-01,ELM aleatória,0.17602553451451136,Homicídios — mulheres de 10 a 59 anos
+2026-08-01,ELM PSO,0.1443199470718316,Homicídios — mulheres de 10 a 59 anos

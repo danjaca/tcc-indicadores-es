@@ -1,3 +1,4 @@
+from configuracao import DADOS
 from pathlib import Path
 from decimal import Decimal, ROUND_HALF_UP
 import gzip,json
@@ -6,9 +7,13 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 import streamlit.components.v1 as components
+from painel_monitoramento import mostrar_monitoramento
 from mapa import mapa_html
 from meios import mostrar_meios
 from piramide import mostrar_piramide
+from configuracao import MOSTRAR_APRENDIZADO
+if MOSTRAR_APRENDIZADO:
+    from aprendizado import mostrar_machine_learning
 from modelo import carregar,recortar,medidas,agrupado,INDICADORES,IDADES,meses_disponiveis,cobertura_completa,serie_historica,comparacao_mensal
 
 st.set_page_config(page_title='Observatório de mortalidade | ES',page_icon='📊',layout='wide')
@@ -16,10 +21,10 @@ st.markdown('''<style>.block-container{padding-top:2rem} [data-testid="stMetric"
 @st.cache_data
 def dados(versao):
     return carregar()
-arquivos=list((Path(__file__).parent/'dados').glob('dataset.zip')) or list((Path(__file__).parent/'dados').iterdir())
+arquivos=list(DADOS.iterdir())
 versao=tuple((p.name,p.stat().st_mtime_ns) for p in arquivos if p.is_file())
 f,p,g,meta=dados(versao)
-g=g.merge(pd.read_csv(Path(__file__).parent/'dados/regioes_pdr2024.csv',dtype={'cod_mun_res':str}),on='cod_mun_res',validate='one_to_one')
+g=g.merge(pd.read_csv(DADOS/'regioes_pdr2024.csv',dtype={'cod_mun_res':str}),on='cod_mun_res',validate='one_to_one')
 fmt=lambda n,dec=0: f'{n:,.{dec}f}'.replace(',','X').replace('.',',').replace('X','.') if n is not None and pd.notna(n) else 'Sem denominador'
 def rotulos(valores,medida):
     return [fmt(float(v),2 if medida=='Taxa por 100 mil' else 0) if pd.notna(v) else '' for v in valores]
@@ -43,6 +48,7 @@ with st.sidebar:
     st.caption('Escolha os filtros e clique em Atualizar para aplicá-los ao painel. Sem seleção municipal = todo o Espírito Santo.')
     st.caption('Regiões de saúde: PDR 2024, classificação fixa para comparar todos os anos.')
     st.info(meta['nota'])
+    st.caption('Numeradores conforme as fichas de qualificação do PES-ES (CID-10).' if meta.get('definicao_cid') else 'Atenção: base extraída com a definição anterior de CID; reprocessar a série.')
 cobertura=meses_disponiveis(f,ano)
 meses_quadrimestres={m for q in quadrimestres for m in range((q-1)*4+1,q*4+1)}
 meses=sorted(meses_quadrimestres & set(meses_personalizados))
@@ -86,7 +92,7 @@ a.metric('Óbitos no período',fmt(n),f'{n-na:+d} versus {ano-1}' if anterior el
 b.metric('Taxa por 100 mil',fmt(taxa,2),f'{fmt(delta,1)}% sobre o ano anterior' if delta is not None else None,delta_color='inverse')
 c.metric('População anual de referência',fmt(den))
 st.caption('O denominador é anual, filtrado pelo município e pelo público do indicador. Taxas de períodos menores que um ano não são anualizadas. A variação compara os mesmos meses do ano anterior.')
-tabs=st.tabs(['Evolução temporal','Distribuição territorial','Perfil demográfico','Dados e metodologia'])
+tabs=st.tabs(['Evolução temporal','Distribuição territorial','Perfil demográfico']+(['Machine learning'] if MOSTRAR_APRENDIZADO else [])+['Monitoramento estatístico','Dados e metodologia'])
 with tabs[0]:
     st.subheader('Como o indicador evoluiu no mesmo período?')
     serie=serie_historica(nf,np,range(min(meta['anos_disponiveis']),max(meta['anos_disponiveis'])+1),meses)
@@ -200,12 +206,12 @@ with tabs[2]:
             st.caption('Razão = óbitos masculinos ÷ óbitos femininos da mesma faixa etária. O total divide a soma dos óbitos masculinos pela soma dos femininos nas faixas selecionadas; não soma nem tira a média das razões. Com todas as faixas selecionadas, corresponde ao total do indicador no recorte. 7 = sete óbitos masculinos para cada feminino; 0,50 = um masculino para cada dois femininos. 1 indica igualdade entre contagens. Respeita ano, meses, municípios e as faixas etárias da análise. Sexo ignorado excluído. Sem óbitos femininos, inclusive 0/0, a razão não é definida. Não é uma razão de taxas ou uma comparação de risco.')
     mostrar_meios(indicador,ano,meses,codigos,sexo_filtro,n)
     st.subheader('Distribuição dos óbitos por raça/cor')
-    arquivo_raca=Path(__file__).parent/'dados/f_raca_cor.csv.gz'
+    arquivo_raca=DADOS/'f_raca_cor.csv.gz'
     if arquivo_raca.exists():
         @st.cache_data
         def carregar_raca(versao_raca):
             return pd.read_csv(arquivo_raca,dtype={'cod_mun_res':str})
-        rcmeta=json.loads((Path(__file__).parent/'dados/raca_cor_meta.json').read_text())
+        rcmeta=json.loads((DADOS/'raca_cor_meta.json').read_text())
         st.caption('Fonte: SIM/SESA-ES · Extração de raça/cor: '+rcmeta['extraido_utc'][:10]+' · Sujeita a revisão.')
         rc=carregar_raca(arquivo_raca.stat().st_mtime_ns)
         rc=rc[rc.indicador.eq(indicador)&rc.ano.eq(ano)&rc.mes.isin(meses)&rc.cod_mun_res.isin(codigos)]
@@ -237,10 +243,20 @@ with tabs[2]:
             st.caption('Raça/cor registrada no SIM/SESA-ES. Frequência relativa sobre todos os óbitos do indicador nesta extração, incluindo Não informado, Ignorado e o residual sem classificação na tabulação. O residual é calculado por diferença, não é uma categoria racial atribuída. Respeita ano, meses, municípios e sexo; mantém todas as idades elegíveis do indicador. Não se calcula taxa por raça/cor sem população correspondente.')
     else:
         st.info('Extração de raça/cor em preparação; nenhum valor ausente foi convertido em zero.')
-with tabs[3]:
+if MOSTRAR_APRENDIZADO:
+    with tabs[3]:
+        mostrar_machine_learning(indicador)
+with tabs[-2]:
+    mostrar_monitoramento(nf,np,g,meta,ano,meses)
+with tabs[-1]:
     st.subheader('Definições e disponibilidade')
     st.write('Fonte dos arquivos locais: SIM/DATASUS e base populacional utilizada no ETL do TCC. Recorte por município de residência no Espírito Santo.')
     st.warning(meta['nota'])
+    definicao_cid=meta.get('definicao_cid')
+    if definicao_cid:
+        st.markdown('**Numeradores (CID-10, causa básica):** homicídios/agressões '+definicao_cid['codigos']['Homicídio']+'; suicídio '+definicao_cid['codigos']['Suicídio']+'. Fonte: '+definicao_cid['fonte']+'.')
+    else:
+        st.warning('Esta base foi extraída com a definição anterior de CID (homicídios X85–Y09; suicídio X60–X84). Reprocesse toda a série para aplicar as fichas do PES-ES.')
     st.markdown('**Taxa = óbitos do período ÷ população anual elegível × 100.000.** Cada registro da fato representa município, mês, causa, faixa etária e sexo. A granularidade mensal permite consolidar os três quadrimestres e investigar variações dentro de cada período.')
     st.write('Raça/cor usa uma fato complementar por indicador, município, mês e sexo, com idades elegíveis selecionadas na extração. Cada categoria é reconciliada com controles do TabNet; diferenças contra a base anterior são sinalizadas. Não possui população por raça/cor para cálculo de taxas.')
     st.markdown('Regiões: [PDR 2024 — SESA](https://saude.es.gov.br/GrupodeArquivos/plano-diretor-de-regionalizacao_pdr-es-2024). A classificação dos municípios do PDR 2024 é fixa em toda a série, para comparabilidade territorial.')

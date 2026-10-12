@@ -3,7 +3,7 @@ import json
 from zipfile import ZipFile
 import pandas as pd
 
-DADOS = Path(__file__).parent / 'dados'
+from configuracao import DADOS
 IDADES = ['0 a 4 anos','5 a 9 anos','10 a 14 anos','15 a 19 anos','20 a 29 anos','30 a 39 anos','40 a 49 anos','50 a 59 anos','60 a 69 anos','70 a 79 anos','80 anos ou mais','Ignorado']
 INDICADORES = {
  'Suicídio geral': {'causa':'Suicídio','idades':None,'sexo':None,'descricao':'Óbitos por suicídio, em todas as idades e sexos, por 100 mil habitantes.'},
@@ -20,10 +20,7 @@ def carregar():
             with z.open('d_populacao.csv') as arq: p=pd.read_csv(arq,dtype={'cod_mun_res':str})
             with z.open('d_geografica.csv') as arq: g=pd.read_csv(arq,dtype={'cod_mun_res':str})
     else:
-        meta=json.loads((DADOS/'disponibilidade.json').read_text())
-        f=pd.read_csv(DADOS/'f_obitos_es_2016_2025.csv.gz',dtype={'cod_mun_res':str})
-        p=pd.read_csv(DADOS/'d_populacao_es_2016_2025.csv.gz',dtype={'cod_mun_res':str})
-        g=pd.read_csv(DADOS/'d_geografica_es.csv.gz',dtype={'cod_mun_res':str})
+        raise FileNotFoundError(f'Pacote de dados ausente: {pacote}')
     f=f[f.ano.isin(meta['anos_disponiveis'])].copy()
     return f,p,g,meta
 

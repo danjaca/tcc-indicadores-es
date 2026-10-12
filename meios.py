@@ -1,3 +1,4 @@
+from configuracao import DADOS
 """Apresentação dos meios por CID-10, com cobertura e denominador de frequência explícitos."""
 from pathlib import Path
 import json
@@ -43,7 +44,7 @@ def grafico_comparacao(comp,ano):
 
 def mostrar_meios(indicador,ano,meses,codigos,sexo,total_principal):
     st.subheader('Quais meios estão registrados nos óbitos?')
-    pasta=Path(__file__).parent/'dados';arquivo=pasta/'f_meios_cid.csv.gz';metafile=pasta/'meios_cid_meta.json'
+    pasta=DADOS;arquivo=pasta/'f_meios_cid.csv.gz';metafile=pasta/'meios_cid_meta.json'
     if not arquivo.exists() or not metafile.exists():
         st.info('Detalhamento por CID-10 ainda sem extração disponível.');return
     meta=json.loads(metafile.read_text())

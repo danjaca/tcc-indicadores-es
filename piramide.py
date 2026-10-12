@@ -1,3 +1,4 @@
+from configuracao import DADOS
 """Comparação do perfil etário por sexo, com denominador anual explícito."""
 import math
 import pandas as pd

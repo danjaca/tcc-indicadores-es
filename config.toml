@@ -1,0 +1,10 @@
+[atualizacao]
+ano_inicial_historico = 2016
+anos_reprocessamento = 2
+motor = "requests"
+intervalo_segundos = 3.0
+permitir_populacao_anterior = true
+
+[painel]
+# true exibe a aba experimental de aprendizado de máquina (exige resultados refeitos com a base atual)
+aprendizado_de_maquina = false

@@ -1,0 +1,43 @@
+{
+  "created": "2026-10-03T23:35:59.944120+00:00",
+  "source_sha256": "45849d83959d7c20ddfbcdf46a64a5b74a5a56111f4aefca2961859f878e9c47",
+  "start": "2021-01",
+  "last": "2026-08-01",
+  "python": "3.13.3",
+  "numpy": "2.5.3",
+  "pandas": "3.0.6",
+  "sklearn": "1.9.1",
+  "seeds": [
+    11,
+    29,
+    47
+  ],
+  "features": [
+    "lag1",
+    "lag2",
+    "lag3",
+    "lag6",
+    "lag12",
+    "mean3",
+    "mean6",
+    "mean12",
+    "std6",
+    "trend",
+    "sin",
+    "cos",
+    "regiao_Central",
+    "regiao_Metropolitana",
+    "regiao_Norte",
+    "regiao_Sul"
+  ],
+  "cv_years": [
+    2023,
+    2024
+  ],
+  "test_year": 2025,
+  "trials": 387,
+  "convergence_warnings": 483,
+  "protocol_sha256": "5ff694bc3cae24e670c2407a6955e2455db7a11cc837aa5bd050d90e44e9913b",
+  "code_sha256": "1ea1f4d11995217f24c410b1eaad6e3edf935897dbb0001acc9bab21bea227c3",
+  "note": "Avaliação retrospectiva com snapshot revisado; não reconstrói dados disponíveis em cada origem histórica. Hiperparâmetros selecionados em 2023–2024; não revistos após 2025."
+}

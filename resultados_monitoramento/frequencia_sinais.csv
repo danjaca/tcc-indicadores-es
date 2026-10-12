@@ -1,0 +1,78 @@
+,,,Sinal u,Sinal u,Sinal u,Sinal controle,Sinal controle,Sinal controle,Sinal EWMA,Sinal EWMA,Sinal EWMA,Sinal CUSUM +,Sinal CUSUM +,Sinal CUSUM +,Sinal CUSUM −,Sinal CUSUM −,Sinal CUSUM −
+,,,sum,count,mean,sum,count,mean,sum,count,mean,sum,count,mean,sum,count,mean
+indicador,territorio,periodo,,,,,,,,,,,,,,,
+Homicídios — jovens de 15 a 29 anos,Central,Acumulado Q2,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — jovens de 15 a 29 anos,Central,Acumulado Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — jovens de 15 a 29 anos,Central,Q1,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — jovens de 15 a 29 anos,Central,Q2,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — jovens de 15 a 29 anos,Central,Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — jovens de 15 a 29 anos,Espírito Santo,Acumulado Q2,3,4,0.75,1,4,0.25,1,4,0.25,0,4,0.0,1,4,0.25
+Homicídios — jovens de 15 a 29 anos,Espírito Santo,Acumulado Q3,2,3,0.6666666666666666,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — jovens de 15 a 29 anos,Espírito Santo,Q1,2,4,0.5,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — jovens de 15 a 29 anos,Espírito Santo,Q2,3,4,0.75,1,4,0.25,2,4,0.5,0,4,0.0,1,4,0.25
+Homicídios — jovens de 15 a 29 anos,Espírito Santo,Q3,2,3,0.6666666666666666,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — jovens de 15 a 29 anos,Metropolitana,Acumulado Q2,4,4,1.0,0,4,0.0,2,4,0.5,0,4,0.0,1,4,0.25
+Homicídios — jovens de 15 a 29 anos,Metropolitana,Acumulado Q3,3,3,1.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — jovens de 15 a 29 anos,Metropolitana,Q1,3,4,0.75,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — jovens de 15 a 29 anos,Metropolitana,Q2,4,4,1.0,1,4,0.25,2,4,0.5,0,4,0.0,1,4,0.25
+Homicídios — jovens de 15 a 29 anos,Metropolitana,Q3,2,3,0.6666666666666666,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — jovens de 15 a 29 anos,Norte,Acumulado Q2,1,4,0.25,1,4,0.25,1,4,0.25,0,4,0.0,0,4,0.0
+Homicídios — jovens de 15 a 29 anos,Norte,Acumulado Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — jovens de 15 a 29 anos,Norte,Q1,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — jovens de 15 a 29 anos,Norte,Q2,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — jovens de 15 a 29 anos,Norte,Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — jovens de 15 a 29 anos,Sul,Acumulado Q2,1,4,0.25,1,4,0.25,2,4,0.5,0,4,0.0,1,4,0.25
+Homicídios — jovens de 15 a 29 anos,Sul,Acumulado Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — jovens de 15 a 29 anos,Sul,Q1,1,4,0.25,1,4,0.25,1,4,0.25,0,4,0.0,0,4,0.0
+Homicídios — jovens de 15 a 29 anos,Sul,Q2,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — jovens de 15 a 29 anos,Sul,Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — mulheres de 10 a 59 anos,Central,Acumulado Q2,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Central,Acumulado Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — mulheres de 10 a 59 anos,Central,Q1,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Central,Q2,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Central,Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — mulheres de 10 a 59 anos,Espírito Santo,Acumulado Q2,1,4,0.25,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Espírito Santo,Acumulado Q3,1,3,0.3333333333333333,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — mulheres de 10 a 59 anos,Espírito Santo,Q1,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Espírito Santo,Q2,1,4,0.25,1,4,0.25,1,4,0.25,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Espírito Santo,Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — mulheres de 10 a 59 anos,Metropolitana,Acumulado Q2,1,4,0.25,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Metropolitana,Acumulado Q3,1,3,0.3333333333333333,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — mulheres de 10 a 59 anos,Metropolitana,Q1,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Metropolitana,Q2,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Metropolitana,Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — mulheres de 10 a 59 anos,Norte,Acumulado Q2,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Norte,Acumulado Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — mulheres de 10 a 59 anos,Norte,Q1,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Norte,Q2,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Norte,Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — mulheres de 10 a 59 anos,Sul,Acumulado Q2,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Sul,Acumulado Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Homicídios — mulheres de 10 a 59 anos,Sul,Q1,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Sul,Q2,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Homicídios — mulheres de 10 a 59 anos,Sul,Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Suicídio geral,Central,Acumulado Q2,1,4,0.25,1,4,0.25,0,4,0.0,0,4,0.0,0,4,0.0
+Suicídio geral,Central,Acumulado Q3,2,3,0.6666666666666666,2,3,0.6666666666666666,3,3,1.0,1,3,0.3333333333333333,0,3,0.0
+Suicídio geral,Central,Q1,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Suicídio geral,Central,Q2,0,4,0.0,0,4,0.0,1,4,0.25,0,4,0.0,0,4,0.0
+Suicídio geral,Central,Q3,1,3,0.3333333333333333,1,3,0.3333333333333333,1,3,0.3333333333333333,0,3,0.0,0,3,0.0
+Suicídio geral,Espírito Santo,Acumulado Q2,2,4,0.5,2,4,0.5,1,4,0.25,0,4,0.0,0,4,0.0
+Suicídio geral,Espírito Santo,Acumulado Q3,3,3,1.0,3,3,1.0,2,3,0.6666666666666666,1,3,0.3333333333333333,0,3,0.0
+Suicídio geral,Espírito Santo,Q1,2,4,0.5,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Suicídio geral,Espírito Santo,Q2,1,4,0.25,1,4,0.25,2,4,0.5,1,4,0.25,0,4,0.0
+Suicídio geral,Espírito Santo,Q3,2,3,0.6666666666666666,2,3,0.6666666666666666,2,3,0.6666666666666666,1,3,0.3333333333333333,0,3,0.0
+Suicídio geral,Metropolitana,Acumulado Q2,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Suicídio geral,Metropolitana,Acumulado Q3,1,3,0.3333333333333333,1,3,0.3333333333333333,0,3,0.0,0,3,0.0,0,3,0.0
+Suicídio geral,Metropolitana,Q1,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Suicídio geral,Metropolitana,Q2,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0,0,4,0.0
+Suicídio geral,Metropolitana,Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Suicídio geral,Norte,Acumulado Q2,1,4,0.25,1,4,0.25,2,4,0.5,1,4,0.25,0,4,0.0
+Suicídio geral,Norte,Acumulado Q3,1,3,0.3333333333333333,1,3,0.3333333333333333,2,3,0.6666666666666666,1,3,0.3333333333333333,0,3,0.0
+Suicídio geral,Norte,Q1,0,4,0.0,0,4,0.0,1,4,0.25,0,4,0.0,0,4,0.0
+Suicídio geral,Norte,Q2,1,4,0.25,1,4,0.25,2,4,0.5,0,4,0.0,0,4,0.0
+Suicídio geral,Norte,Q3,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0,0,3,0.0
+Suicídio geral,Sul,Acumulado Q2,2,4,0.5,2,4,0.5,3,4,0.75,1,4,0.25,0,4,0.0
+Suicídio geral,Sul,Acumulado Q3,2,3,0.6666666666666666,2,3,0.6666666666666666,2,3,0.6666666666666666,1,3,0.3333333333333333,0,3,0.0
+Suicídio geral,Sul,Q1,1,4,0.25,1,4,0.25,1,4,0.25,1,4,0.25,0,4,0.0
+Suicídio geral,Sul,Q2,1,4,0.25,1,4,0.25,2,4,0.5,1,4,0.25,0,4,0.0
+Suicídio geral,Sul,Q3,1,3,0.3333333333333333,1,3,0.3333333333333333,2,3,0.6666666666666666,1,3,0.3333333333333333,0,3,0.0

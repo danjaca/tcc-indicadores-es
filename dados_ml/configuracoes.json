@@ -1,0 +1,275 @@
+[
+  {
+    "indicator": "Suicídio geral",
+    "method": "Último mês",
+    "config": {}
+  },
+  {
+    "indicator": "Suicídio geral",
+    "method": "Mesmo mês ano anterior",
+    "config": {}
+  },
+  {
+    "indicator": "Suicídio geral",
+    "method": "Média móvel 3",
+    "config": {}
+  },
+  {
+    "indicator": "Suicídio geral",
+    "method": "Média móvel 6",
+    "config": {}
+  },
+  {
+    "indicator": "Suicídio geral",
+    "method": "Média móvel 12",
+    "config": {}
+  },
+  {
+    "indicator": "Suicídio geral",
+    "method": "Ridge",
+    "config": {
+      "alpha": 1000,
+      "residual": true
+    }
+  },
+  {
+    "indicator": "Suicídio geral",
+    "method": "Random Forest",
+    "config": {
+      "leaf": 2,
+      "depth": 3,
+      "residual": true
+    }
+  },
+  {
+    "indicator": "Suicídio geral",
+    "method": "Rede pesos PSO",
+    "config": {
+      "hidden": 8,
+      "alpha": 0.1,
+      "residual": true
+    }
+  },
+  {
+    "indicator": "Suicídio geral",
+    "method": "ELM aleatória",
+    "config": {
+      "alpha": 902.5280356561535,
+      "hidden": 16,
+      "residual": true,
+      "scale": 0.052177846238454395
+    }
+  },
+  {
+    "indicator": "Suicídio geral",
+    "method": "ELM PSO",
+    "config": {
+      "alpha": 9647.621076058309,
+      "hidden": 32,
+      "residual": true,
+      "scale": 0.1311172840629244
+    }
+  },
+  {
+    "indicator": "Suicídio geral",
+    "method": "MLP aleatória",
+    "config": {
+      "alpha": 18.009479113301822,
+      "hidden": 32,
+      "residual": false,
+      "scale": 0.04933708651738081
+    }
+  },
+  {
+    "indicator": "Suicídio geral",
+    "method": "MLP PSO",
+    "config": {
+      "alpha": 18.664623910595864,
+      "hidden": 32,
+      "residual": false,
+      "scale": 0.03162277660168379
+    }
+  },
+  {
+    "indicator": "Homicídios — jovens de 15 a 29 anos",
+    "method": "Último mês",
+    "config": {}
+  },
+  {
+    "indicator": "Homicídios — jovens de 15 a 29 anos",
+    "method": "Mesmo mês ano anterior",
+    "config": {}
+  },
+  {
+    "indicator": "Homicídios — jovens de 15 a 29 anos",
+    "method": "Média móvel 3",
+    "config": {}
+  },
+  {
+    "indicator": "Homicídios — jovens de 15 a 29 anos",
+    "method": "Média móvel 6",
+    "config": {}
+  },
+  {
+    "indicator": "Homicídios — jovens de 15 a 29 anos",
+    "method": "Média móvel 12",
+    "config": {}
+  },
+  {
+    "indicator": "Homicídios — jovens de 15 a 29 anos",
+    "method": "Ridge",
+    "config": {
+      "alpha": 1000,
+      "residual": true
+    }
+  },
+  {
+    "indicator": "Homicídios — jovens de 15 a 29 anos",
+    "method": "Random Forest",
+    "config": {
+      "leaf": 10,
+      "depth": 3,
+      "residual": true
+    }
+  },
+  {
+    "indicator": "Homicídios — jovens de 15 a 29 anos",
+    "method": "Rede pesos PSO",
+    "config": {
+      "hidden": 4,
+      "alpha": 0.1,
+      "residual": true
+    }
+  },
+  {
+    "indicator": "Homicídios — jovens de 15 a 29 anos",
+    "method": "ELM aleatória",
+    "config": {
+      "alpha": 4.813860750427017,
+      "hidden": 4,
+      "residual": true,
+      "scale": 0.04015221361548586
+    }
+  },
+  {
+    "indicator": "Homicídios — jovens de 15 a 29 anos",
+    "method": "ELM PSO",
+    "config": {
+      "alpha": 0.0017872281373658573,
+      "hidden": 4,
+      "residual": true,
+      "scale": 0.2147904425420113
+    }
+  },
+  {
+    "indicator": "Homicídios — jovens de 15 a 29 anos",
+    "method": "MLP aleatória",
+    "config": {
+      "alpha": 17.94322491881026,
+      "hidden": 16,
+      "residual": true,
+      "scale": 0.052177846238454395
+    }
+  },
+  {
+    "indicator": "Homicídios — jovens de 15 a 29 anos",
+    "method": "MLP PSO",
+    "config": {
+      "alpha": 15.737322210309852,
+      "hidden": 16,
+      "residual": true,
+      "scale": 0.09419015242367701
+    }
+  },
+  {
+    "indicator": "Homicídios — mulheres de 10 a 59 anos",
+    "method": "Último mês",
+    "config": {}
+  },
+  {
+    "indicator": "Homicídios — mulheres de 10 a 59 anos",
+    "method": "Mesmo mês ano anterior",
+    "config": {}
+  },
+  {
+    "indicator": "Homicídios — mulheres de 10 a 59 anos",
+    "method": "Média móvel 3",
+    "config": {}
+  },
+  {
+    "indicator": "Homicídios — mulheres de 10 a 59 anos",
+    "method": "Média móvel 6",
+    "config": {}
+  },
+  {
+    "indicator": "Homicídios — mulheres de 10 a 59 anos",
+    "method": "Média móvel 12",
+    "config": {}
+  },
+  {
+    "indicator": "Homicídios — mulheres de 10 a 59 anos",
+    "method": "Ridge",
+    "config": {
+      "alpha": 100,
+      "residual": false
+    }
+  },
+  {
+    "indicator": "Homicídios — mulheres de 10 a 59 anos",
+    "method": "Random Forest",
+    "config": {
+      "leaf": 2,
+      "depth": 3,
+      "residual": true
+    }
+  },
+  {
+    "indicator": "Homicídios — mulheres de 10 a 59 anos",
+    "method": "Rede pesos PSO",
+    "config": {
+      "hidden": 8,
+      "alpha": 0.01,
+      "residual": true
+    }
+  },
+  {
+    "indicator": "Homicídios — mulheres de 10 a 59 anos",
+    "method": "ELM aleatória",
+    "config": {
+      "alpha": 4.813860750427017,
+      "hidden": 4,
+      "residual": true,
+      "scale": 0.04015221361548586
+    }
+  },
+  {
+    "indicator": "Homicídios — mulheres de 10 a 59 anos",
+    "method": "ELM PSO",
+    "config": {
+      "alpha": 8.109593020387544,
+      "hidden": 32,
+      "residual": true,
+      "scale": 2.8285561765705727
+    }
+  },
+  {
+    "indicator": "Homicídios — mulheres de 10 a 59 anos",
+    "method": "MLP aleatória",
+    "config": {
+      "alpha": 10.007990638261004,
+      "hidden": 4,
+      "residual": false,
+      "scale": 0.15395070670450298
+    }
+  },
+  {
+    "indicator": "Homicídios — mulheres de 10 a 59 anos",
+    "method": "MLP PSO",
+    "config": {
+      "alpha": 18.009479113301822,
+      "hidden": 32,
+      "residual": false,
+      "scale": 0.04933708651738081
+    }
+  }
+]

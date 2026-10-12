@@ -1,0 +1,529 @@
+date,region,y,prediction,indicator
+2023-01-01,Central,4.0,2.4412523659508256,Suicídio geral
+2023-01-01,Metropolitana,8.0,9.994050244277297,Suicídio geral
+2023-01-01,Norte,1.0,1.5954651555594568,Suicídio geral
+2023-01-01,Sul,6.0,3.5277077044619953,Suicídio geral
+2023-02-01,Central,2.0,3.0844994670371304,Suicídio geral
+2023-02-01,Metropolitana,17.0,7.851030829769414,Suicídio geral
+2023-02-01,Norte,1.0,1.6692130713010265,Suicídio geral
+2023-02-01,Sul,5.0,5.170646374792582,Suicídio geral
+2023-03-01,Central,4.0,2.703433972026864,Suicídio geral
+2023-03-01,Metropolitana,16.0,10.045729496596241,Suicídio geral
+2023-03-01,Norte,3.0,1.2978372079004192,Suicídio geral
+2023-03-01,Sul,3.0,4.471084578374503,Suicídio geral
+2023-04-01,Central,5.0,2.524824879836152,Suicídio geral
+2023-04-01,Metropolitana,12.0,11.679593982504283,Suicídio geral
+2023-04-01,Norte,2.0,1.5863435977982818,Suicídio geral
+2023-04-01,Sul,3.0,4.171417189742425,Suicídio geral
+2023-05-01,Central,6.0,2.8725010702764586,Suicídio geral
+2023-05-01,Metropolitana,13.0,11.711277305410592,Suicídio geral
+2023-05-01,Norte,2.0,1.6690760224138115,Suicídio geral
+2023-05-01,Sul,6.0,3.8891972903868472,Suicídio geral
+2023-06-01,Central,5.0,3.324227725259771,Suicídio geral
+2023-06-01,Metropolitana,15.0,11.413602136167317,Suicídio geral
+2023-06-01,Norte,3.0,1.7578168498254751,Suicídio geral
+2023-06-01,Sul,4.0,3.946072245500172,Suicídio geral
+2023-07-01,Central,3.0,3.864548644838465,Suicídio geral
+2023-07-01,Metropolitana,19.0,12.263830712718889,Suicídio geral
+2023-07-01,Norte,3.0,1.9424730441504174,Suicídio geral
+2023-07-01,Sul,1.0,4.10519942457619,Suicídio geral
+2023-08-01,Central,3.0,3.8231589359632334,Suicídio geral
+2023-08-01,Metropolitana,5.0,13.15663516578439,Suicídio geral
+2023-08-01,Norte,3.0,2.203782863187838,Suicídio geral
+2023-08-01,Sul,6.0,3.9647723975919686,Suicídio geral
+2023-09-01,Central,8.0,3.7543344427219663,Suicídio geral
+2023-09-01,Metropolitana,15.0,11.610890786292476,Suicídio geral
+2023-09-01,Norte,2.0,2.0961811513751782,Suicídio geral
+2023-09-01,Sul,7.0,4.322910639026428,Suicídio geral
+2023-10-01,Central,8.0,3.945587344187244,Suicídio geral
+2023-10-01,Metropolitana,16.0,12.194179235305262,Suicídio geral
+2023-10-01,Norte,1.0,2.177292641766071,Suicídio geral
+2023-10-01,Sul,6.0,4.662708515473092,Suicídio geral
+2023-11-01,Central,3.0,4.594356234603144,Suicídio geral
+2023-11-01,Metropolitana,10.0,12.581800989546938,Suicídio geral
+2023-11-01,Norte,2.0,2.098680989779887,Suicídio geral
+2023-11-01,Sul,5.0,4.942992283455887,Suicídio geral
+2023-12-01,Central,2.0,4.427773586485067,Suicídio geral
+2023-12-01,Metropolitana,13.0,12.347662720302178,Suicídio geral
+2023-12-01,Norte,6.0,2.085019382648121,Suicídio geral
+2023-12-01,Sul,6.0,4.836079916022887,Suicídio geral
+2024-01-01,Central,6.0,4.417546016619584,Suicídio geral
+2024-01-01,Metropolitana,21.0,13.246827427194127,Suicídio geral
+2024-01-01,Norte,3.0,2.421963756780207,Suicídio geral
+2024-01-01,Sul,8.0,4.837950135333855,Suicídio geral
+2024-02-01,Central,4.0,4.588443284902909,Suicídio geral
+2024-02-01,Metropolitana,10.0,14.316900189150623,Suicídio geral
+2024-02-01,Norte,2.0,2.590138082979302,Suicídio geral
+2024-02-01,Sul,7.0,5.025997737540745,Suicídio geral
+2024-03-01,Central,1.0,4.772150273861393,Suicídio geral
+2024-03-01,Metropolitana,23.0,13.776177764235435,Suicídio geral
+2024-03-01,Norte,3.0,2.6692517448574313,Suicídio geral
+2024-03-01,Sul,6.0,5.2478497576048735,Suicídio geral
+2024-04-01,Central,2.0,4.45911199119534,Suicídio geral
+2024-04-01,Metropolitana,14.0,14.43895817306105,Suicídio geral
+2024-04-01,Norte,6.0,2.6788349339810678,Suicídio geral
+2024-04-01,Sul,3.0,5.492222528805052,Suicídio geral
+2024-05-01,Central,3.0,4.216646208210386,Suicídio geral
+2024-05-01,Metropolitana,16.0,14.517819182354106,Suicídio geral
+2024-05-01,Norte,4.0,3.0177974538376513,Suicídio geral
+2024-05-01,Sul,12.0,5.427678272916002,Suicídio geral
+2024-06-01,Central,3.0,3.793939807026624,Suicídio geral
+2024-06-01,Metropolitana,17.0,15.042347132356571,Suicídio geral
+2024-06-01,Norte,3.0,3.338421134235256,Suicídio geral
+2024-06-01,Sul,5.0,6.139441633293706,Suicídio geral
+2024-07-01,Central,2.0,3.651913386101188,Suicídio geral
+2024-07-01,Metropolitana,10.0,15.437249178922503,Suicídio geral
+2024-07-01,Norte,8.0,3.258109086868852,Suicídio geral
+2024-07-01,Sul,4.0,6.226830047804155,Suicídio geral
+2024-08-01,Central,8.0,3.6344603992102513,Suicídio geral
+2024-08-01,Metropolitana,8.0,14.243253272490467,Suicídio geral
+2024-08-01,Norte,4.0,3.65426132593349,Suicídio geral
+2024-08-01,Sul,6.0,6.243827858619911,Suicídio geral
+2024-09-01,Central,3.0,4.143455962574698,Suicídio geral
+2024-09-01,Metropolitana,11.0,14.42174246122385,Suicídio geral
+2024-09-01,Norte,3.0,3.690298624869887,Suicídio geral
+2024-09-01,Sul,8.0,6.2439547582218715,Suicídio geral
+2024-10-01,Central,5.0,3.7461118518453955,Suicídio geral
+2024-10-01,Metropolitana,15.0,14.05926595416826,Suicídio geral
+2024-10-01,Norte,2.0,3.765291105660444,Suicídio geral
+2024-10-01,Sul,4.0,6.3335278933847725,Suicídio geral
+2024-11-01,Central,5.0,3.5012161001998217,Suicídio geral
+2024-11-01,Metropolitana,22.0,13.997191425490632,Suicídio geral
+2024-11-01,Norte,3.0,3.833735680462539,Suicídio geral
+2024-11-01,Sul,6.0,6.167466188714994,Suicídio geral
+2024-12-01,Central,4.0,3.6673300041706303,Suicídio geral
+2024-12-01,Metropolitana,18.0,14.998812770735281,Suicídio geral
+2024-12-01,Norte,4.0,3.916585218533236,Suicídio geral
+2024-12-01,Sul,10.0,6.249261158165685,Suicídio geral
+2025-01-01,Central,9.0,3.833482587809258,Suicídio geral
+2025-01-01,Metropolitana,13.0,15.41636537013828,Suicídio geral
+2025-01-01,Norte,2.0,3.7500529431499396,Suicídio geral
+2025-01-01,Sul,8.0,6.58327928124612,Suicídio geral
+2025-02-01,Central,2.0,4.084476587255464,Suicídio geral
+2025-02-01,Metropolitana,14.0,14.749825792370704,Suicídio geral
+2025-02-01,Norte,2.0,3.6661881816721884,Suicídio geral
+2025-02-01,Sul,7.0,6.5836364065287505,Suicídio geral
+2025-03-01,Central,4.0,3.917112377654314,Suicídio geral
+2025-03-01,Metropolitana,21.0,15.083580631090609,Suicídio geral
+2025-03-01,Norte,5.0,3.6660743487813576,Suicídio geral
+2025-03-01,Sul,5.0,6.5836802990355565,Suicídio geral
+2025-04-01,Central,1.0,4.166773346431003,Suicídio geral
+2025-04-01,Metropolitana,18.0,14.917026030439308,Suicídio geral
+2025-04-01,Norte,3.0,3.8332005225498476,Suicídio geral
+2025-04-01,Sul,10.0,6.500026815432559,Suicídio geral
+2025-05-01,Central,3.0,4.083426925939164,Suicídio geral
+2025-05-01,Metropolitana,17.0,15.2526749553078,Suicídio geral
+2025-05-01,Norte,1.0,3.5828735949766535,Suicídio geral
+2025-05-01,Sul,3.0,7.0839802043805635,Suicídio geral
+2025-06-01,Central,1.0,4.0828199157811405,Suicídio geral
+2025-06-01,Metropolitana,14.0,15.336424319937917,Suicídio geral
+2025-06-01,Norte,2.0,3.3323049034972163,Suicídio geral
+2025-06-01,Sul,4.0,6.33505139566842,Suicídio geral
+2025-07-01,Central,1.0,3.916300545176287,Suicídio geral
+2025-07-01,Metropolitana,19.0,15.084014006579997,Suicídio geral
+2025-07-01,Norte,0.0,3.2495292087438927,Suicídio geral
+2025-07-01,Sul,7.0,6.249947939359601,Suicídio geral
+2025-08-01,Central,1.0,3.8267284923871343,Suicídio geral
+2025-08-01,Metropolitana,13.0,15.838139166281977,Suicídio geral
+2025-08-01,Norte,5.0,2.581833383560184,Suicídio geral
+2025-08-01,Sul,4.0,6.498199631136595,Suicídio geral
+2025-09-01,Central,5.0,3.2421142792404085,Suicídio geral
+2025-09-01,Metropolitana,16.0,16.254176090742884,Suicídio geral
+2025-09-01,Norte,1.0,2.6666686513953213,Suicídio geral
+2025-09-01,Sul,5.0,6.328695417577924,Suicídio geral
+2025-10-01,Central,1.0,3.413756670558559,Suicídio geral
+2025-10-01,Metropolitana,18.0,16.665639721154527,Suicídio geral
+2025-10-01,Norte,0.0,2.4989733338361892,Suicídio geral
+2025-10-01,Sul,4.0,6.08213536536122,Suicídio geral
+2025-11-01,Central,4.0,3.073435743148843,Suicídio geral
+2025-11-01,Metropolitana,14.0,16.909814013759483,Suicídio geral
+2025-11-01,Norte,2.0,2.3257205071698435,Suicídio geral
+2025-11-01,Sul,4.0,6.0688660570977335,Suicídio geral
+2025-12-01,Central,3.0,2.983040355977907,Suicídio geral
+2025-12-01,Metropolitana,22.0,16.23812571347038,Suicídio geral
+2025-12-01,Norte,3.0,2.238121987241308,Suicídio geral
+2025-12-01,Sul,7.0,5.891213255613677,Suicídio geral
+2026-01-01,Central,3.0,2.915910894788656,Suicídio geral
+2026-01-01,Metropolitana,22.0,16.584090051526868,Suicídio geral
+2026-01-01,Norte,0.0,2.1660619898201325,Suicídio geral
+2026-01-01,Sul,2.0,5.6657594648959915,Suicídio geral
+2026-02-01,Central,4.0,2.4180795344910524,Suicídio geral
+2026-02-01,Metropolitana,13.0,17.33390239983189,Suicídio geral
+2026-02-01,Norte,2.0,1.9994357079486402,Suicídio geral
+2026-02-01,Sul,1.0,5.16384500747885,Suicídio geral
+2026-03-01,Central,5.0,2.5883668098363537,Suicídio geral
+2026-03-01,Metropolitana,18.0,17.251680208097312,Suicídio geral
+2026-03-01,Norte,2.0,1.995528389251024,Suicídio geral
+2026-03-01,Sul,7.0,4.661075392962419,Suicídio geral
+2026-04-01,Central,3.0,2.669749943815595,Suicídio geral
+2026-04-01,Metropolitana,18.0,17.003852643560474,Suicídio geral
+2026-04-01,Norte,4.0,1.7488450252014962,Suicídio geral
+2026-04-01,Sul,1.0,4.83025161460595,Suicídio geral
+2026-05-01,Central,1.0,2.8431021545071795,Suicídio geral
+2026-05-01,Metropolitana,16.0,17.009765029995044,Suicídio geral
+2026-05-01,Norte,1.0,1.8372425073639174,Suicídio geral
+2026-05-01,Sul,4.0,4.078450862647835,Suicídio geral
+2026-06-01,Central,1.0,2.667761218417285,Suicídio geral
+2026-06-01,Metropolitana,8.0,16.91940217329365,Suicídio geral
+2026-06-01,Norte,0.0,1.8336984812090724,Suicídio geral
+2026-06-01,Sul,5.0,4.165572748958146,Suicídio geral
+2026-07-01,Central,0.0,2.6667262650882373,Suicídio geral
+2026-07-01,Metropolitana,10.0,16.416457697878467,Suicídio geral
+2026-07-01,Norte,1.0,1.6666070761545622,Suicídio geral
+2026-07-01,Sul,0.0,4.249671930769067,Suicídio geral
+2026-08-01,Central,1.0,2.5830535928429486,Suicídio geral
+2026-08-01,Metropolitana,7.0,15.66463759855626,Suicídio geral
+2026-08-01,Norte,0.0,1.749905781840441,Suicídio geral
+2026-08-01,Sul,0.0,3.66593113694029,Suicídio geral
+2023-01-01,Central,7.0,7.087197866877721,Homicídios — jovens de 15 a 29 anos
+2023-01-01,Metropolitana,41.0,32.86532592437103,Homicídios — jovens de 15 a 29 anos
+2023-01-01,Norte,9.0,5.393714375592655,Homicídios — jovens de 15 a 29 anos
+2023-01-01,Sul,4.0,5.668326927361974,Homicídios — jovens de 15 a 29 anos
+2023-02-01,Central,7.0,6.888209397434291,Homicídios — jovens de 15 a 29 anos
+2023-02-01,Metropolitana,29.0,34.13691142135564,Homicídios — jovens de 15 a 29 anos
+2023-02-01,Norte,6.0,5.858139565441775,Homicídios — jovens de 15 a 29 anos
+2023-02-01,Sul,5.0,5.577902930239809,Homicídios — jovens de 15 a 29 anos
+2023-03-01,Central,13.0,7.152362091593417,Homicídios — jovens de 15 a 29 anos
+2023-03-01,Metropolitana,32.0,32.205357468342015,Homicídios — jovens de 15 a 29 anos
+2023-03-01,Norte,10.0,6.067253152392942,Homicídios — jovens de 15 a 29 anos
+2023-03-01,Sul,5.0,5.274234655683229,Homicídios — jovens de 15 a 29 anos
+2023-04-01,Central,10.0,8.194827254040367,Homicídios — jovens de 15 a 29 anos
+2023-04-01,Metropolitana,34.0,33.425632153959455,Homicídios — jovens de 15 a 29 anos
+2023-04-01,Norte,6.0,6.869522963346286,Homicídios — jovens de 15 a 29 anos
+2023-04-01,Sul,3.0,5.267932591242181,Homicídios — jovens de 15 a 29 anos
+2023-05-01,Central,7.0,8.347007162759079,Homicídios — jovens de 15 a 29 anos
+2023-05-01,Metropolitana,19.0,33.42294540975302,Homicídios — jovens de 15 a 29 anos
+2023-05-01,Norte,5.0,6.988384562804898,Homicídios — jovens de 15 a 29 anos
+2023-05-01,Sul,5.0,5.1166197794883725,Homicídios — jovens de 15 a 29 anos
+2023-06-01,Central,10.0,8.899007000933912,Homicídios — jovens de 15 a 29 anos
+2023-06-01,Metropolitana,26.0,31.589589242725083,Homicídios — jovens de 15 a 29 anos
+2023-06-01,Norte,5.0,7.027465168654538,Homicídios — jovens de 15 a 29 anos
+2023-06-01,Sul,5.0,5.004464103916156,Homicídios — jovens de 15 a 29 anos
+2023-07-01,Central,5.0,8.923559548890657,Homicídios — jovens de 15 a 29 anos
+2023-07-01,Metropolitana,22.0,30.333602554193327,Homicídios — jovens de 15 a 29 anos
+2023-07-01,Norte,6.0,6.727758144613222,Homicídios — jovens de 15 a 29 anos
+2023-07-01,Sul,0.0,4.836769345596294,Homicídios — jovens de 15 a 29 anos
+2023-08-01,Central,9.0,8.451711542993527,Homicídios — jovens de 15 a 29 anos
+2023-08-01,Metropolitana,23.0,27.32239304966832,Homicídios — jovens de 15 a 29 anos
+2023-08-01,Norte,3.0,6.3324579663922655,Homicídios — jovens de 15 a 29 anos
+2023-08-01,Sul,3.0,4.101226444250321,Homicídios — jovens de 15 a 29 anos
+2023-09-01,Central,12.0,8.705651897730341,Homicídios — jovens de 15 a 29 anos
+2023-09-01,Metropolitana,26.0,26.41320259699001,Homicídios — jovens de 15 a 29 anos
+2023-09-01,Norte,10.0,5.806685837056242,Homicídios — jovens de 15 a 29 anos
+2023-09-01,Sul,4.0,3.6150912728435047,Homicídios — jovens de 15 a 29 anos
+2023-10-01,Central,2.0,8.705779534313923,Homicídios — jovens de 15 a 29 anos
+2023-10-01,Metropolitana,36.0,25.774839861136744,Homicídios — jovens de 15 a 29 anos
+2023-10-01,Norte,5.0,6.076325144369594,Homicídios — jovens de 15 a 29 anos
+2023-10-01,Sul,6.0,3.4067484432237483,Homicídios — jovens de 15 a 29 anos
+2023-11-01,Central,8.0,7.6483136740380635,Homicídios — jovens de 15 a 29 anos
+2023-11-01,Metropolitana,23.0,26.70805390802573,Homicídios — jovens de 15 a 29 anos
+2023-11-01,Norte,10.0,5.9486193850998985,Homicídios — jovens de 15 a 29 anos
+2023-11-01,Sul,4.0,4.090069368905441,Homicídios — jovens de 15 a 29 anos
+2023-12-01,Central,5.0,7.83319933523958,Homicídios — jovens de 15 a 29 anos
+2023-12-01,Metropolitana,41.0,27.199374663327816,Homicídios — jovens de 15 a 29 anos
+2023-12-01,Norte,7.0,6.981373474242927,Homicídios — jovens de 15 a 29 anos
+2023-12-01,Sul,10.0,4.023460065056958,Homicídios — jovens de 15 a 29 anos
+2024-01-01,Central,11.0,6.75821530606952,Homicídios — jovens de 15 a 29 anos
+2024-01-01,Metropolitana,27.0,29.817936874728588,Homicídios — jovens de 15 a 29 anos
+2024-01-01,Norte,7.0,7.117098122877292,Homicídios — jovens de 15 a 29 anos
+2024-01-01,Sul,3.0,5.071602792566292,Homicídios — jovens de 15 a 29 anos
+2024-02-01,Central,7.0,7.842394219307781,Homicídios — jovens de 15 a 29 anos
+2024-02-01,Metropolitana,23.0,29.689752680237202,Homicídios — jovens de 15 a 29 anos
+2024-02-01,Norte,9.0,7.332859537114476,Homicídios — jovens de 15 a 29 anos
+2024-02-01,Sul,2.0,5.3095365065905895,Homicídios — jovens de 15 a 29 anos
+2024-03-01,Central,8.0,7.574138466272528,Homicídios — jovens de 15 a 29 anos
+2024-03-01,Metropolitana,35.0,29.69334968703736,Homicídios — jovens de 15 a 29 anos
+2024-03-01,Norte,12.0,7.881597278532989,Homicídios — jovens de 15 a 29 anos
+2024-03-01,Sul,7.0,5.011843122412761,Homicídios — jovens de 15 a 29 anos
+2024-04-01,Central,8.0,7.101104879122344,Homicídios — jovens de 15 a 29 anos
+2024-04-01,Metropolitana,30.0,30.333771193584383,Homicídios — jovens de 15 a 29 anos
+2024-04-01,Norte,7.0,8.382302135445194,Homicídios — jovens de 15 a 29 anos
+2024-04-01,Sul,4.0,5.159870475167541,Homicídios — jovens de 15 a 29 anos
+2024-05-01,Central,7.0,7.510893657688584,Homicídios — jovens de 15 a 29 anos
+2024-05-01,Metropolitana,25.0,29.285255425851084,Homicídios — jovens de 15 a 29 anos
+2024-05-01,Norte,7.0,8.555037005973926,Homicídios — jovens de 15 a 29 anos
+2024-05-01,Sul,0.0,4.855334643207364,Homicídios — jovens de 15 a 29 anos
+2024-06-01,Central,5.0,7.369370164279041,Homicídios — jovens de 15 a 29 anos
+2024-06-01,Metropolitana,15.0,29.791499150539586,Homicídios — jovens de 15 a 29 anos
+2024-06-01,Norte,2.0,8.074126530872505,Homicídios — jovens de 15 a 29 anos
+2024-06-01,Sul,0.0,4.205239642466765,Homicídios — jovens de 15 a 29 anos
+2024-07-01,Central,4.0,7.213984680715878,Homicídios — jovens de 15 a 29 anos
+2024-07-01,Metropolitana,31.0,25.54636268785687,Homicídios — jovens de 15 a 29 anos
+2024-07-01,Norte,10.0,6.978032944599273,Homicídios — jovens de 15 a 29 anos
+2024-07-01,Sul,1.0,2.6132465156451876,Homicídios — jovens de 15 a 29 anos
+2024-08-01,Central,7.0,6.262631989811597,Homicídios — jovens de 15 a 29 anos
+2024-08-01,Metropolitana,14.0,26.246026686703473,Homicídios — jovens de 15 a 29 anos
+2024-08-01,Norte,4.0,7.57367231660207,Homicídios — jovens de 15 a 29 anos
+2024-08-01,Sul,2.0,2.369915557805601,Homicídios — jovens de 15 a 29 anos
+2024-09-01,Central,5.0,6.279860205977894,Homicídios — jovens de 15 a 29 anos
+2024-09-01,Metropolitana,24.0,24.688631840405577,Homicídios — jovens de 15 a 29 anos
+2024-09-01,Norte,1.0,6.9211032954639435,Homicídios — jovens de 15 a 29 anos
+2024-09-01,Sul,6.0,2.492688065238312,Homicídios — jovens de 15 a 29 anos
+2024-10-01,Central,6.0,6.039310828253106,Homicídios — jovens de 15 a 29 anos
+2024-10-01,Metropolitana,25.0,24.035055808276912,Homicídios — jovens de 15 a 29 anos
+2024-10-01,Norte,7.0,5.624640446110426,Homicídios — jovens de 15 a 29 anos
+2024-10-01,Sul,6.0,2.6897016279077293,Homicídios — jovens de 15 a 29 anos
+2024-11-01,Central,8.0,5.968704753799713,Homicídios — jovens de 15 a 29 anos
+2024-11-01,Metropolitana,18.0,22.772922737457968,Homicídios — jovens de 15 a 29 anos
+2024-11-01,Norte,6.0,5.455290041052807,Homicídios — jovens de 15 a 29 anos
+2024-11-01,Sul,3.0,3.228472425456988,Homicídios — jovens de 15 a 29 anos
+2024-12-01,Central,7.0,6.131048549656688,Homicídios — jovens de 15 a 29 anos
+2024-12-01,Metropolitana,13.0,22.53494449512298,Homicídios — jovens de 15 a 29 anos
+2024-12-01,Norte,2.0,5.4850161426813555,Homicídios — jovens de 15 a 29 anos
+2024-12-01,Sul,1.0,3.6248945353241195,Homicídios — jovens de 15 a 29 anos
+2025-01-01,Central,13.0,6.330032279733883,Homicídios — jovens de 15 a 29 anos
+2025-01-01,Metropolitana,18.0,20.335394864308785,Homicídios — jovens de 15 a 29 anos
+2025-01-01,Norte,4.0,5.093741532410572,Homicídios — jovens de 15 a 29 anos
+2025-01-01,Sul,2.0,3.193683625247643,Homicídios — jovens de 15 a 29 anos
+2025-02-01,Central,6.0,7.491669067344468,Homicídios — jovens de 15 a 29 anos
+2025-02-01,Metropolitana,19.0,18.403957837586923,Homicídios — jovens de 15 a 29 anos
+2025-02-01,Norte,3.0,4.222765092706117,Homicídios — jovens de 15 a 29 anos
+2025-02-01,Sul,4.0,3.0371272365544466,Homicídios — jovens de 15 a 29 anos
+2025-03-01,Central,8.0,7.250181325293872,Homicídios — jovens de 15 a 29 anos
+2025-03-01,Metropolitana,23.0,19.304747335490703,Homicídios — jovens de 15 a 29 anos
+2025-03-01,Norte,6.0,3.8162231855751183,Homicídios — jovens de 15 a 29 anos
+2025-03-01,Sul,5.0,3.254353335631926,Homicídios — jovens de 15 a 29 anos
+2025-04-01,Central,0.0,7.496947153139127,Homicídios — jovens de 15 a 29 anos
+2025-04-01,Metropolitana,11.0,19.47143163048129,Homicídios — jovens de 15 a 29 anos
+2025-04-01,Norte,6.0,4.387867281382791,Homicídios — jovens de 15 a 29 anos
+2025-04-01,Sul,1.0,3.172844454221404,Homicídios — jovens de 15 a 29 anos
+2025-05-01,Central,7.0,5.956069227439544,Homicídios — jovens de 15 a 29 anos
+2025-05-01,Metropolitana,20.0,16.789897745826373,Homicídios — jovens de 15 a 29 anos
+2025-05-01,Norte,3.0,4.2232109760288665,Homicídios — jovens de 15 a 29 anos
+2025-05-01,Sul,2.0,2.399714478361713,Homicídios — jovens de 15 a 29 anos
+2025-06-01,Central,6.0,5.835222881193925,Homicídios — jovens de 15 a 29 anos
+2025-06-01,Metropolitana,17.0,16.961411074881728,Homicídios — jovens de 15 a 29 anos
+2025-06-01,Norte,4.0,3.8503351341376675,Homicídios — jovens de 15 a 29 anos
+2025-06-01,Sul,0.0,2.2006109420514943,Homicídios — jovens de 15 a 29 anos
+2025-07-01,Central,3.0,5.642174005882544,Homicídios — jovens de 15 a 29 anos
+2025-07-01,Metropolitana,22.0,17.486669514263287,Homicídios — jovens de 15 a 29 anos
+2025-07-01,Norte,8.0,4.029214264845658,Homicídios — jovens de 15 a 29 anos
+2025-07-01,Sul,4.0,1.856716397233718,Homicídios — jovens de 15 a 29 anos
+2025-08-01,Central,4.0,4.8286100768128275,Homicídios — jovens de 15 a 29 anos
+2025-08-01,Metropolitana,20.0,18.1323613498325,Homicídios — jovens de 15 a 29 anos
+2025-08-01,Norte,5.0,4.6341116530482935,Homicídios — jovens de 15 a 29 anos
+2025-08-01,Sul,1.0,2.357875931966262,Homicídios — jovens de 15 a 29 anos
+2025-09-01,Central,5.0,4.517724361366433,Homicídios — jovens de 15 a 29 anos
+2025-09-01,Metropolitana,14.0,18.44517326275087,Homicídios — jovens de 15 a 29 anos
+2025-09-01,Norte,5.0,5.099709583285824,Homicídios — jovens de 15 a 29 anos
+2025-09-01,Sul,1.0,2.043134805112346,Homicídios — jovens de 15 a 29 anos
+2025-10-01,Central,8.0,4.190518518091048,Homicídios — jovens de 15 a 29 anos
+2025-10-01,Metropolitana,22.0,17.24572090234574,Homicídios — jovens de 15 a 29 anos
+2025-10-01,Norte,6.0,5.165626243976112,Homicídios — jovens de 15 a 29 anos
+2025-10-01,Sul,5.0,1.6599750103945392,Homicídios — jovens de 15 a 29 anos
+2025-11-01,Central,3.0,5.451002338013435,Homicídios — jovens de 15 a 29 anos
+2025-11-01,Metropolitana,17.0,18.57138090589266,Homicídios — jovens de 15 a 29 anos
+2025-11-01,Norte,6.0,5.077477231070665,Homicídios — jovens de 15 a 29 anos
+2025-11-01,Sul,1.0,2.1530010510890536,Homicídios — jovens de 15 a 29 anos
+2025-12-01,Central,7.0,4.912573003771001,Homicídios — jovens de 15 a 29 anos
+2025-12-01,Metropolitana,17.0,18.0552167066139,Homicídios — jovens de 15 a 29 anos
+2025-12-01,Norte,14.0,5.4965219619671855,Homicídios — jovens de 15 a 29 anos
+2025-12-01,Sul,4.0,2.0376791643034187,Homicídios — jovens de 15 a 29 anos
+2026-01-01,Central,5.0,5.3106396048867595,Homicídios — jovens de 15 a 29 anos
+2026-01-01,Metropolitana,24.0,18.450840404113503,Homicídios — jovens de 15 a 29 anos
+2026-01-01,Norte,5.0,7.262432788064293,Homicídios — jovens de 15 a 29 anos
+2026-01-01,Sul,1.0,2.8642705461911198,Homicídios — jovens de 15 a 29 anos
+2026-02-01,Central,8.0,5.210730398603099,Homicídios — jovens de 15 a 29 anos
+2026-02-01,Metropolitana,27.0,18.58683224799028,Homicídios — jovens de 15 a 29 anos
+2026-02-01,Norte,6.0,6.884065914964486,Homicídios — jovens de 15 a 29 anos
+2026-02-01,Sul,1.0,2.257127505888344,Homicídios — jovens de 15 a 29 anos
+2026-03-01,Central,4.0,5.85596370399005,Homicídios — jovens de 15 a 29 anos
+2026-03-01,Metropolitana,16.0,19.917161851389753,Homicídios — jovens de 15 a 29 anos
+2026-03-01,Norte,2.0,7.002695486669897,Homicídios — jovens de 15 a 29 anos
+2026-03-01,Sul,2.0,2.1807744321398785,Homicídios — jovens de 15 a 29 anos
+2026-04-01,Central,4.0,5.37471872503156,Homicídios — jovens de 15 a 29 anos
+2026-04-01,Metropolitana,14.0,20.07256711934236,Homicídios — jovens de 15 a 29 anos
+2026-04-01,Norte,5.0,5.847217794644866,Homicídios — jovens de 15 a 29 anos
+2026-04-01,Sul,1.0,1.9808062907121815,Homicídios — jovens de 15 a 29 anos
+2026-05-01,Central,4.0,4.868252429014013,Homicídios — jovens de 15 a 29 anos
+2026-05-01,Metropolitana,17.0,18.600555950178094,Homicídios — jovens de 15 a 29 anos
+2026-05-01,Norte,4.0,5.627946229378264,Homicídios — jovens de 15 a 29 anos
+2026-05-01,Sul,2.0,1.489052659077191,Homicídios — jovens de 15 a 29 anos
+2026-06-01,Central,2.0,4.727500568376305,Homicídios — jovens de 15 a 29 anos
+2026-06-01,Metropolitana,7.0,17.90640820337822,Homicídios — jovens de 15 a 29 anos
+2026-06-01,Norte,4.0,5.288411129336538,Homicídios — jovens de 15 a 29 anos
+2026-06-01,Sul,1.0,1.6100472410346218,Homicídios — jovens de 15 a 29 anos
+2026-07-01,Central,5.0,4.037630525337419,Homicídios — jovens de 15 a 29 anos
+2026-07-01,Metropolitana,10.0,16.05500522642707,Homicídios — jovens de 15 a 29 anos
+2026-07-01,Norte,2.0,4.441324815681897,Homicídios — jovens de 15 a 29 anos
+2026-07-01,Sul,0.0,1.3115322934780758,Homicídios — jovens de 15 a 29 anos
+2026-08-01,Central,0.0,4.164542717387691,Homicídios — jovens de 15 a 29 anos
+2026-08-01,Metropolitana,11.0,14.08816043739029,Homicídios — jovens de 15 a 29 anos
+2026-08-01,Norte,0.0,3.9115092429480134,Homicídios — jovens de 15 a 29 anos
+2026-08-01,Sul,0.0,1.1672611445017378,Homicídios — jovens de 15 a 29 anos
+2023-01-01,Central,2.0,0.9000366850327195,Homicídios — mulheres de 10 a 59 anos
+2023-01-01,Metropolitana,6.0,4.566572496649169,Homicídios — mulheres de 10 a 59 anos
+2023-01-01,Norte,1.0,1.0073219778055242,Homicídios — mulheres de 10 a 59 anos
+2023-01-01,Sul,0.0,0.9161478655482445,Homicídios — mulheres de 10 a 59 anos
+2023-02-01,Central,0.0,0.908447837873798,Homicídios — mulheres de 10 a 59 anos
+2023-02-01,Metropolitana,5.0,5.0989055683207125,Homicídios — mulheres de 10 a 59 anos
+2023-02-01,Norte,1.0,0.87169858243122,Homicídios — mulheres de 10 a 59 anos
+2023-02-01,Sul,2.0,0.9729453538398435,Homicídios — mulheres de 10 a 59 anos
+2023-03-01,Central,3.0,0.6298549174798937,Homicídios — mulheres de 10 a 59 anos
+2023-03-01,Metropolitana,5.0,4.726821165916359,Homicídios — mulheres de 10 a 59 anos
+2023-03-01,Norte,0.0,0.9863299901693829,Homicídios — mulheres de 10 a 59 anos
+2023-03-01,Sul,0.0,1.2314413145622232,Homicídios — mulheres de 10 a 59 anos
+2023-04-01,Central,1.0,0.9751779063081569,Homicídios — mulheres de 10 a 59 anos
+2023-04-01,Metropolitana,2.0,4.730709121110995,Homicídios — mulheres de 10 a 59 anos
+2023-04-01,Norte,1.0,0.9822877380130776,Homicídios — mulheres de 10 a 59 anos
+2023-04-01,Sul,1.0,0.8736836998397863,Homicídios — mulheres de 10 a 59 anos
+2023-05-01,Central,2.0,0.8317444346662693,Homicídios — mulheres de 10 a 59 anos
+2023-05-01,Metropolitana,1.0,4.845379224067704,Homicídios — mulheres de 10 a 59 anos
+2023-05-01,Norte,0.0,0.9423414256724281,Homicídios — mulheres de 10 a 59 anos
+2023-05-01,Sul,2.0,0.9926106071096461,Homicídios — mulheres de 10 a 59 anos
+2023-06-01,Central,1.0,1.2362521193301088,Homicídios — mulheres de 10 a 59 anos
+2023-06-01,Metropolitana,3.0,3.382354548886818,Homicídios — mulheres de 10 a 59 anos
+2023-06-01,Norte,2.0,0.8263966587967204,Homicídios — mulheres de 10 a 59 anos
+2023-06-01,Sul,1.0,1.2406550597504546,Homicídios — mulheres de 10 a 59 anos
+2023-07-01,Central,1.0,1.3048143866215336,Homicídios — mulheres de 10 a 59 anos
+2023-07-01,Metropolitana,2.0,3.5101562753448317,Homicídios — mulheres de 10 a 59 anos
+2023-07-01,Norte,1.0,0.8731743517955171,Homicídios — mulheres de 10 a 59 anos
+2023-07-01,Sul,0.0,0.9778013784050144,Homicídios — mulheres de 10 a 59 anos
+2023-08-01,Central,2.0,1.2071990432871798,Homicídios — mulheres de 10 a 59 anos
+2023-08-01,Metropolitana,3.0,3.1105844918215366,Homicídios — mulheres de 10 a 59 anos
+2023-08-01,Norte,2.0,0.9042918897835157,Homicídios — mulheres de 10 a 59 anos
+2023-08-01,Sul,0.0,0.9868285556097358,Homicídios — mulheres de 10 a 59 anos
+2023-09-01,Central,0.0,1.478629425983292,Homicídios — mulheres de 10 a 59 anos
+2023-09-01,Metropolitana,4.0,3.056140487491163,Homicídios — mulheres de 10 a 59 anos
+2023-09-01,Norte,0.0,1.0694626190333756,Homicídios — mulheres de 10 a 59 anos
+2023-09-01,Sul,2.0,0.7388550501951927,Homicídios — mulheres de 10 a 59 anos
+2023-10-01,Central,1.0,1.0819366296507296,Homicídios — mulheres de 10 a 59 anos
+2023-10-01,Metropolitana,6.0,2.8710863650652225,Homicídios — mulheres de 10 a 59 anos
+2023-10-01,Norte,2.0,1.0675717883656435,Homicídios — mulheres de 10 a 59 anos
+2023-10-01,Sul,0.0,1.0034704914632777,Homicídios — mulheres de 10 a 59 anos
+2023-11-01,Central,2.0,1.1277221107629134,Homicídios — mulheres de 10 a 59 anos
+2023-11-01,Metropolitana,3.0,3.4780867086057787,Homicídios — mulheres de 10 a 59 anos
+2023-11-01,Norte,1.0,1.270070259668202,Homicídios — mulheres de 10 a 59 anos
+2023-11-01,Sul,0.0,0.9385515944382514,Homicídios — mulheres de 10 a 59 anos
+2023-12-01,Central,1.0,1.0662983475672403,Homicídios — mulheres de 10 a 59 anos
+2023-12-01,Metropolitana,2.0,3.6457926922677872,Homicídios — mulheres de 10 a 59 anos
+2023-12-01,Norte,2.0,1.3241492936603707,Homicídios — mulheres de 10 a 59 anos
+2023-12-01,Sul,3.0,0.9823698422522746,Homicídios — mulheres de 10 a 59 anos
+2024-01-01,Central,2.0,1.2940295821854142,Homicídios — mulheres de 10 a 59 anos
+2024-01-01,Metropolitana,3.0,3.5247055923009007,Homicídios — mulheres de 10 a 59 anos
+2024-01-01,Norte,0.0,1.2788926348730174,Homicídios — mulheres de 10 a 59 anos
+2024-01-01,Sul,0.0,0.9663417467203919,Homicídios — mulheres de 10 a 59 anos
+2024-02-01,Central,1.0,1.2913172788723415,Homicídios — mulheres de 10 a 59 anos
+2024-02-01,Metropolitana,6.0,3.2946684496571015,Homicídios — mulheres de 10 a 59 anos
+2024-02-01,Norte,1.0,1.142896993586926,Homicídios — mulheres de 10 a 59 anos
+2024-02-01,Sul,1.0,1.0893208515741686,Homicídios — mulheres de 10 a 59 anos
+2024-03-01,Central,1.0,1.2960133862733256,Homicídios — mulheres de 10 a 59 anos
+2024-03-01,Metropolitana,9.0,3.6539953821149034,Homicídios — mulheres de 10 a 59 anos
+2024-03-01,Norte,3.0,0.874642319439302,Homicídios — mulheres de 10 a 59 anos
+2024-03-01,Sul,1.0,1.0347995157251064,Homicídios — mulheres de 10 a 59 anos
+2024-04-01,Central,1.0,1.2228130702945301,Homicídios — mulheres de 10 a 59 anos
+2024-04-01,Metropolitana,2.0,4.203997276497739,Homicídios — mulheres de 10 a 59 anos
+2024-04-01,Norte,1.0,1.323932187311652,Homicídios — mulheres de 10 a 59 anos
+2024-04-01,Sul,0.0,0.7661333979257032,Homicídios — mulheres de 10 a 59 anos
+2024-05-01,Central,5.0,1.1468031052906686,Homicídios — mulheres de 10 a 59 anos
+2024-05-01,Metropolitana,4.0,3.9195977953075634,Homicídios — mulheres de 10 a 59 anos
+2024-05-01,Norte,2.0,1.3375033645991175,Homicídios — mulheres de 10 a 59 anos
+2024-05-01,Sul,1.0,0.8101011952583499,Homicídios — mulheres de 10 a 59 anos
+2024-06-01,Central,0.0,1.5170520646422871,Homicídios — mulheres de 10 a 59 anos
+2024-06-01,Metropolitana,4.0,3.8536067320725618,Homicídios — mulheres de 10 a 59 anos
+2024-06-01,Norte,1.0,1.4221319710191773,Homicídios — mulheres de 10 a 59 anos
+2024-06-01,Sul,1.0,0.9008283452663921,Homicídios — mulheres de 10 a 59 anos
+2024-07-01,Central,2.0,1.5460261560531254,Homicídios — mulheres de 10 a 59 anos
+2024-07-01,Metropolitana,8.0,4.0501542914743425,Homicídios — mulheres de 10 a 59 anos
+2024-07-01,Norte,2.0,1.3568680487984064,Homicídios — mulheres de 10 a 59 anos
+2024-07-01,Sul,0.0,0.7084560864208462,Homicídios — mulheres de 10 a 59 anos
+2024-08-01,Central,2.0,1.5814586464464433,Homicídios — mulheres de 10 a 59 anos
+2024-08-01,Metropolitana,4.0,4.7632765868754525,Homicídios — mulheres de 10 a 59 anos
+2024-08-01,Norte,0.0,1.5070954854559984,Homicídios — mulheres de 10 a 59 anos
+2024-08-01,Sul,0.0,0.8799031014349203,Homicídios — mulheres de 10 a 59 anos
+2024-09-01,Central,1.0,1.5326693367647002,Homicídios — mulheres de 10 a 59 anos
+2024-09-01,Metropolitana,3.0,4.538701690421702,Homicídios — mulheres de 10 a 59 anos
+2024-09-01,Norte,0.0,1.4862183413703902,Homicídios — mulheres de 10 a 59 anos
+2024-09-01,Sul,3.0,0.835511433392583,Homicídios — mulheres de 10 a 59 anos
+2024-10-01,Central,5.0,1.6391259835192384,Homicídios — mulheres de 10 a 59 anos
+2024-10-01,Metropolitana,2.0,4.2042768452049355,Homicídios — mulheres de 10 a 59 anos
+2024-10-01,Norte,1.0,1.046115549903919,Homicídios — mulheres de 10 a 59 anos
+2024-10-01,Sul,0.0,0.8636433856341837,Homicídios — mulheres de 10 a 59 anos
+2024-11-01,Central,0.0,2.124041319766204,Homicídios — mulheres de 10 a 59 anos
+2024-11-01,Metropolitana,6.0,3.8642502922106443,Homicídios — mulheres de 10 a 59 anos
+2024-11-01,Norte,1.0,1.0733058340474275,Homicídios — mulheres de 10 a 59 anos
+2024-11-01,Sul,0.0,0.9413383532505029,Homicídios — mulheres de 10 a 59 anos
+2024-12-01,Central,1.0,1.6925116690518163,Homicídios — mulheres de 10 a 59 anos
+2024-12-01,Metropolitana,2.0,4.1544728427606055,Homicídios — mulheres de 10 a 59 anos
+2024-12-01,Norte,0.0,1.0115008215889025,Homicídios — mulheres de 10 a 59 anos
+2024-12-01,Sul,1.0,0.9516097715602961,Homicídios — mulheres de 10 a 59 anos
+2025-01-01,Central,4.0,1.8139206915708264,Homicídios — mulheres de 10 a 59 anos
+2025-01-01,Metropolitana,6.0,4.053284196326068,Homicídios — mulheres de 10 a 59 anos
+2025-01-01,Norte,0.0,0.8681811676630538,Homicídios — mulheres de 10 a 59 anos
+2025-01-01,Sul,1.0,0.6950241896188871,Homicídios — mulheres de 10 a 59 anos
+2025-02-01,Central,0.0,1.8982297348758106,Homicídios — mulheres de 10 a 59 anos
+2025-02-01,Metropolitana,4.0,4.104791994236997,Homicídios — mulheres de 10 a 59 anos
+2025-02-01,Norte,2.0,0.913621405299013,Homicídios — mulheres de 10 a 59 anos
+2025-02-01,Sul,1.0,0.8597451584515243,Homicídios — mulheres de 10 a 59 anos
+2025-03-01,Central,2.0,1.6878361635876906,Homicídios — mulheres de 10 a 59 anos
+2025-03-01,Metropolitana,1.0,4.169447936068396,Homicídios — mulheres de 10 a 59 anos
+2025-03-01,Norte,0.0,0.8725537559165486,Homicídios — mulheres de 10 a 59 anos
+2025-03-01,Sul,0.0,0.9844619129649983,Homicídios — mulheres de 10 a 59 anos
+2025-04-01,Central,0.0,1.9115981074762558,Homicídios — mulheres de 10 a 59 anos
+2025-04-01,Metropolitana,2.0,3.628057159321103,Homicídios — mulheres de 10 a 59 anos
+2025-04-01,Norte,1.0,0.9083791408199471,Homicídios — mulheres de 10 a 59 anos
+2025-04-01,Sul,1.0,0.8290212688264876,Homicídios — mulheres de 10 a 59 anos
+2025-05-01,Central,1.0,1.46098102404477,Homicídios — mulheres de 10 a 59 anos
+2025-05-01,Metropolitana,3.0,3.4833460728973193,Homicídios — mulheres de 10 a 59 anos
+2025-05-01,Norte,1.0,0.8892841030782744,Homicídios — mulheres de 10 a 59 anos
+2025-05-01,Sul,0.0,0.7669997901381977,Homicídios — mulheres de 10 a 59 anos
+2025-06-01,Central,1.0,1.2912182246094417,Homicídios — mulheres de 10 a 59 anos
+2025-06-01,Metropolitana,0.0,3.165350590948645,Homicídios — mulheres de 10 a 59 anos
+2025-06-01,Norte,0.0,0.7995886950497468,Homicídios — mulheres de 10 a 59 anos
+2025-06-01,Sul,1.0,0.7053756167655851,Homicídios — mulheres de 10 a 59 anos
+2025-07-01,Central,0.0,1.2956862440556978,Homicídios — mulheres de 10 a 59 anos
+2025-07-01,Metropolitana,1.0,2.9672450386710434,Homicídios — mulheres de 10 a 59 anos
+2025-07-01,Norte,0.0,0.7833562990069338,Homicídios — mulheres de 10 a 59 anos
+2025-07-01,Sul,0.0,0.6884656565360379,Homicídios — mulheres de 10 a 59 anos
+2025-08-01,Central,1.0,0.8919157336800568,Homicídios — mulheres de 10 a 59 anos
+2025-08-01,Metropolitana,4.0,2.1193867375033033,Homicídios — mulheres de 10 a 59 anos
+2025-08-01,Norte,1.0,0.6693629402520589,Homicídios — mulheres de 10 a 59 anos
+2025-08-01,Sul,0.0,0.74707510145793,Homicídios — mulheres de 10 a 59 anos
+2025-09-01,Central,0.0,0.9904388538564883,Homicídios — mulheres de 10 a 59 anos
+2025-09-01,Metropolitana,2.0,2.205740015819919,Homicídios — mulheres de 10 a 59 anos
+2025-09-01,Norte,1.0,0.8140706322736406,Homicídios — mulheres de 10 a 59 anos
+2025-09-01,Sul,1.0,0.8557049689363441,Homicídios — mulheres de 10 a 59 anos
+2025-10-01,Central,1.0,1.0510209658557756,Homicídios — mulheres de 10 a 59 anos
+2025-10-01,Metropolitana,2.0,2.3801384666884786,Homicídios — mulheres de 10 a 59 anos
+2025-10-01,Norte,0.0,0.7749976617606025,Homicídios — mulheres de 10 a 59 anos
+2025-10-01,Sul,0.0,0.8122665222823218,Homicídios — mulheres de 10 a 59 anos
+2025-11-01,Central,0.0,0.8775451551688868,Homicídios — mulheres de 10 a 59 anos
+2025-11-01,Metropolitana,5.0,2.464048305889595,Homicídios — mulheres de 10 a 59 anos
+2025-11-01,Norte,1.0,0.8048396791035222,Homicídios — mulheres de 10 a 59 anos
+2025-11-01,Sul,2.0,0.721063056532579,Homicídios — mulheres de 10 a 59 anos
+2025-12-01,Central,0.0,0.9397399015890311,Homicídios — mulheres de 10 a 59 anos
+2025-12-01,Metropolitana,3.0,2.5397918810689273,Homicídios — mulheres de 10 a 59 anos
+2025-12-01,Norte,0.0,0.8556739820518522,Homicídios — mulheres de 10 a 59 anos
+2025-12-01,Sul,1.0,0.8516493368269693,Homicídios — mulheres de 10 a 59 anos
+2026-01-01,Central,1.0,0.7060922484613072,Homicídios — mulheres de 10 a 59 anos
+2026-01-01,Metropolitana,7.0,2.9839942992495,Homicídios — mulheres de 10 a 59 anos
+2026-01-01,Norte,0.0,0.6811120490651078,Homicídios — mulheres de 10 a 59 anos
+2026-01-01,Sul,1.0,0.7367928209275053,Homicídios — mulheres de 10 a 59 anos
+2026-02-01,Central,1.0,0.5004743668872873,Homicídios — mulheres de 10 a 59 anos
+2026-02-01,Metropolitana,2.0,3.4208884357567824,Homicídios — mulheres de 10 a 59 anos
+2026-02-01,Norte,1.0,0.7122359089637634,Homicídios — mulheres de 10 a 59 anos
+2026-02-01,Sul,0.0,0.9559882204533474,Homicídios — mulheres de 10 a 59 anos
+2026-03-01,Central,3.0,0.5721701473039197,Homicídios — mulheres de 10 a 59 anos
+2026-03-01,Metropolitana,3.0,3.1362559842816835,Homicídios — mulheres de 10 a 59 anos
+2026-03-01,Norte,0.0,0.575129545791939,Homicídios — mulheres de 10 a 59 anos
+2026-03-01,Sul,0.0,0.778154867404227,Homicídios — mulheres de 10 a 59 anos
+2026-04-01,Central,1.0,0.7609309545699414,Homicídios — mulheres de 10 a 59 anos
+2026-04-01,Metropolitana,6.0,3.232733053472577,Homicídios — mulheres de 10 a 59 anos
+2026-04-01,Norte,2.0,0.5695210588923381,Homicídios — mulheres de 10 a 59 anos
+2026-04-01,Sul,0.0,0.5667774547213489,Homicídios — mulheres de 10 a 59 anos
+2026-05-01,Central,1.0,0.8063734134794946,Homicídios — mulheres de 10 a 59 anos
+2026-05-01,Metropolitana,8.0,3.5401747128528527,Homicídios — mulheres de 10 a 59 anos
+2026-05-01,Norte,2.0,0.6347836450760106,Homicídios — mulheres de 10 a 59 anos
+2026-05-01,Sul,2.0,0.49167465630020696,Homicídios — mulheres de 10 a 59 anos
+2026-06-01,Central,0.0,0.9814998536722289,Homicídios — mulheres de 10 a 59 anos
+2026-06-01,Metropolitana,3.0,3.8686967932167655,Homicídios — mulheres de 10 a 59 anos
+2026-06-01,Norte,0.0,0.6917927622817972,Homicídios — mulheres de 10 a 59 anos
+2026-06-01,Sul,0.0,0.4942426604260901,Homicídios — mulheres de 10 a 59 anos
+2026-07-01,Central,1.0,0.8241446406876063,Homicídios — mulheres de 10 a 59 anos
+2026-07-01,Metropolitana,0.0,4.141194302144737,Homicídios — mulheres de 10 a 59 anos
+2026-07-01,Norte,0.0,0.7719070723501198,Homicídios — mulheres de 10 a 59 anos
+2026-07-01,Sul,0.0,0.4500585595072567,Homicídios — mulheres de 10 a 59 anos
+2026-08-01,Central,0.0,0.8801138398517758,Homicídios — mulheres de 10 a 59 anos
+2026-08-01,Metropolitana,3.0,3.478343817130973,Homicídios — mulheres de 10 a 59 anos
+2026-08-01,Norte,0.0,0.7672852191016613,Homicídios — mulheres de 10 a 59 anos
+2026-08-01,Sul,0.0,0.5187215478530935,Homicídios — mulheres de 10 a 59 anos
