@@ -1,21 +1,29 @@
-# Revisão de 11 de outubro de 2026 — numeradores conforme as fichas do PES-ES
+# Verificação de 11 de outubro de 2026
 
-- Definição de CID centralizada em `etl/definicao_cid.py`: homicídios X85–Y09, Y22–Y24, Y35, Y87.1 e Y89.0; suicídio X60–X84 e Y87.0 (fichas 1.8.15, 1.8.16 e 1.8.17).
-- Seleção no TabNet pelo campo de subcategorias do capítulo XX; contrato versão 2.0; pipeline 1.2.0. Formulário real salvo pelo projeto confere todas as subcategorias exigidas (homicídio: 281 valores; suicídio: 251).
-- Novos controles: equivalência subcategorias × categorias, bloqueio de série com definições misturadas (incorporação e validação) e definição registrada por ano na base e nos complementos.
-- Executados neste ambiente, sem rede: testes de `tests/test_definicao_cid.py` (6) e `tests/test_pipeline.py` (8), testes numéricos de `tests/test_dashboard.py` (4) com a base atual, `python -m etl.validar` com a base atual, simulações de incorporação parcial (recusada) e completa (aceita) e de validação com séries misturadas (recusada).
-- Não executados neste ambiente: testes que dependem de Streamlit e pytest (interface do painel, `tests/test_atualizacao.py`) e a extração real, por falta de acesso à rede. Rodar `python -m pytest tests -q` localmente antes do push.
-- Os dados de `dados/` não foram alterados: continuam com a definição anterior até o reprocessamento integral (ver README).
-- A aba de aprendizado de máquina ficou desligada por configuração; nenhum arquivo de experimento foi apagado.
+O projeto foi atualizado a partir do ZIP refatorado e do documento de introdução/referencial teórico fornecido. A pasta operacional única é `/Users/danbreda/Desktop/tcc`; o aplicativo e o ambiente Python ficam em `dashboard_streamlit`. As cópias antigas do Desktop foram removidas a pedido do usuário.
 
-# Verificação da entrega de 2 de outubro de 2026
+## Extração e validação
 
-- 15 testes automatizados locais aprovados: cálculos, filtros da interface, integridade, idempotência, rollback, calendário e preservação dos dados publicados quando a extração falha.
-- Pacote de dados validado: 718.848 linhas da fato, 78 municípios, anos 2016 a 2026; cobertura de 2026 até agosto.
-- Complementos de 2026 conferidos por município, mês, sexo e indicador.
-- Formulário público do TabNet consultado: contrato de 2026 construído com os 78 municípios. Revisão anunciada pela fonte: 09/09/2026. O formulário anuncia 2006 a 2026; dois anos é a janela de reprocessamento escolhida, não o total de anos listados.
-- Os bytes dos dados publicados foram preservados; esta entrega não representa uma nova extração epidemiológica.
-- O processamento mensal completo contra SIM, POPSVS e IBGE não foi executado nesta revisão. O modo Selenium e o workflow hospedado precisam de validação operacional.
-- Não houve push ao GitHub nem alteração confirmada do aplicativo hospedado.
+- Série completa 2016–2026 reextraída do SIM/TabNet SESA-ES. Revisão anunciada: 09/10/2026. Anos históricos com doze meses; 2026 com janeiro–setembro.
+- 724.464 linhas da fato principal, 78 municípios, grade populacional validada. População 2026 provisoriamente baseada em 2025, sem projeção.
+- Definição única `8d8be8e86012`: homicídios/agressões X85–Y09, Y22–Y24, Y35, Y87.1, Y89.0; suicídio X60–X84, Y87.0.
+- Categorias completas consultadas por três dígitos e subcategorias isoladas consultadas separadamente, como união disjunta. Seis óbitos de homicídio de 2026 registrados sem quarto dígito foram incluídos. O filtro de Y87/Y89 continua específico.
+- Complementos por raça/cor e CID/meio reextraídos; concordância exata com a base por ano, indicador, município, mês e sexo em toda a série. Raça/cor: 563.472 linhas; CID/meio: 6.486 linhas esparsas positivas.
+- `python -m etl.validar --anos 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026`: aprovado. O lote só substituiu os arquivos publicados após essa validação.
+- Consulta independente ao TabNet confirmou totais anuais, segundo quadrimestre, janeiro–agosto e referência municipal de 2024; reconsulta confirmou estabilidade. Evidência: `CONFERENCIA_REFERENCIAS.json`. Referências numéricas registradas em `tests/referencias.json`.
+- Relatório da atualização e hash do dataset: `ATUALIZACAO_DADOS.json`. Evidências HTML originais, estado SQLite e contratos disponíveis localmente em `var/etl`.
 
-A implantação em produção permanece pendente de validação integral da rotina e acesso ao repositório. Uma falha impede o commit de novos dados. A revisão do código e os testes locais não substituem o primeiro ciclo supervisionado em ambiente de execução.
+## Monitoramento estatístico e interface
+
+- u/u′ de Laney, EWMA, CUSUM bilateral com reinício após sinal, canal endêmico por quartis e funil municipal Poisson de 95%/99,8% implementados.
+- Cinco a sete anos de referência separados dos anos de avaliação; comparação do mesmo período entre anos. Região de saúde combinada com o recorte municipal do painel.
+- Funil compara contagens com quantis inteiros, evitando sinais falsos por arredondamento de taxas exatamente no limite.
+- Anos nos eixos aparecem como inteiros. Canal endêmico exibido somente para quadrimestres completos ou acumulados previstos.
+- Botão ⓘ Como ler abre diálogo com interpretação de filtros, taxas, referência histórica, limites, métodos e sinais. Abertura e texto verificados no navegador local.
+- Experimento refeito com a base atual: 75 configurações de referência (525 observações históricas), fase I 2016–2022, fase II 2023–2026, 45.000 resultados simulados, 200 repetições e semente 20261011. Trinta recortes de 2026 indisponíveis correspondem ao terceiro quadrimestre e ao acumulado anual incompletos.
+- SHA-256 do manifesto estatístico confere com `dados/dataset.zip` do checkout publicado localmente.
+- `python -m pytest tests -q`: **32 aprovados, 2 pulados**. Os dois testes pulados pertencem à aba opcional de aprendizado de máquina, desligada em `config.toml`; os testes dos indicadores, monitoramento e atualização foram executados.
+
+## Limites da verificação
+
+A conciliação refere-se ao TabNet/SIM, e não a uma publicação fechada do PES. Não certifica completude epidemiológica. A validação operacional com profissionais da vigilância, revisão de períodos atípicos e calibração antes de adoção permanecem etapas de avaliação externa. Dados 2025/2026 sujeitos a revisão. O motor requests foi usado; Selenium e o próximo ciclo agendado do GitHub Actions não foram executados nesta atualização.

@@ -1,226 +1,226 @@
 indicador,periodo,mudanca,metodo,proporcao_sinais,periodos,probabilidade_sinal_na_janela,atraso_medio_condicional
 Homicídios — jovens de 15 a 29 anos,Acumulado Q2,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Acumulado Q2,-0.25,Sinal CUSUM −,0.125625,1600,1.0,5.34
-Homicídios — jovens de 15 a 29 anos,Acumulado Q2,-0.25,Sinal EWMA,0.475625,1600,1.0,5.195
+Homicídios — jovens de 15 a 29 anos,Acumulado Q2,-0.25,Sinal CUSUM −,0.125625,1600,1.0,5.35
+Homicídios — jovens de 15 a 29 anos,Acumulado Q2,-0.25,Sinal EWMA,0.4725,1600,1.0,5.22
 Homicídios — jovens de 15 a 29 anos,Acumulado Q2,-0.25,Sinal controle,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Acumulado Q2,-0.25,Sinal u,0.994375,1600,1.0,1.005
+Homicídios — jovens de 15 a 29 anos,Acumulado Q2,-0.25,Sinal u,0.995625,1600,1.0,1.01
 Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.0,Sinal CUSUM −,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.0,Sinal EWMA,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.0,Sinal controle,0.0,2400,0.0,
-Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.0,Sinal u,0.00125,2400,0.015,7.333333333333333
-Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.25,Sinal CUSUM +,0.126875,1600,1.0,5.31
+Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.0,Sinal u,0.00125,2400,0.015,5.0
+Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.25,Sinal CUSUM +,0.1275,1600,1.0,5.33
 Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.25,Sinal EWMA,0.48,1600,0.995,5.135678391959799
+Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.25,Sinal EWMA,0.469375,1600,1.0,5.225
 Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.25,Sinal controle,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.25,Sinal u,0.98375,1600,1.0,1.01
+Homicídios — jovens de 15 a 29 anos,Acumulado Q2,0.25,Sinal u,0.9825,1600,1.0,1.015
 Homicídios — jovens de 15 a 29 anos,Acumulado Q3,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Acumulado Q3,-0.25,Sinal CUSUM −,0.14625,1600,1.0,4.635
-Homicídios — jovens de 15 a 29 anos,Acumulado Q3,-0.25,Sinal EWMA,0.580625,1600,1.0,4.355
+Homicídios — jovens de 15 a 29 anos,Acumulado Q3,-0.25,Sinal CUSUM −,0.15125,1600,1.0,4.595
+Homicídios — jovens de 15 a 29 anos,Acumulado Q3,-0.25,Sinal EWMA,0.585625,1600,1.0,4.315
 Homicídios — jovens de 15 a 29 anos,Acumulado Q3,-0.25,Sinal controle,0.0,1600,0.0,
 Homicídios — jovens de 15 a 29 anos,Acumulado Q3,-0.25,Sinal u,1.0,1600,1.0,1.0
 Homicídios — jovens de 15 a 29 anos,Acumulado Q3,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Acumulado Q3,0.0,Sinal CUSUM −,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Acumulado Q3,0.0,Sinal EWMA,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Acumulado Q3,0.0,Sinal controle,0.0,2400,0.0,
-Homicídios — jovens de 15 a 29 anos,Acumulado Q3,0.0,Sinal u,0.00125,2400,0.015,8.333333333333334
-Homicídios — jovens de 15 a 29 anos,Acumulado Q3,0.25,Sinal CUSUM +,0.145625,1600,1.0,4.63
+Homicídios — jovens de 15 a 29 anos,Acumulado Q3,0.0,Sinal u,0.00125,2400,0.015,9.333333333333334
+Homicídios — jovens de 15 a 29 anos,Acumulado Q3,0.25,Sinal CUSUM +,0.1575,1600,1.0,4.535
 Homicídios — jovens de 15 a 29 anos,Acumulado Q3,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Acumulado Q3,0.25,Sinal EWMA,0.58375,1600,1.0,4.325
+Homicídios — jovens de 15 a 29 anos,Acumulado Q3,0.25,Sinal EWMA,0.593125,1600,1.0,4.255
 Homicídios — jovens de 15 a 29 anos,Acumulado Q3,0.25,Sinal controle,0.0,1600,0.0,
 Homicídios — jovens de 15 a 29 anos,Acumulado Q3,0.25,Sinal u,0.999375,1600,1.0,1.0
 Homicídios — jovens de 15 a 29 anos,Q1,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Q1,-0.25,Sinal CUSUM −,0.0525,1600,0.42,7.726190476190476
-Homicídios — jovens de 15 a 29 anos,Q1,-0.25,Sinal EWMA,0.028125,1600,0.165,7.606060606060606
+Homicídios — jovens de 15 a 29 anos,Q1,-0.25,Sinal CUSUM −,0.04875,1600,0.39,7.628205128205129
+Homicídios — jovens de 15 a 29 anos,Q1,-0.25,Sinal EWMA,0.03625,1600,0.215,7.627906976744186
 Homicídios — jovens de 15 a 29 anos,Q1,-0.25,Sinal controle,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Q1,-0.25,Sinal u,0.848125,1600,1.0,1.19
+Homicídios — jovens de 15 a 29 anos,Q1,-0.25,Sinal u,0.84125,1600,1.0,1.165
 Homicídios — jovens de 15 a 29 anos,Q1,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Q1,0.0,Sinal CUSUM −,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Q1,0.0,Sinal EWMA,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Q1,0.0,Sinal controle,0.0,2400,0.0,
-Homicídios — jovens de 15 a 29 anos,Q1,0.0,Sinal u,0.0020833333333333333,2400,0.025,3.4
-Homicídios — jovens de 15 a 29 anos,Q1,0.25,Sinal CUSUM +,0.059375,1600,0.475,7.536842105263158
+Homicídios — jovens de 15 a 29 anos,Q1,0.0,Sinal u,0.0020833333333333333,2400,0.025,10.8
+Homicídios — jovens de 15 a 29 anos,Q1,0.25,Sinal CUSUM +,0.058125,1600,0.465,7.43010752688172
 Homicídios — jovens de 15 a 29 anos,Q1,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Q1,0.25,Sinal EWMA,0.054375,1600,0.28,7.267857142857143
+Homicídios — jovens de 15 a 29 anos,Q1,0.25,Sinal EWMA,0.0575,1600,0.29,7.206896551724138
 Homicídios — jovens de 15 a 29 anos,Q1,0.25,Sinal controle,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Q1,0.25,Sinal u,0.778125,1600,1.0,1.3
+Homicídios — jovens de 15 a 29 anos,Q1,0.25,Sinal u,0.785,1600,1.0,1.26
 Homicídios — jovens de 15 a 29 anos,Q2,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Q2,-0.25,Sinal CUSUM −,0.2275,1600,1.0,3.81
-Homicídios — jovens de 15 a 29 anos,Q2,-0.25,Sinal EWMA,0.68375,1600,1.0,3.53
-Homicídios — jovens de 15 a 29 anos,Q2,-0.25,Sinal controle,0.01875,1600,0.15,5.0
-Homicídios — jovens de 15 a 29 anos,Q2,-0.25,Sinal u,0.705,1600,1.0,1.36
+Homicídios — jovens de 15 a 29 anos,Q2,-0.25,Sinal CUSUM −,0.21375,1600,1.0,3.97
+Homicídios — jovens de 15 a 29 anos,Q2,-0.25,Sinal EWMA,0.6575,1600,1.0,3.735
+Homicídios — jovens de 15 a 29 anos,Q2,-0.25,Sinal controle,0.01625,1600,0.13,4.346153846153846
+Homicídios — jovens de 15 a 29 anos,Q2,-0.25,Sinal u,0.69875,1600,1.0,1.445
 Homicídios — jovens de 15 a 29 anos,Q2,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Q2,0.0,Sinal CUSUM −,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Q2,0.0,Sinal EWMA,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Q2,0.0,Sinal controle,0.0,2400,0.0,
-Homicídios — jovens de 15 a 29 anos,Q2,0.0,Sinal u,0.0025,2400,0.03,4.5
-Homicídios — jovens de 15 a 29 anos,Q2,0.25,Sinal CUSUM +,0.225,1600,1.0,3.735
+Homicídios — jovens de 15 a 29 anos,Q2,0.0,Sinal u,0.0020833333333333333,2400,0.025,8.6
+Homicídios — jovens de 15 a 29 anos,Q2,0.25,Sinal CUSUM +,0.215,1600,1.0,3.935
 Homicídios — jovens de 15 a 29 anos,Q2,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Q2,0.25,Sinal EWMA,0.6875,1600,1.0,3.475
-Homicídios — jovens de 15 a 29 anos,Q2,0.25,Sinal controle,0.070625,1600,0.425,4.341176470588235
-Homicídios — jovens de 15 a 29 anos,Q2,0.25,Sinal u,0.67625,1600,1.0,1.445
+Homicídios — jovens de 15 a 29 anos,Q2,0.25,Sinal EWMA,0.6625,1600,1.0,3.66
+Homicídios — jovens de 15 a 29 anos,Q2,0.25,Sinal controle,0.065,1600,0.4,4.4375
+Homicídios — jovens de 15 a 29 anos,Q2,0.25,Sinal u,0.676875,1600,1.0,1.485
 Homicídios — jovens de 15 a 29 anos,Q3,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Q3,-0.25,Sinal CUSUM −,0.141875,1600,1.0,4.875
-Homicídios — jovens de 15 a 29 anos,Q3,-0.25,Sinal EWMA,0.538125,1600,0.99,4.611111111111111
+Homicídios — jovens de 15 a 29 anos,Q3,-0.25,Sinal CUSUM −,0.14375,1600,1.0,4.865
+Homicídios — jovens de 15 a 29 anos,Q3,-0.25,Sinal EWMA,0.544375,1600,1.0,4.615
 Homicídios — jovens de 15 a 29 anos,Q3,-0.25,Sinal controle,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Q3,-0.25,Sinal u,0.7125,1600,1.0,1.375
+Homicídios — jovens de 15 a 29 anos,Q3,-0.25,Sinal u,0.7475,1600,1.0,1.395
 Homicídios — jovens de 15 a 29 anos,Q3,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Q3,0.0,Sinal CUSUM −,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Q3,0.0,Sinal EWMA,0.0,2400,0.0,
 Homicídios — jovens de 15 a 29 anos,Q3,0.0,Sinal controle,0.0,2400,0.0,
-Homicídios — jovens de 15 a 29 anos,Q3,0.0,Sinal u,0.0025,2400,0.03,3.5
-Homicídios — jovens de 15 a 29 anos,Q3,0.25,Sinal CUSUM +,0.14875,1600,1.0,4.81
+Homicídios — jovens de 15 a 29 anos,Q3,0.0,Sinal u,0.0020833333333333333,2400,0.025,10.4
+Homicídios — jovens de 15 a 29 anos,Q3,0.25,Sinal CUSUM +,0.15125,1600,1.0,4.81
 Homicídios — jovens de 15 a 29 anos,Q3,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Q3,0.25,Sinal EWMA,0.54875,1600,0.98,4.489795918367347
+Homicídios — jovens de 15 a 29 anos,Q3,0.25,Sinal EWMA,0.535,1600,1.0,4.665
 Homicídios — jovens de 15 a 29 anos,Q3,0.25,Sinal controle,0.0,1600,0.0,
-Homicídios — jovens de 15 a 29 anos,Q3,0.25,Sinal u,0.666875,1600,1.0,1.375
+Homicídios — jovens de 15 a 29 anos,Q3,0.25,Sinal u,0.694375,1600,1.0,1.475
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,-0.25,Sinal CUSUM −,0.073125,1600,0.585,7.017094017094017
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,-0.25,Sinal EWMA,0.113125,1600,0.46,6.706521739130435
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,-0.25,Sinal CUSUM −,0.07375,1600,0.59,6.940677966101695
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,-0.25,Sinal EWMA,0.121875,1600,0.49,6.683673469387755
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,-0.25,Sinal controle,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,-0.25,Sinal u,0.1275,1600,0.65,4.007692307692308
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,-0.25,Sinal u,0.13125,1600,0.665,3.8045112781954886
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.0,Sinal CUSUM −,0.0,2400,0.0,
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.0,Sinal EWMA,0.0,2400,0.0,
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.0,Sinal controle,0.0,2400,0.0,
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.0,Sinal u,0.002916666666666667,2400,0.035,6.714285714285714
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.25,Sinal CUSUM +,0.07375,1600,0.59,6.5508474576271185
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.0,Sinal u,0.0025,2400,0.03,7.166666666666667
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.25,Sinal CUSUM +,0.078125,1600,0.625,6.616
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.25,Sinal EWMA,0.153125,1600,0.525,6.190476190476191
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.25,Sinal controle,0.001875,1600,0.015,4.666666666666667
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.25,Sinal u,0.215,1600,0.87,3.3620689655172415
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.25,Sinal EWMA,0.155625,1600,0.55,6.254545454545455
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.25,Sinal controle,0.006875,1600,0.055,2.909090909090909
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q2,0.25,Sinal u,0.22625,1600,0.865,3.1560693641618496
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,-0.25,Sinal CUSUM −,0.10125,1600,0.81,6.808641975308642
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,-0.25,Sinal EWMA,0.186875,1600,0.665,6.473684210526316
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,-0.25,Sinal CUSUM −,0.11,1600,0.88,6.482954545454546
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,-0.25,Sinal EWMA,0.253125,1600,0.81,6.277777777777778
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,-0.25,Sinal controle,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,-0.25,Sinal u,0.295,1600,0.93,2.78494623655914
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,-0.25,Sinal u,0.31125,1600,0.955,2.8534031413612566
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.0,Sinal CUSUM −,0.0,2400,0.0,
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.0,Sinal EWMA,0.0,2400,0.0,
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.0,Sinal controle,0.0,2400,0.0,
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.0,Sinal u,0.002916666666666667,2400,0.035,6.0
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.25,Sinal CUSUM +,0.099375,1600,0.795,6.389937106918239
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.0,Sinal u,0.0033333333333333335,2400,0.04,7.875
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.25,Sinal CUSUM +,0.09875,1600,0.78,6.371794871794871
 Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.25,Sinal EWMA,0.235625,1600,0.73,6.136986301369863
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.25,Sinal controle,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.25,Sinal u,0.344375,1600,0.955,2.549738219895288
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.25,Sinal EWMA,0.23625,1600,0.72,6.055555555555555
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.25,Sinal controle,0.0025,1600,0.02,6.75
+Homicídios — mulheres de 10 a 59 anos,Acumulado Q3,0.25,Sinal u,0.315625,1600,0.945,2.8465608465608465
 Homicídios — mulheres de 10 a 59 anos,Q1,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Q1,-0.25,Sinal CUSUM −,0.009375,1600,0.075,7.466666666666667
-Homicídios — mulheres de 10 a 59 anos,Q1,-0.25,Sinal EWMA,0.011875,1600,0.075,7.4
+Homicídios — mulheres de 10 a 59 anos,Q1,-0.25,Sinal CUSUM −,0.01,1600,0.08,7.25
+Homicídios — mulheres de 10 a 59 anos,Q1,-0.25,Sinal EWMA,0.0075,1600,0.045,7.333333333333333
 Homicídios — mulheres de 10 a 59 anos,Q1,-0.25,Sinal controle,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Q1,-0.25,Sinal u,0.028125,1600,0.205,4.170731707317073
+Homicídios — mulheres de 10 a 59 anos,Q1,-0.25,Sinal u,0.034375,1600,0.265,4.433962264150943
 Homicídios — mulheres de 10 a 59 anos,Q1,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Homicídios — mulheres de 10 a 59 anos,Q1,0.0,Sinal CUSUM −,0.0,2400,0.0,
 Homicídios — mulheres de 10 a 59 anos,Q1,0.0,Sinal EWMA,0.0,2400,0.0,
 Homicídios — mulheres de 10 a 59 anos,Q1,0.0,Sinal controle,0.0,2400,0.0,
-Homicídios — mulheres de 10 a 59 anos,Q1,0.0,Sinal u,0.002916666666666667,2400,0.035,7.428571428571429
-Homicídios — mulheres de 10 a 59 anos,Q1,0.25,Sinal CUSUM +,0.021875,1600,0.175,6.828571428571428
+Homicídios — mulheres de 10 a 59 anos,Q1,0.0,Sinal u,0.0025,2400,0.03,7.666666666666667
+Homicídios — mulheres de 10 a 59 anos,Q1,0.25,Sinal CUSUM +,0.02,1600,0.16,7.0625
 Homicídios — mulheres de 10 a 59 anos,Q1,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Q1,0.25,Sinal EWMA,0.04125,1600,0.185,6.45945945945946
-Homicídios — mulheres de 10 a 59 anos,Q1,0.25,Sinal controle,0.005,1600,0.035,4.714285714285714
-Homicídios — mulheres de 10 a 59 anos,Q1,0.25,Sinal u,0.096875,1600,0.525,4.152380952380953
+Homicídios — mulheres de 10 a 59 anos,Q1,0.25,Sinal EWMA,0.03375,1600,0.17,6.794117647058823
+Homicídios — mulheres de 10 a 59 anos,Q1,0.25,Sinal controle,0.0025,1600,0.02,3.75
+Homicídios — mulheres de 10 a 59 anos,Q1,0.25,Sinal u,0.114375,1600,0.605,3.909090909090909
 Homicídios — mulheres de 10 a 59 anos,Q2,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Q2,-0.25,Sinal CUSUM −,0.0875,1600,0.695,6.143884892086331
-Homicídios — mulheres de 10 a 59 anos,Q2,-0.25,Sinal EWMA,0.195625,1600,0.64,5.9296875
+Homicídios — mulheres de 10 a 59 anos,Q2,-0.25,Sinal CUSUM −,0.105,1600,0.81,5.709876543209877
+Homicídios — mulheres de 10 a 59 anos,Q2,-0.25,Sinal EWMA,0.29625,1600,0.8,5.475
 Homicídios — mulheres de 10 a 59 anos,Q2,-0.25,Sinal controle,0.019375,1600,0.145,4.482758620689655
 Homicídios — mulheres de 10 a 59 anos,Q2,-0.25,Sinal u,0.019375,1600,0.145,4.482758620689655
 Homicídios — mulheres de 10 a 59 anos,Q2,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Homicídios — mulheres de 10 a 59 anos,Q2,0.0,Sinal CUSUM −,0.0,2400,0.0,
-Homicídios — mulheres de 10 a 59 anos,Q2,0.0,Sinal EWMA,0.0,2400,0.0,
+Homicídios — mulheres de 10 a 59 anos,Q2,0.0,Sinal EWMA,0.0004166666666666667,2400,0.005,2.0
 Homicídios — mulheres de 10 a 59 anos,Q2,0.0,Sinal controle,0.0020833333333333333,2400,0.025,7.6
 Homicídios — mulheres de 10 a 59 anos,Q2,0.0,Sinal u,0.0020833333333333333,2400,0.025,7.6
-Homicídios — mulheres de 10 a 59 anos,Q2,0.25,Sinal CUSUM +,0.09,1600,0.68,5.5
+Homicídios — mulheres de 10 a 59 anos,Q2,0.25,Sinal CUSUM +,0.11625,1600,0.78,5.064102564102564
 Homicídios — mulheres de 10 a 59 anos,Q2,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Q2,0.25,Sinal EWMA,0.249375,1600,0.655,5.251908396946565
+Homicídios — mulheres de 10 a 59 anos,Q2,0.25,Sinal EWMA,0.325625,1600,0.76,4.815789473684211
 Homicídios — mulheres de 10 a 59 anos,Q2,0.25,Sinal controle,0.08375,1600,0.5,4.0
 Homicídios — mulheres de 10 a 59 anos,Q2,0.25,Sinal u,0.08375,1600,0.5,4.0
 Homicídios — mulheres de 10 a 59 anos,Q3,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Q3,-0.25,Sinal CUSUM −,0.1175,1600,0.865,5.479768786127168
-Homicídios — mulheres de 10 a 59 anos,Q3,-0.25,Sinal EWMA,0.3225,1600,0.79,5.234177215189874
-Homicídios — mulheres de 10 a 59 anos,Q3,-0.25,Sinal controle,0.01875,1600,0.15,5.133333333333334
-Homicídios — mulheres de 10 a 59 anos,Q3,-0.25,Sinal u,0.01875,1600,0.15,5.133333333333334
-Homicídios — mulheres de 10 a 59 anos,Q3,0.0,Sinal CUSUM +,0.0,2400,0.0,
-Homicídios — mulheres de 10 a 59 anos,Q3,0.0,Sinal CUSUM −,0.0,2400,0.0,
-Homicídios — mulheres de 10 a 59 anos,Q3,0.0,Sinal EWMA,0.00125,2400,0.015,6.666666666666667
-Homicídios — mulheres de 10 a 59 anos,Q3,0.0,Sinal controle,0.0016666666666666668,2400,0.02,5.0
-Homicídios — mulheres de 10 a 59 anos,Q3,0.0,Sinal u,0.0016666666666666668,2400,0.02,5.0
-Homicídios — mulheres de 10 a 59 anos,Q3,0.25,Sinal CUSUM +,0.126875,1600,0.835,4.982035928143713
+Homicídios — mulheres de 10 a 59 anos,Q3,-0.25,Sinal CUSUM −,0.12375,1600,0.89,5.241573033707865
+Homicídios — mulheres de 10 a 59 anos,Q3,-0.25,Sinal EWMA,0.365,1600,0.84,4.988095238095238
+Homicídios — mulheres de 10 a 59 anos,Q3,-0.25,Sinal controle,0.02625,1600,0.2,4.525
+Homicídios — mulheres de 10 a 59 anos,Q3,-0.25,Sinal u,0.02625,1600,0.2,4.525
+Homicídios — mulheres de 10 a 59 anos,Q3,0.0,Sinal CUSUM +,0.0008333333333333334,2400,0.01,8.5
+Homicídios — mulheres de 10 a 59 anos,Q3,0.0,Sinal CUSUM −,0.0004166666666666667,2400,0.005,12.0
+Homicídios — mulheres de 10 a 59 anos,Q3,0.0,Sinal EWMA,0.00125,2400,0.015,7.0
+Homicídios — mulheres de 10 a 59 anos,Q3,0.0,Sinal controle,0.0020833333333333333,2400,0.025,6.4
+Homicídios — mulheres de 10 a 59 anos,Q3,0.0,Sinal u,0.0020833333333333333,2400,0.025,6.4
+Homicídios — mulheres de 10 a 59 anos,Q3,0.25,Sinal CUSUM +,0.128125,1600,0.85,4.705882352941177
 Homicídios — mulheres de 10 a 59 anos,Q3,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Homicídios — mulheres de 10 a 59 anos,Q3,0.25,Sinal EWMA,0.370625,1600,0.82,4.737804878048781
-Homicídios — mulheres de 10 a 59 anos,Q3,0.25,Sinal controle,0.085625,1600,0.535,3.7850467289719627
-Homicídios — mulheres de 10 a 59 anos,Q3,0.25,Sinal u,0.085625,1600,0.535,3.7850467289719627
+Homicídios — mulheres de 10 a 59 anos,Q3,0.25,Sinal EWMA,0.399375,1600,0.84,4.553571428571429
+Homicídios — mulheres de 10 a 59 anos,Q3,0.25,Sinal controle,0.085,1600,0.505,3.9207920792079207
+Homicídios — mulheres de 10 a 59 anos,Q3,0.25,Sinal u,0.085,1600,0.505,3.9207920792079207
 Suicídio geral,Acumulado Q2,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Suicídio geral,Acumulado Q2,-0.25,Sinal CUSUM −,0.119375,1600,0.955,6.178010471204188
-Suicídio geral,Acumulado Q2,-0.25,Sinal EWMA,0.336875,1600,0.915,5.939890710382514
-Suicídio geral,Acumulado Q2,-0.25,Sinal controle,0.199375,1600,0.81,3.574074074074074
-Suicídio geral,Acumulado Q2,-0.25,Sinal u,0.554375,1600,0.995,1.9045226130653266
+Suicídio geral,Acumulado Q2,-0.25,Sinal CUSUM −,0.118125,1600,0.945,6.35978835978836
+Suicídio geral,Acumulado Q2,-0.25,Sinal EWMA,0.28625,1600,0.875,6.268571428571429
+Suicídio geral,Acumulado Q2,-0.25,Sinal controle,0.13375,1600,0.705,3.851063829787234
+Suicídio geral,Acumulado Q2,-0.25,Sinal u,0.54625,1600,1.0,1.86
 Suicídio geral,Acumulado Q2,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Suicídio geral,Acumulado Q2,0.0,Sinal CUSUM −,0.0,2400,0.0,
 Suicídio geral,Acumulado Q2,0.0,Sinal EWMA,0.0,2400,0.0,
 Suicídio geral,Acumulado Q2,0.0,Sinal controle,0.0,2400,0.0,
-Suicídio geral,Acumulado Q2,0.0,Sinal u,0.0020833333333333333,2400,0.025,7.0
-Suicídio geral,Acumulado Q2,0.25,Sinal CUSUM +,0.119375,1600,0.945,6.084656084656085
+Suicídio geral,Acumulado Q2,0.0,Sinal u,0.002916666666666667,2400,0.035,8.428571428571429
+Suicídio geral,Acumulado Q2,0.25,Sinal CUSUM +,0.113125,1600,0.9,6.216666666666667
 Suicídio geral,Acumulado Q2,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Suicídio geral,Acumulado Q2,0.25,Sinal EWMA,0.3275,1600,0.86,5.8313953488372094
-Suicídio geral,Acumulado Q2,0.25,Sinal controle,0.295625,1600,0.93,2.9193548387096775
-Suicídio geral,Acumulado Q2,0.25,Sinal u,0.549375,1600,1.0,1.68
+Suicídio geral,Acumulado Q2,0.25,Sinal EWMA,0.301875,1600,0.82,5.890243902439025
+Suicídio geral,Acumulado Q2,0.25,Sinal controle,0.1975,1600,0.835,3.311377245508982
+Suicídio geral,Acumulado Q2,0.25,Sinal u,0.540625,1600,1.0,1.755
 Suicídio geral,Acumulado Q3,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Suicídio geral,Acumulado Q3,-0.25,Sinal CUSUM −,0.243125,1600,1.0,3.555
-Suicídio geral,Acumulado Q3,-0.25,Sinal EWMA,0.7125,1600,1.0,3.295
-Suicídio geral,Acumulado Q3,-0.25,Sinal controle,0.835,1600,1.0,1.125
-Suicídio geral,Acumulado Q3,-0.25,Sinal u,0.835,1600,1.0,1.125
+Suicídio geral,Acumulado Q3,-0.25,Sinal CUSUM −,0.226875,1600,1.0,3.905
+Suicídio geral,Acumulado Q3,-0.25,Sinal EWMA,0.669375,1600,1.0,3.635
+Suicídio geral,Acumulado Q3,-0.25,Sinal controle,0.8425,1600,1.0,1.26
+Suicídio geral,Acumulado Q3,-0.25,Sinal u,0.8425,1600,1.0,1.26
 Suicídio geral,Acumulado Q3,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Suicídio geral,Acumulado Q3,0.0,Sinal CUSUM −,0.0,2400,0.0,
 Suicídio geral,Acumulado Q3,0.0,Sinal EWMA,0.0,2400,0.0,
-Suicídio geral,Acumulado Q3,0.0,Sinal controle,0.0020833333333333333,2400,0.025,8.0
-Suicídio geral,Acumulado Q3,0.0,Sinal u,0.0020833333333333333,2400,0.025,8.0
-Suicídio geral,Acumulado Q3,0.25,Sinal CUSUM +,0.23875,1600,1.0,3.555
+Suicídio geral,Acumulado Q3,0.0,Sinal controle,0.0025,2400,0.03,5.5
+Suicídio geral,Acumulado Q3,0.0,Sinal u,0.0025,2400,0.03,5.5
+Suicídio geral,Acumulado Q3,0.25,Sinal CUSUM +,0.216875,1600,1.0,3.885
 Suicídio geral,Acumulado Q3,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Suicídio geral,Acumulado Q3,0.25,Sinal EWMA,0.711875,1600,1.0,3.3
-Suicídio geral,Acumulado Q3,0.25,Sinal controle,0.774375,1600,1.0,1.33
-Suicídio geral,Acumulado Q3,0.25,Sinal u,0.774375,1600,1.0,1.33
+Suicídio geral,Acumulado Q3,0.25,Sinal EWMA,0.675625,1600,1.0,3.59
+Suicídio geral,Acumulado Q3,0.25,Sinal controle,0.788125,1600,1.0,1.29
+Suicídio geral,Acumulado Q3,0.25,Sinal u,0.788125,1600,1.0,1.29
 Suicídio geral,Q1,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Suicídio geral,Q1,-0.25,Sinal CUSUM −,0.021875,1600,0.175,7.3428571428571425
-Suicídio geral,Q1,-0.25,Sinal EWMA,0.025,1600,0.12,7.208333333333333
-Suicídio geral,Q1,-0.25,Sinal controle,0.000625,1600,0.005,8.0
-Suicídio geral,Q1,-0.25,Sinal u,0.175625,1600,0.775,3.6
+Suicídio geral,Q1,-0.25,Sinal CUSUM −,0.0175,1600,0.14,7.678571428571429
+Suicídio geral,Q1,-0.25,Sinal EWMA,0.014375,1600,0.08,7.4375
+Suicídio geral,Q1,-0.25,Sinal controle,0.0,1600,0.0,
+Suicídio geral,Q1,-0.25,Sinal u,0.161875,1600,0.72,3.625
 Suicídio geral,Q1,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Suicídio geral,Q1,0.0,Sinal CUSUM −,0.0,2400,0.0,
 Suicídio geral,Q1,0.0,Sinal EWMA,0.0,2400,0.0,
 Suicídio geral,Q1,0.0,Sinal controle,0.0,2400,0.0,
-Suicídio geral,Q1,0.0,Sinal u,0.002916666666666667,2400,0.035,6.428571428571429
-Suicídio geral,Q1,0.25,Sinal CUSUM +,0.03625,1600,0.29,7.241379310344827
+Suicídio geral,Q1,0.0,Sinal u,0.0020833333333333333,2400,0.025,7.2
+Suicídio geral,Q1,0.25,Sinal CUSUM +,0.03,1600,0.24,7.270833333333333
 Suicídio geral,Q1,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Suicídio geral,Q1,0.25,Sinal EWMA,0.049375,1600,0.22,6.931818181818182
-Suicídio geral,Q1,0.25,Sinal controle,0.008125,1600,0.065,5.384615384615385
-Suicídio geral,Q1,0.25,Sinal u,0.268125,1600,0.91,3.1648351648351647
+Suicídio geral,Q1,0.25,Sinal EWMA,0.041875,1600,0.2,6.95
+Suicídio geral,Q1,0.25,Sinal controle,0.00375,1600,0.03,5.0
+Suicídio geral,Q1,0.25,Sinal u,0.234375,1600,0.91,3.2637362637362637
 Suicídio geral,Q2,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Suicídio geral,Q2,-0.25,Sinal CUSUM −,0.1625,1600,0.995,4.618090452261306
-Suicídio geral,Q2,-0.25,Sinal EWMA,0.544375,1600,0.985,4.441624365482234
-Suicídio geral,Q2,-0.25,Sinal controle,0.165,1600,0.75,3.7133333333333334
-Suicídio geral,Q2,-0.25,Sinal u,0.165,1600,0.75,3.7133333333333334
+Suicídio geral,Q2,-0.25,Sinal CUSUM −,0.138125,1600,0.98,5.137755102040816
+Suicídio geral,Q2,-0.25,Sinal EWMA,0.47125,1600,0.95,4.815789473684211
+Suicídio geral,Q2,-0.25,Sinal controle,0.16625,1600,0.75,3.68
+Suicídio geral,Q2,-0.25,Sinal u,0.16625,1600,0.75,3.68
 Suicídio geral,Q2,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Suicídio geral,Q2,0.0,Sinal CUSUM −,0.0,2400,0.0,
 Suicídio geral,Q2,0.0,Sinal EWMA,0.0,2400,0.0,
-Suicídio geral,Q2,0.0,Sinal controle,0.002916666666666667,2400,0.035,3.7142857142857144
-Suicídio geral,Q2,0.0,Sinal u,0.002916666666666667,2400,0.035,3.7142857142857144
-Suicídio geral,Q2,0.25,Sinal CUSUM +,0.1725,1600,0.995,4.5879396984924625
+Suicídio geral,Q2,0.0,Sinal controle,0.0033333333333333335,2400,0.04,4.875
+Suicídio geral,Q2,0.0,Sinal u,0.0033333333333333335,2400,0.04,4.875
+Suicídio geral,Q2,0.25,Sinal CUSUM +,0.14625,1600,0.97,4.850515463917525
 Suicídio geral,Q2,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Suicídio geral,Q2,0.25,Sinal EWMA,0.538125,1600,0.98,4.326530612244898
-Suicídio geral,Q2,0.25,Sinal controle,0.23,1600,0.9,3.0944444444444446
-Suicídio geral,Q2,0.25,Sinal u,0.23,1600,0.9,3.0944444444444446
+Suicídio geral,Q2,0.25,Sinal EWMA,0.48,1600,0.945,4.645502645502646
+Suicídio geral,Q2,0.25,Sinal controle,0.241875,1600,0.885,3.0451977401129944
+Suicídio geral,Q2,0.25,Sinal u,0.241875,1600,0.885,3.0451977401129944
 Suicídio geral,Q3,-0.25,Sinal CUSUM +,0.0,1600,0.0,
-Suicídio geral,Q3,-0.25,Sinal CUSUM −,0.13875,1600,0.985,5.0456852791878175
-Suicídio geral,Q3,-0.25,Sinal EWMA,0.47625,1600,0.97,4.865979381443299
-Suicídio geral,Q3,-0.25,Sinal controle,0.195625,1600,0.805,3.422360248447205
-Suicídio geral,Q3,-0.25,Sinal u,0.195625,1600,0.805,3.422360248447205
+Suicídio geral,Q3,-0.25,Sinal CUSUM −,0.21625,1600,1.0,3.85
+Suicídio geral,Q3,-0.25,Sinal EWMA,0.659375,1600,0.995,3.6381909547738696
+Suicídio geral,Q3,-0.25,Sinal controle,0.179375,1600,0.79,3.3607594936708862
+Suicídio geral,Q3,-0.25,Sinal u,0.179375,1600,0.79,3.3607594936708862
 Suicídio geral,Q3,0.0,Sinal CUSUM +,0.0,2400,0.0,
 Suicídio geral,Q3,0.0,Sinal CUSUM −,0.0,2400,0.0,
-Suicídio geral,Q3,0.0,Sinal EWMA,0.0,2400,0.0,
-Suicídio geral,Q3,0.0,Sinal controle,0.0025,2400,0.03,5.666666666666667
-Suicídio geral,Q3,0.0,Sinal u,0.0025,2400,0.03,5.666666666666667
-Suicídio geral,Q3,0.25,Sinal CUSUM +,0.145625,1600,0.975,5.0717948717948715
+Suicídio geral,Q3,0.0,Sinal EWMA,0.0004166666666666667,2400,0.005,1.0
+Suicídio geral,Q3,0.0,Sinal controle,0.002916666666666667,2400,0.035,4.285714285714286
+Suicídio geral,Q3,0.0,Sinal u,0.002916666666666667,2400,0.035,4.285714285714286
+Suicídio geral,Q3,0.25,Sinal CUSUM +,0.220625,1600,1.0,3.68
 Suicídio geral,Q3,0.25,Sinal CUSUM −,0.0,1600,0.0,
-Suicídio geral,Q3,0.25,Sinal EWMA,0.468125,1600,0.965,4.803108808290156
-Suicídio geral,Q3,0.25,Sinal controle,0.238125,1600,0.895,3.4189944134078214
-Suicídio geral,Q3,0.25,Sinal u,0.238125,1600,0.895,3.4189944134078214
+Suicídio geral,Q3,0.25,Sinal EWMA,0.67125,1600,0.995,3.4673366834170856
+Suicídio geral,Q3,0.25,Sinal controle,0.281875,1600,0.935,2.834224598930481
+Suicídio geral,Q3,0.25,Sinal u,0.281875,1600,0.935,2.834224598930481

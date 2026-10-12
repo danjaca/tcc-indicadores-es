@@ -35,5 +35,39 @@
     ],
     "suicidio_jan_ago_2024": 232
   },
-  "8d8be8e86012": null
+  "8d8be8e86012": {
+    "anual_2024": {
+      "Suicídio geral": [
+        354,
+        4102129
+      ],
+      "Homicídios — jovens de 15 a 29 anos": [
+        483,
+        874575
+      ],
+      "Homicídios — mulheres de 10 a 59 anos": [
+        90,
+        1454086
+      ]
+    },
+    "segundo_quadrimestre_2024": {
+      "Suicídio geral": [
+        113,
+        4102129
+      ],
+      "Homicídios — jovens de 15 a 29 anos": [
+        135,
+        874575
+      ],
+      "Homicídios — mulheres de 10 a 59 anos": [
+        34,
+        1454086
+      ]
+    },
+    "suicidio_jeronimo_monteiro_2024": [
+      4,
+      12079
+    ],
+    "suicidio_jan_ago_2024": 231
+  }
 }

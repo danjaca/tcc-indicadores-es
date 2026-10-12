@@ -41,7 +41,7 @@ with st.sidebar:
         indicador=st.selectbox('Indicador',list(INDICADORES))
         ano=st.selectbox('Ano',sorted(meta['anos_disponiveis'],reverse=True))
         quadrimestres=st.multiselect('Quadrimestres da análise',[1,2,3],default=sorted({(m-1)//4+1 for m in meses_disponiveis(f,max(meta['anos_disponiveis']))}),format_func=lambda q:f'{q}º quadrimestre',help='Selecione um, dois ou três quadrimestres e refine os meses abaixo.')
-        meses_personalizados=st.multiselect('Meses personalizados',list(range(1,13)),default=list(range(1,13)),format_func=lambda m: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'][m-1],help='Sempre disponível. Entram na análise os meses marcados que pertencem aos quadrimestres selecionados. Mantenha todos para analisar os quadrimestres completos.')
+        meses_personalizados=st.multiselect('Meses personalizados',list(range(1,13)),default=meses_disponiveis(f,max(meta['anos_disponiveis'])),format_func=lambda m: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'][m-1],help='Sempre disponível. Entram na análise os meses marcados que pertencem aos quadrimestres selecionados. Mantenha todos para analisar os quadrimestres completos.')
         municipios=st.multiselect('Municípios',sorted(g.no_municipio),placeholder='Todos os municípios do ES')
         sexo_filtro=st.selectbox('Sexo',['Todos','Masculino','Feminino'],help='Filtra óbitos e população pelo mesmo sexo. Masculino não se aplica ao indicador de homicídios de mulheres.')
         st.form_submit_button('Atualizar',type='primary',width='stretch')
@@ -247,7 +247,7 @@ if MOSTRAR_APRENDIZADO:
     with tabs[3]:
         mostrar_machine_learning(indicador)
 with tabs[-2]:
-    mostrar_monitoramento(nf,np,g,meta,ano,meses)
+    mostrar_monitoramento(nf,np,g,meta,ano,meses,indicador=indicador,sexo_filtro=sexo_filtro)
 with tabs[-1]:
     st.subheader('Definições e disponibilidade')
     st.write('Fonte dos arquivos locais: SIM/DATASUS e base populacional utilizada no ETL do TCC. Recorte por município de residência no Espírito Santo.')

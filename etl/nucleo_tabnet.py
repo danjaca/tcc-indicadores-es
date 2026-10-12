@@ -115,7 +115,56 @@ def count_value(value):
     if re.fullmatch(r'\d+',value): return int(value)
     if re.fullmatch(r'\d{1,3}(?:\.\d{3})+',value): return int(value.replace('.',''))
     raise ValueError(f'Contagem desconhecida/suprimida: {value!r}. Não converter para zero.')
+MARCADOR_CONSULTA_COMPOSTA = 'tcc_consulta_cid_composta_v1'
+
+def partes_consulta(raw):
+    """Evidência composta conserva cada HTML original e seus filtros, sem editar totais."""
+    if raw.lstrip().startswith('{'):
+        obj=json.loads(raw)
+        if obj.get('formato')==MARCADOR_CONSULTA_COMPOSTA:
+            return obj['partes']
+    return None
+
+def query_definicao(client, selections):
+    """Consulta categorias completas + subcategorias isoladas como união disjunta.
+
+    Categorias inteiras usam três dígitos: inclui registros ainda sem quarto dígito.
+    Y87.0/Y87.1/Y89.0 continuam filtrados individualmente; nunca se inclui Y87 inteiro.
+    """
+    chosen=set(selections.get(CID_FIELD,[ALL]))
+    if chosen=={ALL}:return client.query(selections)
+    options=client.form['options']
+    groups={}
+    for o in options[CID_FIELD]:
+        match=re.match(r'^([A-Z]\d{2})(?:\.\d)?(?:\s|$)',o['label'])
+        if match:groups.setdefault(match[1],set()).add(o['value'])
+    categories={o['label'][:3]:o['value'] for o in options[CID3_FIELD]
+                if re.match(r'^[A-Z]\d{2}\s',o['label'])}
+    complete=[k for k,values in groups.items() if values and values.issubset(chosen)]
+    if not complete:return client.query(selections)
+    if selections.get(CID3_FIELD,[ALL])!=[ALL]:raise ValueError('Filtro de categoria já aplicado à união CID.')
+    rest=chosen-set().union(*(groups[k] for k in complete))
+    parts=[]
+    cat=dict(selections);cat[CID_FIELD]=[ALL];cat[CID3_FIELD]=[categories[k] for k in complete]
+    parts.append({'selections':cat,'html':client.query(cat)})
+    if rest:
+        time.sleep(3)
+        sub=dict(selections);sub[CID_FIELD]=sorted(rest)
+        parts.append({'selections':sub,'html':client.query(sub)})
+    return json.dumps({'formato':MARCADOR_CONSULTA_COMPOSTA,'partes':parts},ensure_ascii=False)
+
 def parse_result(html, year, municipalities):
+    parts=partes_consulta(html)
+    if parts is not None:
+        parsed=[parse_result(p['html'],year,municipalities) for p in parts]
+        # TabNet omite colunas em seleções sem eventos (TOTAL explícito zero).
+        # A cobertura publicável é confirmada pelos controles gerais da base.
+        matrix=sum((m for m,_ in parsed),parsed[0][0]*0)
+        return matrix, {'total':sum(st['total'] for _,st in parsed),
+                        'totais_partes':[st['total'] for _,st in parsed],
+                        'months':sorted(set().union(*(st['months'] for _,st in parsed))),
+                        'municipal_rows':len(municipalities),
+                        'zero_rows_outside_selection':sorted(set().union(*(st['zero_rows_outside_selection'] for _,st in parsed)))}
     soup = BeautifulSoup(html,'lxml')
     text = norm(soup.get_text(' ',strip=True))
     if soup.find('select',attrs={'name':'Linha'}):
@@ -269,6 +318,11 @@ class Extraction:
             selections[CID_FIELD]=c['cids'][cause]
         else:
             selections[cid[0]]=list(cid[1])
+        if cid is None and (age is not None or sex is not None) and cause in getattr(self,'isoladas_zeradas',set()):
+            # Controle estadual confirmou zero em todas as subcategorias isoladas;
+            # não repetir consultas vazias em cada estrato. Controle final as reconfirma.
+            completos=set(c['cid_equivalencia'][cause]['subcategorias'])
+            selections[CID_FIELD]=[v for v in selections[CID_FIELD] if v in completos]
         selections[AGE_FIELD]=[ALL] if age is None else c['ages'][age]
         selections['SSexo']=[ALL] if sex is None else c['sexes'][sex]
         cached=False
@@ -280,7 +334,7 @@ class Extraction:
             for attempt in range(3):
                 try:
                     time.sleep(self.interval if attempt==0 else 10*(attempt+1))
-                    raw=self.client.query(selections)
+                    raw=query_definicao(self.client,selections) if cid is None else self.client.query(selections)
                     # Salva evidência, mas somente cria checkpoint de sucesso após validar.
                     (self.directory/f'{key}_ultima_resposta.html').write_text(raw,encoding='utf-8')
                     matrix,stats=parse_result(raw,c['year'],c['municipalities'])

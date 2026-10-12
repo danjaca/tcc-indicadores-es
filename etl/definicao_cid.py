@@ -5,8 +5,10 @@ Y87.1 e Y89.0. Ficha 1.8.17 (suicídio): causa básica X60–X84 e Y87.0.
 
 Uma categoria de três caracteres inclui todas as suas subcategorias. Y87.0, Y87.1 e
 Y89.0 são subcategorias de quatro caracteres; por isso, a seleção no TabNet da SESA usa o
-campo de subcategorias do capítulo XX, e não o campo de causas com três dígitos, que não
-consegue separar Y87.0 de Y87.1/Y87.2 nem Y89.0 de Y89.1/Y89.9.
+campo de subcategorias do capítulo XX para esses códigos isolados: o campo de três
+dígitos não separa Y87.0 de Y87.1/Y87.2 nem Y89.0 de Y89.1/Y89.9. O núcleo de consulta
+usa três dígitos para categorias completas e soma as subcategorias isoladas, preservando
+registros ainda sem quarto dígito e as evidências de cada consulta disjunta.
 
 Este módulo não depende de rede nem de bibliotecas externas: é a fonte única da regra,
 usada pelo ETL, pela validação e pelo painel.

@@ -52,7 +52,8 @@ class TestDashboard(unittest.TestCase):
     def test_interface_filtros_e_grafico(self):
         at=AppTest.from_file(str(Path(__file__).resolve().parents[1]/'app.py'),default_timeout=40).run()
         self.assertFalse(at.exception);self.assertEqual(at.sidebar.button[0].label,'Atualizar')
-        at.sidebar.selectbox[1].select(2024);at.sidebar.multiselect[0].set_value([1,2,3]);at.sidebar.button[0].click().run()
+        self.assertEqual(at.sidebar.multiselect[1].value,meses_disponiveis(self.f,max(self.meta['anos_disponiveis'])))
+        at.sidebar.selectbox[1].select(2024);at.sidebar.multiselect[0].set_value([1,2,3]);at.sidebar.multiselect[1].set_value(list(range(1,13)));at.sidebar.button[0].click().run()
         if self.ref is not None:self.assertEqual(at.metric[0].value,numero(self.ref['anual_2024'][list(INDICADORES)[0]][0]))
         for nome in INDICADORES:
             at.sidebar.selectbox[0].select(nome);at.sidebar.multiselect[0].set_value([2]);at.sidebar.button[0].click().run()

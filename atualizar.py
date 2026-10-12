@@ -4,6 +4,8 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 import argparse,json,os,shutil,subprocess,sys,tomllib,uuid
 from configuracao import RAIZ,ESTADO,DADOS
+from etl.definicao_cid import ID_DEFINICAO_CID
+from concurrent.futures import ThreadPoolExecutor
 
 def intervalo(hoje,cfg,inicio=None,fim=None):
     fim=hoje.year if fim is None else fim
@@ -15,6 +17,8 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--inicio',type=int);ap.add_argument('--fim',type=int)
     ap.add_argument('--forcar',action='store_true')
+    ap.add_argument('--paralelo',action='store_true',help='Consulta base e complementos históricos em paralelo, mantendo a validação final conjunta.')
+    ap.add_argument('--retomar-lote',type=Path,help='Reutiliza dados de um lote local interrompido; todas as camadas serão validadas antes de publicar.')
     ap.add_argument('--planejar',action='store_true',help='Exibe o plano sem acessar a rede.')
     ap.add_argument('--publicar-local',action='store_true',help='Copia dados validados para o checkout; executar com app local parado.')
     args=ap.parse_args()
@@ -22,7 +26,7 @@ def main():
     hoje=datetime.now(ZoneInfo('America/Sao_Paulo')).date()
     inicio,fim=intervalo(hoje,cfg,args.inicio,args.fim)
     anos=[a for a in range(inicio,fim+1) if a<hoje.year or hoje.month>1]
-    plano={'inicio':inicio,'fim':fim,'anos_complementos':anos,'motor':cfg['motor'],'estado':str(ESTADO),'publicar_local':args.publicar_local}
+    plano={'inicio':inicio,'fim':fim,'anos_complementos':anos,'motor':cfg['motor'],'estado':str(ESTADO),'publicar_local':args.publicar_local,'paralelo':args.paralelo}
     if args.planejar:print(json.dumps(plano,ensure_ascii=False,indent=2));return
     if not anos:raise ValueError('Nenhum ano com meses encerrados no intervalo.')
     ESTADO.mkdir(parents=True,exist_ok=True)
@@ -36,12 +40,45 @@ def main():
     def run(*cmd):subprocess.run([sys.executable,*cmd],cwd=RAIZ,env=env,check=True)
     try:
         lote.mkdir(parents=True)
-        shutil.copytree(DADOS,destino)
+        origem=DADOS
+        if args.retomar_lote:
+            anterior=args.retomar_lote.resolve()
+            if anterior.parent!=(ESTADO/'lotes').resolve() or not (anterior/'execucao.json').is_file():
+                raise ValueError('Retomada exige um lote desta instalação com relatório de execução.')
+            origem=anterior/'dados';report['retomado_de']=str(anterior)
+        shutil.copytree(origem,destino)
         force=['--forcar'] if args.forcar else []
-        run('-m','etl.executar_base','--inicio',str(inicio),'--fim',str(fim),*force)
-        run('-m','etl.incorporar_lote',str(ESTADO))
-        for module in ['extrair_raca_cor','extrair_meios_cid']:
-            run('-m','etl.'+module,'--inicio',str(min(anos)),'--fim',str(max(anos)),*force)
+        historicos=[a for a in anos if a<hoje.year]
+        if args.paralelo and historicos and not args.retomar_lote:
+            # As camadas leem o snapshot inicial; não se incorpora a base enquanto
+            # os complementos históricos ainda estão consultando ou gravando arquivos.
+            # Cada camada usa evidências/SQLite próprios e um cliente independente.
+            with ThreadPoolExecutor(max_workers=3) as executor:
+                tarefas=[executor.submit(run,'-m','etl.executar_base','--inicio',str(inicio),'--fim',str(fim),*force)]
+                for module in ['extrair_raca_cor','extrair_meios_cid']:
+                    tarefas.append(executor.submit(run,'-m','etl.'+module,'--inicio',str(min(historicos)),'--fim',str(max(historicos)),*force))
+                # Aguarda e inspeciona todos: qualquer falha impede incorporação/publicação.
+                erros=[]
+                for tarefa in tarefas:
+                    try:tarefa.result()
+                    except Exception as exc:erros.append(exc)
+                if erros:raise RuntimeError('Extração paralela falhou: '+'; '.join(map(str,erros)))
+            run('-m','etl.incorporar_lote',str(ESTADO))
+            if hoje.year in anos:
+                # O ano corrente depende da cobertura atualizada da base principal.
+                for module in ['extrair_raca_cor','extrair_meios_cid']:
+                    run('-m','etl.'+module,'--inicio',str(hoje.year),'--fim',str(hoje.year),*force)
+        else:
+            run('-m','etl.executar_base','--inicio',str(inicio),'--fim',str(fim),*force)
+            run('-m','etl.incorporar_lote',str(ESTADO))
+            for module,arquivo in [('extrair_raca_cor','raca_cor_meta.json'),('extrair_meios_cid','meios_cid_meta.json')]:
+                pendentes=anos
+                if args.retomar_lote and not args.forcar:
+                    camada=json.loads((destino/arquivo).read_text())
+                    pendentes=[a for a in anos if camada.get('definicao_cid_por_ano',{}).get(str(a))!=ID_DEFINICAO_CID
+                               or not camada.get('cobertura',{}).get(str(a)) or a==hoje.year]
+                for a in pendentes:
+                    run('-m','etl.'+module,'--inicio',str(a),'--fim',str(a),*force)
         run('-m','etl.validar','--anos',*[str(a) for a in anos])
         report['status']='validado'
         if args.publicar_local:

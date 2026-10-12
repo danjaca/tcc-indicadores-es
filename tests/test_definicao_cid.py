@@ -87,3 +87,41 @@ class TestDefinicaoCid(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
+
+
+def test_uniao_preserva_categoria_incompleta_sem_ampliar_sequelas(monkeypatch):
+    from etl.nucleo_tabnet import query_definicao, parse_result, CID_FIELD, CID3_FIELD, ALL
+    import etl.nucleo_tabnet as nucleo
+    monkeypatch.setattr(nucleo.time,'sleep',lambda _:None)
+    form=parse_form(FORMULARIO);c=make_contract(form,2026,MUNICIPIOS)
+    chamadas=[]
+    class Fonte:
+        def __init__(self):self.form=form
+        def query(self,s):
+            chamadas.append(s)
+            # Cinco registros da categoria, incluindo dois sem quarto dígito;
+            # somente um registro de Y87.1. Y87 inteiro incluiria outros desfechos.
+            valor=5 if s[CID3_FIELD]!=[ALL] else 1
+            return ('<p>Período: 2026</p><table><tr><th>Município Resid</th><th>Jan</th><th>Total</th></tr>'
+                    f'<tr><td>320530 Vitória</td><td>{valor}</td><td>{valor}</td></tr>'
+                    f'<tr><td>Total</td><td>{valor}</td><td>{valor}</td></tr></table>')
+    sel=dict(c['base']);sel[CID_FIELD]=c['cid_values']['Homicídio']['X93']+c['cid_values']['Homicídio']['Y87.1']
+    raw=query_definicao(Fonte(),sel);mat,stats=parse_result(raw,2026,MUNICIPIOS)
+    assert int(mat.to_numpy().sum())==6 and stats['months']==[1]
+    assert len(chamadas)==2
+    cat={o['value']:o['label'][:3] for o in form['options'][CID3_FIELD]}
+    assert [cat[v] for v in chamadas[0][CID3_FIELD]]==['X93']
+    assert chamadas[1][CID_FIELD]==c['cid_values']['Homicídio']['Y87.1']
+    assert chamadas[1][CID3_FIELD]==[ALL]
+
+
+def test_uniao_aceita_total_zero_explicitado_sem_colunas_mensais():
+    import json
+    from etl.nucleo_tabnet import MARCADOR_CONSULTA_COMPOSTA,parse_result
+    positivo=('<p>Período: 2026</p><table><tr><th>Município Resid</th><th>Jan</th><th>Total</th></tr>'
+              '<tr><td>320530 Vitória</td><td>5</td><td>5</td></tr><tr><td>Total</td><td>5</td><td>5</td></tr></table>')
+    zero=('<p>Período: 2026</p><table><tr><th>Município Resid</th><th>Total</th></tr>'
+          '<tr><td>320530 Vitória</td><td>0</td></tr><tr><td>Total</td><td>0</td></tr></table>')
+    raw=json.dumps({'formato':MARCADOR_CONSULTA_COMPOSTA,'partes':[{'html':positivo},{'html':zero}]})
+    tabela,stats=parse_result(raw,2026,MUNICIPIOS)
+    assert stats['months']==[1] and stats['total']==5 and tabela.loc['320530',1]==5

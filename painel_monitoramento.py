@@ -1,6 +1,8 @@
 """Interface dos métodos previstos nas seções 2.6.5 e 2.7 do TCC."""
 from dataclasses import asdict
 import json
+import hashlib
+from configuracao import DADOS
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
@@ -17,13 +19,57 @@ def grafico(t, valor, inferior, superior, titulo, referencia=None):
     if referencia is not None: fig.add_hline(y=referencia, line_dash='dot', annotation_text='Referência')
     fig.add_trace(go.Scatter(x=t['Ano'], y=t[valor], name=valor, mode='lines+markers', line=dict(color='#126c83')))
     fig.update_layout(title=titulo, xaxis_title='Ano · mesmos meses', yaxis_title='Taxa por 100 mil', height=400)
+    fig.update_xaxes(dtick=1,tickformat='d')
     st.plotly_chart(fig, width='stretch')
 
 
-def mostrar_monitoramento(f, p, g, meta, ano, meses):
-    st.subheader('Monitoramento estatístico')
+@st.dialog('Como ler esta página',width='large')
+def mostrar_guia():
+    st.markdown('''Use esta aba para reconhecer resultados que merecem atenção da vigilância. Comece pelo recorte e, depois, observe os sinais nos gráficos.
+
+**Confira o que está sendo comparado**
+
+O indicador, o ano, os meses, os municípios e o sexo vêm dos filtros do painel. A região escolhida nesta aba também é aplicada. A comparação usa os mesmos meses nos diferentes anos.
+
+A **taxa por 100 mil** relaciona os óbitos à população elegível do indicador. O denominador é anual: uma taxa de poucos meses representa aquele período e deve ser comparada com os mesmos meses de outros anos. Para comparar com a meta anual, selecione um ano completo.
+
+**Entenda a referência histórica**
+
+Os anos da fase I definem o padrão de comparação. Os anos posteriores, na fase II, são avaliados com esse padrão. Confira os anos escolhidos e os avisos de estabilidade antes de interpretar os resultados.
+
+**Leia cada gráfico**
+
+- **u / u′:** compare a taxa observada com os limites inferior (LIC) e superior (LSC). Um ponto fora dos limites sinaliza um resultado que se afasta da variação esperada. O u′ amplia os limites quando o histórico mostra variação adicional.
+- **EWMA:** acompanha uma taxa suavizada, com mais peso para os resultados recentes. Pode sinalizar mudanças pequenas e persistentes quando a linha ultrapassa seus limites.
+- **CUSUM:** a linha **+** acumula desvios na direção de aumento; a linha **−**, na direção de redução. Ao ultrapassar **H**, surge um sinal e a acumulação é reiniciada para a próxima observação.
+- **Canal endêmico:** compara um quadrimestre completo ou um acumulado desde janeiro com o mesmo período histórico. Abaixo de Q1: êxito; até a mediana: segurança; até Q3: alerta; acima de Q3: excesso estatístico. Aqui, **Q1 e Q3 são quartis do histórico, não quadrimestres**.
+- **Funil municipal:** cada ponto é um município; a posição horizontal mostra sua população e a vertical, sua taxa. Os limites consideram a maior oscilação esperada em populações pequenas. Os limites de 99,8% são mais amplos que os de 95%. Observe os pontos fora dos limites e os avisos de dispersão, sem transformar o gráfico em ranking.
+
+**Use os sinais para orientar a investigação**
+
+Na tabela, uma coluna “Sinal” marcada indica que a regra estatística foi acionada. A análise das causas exige contexto territorial e conferência dos registros. Priorize o estado e as regiões: muitas comparações municipais aumentam a ocorrência de sinais por acaso.
+
+**Confira os avisos e registre a análise**
+
+Resultados identificados como provisórios podem mudar com revisões do SIM ou da população. Períodos sem cobertura aparecem como indisponíveis. Os botões de download permitem guardar as tabelas e os parâmetros utilizados.
+''')
+
+
+def mostrar_monitoramento(f, p, g, meta, ano, meses, indicador=None, sexo_filtro=None):
+    titulo, ajuda=st.columns([5,1],vertical_alignment='center')
+    with titulo:
+        st.subheader('Monitoramento estatístico')
+    with ajuda:
+        if st.button('Como ler',icon=':material/info:',help='Abra o guia para interpretar esta página.',key='ajuda_monitoramento'):
+            mostrar_guia()
     st.write('Compare períodos equivalentes com uma referência histórica declarada. Os sinais orientam investigação pela vigilância e não identificam causas.')
     st.caption('Os filtros de indicador, território e sexo do painel são aplicados ao histórico e à avaliação. A memória acompanha os mesmos meses ao longo dos anos, evitando misturar períodos sazonais diferentes.')
+    regioes=sorted(g['regiao_saude'].dropna().unique()) if 'regiao_saude' in g else []
+    territorio=st.selectbox('Território do monitoramento',['Recorte do painel']+regioes,key='monitor_territorio',help='A região é combinada com os municípios já selecionados no painel.')
+    if territorio!='Recorte do painel':
+        codigos=g.loc[g['regiao_saude'].eq(territorio),'cod_mun_res']
+        f=f[f.cod_mun_res.isin(codigos)];p=p[p.cod_mun_res.isin(codigos)]
+    st.caption('Território de monitoramento: '+territorio+'. Regiões de saúde conforme o PDR 2024; os municípios e o sexo selecionados no painel continuam aplicados.')
     candidatos = [y for y in sorted(meta['anos_disponiveis']) if y < ano and cobertura_completa(f, y, meses)]
     if len(candidatos) < 5:
         st.info('São necessários pelo menos cinco anos completos anteriores ao ano selecionado.'); return
@@ -55,6 +101,7 @@ def mostrar_monitoramento(f, p, g, meta, ano, meses):
     for col in ['CUSUM +', 'CUSUM −']: fig.add_trace(go.Scatter(x=t['Ano'], y=t[col], mode='lines+markers', name=col))
     fig.add_hline(y=h, line_dash='dash', annotation_text='H')
     fig.update_layout(title='CUSUM · aumentos e reduções', yaxis_title='Desvios-padrão acumulados', height=400)
+    fig.update_xaxes(dtick=1,tickformat='d')
     st.plotly_chart(fig, width='stretch')
     st.caption('CUSUM reiniciado após qualquer sinal. EWMA inicia na média histórica; σ usa a variabilidade das taxas históricas, com piso Poisson. Estes gráficos de memória pressupõem referência estável.')
     canonicos = [list(range(a,b)) for a,b in [(1,5),(5,9),(9,13),(1,9),(1,13)]]
@@ -62,10 +109,15 @@ def mostrar_monitoramento(f, p, g, meta, ano, meses):
         grafico(t, TAXA, 'Q1', 'Q3', 'Canal endêmico · quartis do mesmo período', ref.mediana)
         st.caption('Êxito: abaixo de Q1; segurança: de Q1 à mediana; alerta: acima da mediana até Q3; acima de Q3: excesso estatístico. As zonas não confirmam epidemia e não têm taxa nominal de falso alarme de 0,2%.')
     else:
+        t['Zona canal']='Não aplicável ao recorte'
         st.info('O canal endêmico é apresentado para quadrimestres completos ou acumulados desde janeiro. Ajuste a seleção de meses para utilizá-lo.')
     st.dataframe(t, hide_index=True, width='stretch')
     st.download_button('Baixar sinais e limites (CSV)', t.to_csv(index=False,sep=';',decimal=',').encode('utf-8-sig'), 'monitoramento_estatistico.csv','text/csv')
     manifesto = dict(referencia=asdict(ref), meses=list(meses), peso=peso, largura=largura, k=k, h=h,
+                     indicador=indicador,sexo_filtro=sexo_filtro,territorio=territorio,
+                     municipios=sorted(f.cod_mun_res.unique().tolist()),
+                     faixas_etarias=sorted(f.faixa_etaria.unique().tolist()),
+                     sha256_dataset=hashlib.sha256((DADOS/'dataset.zip').read_bytes()).hexdigest(),
                      definicao_cid=meta.get('definicao_cid', 'legada'), anos_avaliacao=t['Ano'].tolist(),
                      nota='Sinais exploratórios; não são causas nem validação epidemiológica.')
     st.download_button('Baixar parâmetros (JSON)',json.dumps(manifesto,ensure_ascii=False,indent=2),'parametros_monitoramento.json','application/json')

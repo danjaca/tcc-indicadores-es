@@ -58,7 +58,7 @@ def executar(anos=None,forcar=False):
                     for tentativa in range(3):
                         try:
                             time.sleep(float(os.environ.get('TCC_INTERVALO_SEGUNDOS','3')))
-                            raw=client.query(selections).replace('\r\n','\n').replace('\r','\n')
+                            raw=ns['query_definicao'](client,selections).replace('\r\n','\n').replace('\r','\n')
                             (pasta/(key+'_resposta.html')).write_text(raw)
                             mat,stats=ns['parse_result'](raw,ano,codigos)
                             html.write_text(raw)
@@ -78,6 +78,12 @@ def executar(anos=None,forcar=False):
                     soma=controle*0
                     for r in racas:
                         sm=dict(sel);sm['SRaça/Cor']=[r['value']]
+                        partes=stats.get('totais_partes',[])
+                        if len(partes)==2 and partes[1]==0:
+                            # O controle do público inteiro provou ausência de sequelas isoladas.
+                            # O controle final repete a união completa para detectar alterações.
+                            completos=set(c['cid_equivalencia'][cfg['causa']]['subcategorias'])
+                            sm[ns['CID_FIELD']]=[v for v in sel[ns['CID_FIELD']] if v in completos]
                         matriz,st=consultar(sm);soma+=matriz
                         for mun in codigos:
                             for mes in stats['months']:

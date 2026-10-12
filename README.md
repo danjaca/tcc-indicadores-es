@@ -46,7 +46,7 @@ O intervalo padrão é o ano vigente e o anterior, calculado no fuso `America/Sa
 
 A configuração `anos_reprocessamento` controla a janela. `motor` aceita `requests` ou `selenium`; o projeto recebido usava `requests` nos executores, embora o núcleo ofereça Selenium. Mantém-se esse padrão. Para Selenium é necessário Chrome/Chromium compatível, acesso para o Selenium Manager obter o driver e instalação das dependências de ETL. O modo Selenium não foi executado nesta entrega.
 
-As variáveis `TCC_ETL_RAIZ` e `TCC_DADOS_DIR` permitem usar diretórios específicos. O estado persistente controla revisões mensais e retomadas. No runner efêmero do GitHub, os dois anos são reextraídos a cada execução; não se depende de cache entre meses. Falhas, resultados parciais, cobertura regressiva e divergências dos complementos interrompem a publicação.
+As variáveis `TCC_ETL_RAIZ` e `TCC_DADOS_DIR` permitem usar diretórios específicos. O estado persistente controla revisões mensais e retomadas. `--paralelo` consulta base e complementos históricos em paralelo; o ano corrente depende da cobertura da base atualizada. Após uma falha, `--retomar-lote var/etl/lotes/IDENTIFICADOR` recupera as camadas históricas concluídas e reconsulta o ano corrente. Toda a série solicitada passa pela validação conjunta antes da publicação. No runner efêmero do GitHub, os dois anos são reextraídos a cada execução; não se depende de cache entre meses. Falhas, resultados parciais, cobertura regressiva e divergências dos complementos interrompem a publicação.
 
 Os recortes históricos por raça/cor e meios podem ter datas de extração diferentes da fato principal. Os avisos existentes do painel foram mantidos. Os anos atualizados passam a exigir concordância por município, mês, sexo e indicador antes de publicação.
 
@@ -56,7 +56,7 @@ As fichas incluem códigos de quatro caracteres (Y87.0, Y87.1 e Y89.0) que o cam
 
 Controles acrescentados:
 
-- **Equivalência:** a cada ano, as subcategorias das categorias completas precisam somar o mesmo que as próprias categorias de três dígitos; diferença indica óbito sem subcategoria e interrompe a extração (4 consultas a mais por ano).
+- **Registros sem quarto dígito:** categorias completas são consultadas no campo de três dígitos e somadas, sem sobreposição, às subcategorias isoladas. Os HTMLs originais e os filtros de cada parte ficam conservados em uma evidência composta. O controle categoria/subcategoria registra os óbitos sem quarto dígito; estes são incluídos no numerador. Subcategorias que excedam suas categorias interrompem a extração.
 - **Série sem mistura:** `etl.incorporar_lote` recusa incorporar anos com a nova definição se outros anos da série ainda estiverem com a anterior; `etl.validar` recusa publicar base ou complementos (raça/cor e meios) com definições diferentes.
 - **Meios:** Y22–Y24 entram em "Arma de fogo"; Y35 forma "Intervenção legal"; Y87.0, Y87.1 e Y89.0 formam "Sequelas (meio não especificado)". A dimensão passa de 50 para 57 códigos.
 
@@ -69,7 +69,7 @@ python -m pytest tests -q
 python -m etl.validar
 ```
 
-Depois de conferir os valores impressos por `etl.gerar_referencias` com o TabNet/SESA, registre-os em `tests/referencias.json`, na chave da nova definição (hoje `null`). Enquanto isso, os testes numéricos do painel são pulados com aviso. Em seguida, versionar código e `dados/` no mesmo commit. Uma atualização parcial (apenas a janela de dois anos) com a definição nova é bloqueada antes da publicação.
+Execute `python -m etl.conferir_referencias --registrar` para confrontar os valores calculados com consultas independentes ao TabNet/SESA. O comando registra referências numéricas somente após concordância e estabilidade dos retornos; grava a evidência em `docs/CONFERENCIA_REFERENCIAS.json`. Em seguida, versionar código e `dados/` no mesmo commit. Uma atualização parcial (apenas a janela de dois anos) com a definição nova é bloqueada antes da publicação.
 
 ## Aprendizado de máquina (opcional)
 
@@ -99,7 +99,7 @@ O último comando exige concordância dos complementos para o ano informado. As 
 
 ## Escopo e regras epidemiológicas
 
-O pacote recebido contém 2016–2025 e janeiro–agosto de 2026, para 78 municípios de residência no Espírito Santo. Regiões: classificação fixa PDR 2024. Homicídios/agressões: CID-10 X85–Y09, Y22–Y24, Y35, Y87.1 e Y89.0; suicídios: X60–X84 e Y87.0, conforme as fichas de qualificação 1.8.15, 1.8.16 e 1.8.17 do PES-ES 2024–2027 (regra única em `etl/definicao_cid.py`). Os arquivos de `dados/` desta entrega ainda foram extraídos com a definição anterior (X85–Y09; X60–X84) e precisam do reprocessamento integral descrito abaixo. Indicadores: suicídio geral; homicídios aos 15–29 anos; homicídios de mulheres aos 10–59 anos.
+O pacote atualizado contém 2016–2025 e janeiro–setembro de 2026, para 78 municípios de residência no Espírito Santo. Regiões: classificação fixa PDR 2024. Homicídios/agressões: CID-10 X85–Y09, Y22–Y24, Y35, Y87.1 e Y89.0; suicídios: X60–X84 e Y87.0, conforme as fichas de qualificação 1.8.15, 1.8.16 e 1.8.17 do PES-ES 2024–2027 (regra única em `etl/definicao_cid.py`). A série inteira e os complementos por raça/cor e meios foram reextraídos com essa mesma definição. A população de 2026 utiliza provisoriamente a estimativa de 2025, até a disponibilidade da estimativa correspondente na fonte. Indicadores: suicídio geral; homicídios aos 15–29 anos; homicídios de mulheres aos 10–59 anos.
 
 A população é anual, filtrada pelo território, sexo e faixa etária elegíveis. Taxas quadrimestrais não são anualizadas. A população do ano anterior só é usada provisoriamente quando a fonte do ano correspondente não está disponível, com tolerância máxima de um ano e identificação no painel. Meses não disponíveis não equivalem a zeros. O projeto continua específico para o Espírito Santo; aplicá-lo a outro estado exige rever fontes, geografia, domínios e indicadores.
 
@@ -109,4 +109,4 @@ Foram excluídos da distribuição caches, logs locais, respostas temporárias d
 
 ## Monitoramento estatístico
 
-A aba **Monitoramento estatístico** implementa os métodos das seções 2.6.5 e 2.7 do TCC: u/u′, EWMA, CUSUM, canal endêmico e funil municipal. Referência e avaliação são separadas; limites e parâmetros podem ser exportados. Execute `python experimento_monitoramento.py` para reproduzir a avaliação temporal e simulada. Consulte [docs/MONITORAMENTO.md](docs/MONITORAMENTO.md) para o desenho de teste e as limitações. O snapshot recebido ainda usa CID legado; os resultados são exploratórios e devem ser refeitos após reprocessamento integral com a definição atual.
+A aba **Monitoramento estatístico** implementa os métodos das seções 2.6.5 e 2.7 do TCC: u/u′, EWMA, CUSUM, canal endêmico e funil municipal. Referência e avaliação são separadas; limites e parâmetros podem ser exportados. Execute `python experimento_monitoramento.py` para reproduzir a avaliação temporal e simulada. Consulte [docs/MONITORAMENTO.md](docs/MONITORAMENTO.md) para o desenho de teste e as limitações. Os resultados foram recalculados com a série reextraída e a definição CID atual. O botão **ⓘ Como ler** abre o guia dos indicadores, filtros, limites e sinais. A escolha de região aplica o PDR 2024 juntamente com os municípios selecionados. A calibração e a avaliação epidemiológica para uso operacional permanecem necessárias.

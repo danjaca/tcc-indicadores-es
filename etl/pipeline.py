@@ -7,7 +7,8 @@ from zoneinfo import ZoneInfo
 from ftplib import FTP
 from contextlib import contextmanager
 
-VERSAO = '1.2.0'  # 1.2.0: numeradores conforme as fichas (subcategorias Y87.0, Y87.1, Y89.0 etc.)
+VERSAO = '1.2.1'  # União CID inclui registros ainda sem quarto dígito.
+VERSAO_CHECKPOINT = '1.2.0'  # Históricos anteriores têm equivalência categoria/subcategoria comprovada.
 HOJE = datetime.now(ZoneInfo('America/Sao_Paulo')).date()
 ANO_INICIAL = HOJE.year - 1
 ANO_FINAL = HOJE.year
@@ -34,7 +35,7 @@ CREATE TABLE IF NOT EXISTS populacao_fonte(cod_mun_res TEXT,ano INTEGER,faixa_et
 def utc(): return datetime.now(timezone.utc).isoformat()
 def ciclo_mensal(hoje): return hoje.strftime('%Y-%m')
 def assinatura_config(municipios):
-    return digest({'versao':VERSAO,'municipios':municipios,'faixas':FAIXAS,
+    return digest({'versao':VERSAO_CHECKPOINT,'municipios':municipios,'faixas':FAIXAS,
                    'sexos':SEXOS,'causas':CAUSAS,'url':URL,'definicao_cid':ID_DEFINICAO_CID})
 
 def hash_frame(df):
@@ -83,10 +84,12 @@ def validar_fato(df,ano,municipios,meses):
 
 class ExtracaoIncremental(Extraction):
     def extract_partial(self,limite_mes):
-        c=self.contract;controls={};coberturas=[]
+        c=self.contract;controls={};coberturas=[];self.isoladas_zeradas=set()
         for causa in CAUSAS:
             mat,stats=self.run_query(causa,tag='controle_inicio',fresh=True)
             controls[causa]=mat
+            partes=stats.get('totais_partes',[])
+            if len(partes)==2 and partes[1]==0:self.isoladas_zeradas.add(causa)
             coberturas.append(set(stats['months']))
         # Exige meses explícitos e contíguos nos dois controles. Ausência de coluna não vira zero.
         comuns=set.intersection(*coberturas)&set(range(1,limite_mes+1))
@@ -95,16 +98,16 @@ class ExtracaoIncremental(Extraction):
         if set(meses)!=comuns: raise ValueError('Lacuna na cobertura mensal da fonte')
         if c['year']<HOJE.year and meses!=list(range(1,13)):
             raise ValueError('Ano histórico sem os 12 meses explícitos; requer conferência')
-        # Controle de equivalência: as subcategorias das categorias completas devem somar o mesmo
-        # que as categorias de três dígitos. Diferença indica óbito sem subcategoria registrada,
-        # que a seleção por subcategorias deixaria fora do numerador.
+        # Diagnóstico de registros sem quarto dígito: a consulta efetiva usa categorias
+        # completas + subcategorias isoladas, incluindo esses registros sem ampliar Y87/Y89.
+        sem_subcategoria={}
         for causa in CAUSAS:
             eq=c['cid_equivalencia'][causa]
             sub,_=self.run_query(causa,tag='equivalencia_subcategorias',fresh=True,cid=(CID_FIELD,eq['subcategorias']))
             cat,_=self.run_query(causa,tag='equivalencia_categorias',fresh=True,cid=(CID3_FIELD,eq['categorias']))
-            if not sub[meses].equals(cat[meses]):
-                raise ValueError(f'{causa}: subcategorias e categorias de três dígitos divergem em {c["year"]}; '
-                                 'há óbitos sem subcategoria que ficariam fora do numerador.')
+            delta=cat[meses]-sub[meses]
+            if (delta.to_numpy()<0).any():raise ValueError('Subcategorias excedem categorias; fonte inconsistente.')
+            sem_subcategoria[causa]=int(delta.to_numpy().sum())
         pieces=[]
         for i,(causa,idade,sexo) in enumerate(product(CAUSAS,FAIXAS,SEXOS),1):
             # Todo ano devido é relido integralmente; cache serve como evidência, nunca congela revisões.
@@ -124,7 +127,9 @@ class ExtracaoIncremental(Extraction):
                      'fonte':URL,'status_fonte':'sujeito_a_revisao',
                      'cobertura':'meses presentes no retorno; não certifica completude epidemiológica',
                      'evidencias':str(self.directory),'consultas':80,
-                     'definicao_cid':ID_DEFINICAO_CID,'codigos_cid':DESCRICAO_CID}
+                     'definicao_cid':ID_DEFINICAO_CID,'codigos_cid':DESCRICAO_CID,
+                     'obitos_sem_subcategoria_incluidos':sem_subcategoria,
+                     'selecao':'união disjunta de categorias completas e subcategorias isoladas'}
 
 def gravar_ano(con,dataset,ano,df,assinatura,detalhes,hoje):
     tabelas={'sim':('f_obitos',COLUNAS,'Obitos'),'pop':('populacao_fonte',POPKEY+['populacao'],'populacao')}

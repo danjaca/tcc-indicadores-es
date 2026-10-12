@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from modelo import carregar,recortar,INDICADORES
-from .nucleo_tabnet import TabnetClient,make_contract,exact_value,parse_result,count_value,norm,digest,write_json,CID_FIELD,CID3_FIELD,AGE_FIELD,MONTHS,ALL,URL
+from .nucleo_tabnet import TabnetClient,query_definicao,partes_consulta,make_contract,exact_value,parse_result,count_value,norm,digest,write_json,CID_FIELD,CID3_FIELD,AGE_FIELD,MONTHS,ALL,URL
 from .definicao_cid import DEFINICAO_CID,ID_DEFINICAO_CID,LINHA_CATEGORIA,codigos_detalhamento,descricoes_codigos,resumo_definicao
 
 def grupo(cid):
@@ -41,6 +41,10 @@ def grupo(cid):
 def parse_cids(raw,ano,linha):
     """Lê a tabulação categoria (3 caracteres) x mês. `linha` traduz o rótulo da categoria no
     código do detalhamento: 'X85'->'X85'; 'Y87'->'Y87.1' quando só essa subcategoria foi selecionada."""
+    parts=partes_consulta(raw)
+    if parts is not None:
+        parsed=[parse_cids(p['html'],ano,linha) for p in parts]
+        return sum((m for m,_ in parsed),parsed[0][0]*0),sorted(set().union(*(months for _,months in parsed)))
     cids=list(linha.values())
     soup=BeautifulSoup(raw,'lxml')
     assert re.search(r'periodo:\s*'+str(ano)+r'\b',norm(soup.get_text(' ',strip=True))), 'Ano divergente'
@@ -90,7 +94,7 @@ def executar(anos,forcar=False):
                     for attempt in range(3):
                         try:
                             time.sleep(float(os.environ.get('TCC_INTERVALO_SEGUNDOS','3')))
-                            raw=client.query(sel).replace('\r\n','\n').replace('\r','\n')
+                            raw=query_definicao(client,sel).replace('\r\n','\n').replace('\r','\n')
                             if sel['Linha']==linha_cid:parse_cids(raw,ano,c['cid_linha'][cfg['causa']])
                             else:parse_result(raw,ano,mun)
                             file.write_text(raw);write_json(audit,{'extraido_utc':datetime.now(timezone.utc).isoformat(),'selections':sel,'sha256':hashlib.sha256(raw.encode()).hexdigest()});break

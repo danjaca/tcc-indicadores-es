@@ -122,9 +122,12 @@ def funil(t, referencia=None):
     for nivel in [.95, .998]:
         rotulo = '95%' if nivel == .95 else '99,8%'
         alfa = (1-nivel)/2
-        out['LIC '+rotulo] = poisson.ppf(alfa, esperado)/n
-        out['LSC '+rotulo] = poisson.ppf(1-alfa, esperado)/n
-        out['Sinal '+rotulo] = (out[TAXA] < out['LIC '+rotulo]) | (out[TAXA] > out['LSC '+rotulo])
+        inferior, superior = poisson.ppf(alfa, esperado), poisson.ppf(1-alfa, esperado)
+        out['LIC '+rotulo] = inferior/n
+        out['LSC '+rotulo] = superior/n
+        # A decisão exata usa contagens: taxas equivalentes podem diferir em
+        # um último dígito binário e fabricar um sinal na própria fronteira.
+        out['Sinal '+rotulo] = (out['Óbitos'] < inferior) | (out['Óbitos'] > superior)
         # Sensibilidade aproximada: distinta dos limites exatos Poisson.
         margem = norm.ppf(1-alfa)*np.sqrt(theta/n*max(1., phi))
         out['LIC ajustado '+rotulo] = np.maximum(0, theta-margem)

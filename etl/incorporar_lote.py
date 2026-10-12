@@ -38,7 +38,9 @@ def incorporar(raiz):
         if pp.ano_fonte_populacao.nunique()!=1:raise ValueError('População com anos-fonte misturados')
         meta.setdefault('populacao',{})[str(ano)]={'ano_fonte':int(pp.ano_fonte_populacao.iloc[0]),'provisorio':bool(pp.denominador_provisorio.any())}
         meta.setdefault('extracoes',{})[str(ano)]={'data':str(c.iloc[0].atualizado),'meses':meses,'lote':pointer['id'],'revisao':detalhes.get('revisao'),'fonte':detalhes.get('fonte'),
-            'definicao_cid':detalhes.get('definicao_cid',DEFINICAO_LEGADA)}
+            'definicao_cid':detalhes.get('definicao_cid',DEFINICAO_LEGADA),
+            'selecao':detalhes.get('selecao','subcategorias com equivalência comprovada'),
+            'obitos_sem_subcategoria_incluidos':detalhes.get('obitos_sem_subcategoria_incluidos',{'Homicídio':0,'Suicídio':0})}
     f=pd.concat([f[~f.ano.isin(anos)],novo],ignore_index=True)
     if 'ano_fonte_populacao' not in p:
         p=p.assign(ano_fonte_populacao=p.ano,denominador_provisorio=0,metodo_denominador='ano_correspondente')
@@ -51,6 +53,9 @@ def incorporar(raiz):
         raise ValueError('A definição de CID mudou (fichas do PES-ES). Reprocesse também: '+', '.join(map(str,pendentes))
                          +'. Comando: python atualizar.py --inicio 2016 --forcar --publicar-local')
     meta['definicao_cid']=resumo_definicao()
+    meta['definicao_cid'].update(campos_tabnet=['SCausas_3_Dígitos','SSubcategorias_(20)'],
+                               estrategia='união disjunta de categorias completas e subcategorias isoladas')
+    meta['data_preparacao']=datetime.now(timezone.utc).date().isoformat()
     meta['nota']='Confira a cobertura e a data de extração de cada ano. Dados recentes sujeitos a revisão.'
     meta['pacote_atualizado']=datetime.now(timezone.utc).isoformat()
     temp=DADOS/'dataset.tmp.zip'

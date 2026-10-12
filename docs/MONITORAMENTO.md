@@ -25,9 +25,9 @@ python experimento_monitoramento.py --simulacoes 200 --seed 20261011
 
 `resultados_monitoramento` recebe séries de referência, limites/sinais por ano, frequências por método, funis municipais, períodos indisponíveis, simulações e manifesto com SHA-256 do dataset, referência e parâmetros. As simulações são repetíveis: sequências de 12 períodos Poisson com população fixa, sem mudança ou com mudança de ±25% depois de quatro períodos. Medem sinais por período, probabilidade de sinal na janela e atraso médio condicional à detecção. Sob o cenário sem mudança, sinais são falsos alarmes simulados. Esse cenário Poisson não reproduz heterogeneidade real; nenhum resultado prova validade epidemiológica ou utilidade operacional. A frequência histórica de sinais não é chamada de falso alarme, pois não há eventos rotulados pela vigilância. Não foi estimado ARL ilimitado.
 
-## Limitações da base recebida
+## Cobertura e limites da base atualizada
 
-O snapshot entregue não declara a nova definição CID implementada pelo ETL refatorado. Portanto, todos os resultados deste experimento são exploratórios da definição legada e devem ser refeitos após reprocessar toda a série. Não foram alterados óbitos ou populações para produzir sinais. Os dados de 2025 e 2026 são sujeitos a revisão; 2026 tem janeiro–agosto e população provisória de 2025. Anos ausentes aparecem como indisponíveis. O painel sinaliza essas condições.
+A série 2016–2026 foi reextraída do TabNet/SIM da SESA com os códigos das fichas do PES: X85–Y09, Y22–Y24, Y35, Y87.1 e Y89.0 para homicídios/agressões; X60–X84 e Y87.0 para suicídios. As categorias completas incluem registros ainda sem quarto dígito; as sequelas permanecem selecionadas individualmente. Os complementos de raça/cor e meios precisam fechar com a fato principal por indicador, município, mês e sexo. Não foram alterados óbitos ou populações para produzir sinais. Os dados de 2025 e 2026 são sujeitos a revisão; 2026 tem janeiro–setembro e população provisória de 2025. A conferência de totais anuais, segundo quadrimestre e referências municipais de 2024 está documentada em `CONFERENCIA_REFERENCIAS.json`. Anos ausentes aparecem como indisponíveis. O painel sinaliza essas condições.
 
 A avaliação de alterações reais conhecidas, revisão dos anos atípicos e teste de utilidade com profissionais da vigilância continuam dependendo de evidências externas. Limites 99,8% são por comparação e não controlam simultaneamente todos os municípios/indicadores. Dados agregados não demonstram causalidade nem risco individual. Proporções por raça/cor e meios permanecem proporções, sem denominadores para taxas.
 
@@ -38,3 +38,7 @@ A avaliação de alterações reais conhecidas, revisão dos anos atípicos e te
 - Minitab, métodos do gráfico u′ de Laney: https://support.minitab.com/en-us/minitab/help-and-how-to/quality-and-process-improvement/control-charts/how-to/attributes-charts/laney-u-chart/methods-and-formulas/methods-and-formulas/
 - SciPy, distribuição Poisson: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.poisson.html
 - Bortman (1999) e Spiegelhalter (2005), conforme o referencial teórico fornecido.
+
+## Guia de leitura no painel
+
+O botão **ⓘ Como ler**, junto ao título, abre um diálogo com o significado dos filtros, taxa por 100 mil, referência histórica, u/u′, EWMA, CUSUM, canal endêmico, funil e sinais. A explicação distingue quartis de quadrimestres, sinal estatístico de investigação de causas e taxa parcial de meta anual. A região escolhida combina-se com o recorte do painel.

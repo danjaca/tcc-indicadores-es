@@ -1,0 +1,58 @@
+{
+  "plano": {
+    "inicio": 2016,
+    "fim": 2026,
+    "anos_complementos": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "motor": "requests",
+    "estado": "/Users/danbreda/Desktop/tcc/dashboard_streamlit/var/etl",
+    "publicar_local": true,
+    "paralelo": false
+  },
+  "status": "publicado_no_checkout",
+  "lote": "/Users/danbreda/Desktop/tcc/dashboard_streamlit/var/etl/lotes/20261011T222122_f63c4e80",
+  "retomado_de": "/Users/danbreda/Desktop/tcc/dashboard_streamlit/var/etl/lotes/20261011T213217_19d6e4ad",
+  "linhas_obitos": 724464,
+  "municipios": 78,
+  "definicao_cid": {
+    "id": "8d8be8e86012",
+    "codigos": {
+      "Homicídio": "X85–Y09, Y22–Y24, Y35, Y87.1 e Y89.0",
+      "Suicídio": "X60–X84 e Y87.0"
+    },
+    "campo_tabnet": "SSubcategorias_(20)",
+    "fonte": "Fichas de qualificação dos indicadores 1.8.15, 1.8.16 e 1.8.17 do Plano Estadual de Saúde do Espírito Santo 2024–2027 (SESA/ES)",
+    "campos_tabnet": [
+      "SCausas_3_Dígitos",
+      "SSubcategorias_(20)"
+    ],
+    "estrategia": "união disjunta de categorias completas e subcategorias isoladas"
+  },
+  "meses_2026": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "sha256_dataset": "ad0c5fa82dc63272d01c249581da7dcd194bf14f1164dd48ab7d35850d837e7c",
+  "obitos_sem_subcategoria_2026": {
+    "Homicídio": 6,
+    "Suicídio": 0
+  }
+}

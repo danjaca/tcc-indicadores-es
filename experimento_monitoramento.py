@@ -5,6 +5,7 @@ from pathlib import Path
 import hashlib
 import json
 import platform
+import scipy
 import numpy as np
 import pandas as pd
 from configuracao import DADOS
@@ -82,7 +83,7 @@ def main():
         ss=tt.groupby(['indicador','periodo','mudanca','metodo']).agg(proporcao_sinais=('sinais','sum'),periodos=('periodos','sum'),probabilidade_sinal_na_janela=('detectou','mean'),atraso_medio_condicional=('atraso','mean'))
         ss['proporcao_sinais']/=ss['periodos'];ss.to_csv(out/'avaliacao_simulada.csv')
     pd.DataFrame(falhas).to_csv(out/'periodos_indisponiveis.csv',index=False)
-    manifesto=dict(referencia=[args.inicio,args.fim_referencia],fase_II=[args.fim_referencia+1,fim],parametros=dict(peso=.2,largura=3,k=.5,h=5),seed=args.seed,simulacoes=args.simulacoes,referencias=refs,sha256_dataset=hashlib.sha256((DADOS/'dataset.zip').read_bytes()).hexdigest(),python=platform.python_version(),definicao_cid=meta.get('definicao_cid','legada'),metadados=meta,nota='Frequência histórica não é falso alarme: não há verdade epidemiológica rotulada. Simulação Poisson sob controle estima alarmes por período/janela; shifts ±25% avaliam detecção, sem provar validade em dados reais. Resultados preliminares; verificar estabilidade e reprocessar CID legado.')
+    manifesto=dict(referencia=[args.inicio,args.fim_referencia],fase_II=[args.fim_referencia+1,fim],parametros=dict(peso=.2,largura=3,k=.5,h=5),seed=args.seed,simulacoes=args.simulacoes,referencias=refs,sha256_dataset=hashlib.sha256((DADOS/'dataset.zip').read_bytes()).hexdigest(),python=platform.python_version(),numpy=np.__version__,pandas=pd.__version__,scipy=scipy.__version__,definicao_cid=meta.get('definicao_cid','legada'),metadados=meta,nota='Frequência histórica não é falso alarme: não há verdade epidemiológica rotulada. Simulação Poisson sob controle estima alarmes por período/janela; shifts ±25% avaliam detecção, sem provar validade em dados reais. Verificar estabilidade histórica e validação com a vigilância antes de uso operacional.')
     (out/'manifesto.json').write_text(json.dumps(manifesto,ensure_ascii=False,indent=2))
     print(f'Resultados: {out}; {len(refs)} referências; {len(falhas)} períodos indisponíveis.')
 

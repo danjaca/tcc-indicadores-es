@@ -70,8 +70,27 @@ def test_interface_monitoramento_indicadores_e_parametros():
         at.sidebar.selectbox[0].select(nome)
         at.sidebar.button[0].click().run()
         assert not at.exception
+    at.selectbox(key='monitor_territorio').select('Norte').run()
+    assert not at.exception
+    assert any('Território de monitoramento: Norte' in x.value for x in at.caption)
     at.slider[0].set_value(.4).run()
     assert not at.exception
     at.multiselect(key='monitor_anos').set_value([2020]).run()
     assert not at.exception
     assert any('cinco a sete' in x.value for x in at.info)
+
+
+def test_funil_na_fronteira_nao_sinaliza_por_arredondamento():
+    # População não múltipla de 100 mil: a mesma taxa pode ter diferenças
+    # de representação binária quando obtida por duas divisões equivalentes.
+    from scipy.stats import poisson
+    populacao=103363
+    for nivel in [.95,.998]:
+        alfa=(1-nivel)/2
+        inferior=int(poisson.ppf(alfa,4*populacao/100000))
+        superior=int(poisson.ppf(1-alfa,4*populacao/100000))
+        out=funil(serie([2024,2025],[inferior,superior],populacao),referencia=4)
+        coluna='Sinal 95%' if nivel==.95 else 'Sinal 99,8%'
+        assert not out[coluna].any()
+        fora=funil(serie([2024],[superior+1],populacao),referencia=4)
+        assert fora[coluna].iloc[0]

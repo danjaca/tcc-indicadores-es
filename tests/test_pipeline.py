@@ -85,7 +85,8 @@ class Tests(unittest.TestCase):
             if kwargs.get('tag')=='equivalencia_categorias':mat.iloc[0,0]+=1
             return mat,stats
         obj.run_query=sem_subcategoria
-        with self.assertRaisesRegex(ValueError,'subcategorias'):obj.extract_partial(8)
+        _,meta=obj.extract_partial(8)
+        self.assertEqual(meta['obitos_sem_subcategoria_incluidos']['Homicídio'],1)
     def test_dimensions_and_atomic_export(self):
         pop=POP.copy();pop['ano_fonte_populacao']=2025;pop['denominador_provisorio']=0
         tables=NS['dimensoes'](GEO,pop,2016,2026,date(2026,9,11))
