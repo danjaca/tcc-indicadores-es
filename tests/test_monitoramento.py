@@ -94,3 +94,48 @@ def test_funil_na_fronteira_nao_sinaliza_por_arredondamento():
         assert not out[coluna].any()
         fora=funil(serie([2024],[superior+1],populacao),referencia=4)
         assert fora[coluna].iloc[0]
+
+
+def test_figura_separa_referencia_e_destaca_direcao_sem_sinal_na_fronteira():
+    from painel_monitoramento import figura_historica, direcao
+    t = serie([2023, 2024, 2025, 2026], [20, 1, 5, 15])
+    t['LIC'], t['LSC'] = 5, 15
+    assert direcao(t[TAXA], t['LIC'], t['LSC']).tolist() == ['Aumento', 'Redução', 'Sem sinal', 'Sem sinal']
+    base = serie(range(2016, 2023), [10]*7)
+    fig = figura_historica(t, TAXA, 'LIC', 'LSC', 'Controle', 10, base=base)
+    traces = {x.name: x for x in fig.data}
+    assert list(traces['Fase I · taxa histórica'].x) == list(range(2016, 2023))
+    assert list(traces['Sinal de aumento'].x) == [2023]
+    assert list(traces['Sinal de redução'].x) == [2024]
+    canal = figura_historica(t, TAXA, 'LIC', 'LSC', 'Quartis', 10, base=base, destacar=False)
+    assert not any(x.name.startswith('Sinal') for x in canal.data)
+
+
+def test_protocolo_fixo_nao_herda_parametros_exploratorios_e_cobre_recortes():
+    from pathlib import Path
+    from streamlit.testing.v1 import AppTest
+    at = AppTest.from_file(str(Path(__file__).resolve().parents[1]/'app.py'), default_timeout=40).run()
+    at.slider[0].set_value(.4).run()
+    at.radio(key='monitor_protocolo').set_value('Protocolo do TCC').run()
+    assert not at.exception
+    assert any('Fase I: 2016–2022' in x.value for x in at.caption)
+    assert any('λ=0,20' in x.value for x in at.caption)
+    assert not at.slider
+    at.sidebar.multiselect[0].set_value([1, 2])
+    at.sidebar.multiselect[1].set_value(list(range(1, 9)))
+    at.sidebar.button[0].click().run()
+    assert not at.exception
+    assert any('Adaptação do canal endêmico' in x.value for x in at.caption)
+    tabelas = [x.value for x in at.dataframe]
+    ft = next(t for t in tabelas if 'Óbitos esperados' in t.columns)
+    assert np.allclose(ft['Óbitos esperados'], ft['Referência']*ft['População']/100000)
+    assert np.allclose(ft['Diferença observado − esperado'], ft['Óbitos']-ft['Óbitos esperados'])
+    assert (ft.loc[~ft['Sinal 99,8%'], 'Direção 99,8%'] == 'Sem sinal').all()
+    at.sidebar.multiselect[2].set_value(['Vitória'])
+    at.sidebar.button[0].click().run()
+    assert not at.exception
+    assert any('Com apenas um município' in x.value for x in at.info)
+    at.sidebar.selectbox[1].set_value(2022)
+    at.sidebar.button[0].click().run()
+    assert not at.exception
+    assert any('posterior a 2022' in x.value for x in at.info)

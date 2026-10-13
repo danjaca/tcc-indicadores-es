@@ -42,3 +42,15 @@ A avaliação de alterações reais conhecidas, revisão dos anos atípicos e te
 ## Guia de leitura no painel
 
 O botão **ⓘ Como ler**, junto ao título, abre um diálogo com o significado dos filtros, taxa por 100 mil, referência histórica, u/u′, EWMA, CUSUM, canal endêmico, funil e sinais. A explicação distingue quartis de quadrimestres, sinal estatístico de investigação de causas e taxa parcial de meta anual. A região escolhida combina-se com o recorte do painel.
+
+A página exibe a situação dos dados antes dos resultados: meses disponíveis, data da extração, ano e provisoriedade do denominador e informação de revisão dos registros. Não estima completude nem corrige atraso de registro a partir desses metadados.
+
+O modo **Protocolo do TCC** fixa a fase I em 2016–2022 e λ=0,2, L=3, K=0,5, H=5; exige avaliação posterior a 2022 e cobertura da referência. O modo **Exploratória** mantém os controles livres. Coincidência com o experimento exige também os mesmos recortes; selecionar o protocolo não valida sua estabilidade. A referência pode ser consultada e baixada em CSV.
+
+Nos gráficos de taxas, a fase I aparece em cinza, separada da fase II; apenas a fase II recebe sinais. No EWMA, os pontos cinza são taxas observadas, não valores históricos de EWMA. Triângulos vermelhos e azuis distinguem sinais de aumento e redução; no CUSUM, a linha negativa crescente acumula evidência de redução. O resumo do último período disponível mantém os métodos separados, sem pontuação de risco ou confirmação independente.
+
+Na interface e no CSV do painel, o canal recebe o título **Canal histórico por quartis** e as zonas “Abaixo de Q1”, “De Q1 à mediana”, “Acima da mediana até Q3” e “Acima do Q3”. As fórmulas e os resultados do experimento permanecem iguais. Quartis descrevem posição histórica e não acionam marcadores de alarme de controle.
+
+O funil acrescenta óbitos esperados sob a taxa do conjunto, diferença observado menos esperado e direção dos sinais exatos e ajustados aproximados. A decisão exata original em contagens é preservada. O destaque dos pontos usa 99,8%; o texto ao passar sobre o ponto também informa 95% e a sensibilidade ajustada de 99,8%. Um único município não gera comparação territorial e recebe orientação para ampliar a seleção. Contagens pequenas não recebem um corte arbitrário de validade. A página explicita a menor capacidade de detecção, a instabilidade de taxas e a ausência de ajuste completo para composição demográfica e social.
+
+Esses complementos de interpretação consideram Bédubourg e Le Strat (2017), DOI 10.1371/journal.pone.0181227; Verburg et al. (2018), DOI 10.1177/0962280217700169; Noufaily et al. (2019), DOI 10.1093/bioinformatics/bty997; Craig et al. (2023), DOI 10.1016/j.ijregi.2023.08.007; Baker et al. (2023), DOI 10.1093/cid/ciac923; e o capítulo *Analysis of Surveillance Data* do CDC (2025). Aplicações a doenças infecciosas ou hospitais não comprovam calibração para mortalidade por causas externas no ES. Não foram acrescentados modelos, monitoramento mensal sucessivo, correção de atraso ou comparações experimentais de algoritmos.
