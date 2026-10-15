@@ -175,7 +175,7 @@
     ]
   },
   "fonte": "http://tabnet.saude.es.gov.br/cgi/deftohtm.exe?tabnet/SIM/SIM2006/sim2006.def",
-  "extraido_utc": "2026-10-12T01:25:52.848832+00:00",
+  "extraido_utc": "2026-10-15T14:33:50.348601+00:00",
   "anos": [
     2016,
     2017,
@@ -1612,8 +1612,8 @@
         11,
         12
       ],
-      "celulas_divergentes_base_anterior": 22,
-      "diferenca_obitos": 27,
+      "celulas_divergentes_base_anterior": 0,
+      "diferenca_obitos": 0,
       "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     },
     {

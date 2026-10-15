@@ -1,69 +1,6 @@
 {
   "auditoria": [
     {
-      "ano": 2025,
-      "indicador": "Suicídio geral",
-      "sexo": "Masculino",
-      "total": 243,
-      "cids_positivos": 15,
-      "diferenca_base_principal": 0,
-      "celulas_divergentes": 0
-    },
-    {
-      "ano": 2025,
-      "indicador": "Suicídio geral",
-      "sexo": "Feminino",
-      "total": 85,
-      "cids_positivos": 13,
-      "diferenca_base_principal": 0,
-      "celulas_divergentes": 0
-    },
-    {
-      "ano": 2025,
-      "indicador": "Suicídio geral",
-      "sexo": "Ignorado",
-      "total": 0,
-      "cids_positivos": 0,
-      "diferenca_base_principal": 0,
-      "celulas_divergentes": 0
-    },
-    {
-      "ano": 2025,
-      "indicador": "Homicídios — jovens de 15 a 29 anos",
-      "sexo": "Masculino",
-      "total": 386,
-      "cids_positivos": 12,
-      "diferenca_base_principal": 27,
-      "celulas_divergentes": 22
-    },
-    {
-      "ano": 2025,
-      "indicador": "Homicídios — jovens de 15 a 29 anos",
-      "sexo": "Feminino",
-      "total": 30,
-      "cids_positivos": 4,
-      "diferenca_base_principal": 0,
-      "celulas_divergentes": 0
-    },
-    {
-      "ano": 2025,
-      "indicador": "Homicídios — jovens de 15 a 29 anos",
-      "sexo": "Ignorado",
-      "total": 1,
-      "cids_positivos": 1,
-      "diferenca_base_principal": 0,
-      "celulas_divergentes": 0
-    },
-    {
-      "ano": 2025,
-      "indicador": "Homicídios — mulheres de 10 a 59 anos",
-      "sexo": "Feminino",
-      "total": 58,
-      "cids_positivos": 7,
-      "diferenca_base_principal": 0,
-      "celulas_divergentes": 0
-    },
-    {
       "ano": 2024,
       "indicador": "Suicídio geral",
       "sexo": "Masculino",
@@ -631,6 +568,69 @@
       "celulas_divergentes": 5
     },
     {
+      "ano": 2025,
+      "indicador": "Suicídio geral",
+      "sexo": "Masculino",
+      "total": 243,
+      "cids_positivos": 15,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2025,
+      "indicador": "Suicídio geral",
+      "sexo": "Feminino",
+      "total": 85,
+      "cids_positivos": 13,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2025,
+      "indicador": "Suicídio geral",
+      "sexo": "Ignorado",
+      "total": 0,
+      "cids_positivos": 0,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2025,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Masculino",
+      "total": 386,
+      "cids_positivos": 12,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2025,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Feminino",
+      "total": 30,
+      "cids_positivos": 4,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2025,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Ignorado",
+      "total": 1,
+      "cids_positivos": 1,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
+      "ano": 2025,
+      "indicador": "Homicídios — mulheres de 10 a 59 anos",
+      "sexo": "Feminino",
+      "total": 58,
+      "cids_positivos": 7,
+      "diferenca_base_principal": 0,
+      "celulas_divergentes": 0
+    },
+    {
       "ano": 2026,
       "indicador": "Suicídio geral",
       "sexo": "Masculino",
@@ -848,7 +848,7 @@
     ]
   },
   "fonte": "http://tabnet.saude.es.gov.br/cgi/deftohtm.exe?tabnet/SIM/SIM2006/sim2006.def",
-  "extraido_utc": "2026-10-12T01:28:31.818566+00:00",
+  "extraido_utc": "2026-10-15T14:45:56.930289+00:00",
   "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)",
   "dimensao_cid": [
     {
