@@ -2,7 +2,7 @@
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
-import argparse,json,os,shutil,subprocess,sys,tomllib,uuid
+import argparse,hashlib,json,os,shutil,subprocess,sys,tomllib,uuid
 from configuracao import RAIZ,ESTADO,DADOS
 from etl.definicao_cid import ID_DEFINICAO_CID
 from concurrent.futures import ThreadPoolExecutor
@@ -19,6 +19,7 @@ def main():
     ap.add_argument('--forcar',action='store_true')
     ap.add_argument('--paralelo',action='store_true',help='Consulta base e complementos históricos em paralelo, mantendo a validação final conjunta.')
     ap.add_argument('--retomar-lote',type=Path,help='Reutiliza dados de um lote local interrompido; todas as camadas serão validadas antes de publicar.')
+    ap.add_argument('--avaliar',action='store_true',help='Reproduz o experimento estatístico no lote validado antes de publicar os dados.')
     ap.add_argument('--planejar',action='store_true',help='Exibe o plano sem acessar a rede.')
     ap.add_argument('--publicar-local',action='store_true',help='Copia dados validados para o checkout; executar com app local parado.')
     args=ap.parse_args()
@@ -26,7 +27,7 @@ def main():
     hoje=datetime.now(ZoneInfo('America/Sao_Paulo')).date()
     inicio,fim=intervalo(hoje,cfg,args.inicio,args.fim)
     anos=[a for a in range(inicio,fim+1) if a<hoje.year or hoje.month>1]
-    plano={'inicio':inicio,'fim':fim,'anos_complementos':anos,'motor':cfg['motor'],'estado':str(ESTADO),'publicar_local':args.publicar_local,'paralelo':args.paralelo}
+    plano={'inicio':inicio,'fim':fim,'anos_complementos':anos,'motor':cfg['motor'],'estado':str(ESTADO),'publicar_local':args.publicar_local,'paralelo':args.paralelo,'avaliar':args.avaliar}
     if args.planejar:print(json.dumps(plano,ensure_ascii=False,indent=2));return
     if not anos:raise ValueError('Nenhum ano com meses encerrados no intervalo.')
     ESTADO.mkdir(parents=True,exist_ok=True)
@@ -81,6 +82,15 @@ def main():
                     run('-m','etl.'+module,'--inicio',str(a),'--fim',str(a),*force)
         run('-m','etl.validar','--anos',*[str(a) for a in anos])
         report['status']='validado'
+        if args.avaliar:
+            resultado=lote/'monitoramento'
+            run('-m','experimentos.monitoramento','--saida',str(resultado))
+            manifesto=json.loads((resultado/'manifesto.json').read_text())
+            if manifesto['sha256_dataset']!=hashlib.sha256((destino/'dataset.zip').read_bytes()).hexdigest():
+                raise ValueError('Experimento estatístico não corresponde ao lote validado.')
+            report['monitoramento']={'pasta':str(resultado),'sha256_dataset':manifesto['sha256_dataset'],
+                                     'referencia':manifesto['referencia'],'parametros':manifesto['parametros']}
+
         if args.publicar_local:
             backup=lote/'dados_anteriores';shutil.copytree(DADOS,backup)
             try:

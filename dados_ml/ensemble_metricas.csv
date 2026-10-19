@@ -1,7 +1,0 @@
-indicator,year,mae,baseline,gain_percent,ci_low,ci_high,eta,decay,status
-Suicídio geral,2025,2.112099325716087,2.111111111111111,-0.0468101654988632,-0.0003928399156871598,0.0032340258529920877,3.0,1.0,Exploratório: estratégia proposta após observar a primeira rodada de 2025
-Suicídio geral,2026,2.531563957303095,2.53125,-0.012403251480288507,-0.0006287216612037572,0.0015607455604065429,3.0,1.0,Exploratório: estratégia proposta após observar a primeira rodada de 2025
-Homicídios — jovens de 15 a 29 anos,2025,2.256853688051723,2.2777777777777772,0.91861857333896,-0.09380447806597451,0.05624662203530643,0.03,0.5,Exploratório: estratégia proposta após observar a primeira rodada de 2025
-Homicídios — jovens de 15 a 29 anos,2026,2.7126191611657777,2.9427083333333335,7.818959478968266,-0.4629567561980775,0.021637445967056912,0.03,0.5,Exploratório: estratégia proposta após observar a primeira rodada de 2025
-Homicídios — mulheres de 10 a 59 anos,2025,0.8893098088458539,0.9809027777777777,9.33761948757312,-0.14957030685980469,-0.031357523569311485,0.3,1.0,Exploratório: estratégia proposta após observar a primeira rodada de 2025
-Homicídios — mulheres de 10 a 59 anos,2026,1.127689595558957,1.1171875,-0.9400477143681774,-0.0495790204909075,0.06789471010620345,0.3,1.0,Exploratório: estratégia proposta após observar a primeira rodada de 2025

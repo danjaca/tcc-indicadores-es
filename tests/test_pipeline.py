@@ -5,7 +5,7 @@ from datetime import date
 from unittest.mock import patch
 import pandas as pd
 from etl import pipeline
-from modelo import carregar
+from dominio.dados import carregar
 NS=vars(pipeline)
 F,POP,GEO,META=carregar()
 MUN=sorted(GEO.cod_mun_res.tolist())

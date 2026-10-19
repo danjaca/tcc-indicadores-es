@@ -7,7 +7,7 @@ from dataclasses import dataclass, asdict
 import numpy as np
 import pandas as pd
 from scipy.stats import chi2, poisson, norm
-from modelo import serie_historica
+from .dados import serie_historica
 
 TAXA = 'Taxa por 100 mil'
 

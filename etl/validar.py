@@ -3,7 +3,7 @@ import argparse,json
 from pathlib import Path
 import numpy as np
 import pandas as pd
-from modelo import carregar,recortar,INDICADORES,IDADES
+from dominio.dados import carregar,recortar,INDICADORES,IDADES
 from configuracao import DADOS
 from .definicao_cid import DEFINICAO_LEGADA
 

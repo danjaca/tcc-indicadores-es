@@ -8,7 +8,7 @@ dados para satisfazer testes: a referência documenta uma conferência externa.
 """
 import json
 
-from modelo import INDICADORES, carregar, medidas, recortar
+from dominio.dados import INDICADORES, carregar, medidas, recortar
 from .definicao_cid import DEFINICAO_LEGADA
 
 

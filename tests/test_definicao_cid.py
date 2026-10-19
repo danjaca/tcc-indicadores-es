@@ -10,7 +10,7 @@ from etl.definicao_cid import (DEFINICAO_LEGADA, ID_DEFINICAO_CID, anos_fora_da_
                                codigos_detalhamento)
 from etl.extrair_meios_cid import grupo, parse_cids
 from etl.nucleo_tabnet import make_contract, parse_form
-from modelo import carregar
+from dominio.dados import carregar
 
 FORMULARIO = (Path(__file__).with_name('fixtures') / 'formulario_tabnet_reduzido.html').read_text(encoding='utf-8')
 MUNICIPIOS = sorted(carregar()[2].cod_mun_res)

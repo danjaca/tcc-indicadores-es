@@ -1,6 +1,7 @@
 """Avaliação temporal e simulações; sem consulta externa ou ajuste no período de teste."""
 import argparse
 from dataclasses import asdict
+from datetime import datetime, timezone
 from pathlib import Path
 import hashlib
 import json
@@ -8,10 +9,11 @@ import platform
 import scipy
 import numpy as np
 import pandas as pd
-from configuracao import DADOS
-from modelo import carregar, recortar, INDICADORES, serie_historica, agrupado, cobertura_completa
-from monitoramento import ajustar, aplicar, funil, TAXA
+from configuracao import DADOS, RAIZ
+from dominio.dados import carregar, recortar, INDICADORES, serie_historica, agrupado, cobertura_completa
+from dominio.monitoramento import ajustar, aplicar, funil, TAXA
 
+PARAMETROS=dict(peso=.2,largura=3.,k=.5,h=5.)
 SINAIS=['Sinal u','Sinal controle','Sinal EWMA','Sinal CUSUM +','Sinal CUSUM −']
 PERIODOS={'Q1':range(1,5),'Q2':range(5,9),'Q3':range(9,13),'Acumulado Q2':range(1,9),'Acumulado Q3':range(1,13)}
 
@@ -26,7 +28,7 @@ def simular(ref, pop, repeticoes, seed):
             n=rng.poisson(taxas*pop/100000)
             t=pd.DataFrame({'Ano':range(max(ref.anos)+1,max(ref.anos)+13),'Óbitos':n,'População':pop})
             t[TAXA]=n/pop*100000
-            out=aplicar(t,ref)
+            out=aplicar(t,ref,**PARAMETROS)
             for sinal in SINAIS:
                 flags=out[sinal].to_numpy()
                 inicio=0 if mudanca==0 else 4
@@ -41,7 +43,7 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument('--inicio',type=int,default=2016);ap.add_argument('--fim-referencia',type=int,default=2022)
     ap.add_argument('--simulacoes',type=int,default=200);ap.add_argument('--seed',type=int,default=20261011)
-    ap.add_argument('--saida',type=Path,default=Path(__file__).parent/'resultados_monitoramento')
+    ap.add_argument('--saida',type=Path,default=RAIZ/'resultados_monitoramento')
     args=ap.parse_args()
     if not 5<=args.fim_referencia-args.inicio+1<=7:ap.error('Referência deve ter cinco a sete anos.')
     if args.simulacoes<1:ap.error('Simulações deve ser positivo.')
@@ -65,7 +67,7 @@ def main():
                 teste=serie_historica(nf,npop,range(args.fim_referencia+1,fim+1),meses)
                 for y in teste.loc[teste[TAXA].isna(),'Ano']:falhas.append(dict(**contexto,ano=int(y),motivo='Período sem cobertura/denominador; não é zero.'))
                 teste=teste.dropna(subset=['Óbitos','População',TAXA])
-                if not teste.empty:registros.append(aplicar(teste,r).assign(**contexto))
+                if not teste.empty:registros.append(aplicar(teste,r,**PARAMETROS).assign(**contexto))
                 if territorio=='Espírito Santo':
                     sim.append(simular(r,float(base['População'].iloc[-1]),args.simulacoes,args.seed).assign(**contexto))
                     for y in range(args.fim_referencia+1,fim+1):
@@ -83,7 +85,16 @@ def main():
         ss=tt.groupby(['indicador','periodo','mudanca','metodo']).agg(proporcao_sinais=('sinais','sum'),periodos=('periodos','sum'),probabilidade_sinal_na_janela=('detectou','mean'),atraso_medio_condicional=('atraso','mean'))
         ss['proporcao_sinais']/=ss['periodos'];ss.to_csv(out/'avaliacao_simulada.csv')
     pd.DataFrame(falhas).to_csv(out/'periodos_indisponiveis.csv',index=False)
-    manifesto=dict(referencia=[args.inicio,args.fim_referencia],fase_II=[args.fim_referencia+1,fim],parametros=dict(peso=.2,largura=3,k=.5,h=5),seed=args.seed,simulacoes=args.simulacoes,referencias=refs,sha256_dataset=hashlib.sha256((DADOS/'dataset.zip').read_bytes()).hexdigest(),python=platform.python_version(),numpy=np.__version__,pandas=pd.__version__,scipy=scipy.__version__,definicao_cid=meta.get('definicao_cid','legada'),metadados=meta,nota='Frequência histórica não é falso alarme: não há verdade epidemiológica rotulada. Simulação Poisson sob controle estima alarmes por período/janela; shifts ±25% avaliam detecção, sem provar validade em dados reais. Verificar estabilidade histórica e validação com a vigilância antes de uso operacional.')
+    manifesto=dict(referencia=[args.inicio,args.fim_referencia],fase_II=[args.fim_referencia+1,fim],parametros=PARAMETROS,seed=args.seed,simulacoes=args.simulacoes,referencias=refs,sha256_dataset=hashlib.sha256((DADOS/'dataset.zip').read_bytes()).hexdigest(),python=platform.python_version(),numpy=np.__version__,pandas=pd.__version__,scipy=scipy.__version__,definicao_cid=meta.get('definicao_cid','legada'),metadados=meta,nota='Frequência histórica não é falso alarme: não há verdade epidemiológica rotulada. Simulação Poisson sob controle estima alarmes por período/janela; shifts ±25% avaliam detecção, sem provar validade em dados reais. Verificar estabilidade histórica e validação com a vigilância antes de uso operacional.')
+    fontes=['experimentos/monitoramento.py','dominio/monitoramento.py','dominio/dados.py','configuracao.py',
+            'etl/definicao_cid.py','config.toml','requirements-lock.txt']
+    entradas=['dataset.zip','regioes_pdr2024.csv','pdr_meta.json']
+    manifesto.update(protocolo='monitoramento_interanual_v1',
+                     unidade_temporal='anos de períodos equivalentes',
+                     gerado_utc=datetime.now(timezone.utc).isoformat(),
+                     periodos={nome:list(meses) for nome,meses in PERIODOS.items()},
+                     sha256_codigo={nome:hashlib.sha256((RAIZ/nome).read_bytes()).hexdigest() for nome in fontes},
+                     sha256_entradas={nome:hashlib.sha256((DADOS/nome).read_bytes()).hexdigest() for nome in entradas})
     (out/'manifesto.json').write_text(json.dumps(manifesto,ensure_ascii=False,indent=2))
     print(f'Resultados: {out}; {len(refs)} referências; {len(falhas)} períodos indisponíveis.')
 

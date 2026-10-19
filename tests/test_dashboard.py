@@ -1,6 +1,6 @@
 import unittest,json
 from pathlib import Path
-from modelo import carregar,recortar,medidas,agrupado,INDICADORES,meses_disponiveis,serie_historica,comparacao_mensal
+from dominio.dados import carregar,recortar,medidas,agrupado,INDICADORES,meses_disponiveis,serie_historica,comparacao_mensal
 from etl.definicao_cid import DEFINICAO_LEGADA
 from streamlit.testing.v1 import AppTest
 # Referências de regressão conferidas externamente, separadas por definição de CID (ver referencias.json).

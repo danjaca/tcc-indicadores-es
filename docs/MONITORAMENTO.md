@@ -20,7 +20,7 @@ Na pasta `dashboard_streamlit`, com dependências instaladas:
 
 ```bash
 python -m pytest tests -q
-python experimento_monitoramento.py --simulacoes 200 --seed 20261011
+python -m experimentos.monitoramento --simulacoes 200 --seed 20261011
 ```
 
 `resultados_monitoramento` recebe séries de referência, limites/sinais por ano, frequências por método, funis municipais, períodos indisponíveis, simulações e manifesto com SHA-256 do dataset, referência e parâmetros. As simulações são repetíveis: sequências de 12 períodos Poisson com população fixa, sem mudança ou com mudança de ±25% depois de quatro períodos. Medem sinais por período, probabilidade de sinal na janela e atraso médio condicional à detecção. Sob o cenário sem mudança, sinais são falsos alarmes simulados. Esse cenário Poisson não reproduz heterogeneidade real; nenhum resultado prova validade epidemiológica ou utilidade operacional. A frequência histórica de sinais não é chamada de falso alarme, pois não há eventos rotulados pela vigilância. Não foi estimado ARL ilimitado.
@@ -54,3 +54,13 @@ Na interface e no CSV do painel, o canal recebe o título **Canal histórico por
 O funil acrescenta óbitos esperados sob a taxa do conjunto, diferença observado menos esperado e direção dos sinais exatos e ajustados aproximados. A decisão exata original em contagens é preservada. O destaque dos pontos usa 99,8%; o texto ao passar sobre o ponto também informa 95% e a sensibilidade ajustada de 99,8%. Um único município não gera comparação territorial e recebe orientação para ampliar a seleção. Contagens pequenas não recebem um corte arbitrário de validade. A página explicita a menor capacidade de detecção, a instabilidade de taxas e a ausência de ajuste completo para composição demográfica e social.
 
 Esses complementos de interpretação consideram Bédubourg e Le Strat (2017), DOI 10.1371/journal.pone.0181227; Verburg et al. (2018), DOI 10.1177/0962280217700169; Noufaily et al. (2019), DOI 10.1093/bioinformatics/bty997; Craig et al. (2023), DOI 10.1016/j.ijregi.2023.08.007; Baker et al. (2023), DOI 10.1093/cid/ciac923; e o capítulo *Analysis of Surveillance Data* do CDC (2025). Aplicações a doenças infecciosas ou hospitais não comprovam calibração para mortalidade por causas externas no ES. Não foram acrescentados modelos, monitoramento mensal sucessivo, correção de atraso ou comparações experimentais de algoritmos.
+
+## Unidade temporal e reprodução mensal
+
+No protocolo `monitoramento_interanual_v1`, cada observação dos gráficos de memória corresponde aos mesmos meses de um ano: por exemplo, janeiro–agosto de 2023, 2024, 2025 e 2026. Um passo ou atraso é um ano de período equivalente; não é um mês nem um quadrimestre sucessivo. A atualização dos dados é mensal, a apresentação permite recortes quadrimestrais, e a memória dos modelos é interanual. Revisitar o mesmo período após uma nova extração não acrescenta uma observação independente.
+
+O experimento de reprodução usa referência fixa 2016–2022, avaliação posterior, λ=0,2, L=3, K=0,5 e H=5. O painel permite outras referências e parâmetros para exploração; os resultados do painel coincidem com esse experimento apenas quando os recortes e parâmetros também coincidem. A referência padrão do painel depende do ano selecionado; ela não constitui um protocolo operacional congelado entre anos.
+
+`python atualizar.py --avaliar --publicar-local` integra extração, validação e reprodução do experimento. Os parâmetros explicitamente passados ao cálculo são os mesmos registrados no manifesto. Resultados novos ficam no lote mensal, com hash da base, hashes do código/entradas e versões do ambiente. O workflow guarda o pacote como artifact, sem versionar os resultados experimentais a cada mês. A política atual de 90 dias exige arquivamento persistente para o histórico de pesquisa.
+
+As simulações de 12 passos, com mudança após quatro, medem detecção em uma janela finita e atraso condicional à detecção. Não estimam ARL ilimitado. Falta de detecção na janela deve ser interpretada junto com o atraso; não se excluem os casos não detectados da avaliação de sensibilidade. O cenário Poisson é uma avaliação controlada, não uma reprodução da sobredispersão, dependência ou revisões observadas em dados reais.

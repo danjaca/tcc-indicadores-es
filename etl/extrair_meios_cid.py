@@ -8,7 +8,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from modelo import carregar,recortar,INDICADORES
+from dominio.dados import carregar,recortar,INDICADORES
 from .nucleo_tabnet import TabnetClient,query_definicao,partes_consulta,make_contract,exact_value,parse_result,count_value,norm,digest,write_json,CID_FIELD,CID3_FIELD,AGE_FIELD,MONTHS,ALL,URL
 from .definicao_cid import DEFINICAO_CID,ID_DEFINICAO_CID,LINHA_CATEGORIA,codigos_detalhamento,descricoes_codigos,resumo_definicao
 

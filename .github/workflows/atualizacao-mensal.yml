@@ -29,7 +29,7 @@ jobs:
           python -m pytest tests -q
           python -m etl.validar
       - name: Extrair e validar todas as camadas
-        run: python atualizar.py --publicar-local
+        run: python atualizar.py --avaliar --publicar-local
       - name: Registrar dados validados
         run: |
           git config user.name 'github-actions[bot]'
@@ -47,6 +47,18 @@ jobs:
           path: |
             var/etl/ultima_execucao.json
             var/etl/lotes/*/execucao.json
+            var/etl/lotes/*/monitoramento/
+            var/etl/lotes/*/dados/
+            var/etl/evidencias/
+            var/etl/populacao_bruta/
+            var/etl/geografia/meta.json
+            experimentos/monitoramento.py
+            dominio/monitoramento.py
+            dominio/dados.py
+            configuracao.py
+            etl/definicao_cid.py
+            config.toml
+            requirements-lock.txt
             var/etl/exportacoes/*/manifesto.json
           if-no-files-found: ignore
           retention-days: 90

@@ -7,7 +7,7 @@ from zipfile import ZipFile,ZIP_DEFLATED
 from datetime import datetime,timezone
 import pandas as pd
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from modelo import carregar,DADOS
+from dominio.dados import carregar,DADOS
 from .definicao_cid import DEFINICAO_LEGADA,anos_fora_da_definicao,resumo_definicao
 
 def incorporar(raiz):

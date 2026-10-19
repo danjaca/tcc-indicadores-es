@@ -7,14 +7,11 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 import streamlit.components.v1 as components
-from painel_monitoramento import mostrar_monitoramento
-from mapa import mapa_html
-from meios import mostrar_meios
-from piramide import mostrar_piramide
-from configuracao import MOSTRAR_APRENDIZADO
-if MOSTRAR_APRENDIZADO:
-    from aprendizado import mostrar_machine_learning
-from modelo import carregar,recortar,medidas,agrupado,INDICADORES,IDADES,meses_disponiveis,cobertura_completa,serie_historica,comparacao_mensal
+from painel.vistas.monitoramento import mostrar_monitoramento
+from painel.vistas.mapa import mapa_html
+from painel.vistas.meios import mostrar_meios
+from painel.vistas.piramide import mostrar_piramide
+from dominio.dados import carregar,recortar,medidas,agrupado,INDICADORES,IDADES,meses_disponiveis,cobertura_completa,serie_historica,comparacao_mensal
 
 st.set_page_config(page_title='Observatório de mortalidade | ES',page_icon='📊',layout='wide')
 st.markdown('''<style>.block-container{padding-top:2rem} [data-testid="stMetric"]{background:#f1f5f9;border-radius:12px;padding:18px} h1{letter-spacing:-1px}</style>''',unsafe_allow_html=True)
@@ -92,7 +89,7 @@ a.metric('Óbitos no período',fmt(n),f'{n-na:+d} versus {ano-1}' if anterior el
 b.metric('Taxa por 100 mil',fmt(taxa,2),f'{fmt(delta,1)}% sobre o ano anterior' if delta is not None else None,delta_color='inverse')
 c.metric('População anual de referência',fmt(den))
 st.caption('O denominador é anual, filtrado pelo município e pelo público do indicador. Taxas de períodos menores que um ano não são anualizadas. A variação compara os mesmos meses do ano anterior.')
-tabs=st.tabs(['Evolução temporal','Distribuição territorial','Perfil demográfico']+(['Machine learning'] if MOSTRAR_APRENDIZADO else [])+['Monitoramento estatístico','Dados e metodologia'])
+tabs=st.tabs(['Evolução temporal','Distribuição territorial','Perfil demográfico','Monitoramento estatístico','Dados e metodologia'])
 with tabs[0]:
     st.subheader('Como o indicador evoluiu no mesmo período?')
     serie=serie_historica(nf,np,range(min(meta['anos_disponiveis']),max(meta['anos_disponiveis'])+1),meses)
@@ -243,9 +240,6 @@ with tabs[2]:
             st.caption('Raça/cor registrada no SIM/SESA-ES. Frequência relativa sobre todos os óbitos do indicador nesta extração, incluindo Não informado, Ignorado e o residual sem classificação na tabulação. O residual é calculado por diferença, não é uma categoria racial atribuída. Respeita ano, meses, municípios e sexo; mantém todas as idades elegíveis do indicador. Não se calcula taxa por raça/cor sem população correspondente.')
     else:
         st.info('Extração de raça/cor em preparação; nenhum valor ausente foi convertido em zero.')
-if MOSTRAR_APRENDIZADO:
-    with tabs[3]:
-        mostrar_machine_learning(indicador)
 with tabs[-2]:
     mostrar_monitoramento(nf,np,g,meta,ano,meses,indicador=indicador,sexo_filtro=sexo_filtro)
 with tabs[-1]:

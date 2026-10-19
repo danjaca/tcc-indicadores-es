@@ -22,7 +22,7 @@ O projeto foi atualizado a partir do ZIP refatorado e do documento de introduç�
 - Botão ⓘ Como ler abre diálogo com interpretação de filtros, taxas, referência histórica, limites, métodos e sinais. Abertura e texto verificados no navegador local.
 - Experimento refeito com a base atual: 75 configurações de referência (525 observações históricas), fase I 2016–2022, fase II 2023–2026, 45.000 resultados simulados, 200 repetições e semente 20261011. Trinta recortes de 2026 indisponíveis correspondem ao terceiro quadrimestre e ao acumulado anual incompletos.
 - SHA-256 do manifesto estatístico confere com `dados/dataset.zip` do checkout publicado localmente.
-- `python -m pytest tests -q`: **32 aprovados, 2 pulados**. Os dois testes pulados pertencem à aba opcional de aprendizado de máquina, desligada em `config.toml`; os testes dos indicadores, monitoramento e atualização foram executados.
+- `python -m pytest tests -q`: **34 aprovados**.
 
 ## Limites da verificação
 

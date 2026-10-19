@@ -4,7 +4,7 @@ import math
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
-from modelo import IDADES, INDICADORES, cobertura_completa
+from dominio.dados import IDADES, INDICADORES, cobertura_completa
 
 PALETA_ANOS=['#7457A6','#B05D44','#428C69','#B54D77','#6B8297','#288D91','#8D6D4B','#AA5AA8','#AA850E','#2878B5','#E07827','#5B9560']
 

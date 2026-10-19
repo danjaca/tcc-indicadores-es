@@ -6,8 +6,8 @@ from configuracao import DADOS
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
-from modelo import agrupado, cobertura_completa
-from monitoramento import analisar, funil, TAXA
+from dominio.dados import agrupado, cobertura_completa
+from dominio.monitoramento import analisar, funil, TAXA
 
 
 def direcao(valores, inferior, superior):
@@ -168,7 +168,16 @@ def mostrar_monitoramento(f, p, g, meta, ano, meses, indicador=None, sexo_filtro
         {'Método': 'EWMA', 'Resultado': ultimo['Direção EWMA']},
         {'Método': 'CUSUM +', 'Resultado': 'Aumento acumulado' if ultimo['Sinal CUSUM +'] else 'Sem sinal'},
         {'Método': 'CUSUM −', 'Resultado': 'Redução acumulada' if ultimo['Sinal CUSUM −'] else 'Sem sinal'},
-    ]), hide_index=True, width='stretch')
+    ]).assign(**{
+        'Taxa observada': float(ultimo[TAXA]),
+        'Óbitos observados': int(ultimo['Óbitos']),
+        'População (denominador anual)': int(ultimo['População']),
+    }), hide_index=True, width='stretch', column_config={
+        'Taxa observada': st.column_config.NumberColumn(format='%.2f'),
+        'Óbitos observados': st.column_config.NumberColumn(format='%d'),
+        'População (denominador anual)': st.column_config.NumberColumn(format='%d'),
+    })
+    st.caption('A taxa, os óbitos observados e o denominador anual correspondem ao mesmo período e recorte em todas as linhas.')
     st.caption('Métodos apresentados separadamente, sem pontuação de risco. Concordância não é confirmação independente. '
                'Reduções também exigem conferir revisões dos registros; sem sinal não significa ausência de problema.')
     with st.expander('Consultar os anos usados como referência'):

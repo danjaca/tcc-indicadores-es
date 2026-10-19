@@ -7,7 +7,7 @@ from datetime import datetime,timezone
 import pandas as pd
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from modelo import INDICADORES,carregar,recortar
+from dominio.dados import INDICADORES,carregar,recortar
 from .definicao_cid import DEFINICAO_LEGADA,ID_DEFINICAO_CID,resumo_definicao
 
 def normalizar_grade(tabela,f,g):

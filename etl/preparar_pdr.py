@@ -7,7 +7,7 @@ from shapely.geometry import shape,mapping
 from shapely.ops import unary_union
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from modelo import carregar
+from dominio.dados import carregar
 
 def executar():
  from . import nucleo_tabnet

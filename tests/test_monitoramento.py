@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import pytest
-from monitoramento import ajustar, aplicar, funil, TAXA
+from dominio.monitoramento import ajustar, aplicar, funil, TAXA
 
 
 def serie(anos, obitos, pop=100000):
@@ -61,11 +61,16 @@ def test_funil_exato_pequenas_contagens_e_zero():
 def test_interface_monitoramento_indicadores_e_parametros():
     from pathlib import Path
     from streamlit.testing.v1 import AppTest
-    from modelo import INDICADORES
+    from dominio.dados import INDICADORES
     at=AppTest.from_file(str(Path(__file__).resolve().parents[1]/'app.py'),default_timeout=40).run()
     assert not at.exception
     assert 'Monitoramento estatístico' in [x.label for x in at.tabs]
     assert any('Fase I:' in x.value for x in at.caption)
+    resumo = next(x.value for x in at.dataframe if 'Taxa observada' in x.value.columns)
+    assert {'Óbitos observados', 'População (denominador anual)'} <= set(resumo.columns)
+    assert resumo['Óbitos observados'].nunique() == resumo['População (denominador anual)'].nunique() == 1
+    assert np.allclose(resumo['Taxa observada'], resumo['Óbitos observados'] /
+                       resumo['População (denominador anual)'] * 100000)
     for nome in INDICADORES:
         at.sidebar.selectbox[0].select(nome)
         at.sidebar.button[0].click().run()
@@ -97,7 +102,7 @@ def test_funil_na_fronteira_nao_sinaliza_por_arredondamento():
 
 
 def test_figura_separa_referencia_e_destaca_direcao_sem_sinal_na_fronteira():
-    from painel_monitoramento import figura_historica, direcao
+    from painel.vistas.monitoramento import figura_historica, direcao
     t = serie([2023, 2024, 2025, 2026], [20, 1, 5, 15])
     t['LIC'], t['LSC'] = 5, 15
     assert direcao(t[TAXA], t['LIC'], t['LSC']).tolist() == ['Aumento', 'Redução', 'Sem sinal', 'Sem sinal']

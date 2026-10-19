@@ -12,7 +12,7 @@ import json
 from pathlib import Path
 import time
 from configuracao import RAIZ, ESTADO
-from modelo import carregar, INDICADORES
+from dominio.dados import carregar, INDICADORES
 from .definicao_cid import ID_DEFINICAO_CID
 from .gerar_referencias import calcular
 from .nucleo_tabnet import TabnetClient, query_definicao, URL, make_contract, parse_result, CID_FIELD, AGE_FIELD, ALL
