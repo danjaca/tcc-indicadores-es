@@ -90,9 +90,10 @@ def test_interface_monitoramento_indicadores_e_parametros():
         at.sidebar.selectbox[0].select(nome)
         at.sidebar.button[0].click().run()
         assert not at.exception
-    at.selectbox(key='monitor_territorio').select('Norte').run()
-    assert not at.exception
-    assert any('Território: Norte' in x.value for x in at.caption)
+    chaves=[getattr(w, 'key', None) for grupo in (at.selectbox, at.multiselect) for w in grupo]
+    assert not {'monitor_indicador','monitor_territorio','monitor_municipios','monitor_sexo',
+                'monitor_idades','monitor_ano','monitor_meses'} & set(chaves)
+    assert any('Filtros aplicados pelo menu lateral' in x.value for x in at.caption)
     at.slider[0].set_value(.4).run()
     assert not at.exception
     at.select_slider(key='monitor_intervalo_referencia').set_value((2020, 2020)).run()
@@ -147,9 +148,7 @@ def test_protocolo_fixo_nao_herda_parametros_exploratorios_e_cobre_recortes():
     from pathlib import Path
     from streamlit.testing.v1 import AppTest
     at = AppTest.from_file(str(Path(__file__).resolve().parents[1]/'app.py'), default_timeout=40).run()
-    at.slider[0].set_value(.4).run()
     at.select_slider(key='monitor_intervalo_referencia').set_value((2016, 2024)).run()
-    at.button(key='monitor_executar_diagnosticos').click().run()
     assert not at.exception
     diagnosticos=next(x.value for x in at.dataframe if 'Teste' in x.value.columns)
     assert {'Shapiro–Wilk · normalidade dos resíduos', 'Ljung–Box · autocorrelação dos resíduos'} == set(diagnosticos['Teste'])
@@ -161,7 +160,6 @@ def test_protocolo_fixo_nao_herda_parametros_exploratorios_e_cobre_recortes():
     at.sidebar.multiselect[0].set_value([1, 2])
     at.sidebar.multiselect[1].set_value(list(range(1, 9)))
     at.sidebar.button[0].click().run()
-    at.multiselect(key='monitor_meses').set_value(list(range(1, 9))).run()
     assert not at.exception
     assert any('Adaptação do canal endêmico' in x.value for x in at.caption)
     tabelas = [x.value for x in at.dataframe]
@@ -169,9 +167,11 @@ def test_protocolo_fixo_nao_herda_parametros_exploratorios_e_cobre_recortes():
     assert np.allclose(ft['Óbitos esperados'], ft['Referência']*ft['População']/100000)
     assert np.allclose(ft['Diferença observado − esperado'], ft['Óbitos']-ft['Óbitos esperados'])
     assert (ft.loc[~ft['Sinal 99,8%'], 'Direção 99,8%'] == 'Sem sinal').all()
-    at.multiselect(key='monitor_municipios').set_value(['Vitória']).run()
+    at.sidebar.multiselect[2].set_value(['Vitória'])
+    at.sidebar.button[0].click().run()
     assert not at.exception
     assert any('Com apenas um município' in x.value for x in at.info)
-    at.selectbox(key='monitor_ano').set_value(2022).run()
+    at.sidebar.selectbox[1].set_value(2022)
+    at.sidebar.button[0].click().run()
     assert not at.exception
     assert any('posterior a 2022' in x.value for x in at.info)

@@ -6,7 +6,6 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
-import streamlit.components.v1 as components
 from painel.vistas.monitoramento import mostrar_monitoramento
 from painel.vistas.mapa import mapa_html
 from painel.vistas.meios import mostrar_meios
@@ -129,7 +128,7 @@ with tabs[1]:
     st.subheader('Mapa municipal do Espírito Santo')
     medida_mapa=st.radio('Medida do mapa',['Taxa por 100 mil','Óbitos'],horizontal=True)
     st.caption('Amplie com +, com a roda do mouse ou com dois dedos. Os nomes municipais aparecem ao ampliar; clique em um município para aproximar. As linhas escuras delimitam as regiões de saúde.')
-    components.html(mapa_html(territorial,medida_mapa),height=720,scrolling=False)
+    st.iframe(mapa_html(territorial,medida_mapa),height=720)
     st.caption('Malha municipal: IBGE 2025. Divisas regionais: união dos municípios classificados no PDR 2024 pela SESA. Enquadramento continental. Cinza = fora do recorte ou sem taxa; zero permanece na escala. Taxas em populações pequenas podem oscilar com poucos eventos.')
     st.subheader('Participação dos óbitos por região de saúde')
     regional=territorial.groupby('regiao_saude',as_index=False)['Óbitos'].sum().rename(columns={'regiao_saude':'Região de saúde'})
@@ -241,7 +240,7 @@ with tabs[2]:
     else:
         st.info('Extração de raça/cor em preparação; nenhum valor ausente foi convertido em zero.')
 with tabs[-2]:
-    mostrar_monitoramento(f,p,g,meta,ano,meses,indicador=indicador,sexo_filtro=sexo_filtro)
+    mostrar_monitoramento(nf,np,g,meta,ano,meses,indicador=indicador,sexo_filtro=sexo_filtro)
 with tabs[-1]:
     st.subheader('Definições e disponibilidade')
     st.write('Fonte dos arquivos locais: SIM/DATASUS e base populacional utilizada no ETL do TCC. Recorte por município de residência no Espírito Santo.')
