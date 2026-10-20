@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import pytest
-from dominio.monitoramento import ajustar, aplicar, funil, TAXA
+from dominio.monitoramento import ajustar, aplicar, diagnosticos_referencia, funil, TAXA
 
 
 def serie(anos, obitos, pop=100000):
@@ -48,6 +48,17 @@ def test_lacunas_nao_viram_zero_e_memoria_reinicia():
     with pytest.raises(ValueError):funil(serie([2021],[1],0))
 
 
+def test_diagnosticos_residuais_exigem_serie_suficiente_e_referencia_longa():
+    curta=serie(range(2016,2023),[10,12,9,11,8,13,10])
+    with pytest.raises(ValueError,match='oito anos'):
+        diagnosticos_referencia(curta)
+    longa=serie(range(2016,2026),[10,12,9,11,8,13,10,12,9,11])
+    d=diagnosticos_referencia(longa)
+    assert d['n']==10 and d['ljung_box_lags']==3
+    assert 0 <= d['shapiro_p'] <= 1 and 0 <= d['ljung_box_p'] <= 1
+    assert ajustar(longa).anos==tuple(range(2016,2026))
+
+
 def test_funil_exato_pequenas_contagens_e_zero():
     from scipy.stats import poisson
     t=serie([2021,2022],[0,10],[1000,100000])
@@ -66,6 +77,10 @@ def test_interface_monitoramento_indicadores_e_parametros():
     assert not at.exception
     assert 'Monitoramento estatístico' in [x.label for x in at.tabs]
     assert any('Fase I:' in x.value for x in at.caption)
+    descritiva = next(x.value for x in at.dataframe if 'Medida' in x.value.columns)
+    assert descritiva['Medida'].tolist() == [
+        'Média', 'Mediana', 'Variância amostral', 'Desvio-padrão amostral',
+        'Coeficiente de variação (%)', 'Amplitude', 'Q1', 'Q2', 'Q3']
     resumo = next(x.value for x in at.dataframe if 'Taxa observada' in x.value.columns)
     assert {'Óbitos observados', 'População (denominador anual)'} <= set(resumo.columns)
     assert resumo['Óbitos observados'].nunique() == resumo['População (denominador anual)'].nunique() == 1
@@ -77,12 +92,24 @@ def test_interface_monitoramento_indicadores_e_parametros():
         assert not at.exception
     at.selectbox(key='monitor_territorio').select('Norte').run()
     assert not at.exception
-    assert any('Território de monitoramento: Norte' in x.value for x in at.caption)
+    assert any('Território: Norte' in x.value for x in at.caption)
     at.slider[0].set_value(.4).run()
     assert not at.exception
-    at.multiselect(key='monitor_anos').set_value([2020]).run()
+    at.select_slider(key='monitor_intervalo_referencia').set_value((2020, 2020)).run()
     assert not at.exception
-    assert any('cinco a sete' in x.value for x in at.info)
+    assert any('pelo menos cinco' in x.value for x in at.info)
+
+
+def test_guia_explica_multiplicidade_e_limites_dos_dados_agregados():
+    from pathlib import Path
+    from streamlit.testing.v1 import AppTest
+    at = AppTest.from_file(str(Path(__file__).resolve().parents[1]/'app.py'), default_timeout=40).run()
+    at.button(key='ajuda_monitoramento').click().run()
+    assert not at.exception
+    guia = '\n'.join(x.value for x in at.markdown)
+    assert 'não corrigem formalmente a probabilidade de falso alarme do conjunto' in guia
+    assert 'não permite concluir que exista o mesmo padrão de risco entre indivíduos' in guia
+    assert 'não são taxas de risco' in guia
 
 
 def test_funil_na_fronteira_nao_sinaliza_por_arredondamento():
@@ -121,6 +148,11 @@ def test_protocolo_fixo_nao_herda_parametros_exploratorios_e_cobre_recortes():
     from streamlit.testing.v1 import AppTest
     at = AppTest.from_file(str(Path(__file__).resolve().parents[1]/'app.py'), default_timeout=40).run()
     at.slider[0].set_value(.4).run()
+    at.select_slider(key='monitor_intervalo_referencia').set_value((2016, 2024)).run()
+    at.button(key='monitor_executar_diagnosticos').click().run()
+    assert not at.exception
+    diagnosticos=next(x.value for x in at.dataframe if 'Teste' in x.value.columns)
+    assert {'Shapiro–Wilk · normalidade dos resíduos', 'Ljung–Box · autocorrelação dos resíduos'} == set(diagnosticos['Teste'])
     at.radio(key='monitor_protocolo').set_value('Protocolo do TCC').run()
     assert not at.exception
     assert any('Fase I: 2016–2022' in x.value for x in at.caption)
@@ -129,6 +161,7 @@ def test_protocolo_fixo_nao_herda_parametros_exploratorios_e_cobre_recortes():
     at.sidebar.multiselect[0].set_value([1, 2])
     at.sidebar.multiselect[1].set_value(list(range(1, 9)))
     at.sidebar.button[0].click().run()
+    at.multiselect(key='monitor_meses').set_value(list(range(1, 9))).run()
     assert not at.exception
     assert any('Adaptação do canal endêmico' in x.value for x in at.caption)
     tabelas = [x.value for x in at.dataframe]
@@ -136,11 +169,9 @@ def test_protocolo_fixo_nao_herda_parametros_exploratorios_e_cobre_recortes():
     assert np.allclose(ft['Óbitos esperados'], ft['Referência']*ft['População']/100000)
     assert np.allclose(ft['Diferença observado − esperado'], ft['Óbitos']-ft['Óbitos esperados'])
     assert (ft.loc[~ft['Sinal 99,8%'], 'Direção 99,8%'] == 'Sem sinal').all()
-    at.sidebar.multiselect[2].set_value(['Vitória'])
-    at.sidebar.button[0].click().run()
+    at.multiselect(key='monitor_municipios').set_value(['Vitória']).run()
     assert not at.exception
     assert any('Com apenas um município' in x.value for x in at.info)
-    at.sidebar.selectbox[1].set_value(2022)
-    at.sidebar.button[0].click().run()
+    at.selectbox(key='monitor_ano').set_value(2022).run()
     assert not at.exception
     assert any('posterior a 2022' in x.value for x in at.info)

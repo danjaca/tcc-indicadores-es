@@ -6,8 +6,8 @@ from configuracao import DADOS
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
-from dominio.dados import agrupado, cobertura_completa
-from dominio.monitoramento import analisar, funil, TAXA
+from dominio.dados import agrupado, cobertura_completa, recortar, INDICADORES, IDADES
+from dominio.monitoramento import analisar, diagnosticos_referencia, funil, TAXA
 
 
 def direcao(valores, inferior, superior):
@@ -59,7 +59,7 @@ def mostrar_guia():
 
 **Confira o que está sendo comparado**
 
-O indicador, o ano, os meses, os municípios e o sexo vêm dos filtros do painel. A região escolhida nesta aba também é aplicada. A comparação usa os mesmos meses nos diferentes anos.
+Os filtros desta aba são independentes dos demais gráficos: indicador, região, municípios, sexo, faixas etárias, ano final e meses. Numerador e denominador usam o mesmo recorte. A comparação usa os mesmos meses nos diferentes anos.
 
 A **taxa por 100 mil** relaciona os óbitos à população elegível do indicador. O denominador é anual: uma taxa de poucos meses representa aquele período e deve ser comparada com os mesmos meses de outros anos. Para comparar com a meta anual, selecione um ano completo.
 
@@ -67,7 +67,7 @@ A **taxa por 100 mil** relaciona os óbitos à população elegível do indicado
 
 Os anos da fase I definem o padrão de comparação e aparecem em cinza nos gráficos de taxas. Os anos posteriores, na fase II, são avaliados com esse padrão. A separação vertical marca o fim da referência; a fase I não recebe sinais de avaliação. Confira tendências e anos atípicos: ampliar os limites não torna uma referência estável.
 
-O modo **Protocolo do TCC** fixa 2016–2022, λ=0,20, L=3, K=0,5 e H=5. O modo exploratório permite outras escolhas. Os recortes também precisam coincidir para reproduzir os resultados do experimento. Cada passo da memória é um ano com os mesmos meses, não um mês sucessivo.
+O modo **Protocolo do TCC** fixa 2016–2022, λ=0,20, L=3, K=0,5 e H=5. O modo exploratório permite escolher um intervalo de cinco ou mais anos. Os recortes também precisam coincidir para reproduzir os resultados do experimento. Cada passo da memória é um ano com os mesmos meses, não um mês sucessivo.
 
 **Leia cada gráfico**
 
@@ -83,6 +83,12 @@ Triângulos vermelhos marcam sinais de aumento; azuis, de redução. No CUSUM, a
 
 O histórico compara o território consigo mesmo. O funil compara municípios com o conjunto selecionado no período atual. Comece pelo ES e pelas regiões; depois localize municípios no funil e selecione um município para examinar seu histórico. Com apenas um município, o funil não oferece comparação entre territórios.
 
+**Considere o contexto e os limites dos alertas**
+
+Ao acompanhar vários indicadores, municípios e períodos, surgem mais oportunidades para alertas fortuitos. Os limites de 99,8% são individuais para cada comparação e não corrigem formalmente a probabilidade de falso alarme do conjunto. Use o sinal como ponto de partida para conferência dos dados e investigação, olhando também os resultados regionais e estaduais; ele não aponta uma causa nem classifica um território como melhor ou pior. Essa leitura contextual é coerente com o uso dos gráficos como apoio à aprendizagem e à decisão local com especialistas (Parry et al., 2021).
+
+Os dados estão agregados por território e período. Uma diferença entre municípios não permite concluir que exista o mesmo padrão de risco entre indivíduos, nem identificar causas. Percentuais por faixa etária, raça/cor ou meio empregado descrevem a composição dos óbitos; sem denominadores populacionais correspondentes, não são taxas de risco (Wakefield, 2008; Rede Interagencial de Informação para a Saúde, 2008).
+
 **Contagens e comparabilidade**
 
 Óbitos esperados são uma expectativa do modelo sob a referência territorial, não uma quantidade aceitável de mortes. Poucos eventos podem alterar muito uma taxa e reduzir a capacidade de detectar mudanças. As taxas municipais não ajustam todas as diferenças demográficas e sociais. Confira contagens, população e contexto antes de investigar causas.
@@ -90,24 +96,64 @@ O histórico compara o território consigo mesmo. O funil compara municípios co
 **Confira os avisos e registre a análise**
 
 Resultados identificados como provisórios podem mudar com revisões do SIM ou da população. Períodos sem cobertura aparecem como indisponíveis. Os botões de download permitem guardar as tabelas e os parâmetros utilizados.
+
+**Diagnósticos exploratórios**
+
+Shapiro–Wilk verifica desvios de normalidade nos resíduos padronizados de Poisson; normalidade não é requisito para as contagens nem critério de aprovação dos gráficos. Ljung–Box avalia autocorrelação residual até os lags indicados; dependência pode afetar a interpretação dos gráficos com memória. Com menos de oito anos de referência, a página não exibe esses testes por causa da informação limitada. Valores-p não provam normalidade nem independência e não alteram limites ou sinais.
 ''')
 
 
-def mostrar_monitoramento(f, p, g, meta, ano, meses, indicador=None, sexo_filtro=None):
+def mostrar_monitoramento(f, p, g, meta, ano, meses, indicador=None, sexo_filtro=None,
+                          municipios_painel=None):
     titulo, ajuda=st.columns([5,1],vertical_alignment='center')
     with titulo:
         st.subheader('Monitoramento estatístico')
     with ajuda:
         if st.button('Como ler',icon=':material/info:',help='Abra o guia para interpretar esta página.',key='ajuda_monitoramento'):
             mostrar_guia()
-    st.write('Compare períodos equivalentes com uma referência histórica declarada. Os sinais orientam investigação pela vigilância e não identificam causas.')
-    st.caption('Os filtros de indicador, território e sexo do painel são aplicados ao histórico e à avaliação. A memória acompanha os mesmos meses ao longo dos anos, evitando misturar períodos sazonais diferentes.')
+    st.write('Monte um recorte próprio, escolha a referência histórica e compare os períodos equivalentes. Os sinais apoiam a investigação da Vigilância e não identificam causas.')
+    indicador = st.selectbox('Indicador desta análise', list(INDICADORES),
+                             index=list(INDICADORES).index(indicador) if indicador in INDICADORES else 0,
+                             key='monitor_indicador')
     regioes=sorted(g['regiao_saude'].dropna().unique()) if 'regiao_saude' in g else []
-    territorio=st.selectbox('Território do monitoramento',['Recorte do painel']+regioes,key='monitor_territorio',help='A região é combinada com os municípios já selecionados no painel.')
-    if territorio!='Recorte do painel':
-        codigos=g.loc[g['regiao_saude'].eq(territorio),'cod_mun_res']
-        f=f[f.cod_mun_res.isin(codigos)];p=p[p.cod_mun_res.isin(codigos)]
-    st.caption('Território de monitoramento: '+territorio+'. Regiões de saúde conforme o PDR 2024; os municípios e o sexo selecionados no painel continuam aplicados.')
+    territorio=st.selectbox('Região de saúde',['Espírito Santo']+regioes,key='monitor_territorio',help='Este filtro é próprio da análise estatística e não altera as outras páginas.')
+    municipios_territorio = g if territorio == 'Espírito Santo' else g[g['regiao_saude'].eq(territorio)]
+    disponiveis_mun = sorted(municipios_territorio['no_municipio'].dropna().unique())
+    defaults_mun = [m for m in (municipios_painel or []) if m in disponiveis_mun]
+    municipios = st.multiselect('Municípios desta análise', disponiveis_mun, default=defaults_mun,
+                                key='monitor_municipios', help='Sem seleção, entram todos os municípios da região escolhida.')
+    codigos = municipios_territorio.loc[municipios_territorio.no_municipio.isin(municipios), 'cod_mun_res'] if municipios else municipios_territorio['cod_mun_res']
+    f,p=recortar(f,p,indicador,codigos)
+    cfg=INDICADORES[indicador]
+    if cfg['sexo']:
+        sexo_analise = cfg['sexo']
+        st.caption('Sexo fixado pela definição do indicador: '+sexo_analise+'.')
+    else:
+        opcoes_sexo=['Todos','Masculino','Feminino']
+        sexo_default=sexo_filtro if sexo_filtro in opcoes_sexo else 'Todos'
+        sexo_analise=st.selectbox('Sexo desta análise',opcoes_sexo,index=opcoes_sexo.index(sexo_default),key='monitor_sexo')
+        if sexo_analise!='Todos':
+            f=f[f.sexo.eq(sexo_analise)];p=p[p.sexo.eq(sexo_analise)]
+    idades_disponiveis=cfg['idades'] or IDADES
+    idades=st.multiselect('Faixas etárias desta análise', idades_disponiveis, default=idades_disponiveis,
+                          key='monitor_idades', help='O numerador e o denominador usam exatamente as mesmas faixas selecionadas.')
+    if not idades:
+        st.info('Selecione ao menos uma faixa etária.'); return
+    f=f[f.faixa_etaria.isin(idades)];p=p[p.faixa_etaria.isin(idades)]
+    anos_dados=sorted(meta['anos_disponiveis'])
+    ano_opcoes=[y for y in anos_dados if f.ano.eq(y).any() and p.ano.eq(y).any()]
+    if not ano_opcoes:
+        st.info('Não há ano com cobertura completa para os filtros atuais.'); return
+    ano=st.selectbox('Ano final da avaliação',ano_opcoes,index=ano_opcoes.index(ano) if ano in ano_opcoes else len(ano_opcoes)-1,key='monitor_ano')
+    meses_opcoes=sorted(int(m) for m in f.loc[f.ano.eq(ano),'mes'].unique())
+    meses_default=[m for m in meses if m in meses_opcoes]
+    meses=st.multiselect('Meses comparados em todos os anos',meses_opcoes,default=meses_default or meses_opcoes,
+                         key='monitor_meses',help='A série compara os mesmos meses em cada ano. Os gráficos de memória não tratam meses sucessivos.')
+    if not meses:
+        st.info('Selecione ao menos um mês.'); return
+    if not cobertura_completa(f,ano,meses):
+        st.info('O período selecionado não tem cobertura completa no ano final.'); return
+    st.caption(f'Filtros independentes do restante do painel · Indicador: {indicador} · Território: {territorio} · Sexo: {sexo_analise} · Faixas etárias: {", ".join(idades) if idades else "nenhuma"}.')
     extracao = meta.get('extracoes', {}).get(str(ano), {})
     populacao = meta.get('populacao', {}).get(str(ano), {})
     disponiveis = extracao.get('meses', [])
@@ -132,7 +178,10 @@ def mostrar_monitoramento(f, p, g, meta, ano, meses, indicador=None, sexo_filtro
             st.caption('Referência fixa 2016–2022 · λ=0,20 · L=3 · K=0,5 · H=5. '
                        'A comparação com o experimento requer também indicador, território, sexo e meses equivalentes.')
         else:
-            anos = st.multiselect('Anos da fase I (cinco a sete consecutivos)', candidatos, default=padrao, key='monitor_anos')
+            inicio, fim = st.select_slider('Intervalo da fase I', options=candidatos,
+                                           value=(padrao[0], padrao[-1]), key='monitor_intervalo_referencia',
+                                           help='A referência pode abranger cinco anos ou mais. O sistema usa todos os anos completos dentro do intervalo.')
+            anos = list(range(inicio, fim+1))
             peso = st.slider('Peso λ do EWMA', .05, 1., .2, .05,
                              help='Menor peso preserva mais memória; maior peso privilegia a taxa recente.')
             largura = st.number_input('Largura L dos limites', min_value=1., max_value=6., value=3., step=.1,
@@ -150,6 +199,43 @@ def mostrar_monitoramento(f, p, g, meta, ano, meses, indicador=None, sexo_filtro
     except ValueError as e:
         st.info(str(e)); return
     st.caption(f'Fase I: {min(ref.anos)}–{max(ref.anos)}. Fase II: {max(ref.anos)+1}–{ano}. Meses: '+', '.join(map(str, meses))+'. Limites congelados durante a avaliação.')
+    st.subheader('Resumo descritivo da referência histórica')
+    obitos, taxas = base['Óbitos'], base[TAXA]
+    resumo = pd.DataFrame([
+        {'Medida': 'Média', 'Óbitos': obitos.mean(), TAXA: taxas.mean()},
+        {'Medida': 'Mediana', 'Óbitos': obitos.median(), TAXA: taxas.median()},
+        {'Medida': 'Variância amostral', 'Óbitos': obitos.var(), TAXA: taxas.var()},
+        {'Medida': 'Desvio-padrão amostral', 'Óbitos': obitos.std(), TAXA: taxas.std()},
+        {'Medida': 'Coeficiente de variação (%)', 'Óbitos': obitos.std()/obitos.mean()*100,
+         TAXA: taxas.std()/taxas.mean()*100},
+        {'Medida': 'Amplitude', 'Óbitos': obitos.max()-obitos.min(), TAXA: taxas.max()-taxas.min()},
+        *[{'Medida': f'Q{q}', 'Óbitos': obitos.quantile(q/4), TAXA: taxas.quantile(q/4)}
+          for q in (1, 2, 3)],
+    ])
+    st.dataframe(resumo, hide_index=True, width='stretch', column_config={
+        'Óbitos': st.column_config.NumberColumn(format='%.2f'),
+        TAXA: st.column_config.NumberColumn(format='%.2f'),
+    })
+    st.caption('Medidas calculadas nos anos selecionados da fase I e nos mesmos meses. São descrições do histórico, não testes de adequação nem sinais de alerta.')
+    with st.expander('Diagnósticos exploratórios da referência'):
+        st.write('Avalie os resíduos padronizados de Poisson da fase I. Estes testes não aprovam nem reprovam os gráficos e não mudam seus limites.')
+        if len(base) < 8:
+            st.info('A referência tem menos de oito anos. A amostra é curta para diagnósticos temporais informativos; amplie o intervalo da fase I para consultar os testes.')
+        elif st.button('Executar diagnósticos', key='monitor_executar_diagnosticos'):
+            d=diagnosticos_referencia(base)
+            p_normal=d['shapiro_p']; p_auto=d['ljung_box_p']
+            st.dataframe(pd.DataFrame([
+                {'Teste': 'Shapiro–Wilk · normalidade dos resíduos', 'Estatística': d['shapiro_w'],
+                 'Lags': '—', 'Valor-p': p_normal,
+                 'Leitura': 'Indício de desvio da normalidade' if p_normal < .05 else 'Sem evidência suficiente de desvio'},
+                {'Teste': 'Ljung–Box · autocorrelação dos resíduos', 'Estatística': d['ljung_box_q'],
+                 'Lags': f'1 a {d["ljung_box_lags"]}', 'Valor-p': p_auto,
+                 'Leitura': 'Indício de autocorrelação' if p_auto < .05 else 'Sem evidência suficiente de autocorrelação'},
+            ]), hide_index=True, width='stretch', column_config={
+                'Estatística': st.column_config.NumberColumn(format='%.3f'),
+                'Valor-p': st.column_config.NumberColumn(format='%.4f'),
+            })
+            st.caption(f'n={d["n"]} observações anuais de períodos equivalentes. O Ljung–Box considera os lags 1 a {d["ljung_box_lags"]}; um passo equivale a um ano, não a um mês. Resultado não significativo não comprova normalidade ou independência. Tendência e mudanças de definição podem influenciar os resíduos.')
     if not meta.get('definicao_cid'):
         st.warning('A base recebida usa a definição anterior de CID. Esta análise é exploratória e deve ser refeita após reprocessamento de toda a série com a definição atual; não misture definições no histórico.')
     provis = [str(y) for y in t['Ano'] if len(meta.get('extracoes', {}).get(str(y), {}).get('meses', list(range(1,13)))) < 12 or meta.get('populacao', {}).get(str(y), {}).get('provisorio') or 'sujeitos a revisão' in meta.get('extracoes', {}).get(str(y), {}).get('revisao', '').lower()]
@@ -158,7 +244,7 @@ def mostrar_monitoramento(f, p, g, meta, ano, meses, indicador=None, sexo_filtro
     if original[TAXA].isna().any(): st.warning('Há períodos indisponíveis na fase II. Foram omitidos dos cálculos e interrompem a memória dos gráficos.')
     if ref.p_sobredispersao < .05:
         st.warning(f'Sobredispersão no histórico (Pearson φ={ref.dispersao:.2f}, p={ref.p_sobredispersao:.4f}); σz={ref.sigma_z:.2f}. '+('Aplicados limites u′ de Laney.' if ref.sigma_z>1 else 'σz não alarga os limites; revisar estabilidade e tendências antes de uso operacional.'))
-    st.caption('Cinco a sete anos oferecem uma referência curta: inspecione anos atípicos, tendências e estabilidade antes de adotar os limites em operação.')
+    st.caption('Referências de cinco a sete anos são curtas; para qualquer duração, inspecione anos atípicos, tendências e estabilidade antes de adotar os limites em operação.')
     t['Direção controle'] = direcao(t[TAXA], t['LIC controle'], t['LSC controle'])
     t['Direção EWMA'] = direcao(t['EWMA'], t['LIC EWMA'], t['LSC EWMA'])
     ultimo = t.iloc[-1]
@@ -213,10 +299,10 @@ def mostrar_monitoramento(f, p, g, meta, ano, meses, indicador=None, sexo_filtro
     st.dataframe(t, hide_index=True, width='stretch')
     st.download_button('Baixar sinais e limites (CSV)', t.to_csv(index=False,sep=';',decimal=',').encode('utf-8-sig'), 'monitoramento_estatistico.csv','text/csv')
     manifesto = dict(referencia=asdict(ref), meses=list(meses), peso=peso, largura=largura, k=k, h=h,
-                     indicador=indicador,sexo_filtro=sexo_filtro,territorio=territorio,configuracao=protocolo,
+                     indicador=indicador,sexo=sexo_analise,territorio=territorio,
+                     municipios_selecionados=municipios,faixas_etarias=idades,configuracao=protocolo,
                      unidade_temporal='anos de períodos equivalentes',
                      municipios=sorted(f.cod_mun_res.unique().tolist()),
-                     faixas_etarias=sorted(f.faixa_etaria.unique().tolist()),
                      sha256_dataset=hashlib.sha256((DADOS/'dataset.zip').read_bytes()).hexdigest(),
                      definicao_cid=meta.get('definicao_cid', 'legada'), anos_avaliacao=t['Ano'].tolist(),
                      nota='Sinais exploratórios; não são causas nem validação epidemiológica.')

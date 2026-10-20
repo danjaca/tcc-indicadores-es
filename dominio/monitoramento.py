@@ -6,7 +6,7 @@ Os modelos recebem uma série de períodos comparáveis (mesmos meses).
 from dataclasses import dataclass, asdict
 import numpy as np
 import pandas as pd
-from scipy.stats import chi2, poisson, norm
+from scipy.stats import chi2, poisson, norm, shapiro
 from .dados import serie_historica
 
 TAXA = 'Taxa por 100 mil'
@@ -39,8 +39,8 @@ def validar(t):
 
 def ajustar(t):
     validar(t)
-    if not 5 <= len(t) <= 7:
-        raise ValueError('Selecione de cinco a sete anos de referência completos.')
+    if len(t) < 5:
+        raise ValueError('Selecione pelo menos cinco anos de referência completos.')
     if np.any(np.diff(t['Ano']) != 1):
         raise ValueError('A referência deve conter anos consecutivos; lacunas não são zeros.')
     taxa = float(t['Óbitos'].sum() / t['População'].sum() * 100000)
@@ -56,6 +56,37 @@ def ajustar(t):
     q1, med, q3 = map(float, t[TAXA].quantile([.25, .5, .75]))
     return Referencia(tuple(map(int, t['Ano'])), taxa, sigma, sz, phi,
                       float(chi2.sf(phi*(len(t)-1), len(t)-1)), q1, med, q3)
+
+
+def diagnosticos_referencia(t):
+    """Diagnósticos exploratórios dos resíduos Pearson da fase I."""
+    validar(t)
+    if len(t) < 8:
+        raise ValueError('São necessários pelo menos oito anos para exibir estes diagnósticos; séries menores têm baixa informação temporal.')
+    esperado = t['População'].to_numpy(dtype=float) / 100000 * (
+        t['Óbitos'].sum() / t['População'].sum() * 100000
+    )
+    if (esperado <= 0).any():
+        raise ValueError('A referência contém expectativa nula; não é possível padronizar os resíduos.')
+    residuos = (t['Óbitos'].to_numpy(dtype=float) - esperado) / np.sqrt(esperado)
+    sw, p_normal = shapiro(residuos)
+    centrados = residuos - residuos.mean()
+    soma = float(centrados @ centrados)
+    n = len(residuos)
+    max_lag = min(3, n // 3)
+    q = 0.
+    for lag in range(1, max_lag + 1):
+        rho = float(centrados[lag:] @ centrados[:-lag] / soma) if soma else 0.
+        q += rho**2 / (n-lag)
+    q *= n*(n+2)
+    return {
+        'n': n,
+        'shapiro_w': float(sw),
+        'shapiro_p': float(p_normal),
+        'ljung_box_q': float(q),
+        'ljung_box_lags': max_lag,
+        'ljung_box_p': float(chi2.sf(q, max_lag)),
+    }
 
 
 def aplicar(t, ref, peso=.2, largura=3., k=.5, h=5.):

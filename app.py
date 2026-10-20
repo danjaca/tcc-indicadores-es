@@ -241,7 +241,8 @@ with tabs[2]:
     else:
         st.info('Extração de raça/cor em preparação; nenhum valor ausente foi convertido em zero.')
 with tabs[-2]:
-    mostrar_monitoramento(nf,np,g,meta,ano,meses,indicador=indicador,sexo_filtro=sexo_filtro)
+    mostrar_monitoramento(f,p,g,meta,ano,meses,indicador=indicador,sexo_filtro=sexo_filtro,
+                          municipios_painel=municipios)
 with tabs[-1]:
     st.subheader('Definições e disponibilidade')
     st.write('Fonte dos arquivos locais: SIM/DATASUS e base populacional utilizada no ETL do TCC. Recorte por município de residência no Espírito Santo.')
