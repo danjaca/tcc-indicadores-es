@@ -81,6 +81,8 @@ def test_interface_monitoramento_indicadores_e_parametros():
     assert descritiva['Medida'].tolist() == [
         'Média', 'Mediana', 'Variância amostral', 'Desvio-padrão amostral',
         'Coeficiente de variação (%)', 'Amplitude', 'Q1', 'Q2', 'Q3']
+    diagnosticos = next(x.value for x in at.dataframe if 'Teste' in x.value.columns)
+    assert {'Shapiro–Wilk · normalidade dos resíduos', 'Ljung–Box · autocorrelação dos resíduos'} == set(diagnosticos['Teste'])
     resumo = next(x.value for x in at.dataframe if 'Taxa observada' in x.value.columns)
     assert {'Óbitos observados', 'População (denominador anual)'} <= set(resumo.columns)
     assert resumo['Óbitos observados'].nunique() == resumo['População (denominador anual)'].nunique() == 1

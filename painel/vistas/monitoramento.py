@@ -127,7 +127,7 @@ def mostrar_monitoramento(f, p, g, meta, ano, meses, indicador, sexo_filtro):
     candidatos = [y for y in sorted(meta['anos_disponiveis']) if y < ano and cobertura_completa(f, y, meses)]
     if len(candidatos) < 5:
         st.info('São necessários pelo menos cinco anos completos anteriores ao ano selecionado.'); return
-    padrao = candidatos[-6:-1] if len(candidatos) >= 6 else candidatos[-5:]
+    padrao = candidatos[-9:-1] if len(candidatos) >= 9 else candidatos[-8:] if len(candidatos) >= 8 else candidatos[-5:]
     with st.expander('Referência histórica e parâmetros', expanded=False):
         protocolo = st.radio('Configuração da análise', ['Exploratória', 'Protocolo do TCC'],
                              key='monitor_protocolo', horizontal=True)
