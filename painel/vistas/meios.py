@@ -53,7 +53,7 @@ def mostrar_meios(indicador,ano,meses,codigos,sexo,total_principal):
     if grupos is None:
         st.info('Meios por CID-10 ainda sem cobertura para o período selecionado.');return
     total=int(detalhe.Obitos.sum())
-    st.caption('SIM/SESA-ES · CID-10 da causa básica · Extração: '+meta['extraido_utc'][:10]+'. Respeita ano, meses, municípios e sexo. Mantém todas as idades elegíveis do indicador.')
+    st.caption('SIM/SESA-ES · CID-10 da causa básica · Registros sujeitos a revisão. Respeita ano, meses, municípios e sexo. Mantém todas as idades elegíveis do indicador.')
     if total!=total_principal:
         st.warning(f'Esta extração por CID soma {total} óbitos; a base principal soma {total_principal}. As frequências abaixo usam o total da extração por CID. Registros históricos podem divergir entre versões da fonte.')
     if not total:

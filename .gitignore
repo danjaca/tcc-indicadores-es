@@ -8,3 +8,12 @@ __pycache__/
 var/
 dist/
 *.log
+envio/
+
+.code-review-graph/
+
+# Acervo acadêmico e evidências locais, preservados fora da implantação.
+/*.docx
+/docs/*.docx
+/docs/auditoria/
+/resultados_monitoramento/

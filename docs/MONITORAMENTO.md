@@ -1,68 +1,106 @@
-# Modelagem estatística dos indicadores
+# Monitoramento estatístico mensal dos indicadores
 
-Implementa as seções 2.6.5 e 2.7 do documento de introdução e referencial teórico de Daniel Breda. O cálculo determinístico mantém as regras existentes. O monitoramento usa u/u′ de Laney, EWMA, CUSUM bilateral com reinício após sinal, canais por quartis e funil municipal com limites exatos de Poisson de 95% e 99,8%.
+O protocolo `graficos_controle_mensal_v3` implementa X–AM e EWMA sobre taxas mensais de mortalidade. A contribuição central do TCC é o SAD e sua validação funcional. Sinais e valores-p são resultados da aplicação, não critérios de sucesso do sistema.
 
-## Desenho de teste definido antes da execução
+## Referência metodológica e alcance da validação
 
-O experimento padrão ajusta exclusivamente 2016–2022 (fase I) e avalia 2023–2026 (fase II), sem usar anos de teste na estimação. Analisa os três indicadores no estado e nas quatro regiões, separadamente para cada quadrimestre e para acumulados janeiro–agosto e janeiro–dezembro. Cada sequência compara os mesmos meses entre anos. O painel permite declarar cinco ou mais anos consecutivos de referência; quando há nove anos anteriores completos, o padrão usa oito e reserva o mais recente para avaliação adicional, permitindo exibir os diagnósticos. O uso operacional exige revisão da estabilidade da referência e de anos atípicos.
+Barros (2021) utilizou 48 meses na fase I, seis meses posteriores na fase II, gráficos X–AM com exclusões iterativas e EWMA com λ = 0,1 e largura próxima de 2,7. Sua taxa usa óbitos por autorizações de internação hospitalar aprovadas, multiplicados por 100 (p. 17); o SAD usa óbitos do SIM por população elegível, multiplicados por 100 mil. A adaptação é da estrutura dos gráficos, não da definição epidemiológica. A série publicada é usada exclusivamente para verificar os cálculos. Reproduzir seus números não valida automaticamente a adequação do método a todo indicador ou território do Espírito Santo. A regra adaptativa anterior de reduzir a referência até obter valores-p maiores não é atribuída a Barros e saiu do protocolo principal.
 
-Taxas usam população anual elegível; períodos parciais não são anualizados. A referência u é soma dos óbitos dividida pela soma das populações, multiplicada por 100 mil. Diagnóstico Pearson usa qui-quadrado com n−1 graus de liberdade, nível 5%; quando há sobredispersão, u′ aplica σz estimado por amplitude móvel dos resíduos Poisson padronizados dividida por 1,128, com piso 1. Tendências podem causar sobredispersão: alargar limites não substitui avaliar estabilidade.
+Referência verificada na fonte primária: BARROS, Veronica Aparecida Souza. *Monitoramento da taxa de mortalidade por câncer de mama no Brasil*. 2021. 67 f. Trabalho de Conclusão de Curso (Graduação em Estatística) – Universidade Federal de Uberlândia, Uberlândia, 2021. Disponível em: https://repositorio.ufu.br/handle/123456789/33585. Acesso em: 30 out. 2026.
 
-EWMA: λ=0,2, L=3, início na taxa de referência, limites transitórios. CUSUM: K=0,5σ e H=5σ, bilateral, reinício de ambas as somas após qualquer sinal. A escala σ é o desvio-padrão amostral das taxas históricas, com piso na raiz da variância Poisson média. São gráficos de taxas para períodos equivalentes; não são gráficos Poisson especializados com memória. Lacunas não viram zeros e interrompem a memória.
+## Unidade de análise e indicadores
 
-Canal por quartis calculado sobre cinco ou mais taxas históricas do mesmo período. Êxito abaixo de Q1, segurança até a mediana, alerta até Q3, excesso acima de Q3. Apenas quadrimestres completos e acumulados desde janeiro são apresentados como canais. Não implementa a alternativa de média geométrica. Uma zona acima da mediana não é alarme com probabilidade nominal de 0,2%, e excesso não confirma epidemia.
+A taxa mensal é `x_t = óbitos do mês / população anual elegível × 100 000`, sem anualização. A soma das taxas mensais do mesmo ano reproduz a taxa do período, pois o denominador é comum. O denominador respeita território, sexo e faixa etária do indicador. População provisória e revisões da fonte devem continuar identificadas. Meses sem cobertura não são zeros.
 
-Funil: referência ponderada do conjunto municipal selecionado, estadual quando todos são selecionados. Intervalos centrais de quantis Poisson são limites preditivos de contagens, convertidos em taxas; são discretos, especialmente para contagens pequenas. O valor de referência é estimado do conjunto atual e não ajusta diferenças de composição ou risco. Dispersão territorial Pearson aparece na tabela; limites normais alargados por √max(1,φ) são uma sensibilidade aproximada, identificada separadamente dos limites exatos. Nenhum ranking é produzido.
+O nível estadual é a aplicação principal. As categorias de aplicabilidade territorial baseadas em contagens médias, zeros e normalidade são alertas operacionais, não uma calibração epidemiológica validada. Séries municipais esparsas podem ser inadequadas a limites normais. Não há comprovação de desempenho para todo recorte nem garantia de que EWMA corrige qualquer desvio da normalidade.
 
-## Execução e evidências
+## Parâmetros predefinidos
 
-Na pasta `dashboard_streamlit`, com dependências instaladas:
+| Parâmetro | Padrão | Justificativa e limite |
+|---|---:|---|
+| Janela da fase I | 48 meses | Quatro ciclos anuais e comparabilidade de extensão com Barros; escolha predefinida, sem otimização por sinais. |
+| Sensibilidade da fase I | 24, 36, 48, 64 meses | Expõe o compromisso entre quantidade de dados e mudanças históricas. 64 é um cenário exploratório, não recomendação publicada por Barros. |
+| Fase II | 12 meses | Horizonte operacional após o fim da fase I; início pode ser qualquer mês. |
+| λ do EWMA | 0,1 | Dá memória a mudanças persistentes; valores menores retêm mais história. |
+| L do EWMA | 2,701 | Referência de ARL sob controle próximo de 370 sob normalidade, independência, limites assintóticos e parâmetros conhecidos. |
+| L do X | 3 | Limites de três desvios; ARL normal teórico ≈ 370,4 para um gráfico isolado. |
+| α dos diagnósticos | 0,05 | Nível nominal; não determina a janela nem exclui observações. |
+| Exclusão automática | Desativada | Um sinal sozinho não comprova causa especial; preserva observações até investigação. |
+| Fração máxima de exclusões | 0,20 | Salvaguarda operacional registrada, não valor ótimo estatisticamente demonstrado. |
+| Prazo operacional | 60 dias | Marca meses recentes como em consolidação; não certifica completude e não impede revisões anteriores. |
+| Ljung–Box | 1 e 12 | Avalia dependência imediata e conjunta até um ciclo anual. |
+
+Os parâmetros vêm de `[monitoramento]` em `config.toml`. Sem referência explícita em `[monitoramento.fase1]`, a fase I fixa termina em dezembro do ano anterior ao último ano disponível. A falta de cobertura interrompe o cálculo, sem reduzir silenciosamente a janela. A interface permite ajustar o início mensal da fase II e a referência precedente; a configuração escolhida deve ser documentada antes de interpretar sinais.
+
+A atualização não troca automaticamente a referência em função de valores-p. Alterações permanentes precisam ser justificadas e registradas no protocolo. `sugerir_fase1` é mantida somente por compatibilidade com a avaliação exploratória legada; seus resultados não definem o protocolo v3.
+
+## Fase I e pressupostos
+
+A referência deve ter uma observação por mês, cobertura completa e taxas finitas não negativas. Séries constantes não permitem estimar dispersão e são recusadas com mensagem explícita.
+
+Os diagnósticos usam a série completa da referência, antes das exclusões:
+
+- Lilliefors: hipótese de distribuição normal; não rejeitar não prova normalidade.
+- Ljung–Box: autocorrelações nulas até as defasagens avaliadas; não rejeitar não prova independência.
+- Dickey–Fuller aumentado: raiz unitária no modelo com constante e tendência; rejeição não comprova média constante nem ausência de tendência determinística.
+- Cox–Stuart: tendência, comparando primeiro e último terço; aproximação normal, conforme a reprodução de Barros.
+- Fisher: componente periódico dominante no periodograma sob ruído branco; não é um teste exclusivo de sazonalidade anual. Dependência e tendência limitam sua interpretação.
+- FAC/FACP e Q-Q: diagnósticos visuais complementares.
+
+Os valores-p dos vários diagnósticos e cenários são exploratórios, sem correção por multiplicidade. Não servem para procurar a janela que “passa”. Pressupostos rejeitados são mantidos visíveis e limitam a interpretação dos sinais e do ARL teórico.
+
+Estimam-se `μ0` pela média da referência mantida e `σ0 = AM̄ / 1,128`. O limite do AM é `3,267·AM̄`. Se permanecem sinais X ou AM, a referência é rotulada instável, inclusive quando a exclusão automática está desativada. Os parâmetros são então descritivos da referência, não evidência de processo em controle.
+
+Exclusões manuais devem pertencer à fase I e ter causa documentada. Quando a reprodução exploratória ativa exclusão automática, primeiro são retirados pontos fora dos limites do X e depois os meses finais das amplitudes fora do limite; a sequência remanescente é ligada novamente, como na verificação com Barros. Esse procedimento altera as adjacências e não demonstra a causa dos pontos excluídos. Todas as exclusões e iterações são registradas; ultrapassar a fração máxima não permite declarar estabilidade.
+
+## Fase II
+
+Os parâmetros ficam congelados. A fase II começa no mês imediatamente posterior ao fim da fase I e pode terminar no horizonte escolhido, mesmo que ainda não haja dados para todos os meses planejados.
+
+| Gráfico | Estatística | Limites |
+|---|---|---|
+| X | `x_t` | `max(0, μ0 − L·σ0)` e `μ0 + L·σ0` |
+| AM | `abs(x_t − x_(t−1))` | zero e `3,267·AM̄` |
+| EWMA | `z_t = λ·x_t + (1−λ)·z_(t−1)`, com `z_0 = μ0` | `μ0 ± L·σ0·sqrt(λ/(2−λ)·[1−(1−λ)^(2t)])` |
+
+A primeira amplitude usa o último mês da fase I somente se os meses forem adjacentes. Uma lacuna na fase II interrompe a amplitude e reinicia o EWMA em μ0; meses ausentes continuam ausentes. Meses recentes recebem marca de consolidação e ficam fora das contagens resumidas de sinais interpretáveis. Seus sinais brutos podem aparecer para transparência; não devem ser interpretados como mudança confirmada. Sem data da base, o prazo não pode ser verificado: a ausência de marca não certifica consolidação, e o uso operacional exige conferir os metadados.
+
+Um sinal orienta investigação da qualidade dos registros e do contexto. Não identifica causas, não mede efeito causal de políticas e não autoriza afirmar ausência de problema quando nenhum gráfico sinaliza.
+
+## Leitura quadrimestral
+
+Para `m` meses disponíveis do mesmo ano, `S = Σ x_t`, esperado `m·μ0` e limites `max(0, m·μ0 − L·sqrt(m)·σ0)` e `m·μ0 + L·sqrt(m)·σ0`. A variância `m·σ0²` pressupõe independência e estabilidade; autocorrelação ou mudanças estruturais invalidam essa referência nominal.
+
+Quadrimestres e acumulados incompletos são marcados como parciais e não emitem sinais. Se a fase II começa durante o ano, o acumulado considera somente seus meses disponíveis e não deve ser apresentado como cobertura de todo o ano. A leitura com meses em consolidação continua provisória e também não emite sinal quadrimestral.
+
+## Sensibilidade e desempenho teórico
+
+`dominio.monitoramento.sensibilidade` compara todas as janelas de 24, 36, 48 e 64 meses com o mesmo fim da fase I, a mesma fase II e os demais parâmetros iguais. Exibe cobertura, impedimentos, μ0, σ0, limites, estabilidade, exclusões, diagnósticos e contagens de sinais em meses fora da consolidação. Não escolhe cenário vencedor nem altera o protocolo. Exclusões documentadas são aplicadas quando pertencem à janela correspondente. A avaliação não é prospectiva independente e não estima taxa empírica de alarmes falsos.
+
+O ARL de X assume observações normais independentes e parâmetros conhecidos. O ARL do EWMA usa cadeia de Markov com limites assintóticos constantes, enquanto o gráfico implementa limites transitórios. Logo, o ARL exibido é referência teórica aproximada para o sistema; não incorpora incerteza da fase I, referência instável, recortes esparsos, revisões nem uso simultâneo de vários gráficos. A calibração de L preserva esse ARL teórico de referência, não um desempenho empiricamente validado.
+
+## Procedimento operacional
+
+1. Conferir cobertura, denominador provisório, metadados e meses em consolidação.
+2. Registrar o protocolo antes de interpretar sinais; manter a referência fixa durante o acompanhamento.
+3. Consultar diagnósticos e estabilidade; diante de violação, apresentar resultados com ressalva em vez de procurar significância.
+4. Examinar sinais fora da consolidação e investigar registros, revisões e contexto territorial.
+5. Comparar todas as janelas de sensibilidade e documentar decisões, inclusive ausência de sinais.
+6. Arquivar parâmetros, hashes, CSVs e relatório junto ao snapshot de dados do ciclo.
+
+## Reprodução
 
 ```bash
 python -m pytest tests -q
-python -m experimentos.monitoramento --simulacoes 200 --seed 20261011
+python -m experimentos.monitoramento --saida docs/auditoria/resultados_relatorio_x_am_ewma_final --figuras
 ```
 
-`resultados_monitoramento` recebe séries de referência, limites/sinais por ano, frequências por método, funis municipais, períodos indisponíveis, simulações e manifesto com SHA-256 do dataset, referência e parâmetros. As simulações são repetíveis: sequências de 12 períodos Poisson com população fixa, sem mudança ou com mudança de ±25% depois de quatro períodos. Medem sinais por período, probabilidade de sinal na janela e atraso médio condicional à detecção. Sob o cenário sem mudança, sinais são falsos alarmes simulados. Esse cenário Poisson não reproduz heterogeneidade real; nenhum resultado prova validade epidemiológica ou utilidade operacional. A frequência histórica de sinais não é chamada de falso alarme, pois não há eventos rotulados pela vigilância. Não foi estimado ARL ilimitado.
+O experimento não consulta fontes externas. Produz `verificacao_barros2021.csv`, séries, diagnósticos, parâmetros, iterações, fase II, quadrimestres, `sensibilidade_fase1.csv`, retrospectivas exploratórias, ARL, boletim, figuras e relatórios. `manifesto.json` registra versão do protocolo, parâmetros efetivamente aplicados, janelas, ambiente e hashes de dados/código. O resultado legado em `resultados_monitoramento/` permanece identificado pelo seu próprio manifesto.
 
-## Cobertura e limites da base atualizada
+O resumo do relatório PDF apresenta os gráficos X, AM e EWMA com a referência da fase I sombreada e a fase II disponível. A série histórica completa e as tabelas continuam nas páginas seguintes, seguidas dos diagnósticos, gráficos detalhados e parâmetros de reprodução. Essa organização usa os mesmos resultados calculados para a configuração em uso. A execução anterior em `docs/auditoria/resultados_v3/` permanece preservada como evidência histórica.
 
-A série 2016–2026 foi reextraída do TabNet/SIM da SESA com os códigos das fichas do PES: X85–Y09, Y22–Y24, Y35, Y87.1 e Y89.0 para homicídios/agressões; X60–X84 e Y87.0 para suicídios. As categorias completas incluem registros ainda sem quarto dígito; as sequelas permanecem selecionadas individualmente. Os complementos de raça/cor e meios precisam fechar com a fato principal por indicador, município, mês e sexo. Não foram alterados óbitos ou populações para produzir sinais. Os dados de 2025 e 2026 são sujeitos a revisão; 2026 tem janeiro–setembro e população provisória de 2025. A conferência de totais anuais, segundo quadrimestre e referências municipais de 2024 está documentada em `CONFERENCIA_REFERENCIAS.json`. Anos ausentes aparecem como indisponíveis. O painel sinaliza essas condições.
+A atualização automatizada executa a análise sobre um lote isolado antes da publicação local. Falhas estatísticas ou de integridade não autorizam alterar os dados para satisfazer testes. A reextração e a publicação externa não fazem parte da verificação local do cálculo.
 
-A avaliação de alterações reais conhecidas, revisão dos anos atípicos e teste de utilidade com profissionais da vigilância continuam dependendo de evidências externas. Limites 99,8% são por comparação e não controlam simultaneamente todos os municípios/indicadores. Dados agregados não demonstram causalidade nem risco individual. Proporções por raça/cor e meios permanecem proporções, sem denominadores para taxas.
+### Aproximação de Cox–Stuart em janelas curtas
 
-## Referências de implementação
-
-- NIST, EWMA: https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc314.htm
-- NIST, CUSUM: https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc323.htm
-- Minitab, métodos do gráfico u′ de Laney: https://support.minitab.com/en-us/minitab/help-and-how-to/quality-and-process-improvement/control-charts/how-to/attributes-charts/laney-u-chart/methods-and-formulas/methods-and-formulas/
-- SciPy, distribuição Poisson: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.poisson.html
-- Bortman (1999) e Spiegelhalter (2005), conforme o referencial teórico fornecido.
-
-## Guia de leitura no painel
-
-O botão **ⓘ Como ler**, junto ao título, abre um diálogo com o significado dos filtros, taxa por 100 mil, referência histórica, u/u′, EWMA, CUSUM, canal endêmico, funil e sinais. A explicação distingue quartis de quadrimestres, sinal estatístico de investigação de causas e taxa parcial de meta anual. A aba usa exclusivamente os filtros gerais do menu lateral: indicador, ano, quadrimestres/meses, municípios e sexo.
-
-A página exibe a situação dos dados antes dos resultados: meses disponíveis, data da extração, ano e provisoriedade do denominador e informação de revisão dos registros. Não estima completude nem corrige atraso de registro a partir desses metadados. O resumo temporal mostra juntos, para o mesmo recorte, a taxa observada, a contagem de óbitos e o denominador populacional anual.
-
-O modo **Protocolo do TCC** fixa a fase I em 2016–2022 e λ=0,2, L=3, K=0,5, H=5; exige avaliação posterior a 2022 e cobertura da referência. O modo **Exploratória** mantém os controles livres, com referência de cinco ou mais anos. Coincidência com o experimento exige também os mesmos filtros gerais do menu lateral; selecionar o protocolo não valida sua estabilidade. A referência pode ser consultada e baixada em CSV. Shapiro–Wilk e Ljung–Box aparecem automaticamente como diagnósticos exploratórios dos resíduos quando a fase I tem pelo menos oito anos; referências menores mostram orientação para ampliar o período.
-
-Nos gráficos de taxas, a fase I aparece em cinza, separada da fase II; apenas a fase II recebe sinais. No EWMA, os pontos cinza são taxas observadas, não valores históricos de EWMA. Triângulos vermelhos e azuis distinguem sinais de aumento e redução; no CUSUM, a linha negativa crescente acumula evidência de redução. O resumo do último período disponível mantém os métodos separados, sem pontuação de risco ou confirmação independente.
-
-Na interface e no CSV do painel, o canal recebe o título **Canal histórico por quartis** e as zonas “Abaixo de Q1”, “De Q1 à mediana”, “Acima da mediana até Q3” e “Acima do Q3”. As fórmulas e os resultados do experimento permanecem iguais. Quartis descrevem posição histórica e não acionam marcadores de alarme de controle.
-
-A interpretação no guia reconhece que acompanhar muitos indicadores, municípios e períodos aumenta as oportunidades de alertas fortuitos; limites individuais de 99,8% não corrigem formalmente a probabilidade conjunta de falso alarme. Os dados agregados por território e período não permitem inferir risco individual ou causalidade. Percentuais da composição dos óbitos não equivalem a taxas de risco sem denominadores populacionais correspondentes.
-
-O funil acrescenta óbitos esperados sob a taxa do conjunto, diferença observado menos esperado e direção dos sinais exatos e ajustados aproximados. A decisão exata original em contagens é preservada. O destaque dos pontos usa 99,8%; o texto ao passar sobre o ponto também informa 95% e a sensibilidade ajustada de 99,8%. Um único município não gera comparação territorial e recebe orientação para ampliar a seleção. Contagens pequenas não recebem um corte arbitrário de validade. A página explicita a menor capacidade de detecção, a instabilidade de taxas e a ausência de ajuste completo para composição demográfica e social.
-
-Esses complementos de interpretação consideram Bédubourg e Le Strat (2017), DOI 10.1371/journal.pone.0181227; Verburg et al. (2018), DOI 10.1177/0962280217700169; Noufaily et al. (2019), DOI 10.1093/bioinformatics/bty997; Craig et al. (2023), DOI 10.1016/j.ijregi.2023.08.007; Baker et al. (2023), DOI 10.1093/cid/ciac923; e o capítulo *Analysis of Surveillance Data* do CDC (2025). Aplicações a doenças infecciosas ou hospitais não comprovam calibração para mortalidade por causas externas no ES. Não foram acrescentados modelos, monitoramento mensal sucessivo, correção de atraso ou comparações experimentais de algoritmos.
-
-## Unidade temporal e reprodução mensal
-
-No protocolo `monitoramento_interanual_v1`, cada observação dos gráficos de memória corresponde aos mesmos meses de um ano: por exemplo, janeiro–agosto de 2023, 2024, 2025 e 2026. Um passo ou atraso é um ano de período equivalente; não é um mês nem um quadrimestre sucessivo. A atualização dos dados é mensal, a apresentação permite recortes quadrimestrais, e a memória dos modelos é interanual. Revisitar o mesmo período após uma nova extração não acrescenta uma observação independente.
-
-O experimento de reprodução usa referência fixa 2016–2022, avaliação posterior, λ=0,2, L=3, K=0,5 e H=5. O painel permite outras referências e parâmetros para exploração; os resultados do painel coincidem com esse experimento apenas quando os recortes e parâmetros também coincidem. A referência padrão do painel depende do ano selecionado; ela não constitui um protocolo operacional congelado entre anos.
-
-`python atualizar.py --avaliar --publicar-local` integra extração, validação e reprodução do experimento. Os parâmetros explicitamente passados ao cálculo são os mesmos registrados no manifesto. Resultados novos ficam no lote mensal, com hash da base, hashes do código/entradas e versões do ambiente. O workflow guarda o pacote como artifact, sem versionar os resultados experimentais a cada mês. A política atual de 90 dias exige arquivamento persistente para o histórico de pesquisa.
-
-As simulações de 12 passos, com mudança após quatro, medem detecção em uma janela finita e atraso condicional à detecção. Não estimam ARL ilimitado. Falta de detecção na janela deve ser interpretada junto com o atraso; não se excluem os casos não detectados da avaliação de sensibilidade. O cenário Poisson é uma avaliação controlada, não uma reprodução da sobredispersão, dependência ou revisões observadas em dados reais.
+A implementação preserva a aproximação normal sem correção de continuidade da rotina reproduzida de Barros e compara primeiro e último terço. Em 24 meses existem no máximo oito pares não empatados; a aproximação pode ser imprecisa. Por exemplo, um ou sete pares crescentes entre oito produzem p aproximado de 0,0339, enquanto a cauda binomial bilateral exata é 0,0703125. Essa diferença pode mudar a decisão nominal a 5%. Não se recalibraram janelas ou resultados para obter uma decisão; a análise mantém o método explicitado e reconhece sua limitação. Uma validação inferencial futura deve predefinir a alternativa exata ou justificar a aproximação antes de interpretar os testes.

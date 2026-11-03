@@ -53,6 +53,9 @@ jobs:
             var/etl/populacao_bruta/
             var/etl/geografia/meta.json
             experimentos/monitoramento.py
+            experimentos/figuras.py
+            experimentos/dados_barros2021.csv
+            painel/relatorio.py
             dominio/monitoramento.py
             dominio/dados.py
             configuracao.py

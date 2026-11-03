@@ -1,0 +1,354 @@
+{
+  "tipo": "auditoria_offline_do_snapshot_local",
+  "auditado_em": "2026-10-30T13:19:03.451145-03:00",
+  "repositorio_git_detectado": false,
+  "comparacao_branch_main": "não disponível; pastas auditadas sem .git",
+  "dados": {
+    "dataset.zip": {
+      "bytes": 2101689,
+      "sha256": "671c47f5bd4643ddf6802da7c6732b06de6631f6218ad313775b571a60951518"
+    },
+    "f_meios_cid.csv.gz": {
+      "bytes": 25920,
+      "sha256": "caa5570065f1ca6ec16b828165ea759a8e1c9dc6b05ae30f5223263238aa1718"
+    },
+    "f_raca_cor.csv.gz": {
+      "bytes": 1637555,
+      "sha256": "f8b3cda0c47a84791f7b94348b0ef2d18419dd24d2c8be557af82aeee17b61a6"
+    },
+    "mapa_pdr2024.json.gz": {
+      "bytes": 2958811,
+      "sha256": "2877aa99418c7d2d04f59db1658d88ebeae85a3731267a9340daff7d216dfbdd"
+    },
+    "meios_cid_meta.json": {
+      "bytes": 28381,
+      "sha256": "5789d48f4eaf059e473f8736086f3f27b734c27d7b080df812bae7c27ffe596d"
+    },
+    "municipios_es.geojson.gz": {
+      "bytes": 2308689,
+      "sha256": "f3dd3bab70b5716b8c01d2dbfd2010e2557f66a3b715bc2a9256cb6d264ca429"
+    },
+    "pdr_meta.json": {
+      "bytes": 727,
+      "sha256": "3bd333f01adf3b15f295ae815d1be7ebf3170d3d75dd16585e1b895b77f3e7c9"
+    },
+    "raca_cor_meta.json": {
+      "bytes": 50041,
+      "sha256": "e931660b02f5aeb93bb2c7d380d64033695e2e860f9dff7cda1b1b4f568d90d8"
+    },
+    "regioes_pdr2024.csv": {
+      "bytes": 1201,
+      "sha256": "a79ebcd100fc6c516655292f6f2b2f624a21d89f548090af7fd64e45f64450af"
+    }
+  },
+  "validacao": {
+    "status": "validado",
+    "anos": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "linhas_obitos": 724464,
+    "municipios": 78,
+    "anos_complementos_conferidos": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "definicao_cid": [
+      "8d8be8e86012"
+    ]
+  },
+  "indicadores_conferidos_por_calculo": {
+    "Suicídio geral": {
+      "ano": 2024,
+      "meses": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "obitos": 354,
+      "populacao_anual": 4102129,
+      "taxa_por_100_mil": 8.629665229933043
+    },
+    "Homicídios — jovens de 15 a 29 anos": {
+      "ano": 2024,
+      "meses": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "obitos": 483,
+      "populacao_anual": 874575,
+      "taxa_por_100_mil": 55.226824457593686
+    },
+    "Homicídios — mulheres de 10 a 59 anos": {
+      "ano": 2024,
+      "meses": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "obitos": 90,
+      "populacao_anual": 1454086,
+      "taxa_por_100_mil": 6.189455094127857
+    }
+  },
+  "pacote_atualizado": "2026-10-15T14:23:48.089970+00:00",
+  "cobertura": {
+    "2016": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2017": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2018": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2019": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2020": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2021": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2022": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2023": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2024": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2025": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2026": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "populacao": {
+    "2026": {
+      "ano_fonte": 2025,
+      "provisorio": true
+    },
+    "2025": {
+      "ano_fonte": 2025,
+      "provisorio": false
+    },
+    "2016": {
+      "ano_fonte": 2016,
+      "provisorio": false
+    },
+    "2017": {
+      "ano_fonte": 2017,
+      "provisorio": false
+    },
+    "2018": {
+      "ano_fonte": 2018,
+      "provisorio": false
+    },
+    "2019": {
+      "ano_fonte": 2019,
+      "provisorio": false
+    },
+    "2020": {
+      "ano_fonte": 2020,
+      "provisorio": false
+    },
+    "2021": {
+      "ano_fonte": 2021,
+      "provisorio": false
+    },
+    "2022": {
+      "ano_fonte": 2022,
+      "provisorio": false
+    },
+    "2023": {
+      "ano_fonte": 2023,
+      "provisorio": false
+    },
+    "2024": {
+      "ano_fonte": 2024,
+      "provisorio": false
+    }
+  },
+  "python": "3.13.3",
+  "bibliotecas": {
+    "pandas": "2.2.3",
+    "numpy": "2.5.3",
+    "streamlit": "1.63.0",
+    "plotly": "6.9.0",
+    "pytest": "8.4.2"
+  },
+  "limites": [
+    "Não houve nova extração nem reconferência online com a fonte.",
+    "Esta validação verifica consistência funcional; não certifica completude epidemiológica.",
+    "As pastas locais não permitem concluir qual versão está na branch main ou implantada no Streamlit Cloud.",
+    "O documento ATUALIZACAO_DADOS.json registra uma execução histórica; os hashes atuais estão neste relatório."
+  ]
+}

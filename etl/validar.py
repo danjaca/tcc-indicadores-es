@@ -5,10 +5,13 @@ import numpy as np
 import pandas as pd
 from dominio.dados import carregar,recortar,INDICADORES,IDADES
 from configuracao import DADOS
-from .definicao_cid import DEFINICAO_LEGADA
+from .definicao_cid import DEFINICAO_LEGADA,codigos_detalhamento
+from .pipeline import validar_fato,validar_pop
 
-def validar(anos_atualizados=()):
+def validar(anos_atualizados=None):
     f,p,g,meta=carregar()
+    anos_atualizados=sorted(set(meta['anos_disponiveis'] if anos_atualizados is None else anos_atualizados))
+    if not set(anos_atualizados).issubset(meta['anos_disponiveis']):raise ValueError('Anos sem cobertura na base principal.')
     chaves=['cod_mun_res','ano','mes','tipo_causa','faixa_etaria','sexo']
     if f.empty or f[chaves+['Obitos']].isna().any().any() or f.duplicated(chaves).any():
         raise ValueError('Fato vazia, duplicada ou com campos obrigatórios nulos.')
@@ -28,15 +31,28 @@ def validar(anos_atualizados=()):
     for ano in meta['anos_disponiveis']:
         fat=f[f.ano.eq(ano)];meses=sorted(fat.mes.unique().tolist());pop=p[p.ano.eq(ano)]
         if not meses or meses!=list(range(1,max(meses)+1)) or max(meses)>12:raise ValueError('Cobertura mensal não contígua.')
-        if len(fat)!=78*len(meses)*2*12*3:raise ValueError('Grade incompleta de óbitos.')
-        if len(pop)!=78*11*2 or set(pop.cod_mun_res)!=set(g.cod_mun_res) or set(pop.faixa_etaria)!=set(IDADES[:-1]) or set(pop.sexo)!={'Masculino','Feminino'}:
-            raise ValueError('Grade populacional inválida.')
+        validar_fato(fat,ano,sorted(g.cod_mun_res),meses)
+        validar_pop(pop,ano,sorted(g.cod_mun_res))
+        if meta.get('extracoes',{}).get(str(ano),{}).get('meses')!=meses:
+            raise ValueError(f'Cobertura declarada diverge da fato principal: {ano}.')
     for stem,extra in [('raca_cor','raca_cor'),('meios_cid','cid')]:
         c=pd.read_csv(DADOS/f'f_{stem}.csv.gz',dtype={'cod_mun_res':str})
         cm=json.loads((DADOS/f'{stem}_meta.json').read_text())
         keys=['indicador','cod_mun_res','ano','mes','sexo']
         v=pd.to_numeric(c.Obitos,errors='raise')
         if c[keys+[extra,'Obitos']].isna().any().any() or c.duplicated(keys+[extra]).any() or not (np.isfinite(v)&(v>=0)&(v%1==0)).all():raise ValueError(f'Complemento inválido: {stem}')
+        for col,dominio in [('indicador',INDICADORES),('cod_mun_res',g.cod_mun_res),
+                            ('ano',meta['anos_disponiveis']),('mes',range(1,13)),
+                            ('sexo',['Masculino','Feminino','Ignorado'])]:
+            if not c[col].isin(dominio).all():raise ValueError(f'Domínio inválido no complemento {stem}: {col}.')
+        for ano,rec in c.groupby('ano'):
+            if not rec.mes.isin(cm.get('cobertura',{}).get(str(ano),[])).all():
+                raise ValueError(f'Complemento fora da cobertura declarada: {stem}/{ano}.')
+        for indicador,cfg in INDICADORES.items():
+            rec=c[c.indicador.eq(indicador)]
+            if cfg['sexo'] and not rec.sexo.eq(cfg['sexo']).all():raise ValueError(f'Domínio de sexo inválido: {stem}/{indicador}.')
+            if extra=='cid' and not rec.cid.isin(codigos_detalhamento(cfg['causa'])).all():
+                raise ValueError(f'Domínio CID inválido: {indicador}.')
         definicoes_comp=cm.get('definicao_cid_por_ano',{})
         for ano,definicao in definicoes.items():
             if ano in cm.get('cobertura',{}) and definicoes_comp.get(ano,DEFINICAO_LEGADA)!=definicao:
@@ -56,5 +72,5 @@ def validar(anos_atualizados=()):
     print(json.dumps(report,ensure_ascii=False));return report
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--anos',type=int,nargs='*',default=[])
+    parser=argparse.ArgumentParser();parser.add_argument('--anos',type=int,nargs='+',help='Restringe a conciliação; por padrão, confere todos os anos.')
     validar(parser.parse_args().anos)

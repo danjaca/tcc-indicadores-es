@@ -1,6 +1,8 @@
 # Sistema de apoio à decisão para indicadores de mortalidade do Espírito Santo
 
-Projeto de Daniel Breda Bigossi, Engenharia de Produção, UFES. A aplicação consulta dados locais e o processo de atualização é executado separadamente. Esta versão incorpora o projeto refatorado e os métodos estatísticos de monitoramento previstos no referencial teórico.
+Projeto de Daniel Breda Bigossi, Engenharia de Produção, UFES. A aplicação consulta dados locais e o processo de atualização é executado separadamente. Esta versão incorpora o monitoramento estatístico **mensal** dos indicadores pela metodologia de gráficos de controle (X–AM e EWMA; Montgomery, 2016), com fases I e II parametrizáveis, referência principal fixa de 48 meses, sensibilidade de 24/36/48/64 meses, leitura quadrimestral e relatórios em PDF em todas as abas. A validação funcional do SAD independe de significância estatística. Consulte a entrega atual em [docs/RELATORIO_AUDITORIA.md](docs/RELATORIO_AUDITORIA.md).
+
+**Atualizar todos os dados e gerar os resultados em outro computador:** siga [COMO_ATUALIZAR.md](COMO_ATUALIZAR.md) (`python pipeline_completo.py`).
 
 ## Execução
 
@@ -28,9 +30,11 @@ configuracao.py                Caminhos de dados e estado; compartilhado pelo pa
 config.toml                    Opções de atualização e recursos do painel
 dominio/
   dados.py                     Leitura do pacote, indicadores, filtros, taxas e séries
-  monitoramento.py             u/u′, EWMA, CUSUM, quartis e limites do funil
+  monitoramento.py             Gráficos de controle mensais: referência fixa, sensibilidade, pressupostos, X–AM, EWMA, quadrimestre, ARL
+painel/
+  relatorio.py                 Relatórios em PDF (monitoramento e demais abas)
 painel/vistas/
-  monitoramento.py             Interface e guia de leitura do monitoramento estatístico
+  monitoramento.py             Aba de monitoramento: granularidade, fases I e II, quadrimestre, ajuste
   mapa.py                      Mapa municipal e regional
   meios.py                     Composição por meio e CID-10
   piramide.py                  Perfil demográfico
@@ -46,10 +50,14 @@ etl/
   validar.py                   Valida integridade e concordância das camadas
   gerar_referencias.py         Gera valores de regressão para conferência
   conferir_referencias.py      Confronta valores calculados com referências externas
-experimentos/monitoramento.py  Avaliação estatística reproduzível, fora da interface
+experimentos/monitoramento.py  Avaliação reproduzível (conferência com Barros, sensibilidade, retrospectivas, ARL)
+pipeline_completo.py           Comando único: testes, extração, validação, monitoramento, figuras, PDFs e pacote de envio
+COMO_ATUALIZAR.md              Roteiro para atualizar todos os dados e enviar os resultados
+experimentos/figuras.py        Figuras do TCC
+experimentos/dados_barros2021.csv  Série publicada por Barros (2021), usada na verificação
 .github/workflows/             Agendamento e publicação mensal no GitHub
 docs/                           Documentação operacional e metodológica
-  MONITORAMENTO.md             Protocolo, reprodução e limitações estatísticas
+  MONITORAMENTO.md             Protocolo, procedimento operacional (POP), ajuste e reprodução
   VERIFICACAO.md               Registro dos controles e verificações do projeto
   ATUALIZACAO_DADOS.json       Metadados da atualização de dados
   CONFERENCIA_REFERENCIAS.json Evidências de conferência externa
@@ -119,7 +127,7 @@ O workflow está configurado para o dia 15 de cada mês, às 09h17 UTC (06h17 em
 
 Publicar o conteúdo de `dashboard_streamlit` na raiz do repositório `danjaca/tcc-indicadores-es`, incluindo `.github` e `.streamlit`, preservando o histórico Git. O agendamento só fica ativo quando o workflow estiver na branch padrão e Actions estiver habilitado. Para o commit automático, o token do workflow precisa de escrita em conteúdo; regras de proteção da branch podem exigir adaptação para pull request. Não inserir credenciais nos arquivos.
 
-O aplicativo publicado e conferido em 11/10/2026 é `https://daniel-breda-indicadores-es.streamlit.app/`, com entrada `app.py`. Após cada novo push, conferir implantação e logs; se uma mudança somente de dados não for detectada, reiniciar o app no Streamlit Community Cloud.
+O endereço de implantação informado é `https://daniel-breda-indicadores-es.streamlit.app/`, com entrada `app.py`. Após cada novo push, conferir implantação e logs; se uma mudança somente de dados não for detectada, reiniciar o app no Streamlit Community Cloud.
 
 Referências operacionais:
 - https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows
@@ -133,7 +141,7 @@ python -m etl.validar
 python -m etl.validar --anos 2026
 ```
 
-O último comando exige concordância dos complementos para o ano informado. As referências numéricas de 2024 nos testes ficam em `tests/referencias.json`, separadas por definição de CID; são uma base de regressão e devem ser revistas com evidência quando a fonte histórica for retificada; não ajustar dados para satisfazer testes.
+Sem `--anos`, a validação concilia todos os anos; a opção restringe explicitamente a comparação dos complementos aos anos informados. As referências numéricas de 2024 nos testes ficam em `tests/referencias.json`, separadas por definição de CID; são uma base de regressão e devem ser revistas com evidência quando a fonte histórica for retificada; não ajustar dados para satisfazer testes.
 
 ## Escopo e regras epidemiológicas
 
@@ -147,11 +155,31 @@ Foram excluídos da distribuição caches, logs locais, respostas temporárias d
 
 ## Monitoramento estatístico
 
-A aba **Monitoramento estatístico** implementa os métodos das seções 2.6.5 e 2.7 do TCC: u/u′, EWMA, CUSUM, canal endêmico e funil municipal. Referência e avaliação são separadas; limites e parâmetros podem ser exportados. Execute `python -m experimentos.monitoramento` para reproduzir a avaliação temporal e simulada. Consulte [docs/MONITORAMENTO.md](docs/MONITORAMENTO.md) para o desenho de teste e as limitações. Os resultados foram recalculados com a série reextraída e a definição CID atual. O botão **ⓘ Como ler** abre o guia dos indicadores, filtros, limites e sinais. A escolha de região aplica o PDR 2024 juntamente com os municípios selecionados. A calibração e a avaliação epidemiológica para uso operacional permanecem necessárias.
+A aba **Monitoramento estatístico** aplica X–AM e EWMA às taxas mensais. O protocolo v3 usa uma referência fixa de 48 meses anteriores ao ano monitorado, sem escolher a extensão pelos valores-p e sem exclusão automática. Os testes são diagnósticos exploratórios: Lilliefors, Ljung–Box, Dickey–Fuller aumentado, Cox–Stuart e Fisher, acompanhados de FAC/FACP. A reprodução numérica da série de Barros (2021) verifica cálculos; não transfere automaticamente a adequação estatística ou a definição epidemiológica ao Espírito Santo.
+
+- **Ajuste pela vigilância**: primeiro mês da fase II, extensão da fase I (24, 36, 48, 64 ou outra a partir de 24 meses), horizonte de 1 a 36 meses, λ, L do EWMA, largura do X, prazo de cautela e exclusões justificadas. O fim da fase I é o mês anterior ao início da fase II. Falta de cobertura impede o cálculo, sem encurtar a janela silenciosamente.
+- **Sensibilidade**: todas as referências de 24/36/48/64 meses usam a mesma fase II e os mesmos parâmetros. Inclui limites, diagnósticos, exclusões e sinais fora do prazo de cautela. Exporta CSV e configuração completa em JSON; não escolhe um cenário pelos resultados.
+- **Granularidade territorial**: estadual, região de saúde ou município. Contagens pequenas, zeros e violações dos pressupostos recebem ressalvas. A triagem é operacional e não valida o desempenho dos alarmes.
+- **Leitura quadrimestral**: períodos parciais ou que contenham meses no prazo de cautela não recebem sinal interpretativo. O padrão de 60 dias não certifica completude, e o histórico permanece sujeito a revisões.
+- **Parâmetros e reprodução**: JSON com entradas em formato AAAA-MM, filtros, municípios, justificativas, versões e hashes; CSVs mensais/quadrimestrais; trecho TOML com todos os ajustes. Atualize as chaves existentes, sem duplicar seções. A exclusão automática, quando ativada, é exploratória.
+- **Relatórios em PDF**: monitoramento e demais abas. Os gráficos, testes e parâmetros refletem a configuração aplicada. ARL é uma referência teórica sob hipóteses, não uma avaliação prospectiva do SAD.
+
+O procedimento e as limitações estão em [docs/MONITORAMENTO.md](docs/MONITORAMENTO.md). Os resultados desta auditoria estão em `docs/auditoria/resultados_v3/`; os resultados preexistentes em `resultados_monitoramento/` foram preservados e pertencem a outro protocolo. Para reproduzir a análise atual sem extrair dados:
+
+```bash
+python -m experimentos.monitoramento --saida docs/auditoria/resultados_relatorio_x_am_ewma_final --figuras
+```
+
+## Implantação da nova versão (GitHub + Streamlit Community Cloud)
+
+1. Copie o conteúdo desta pasta para a raiz do repositório `danjaca/tcc-indicadores-es` (inclua `.github` e `.streamlit`), substituindo os arquivos antigos; não apague o histórico Git.
+2. Rode localmente `python -m pytest tests -q` e `streamlit run app.py` para conferir.
+3. Faça commit e push na branch padrão. O Streamlit Community Cloud reimplanta o app `https://daniel-breda-indicadores-es.streamlit.app/` a partir de `app.py` e `requirements.txt` (Python 3.12). Se a mudança não aparecer, use *Reboot app* no painel do Streamlit Cloud.
+4. Confira a aba **Monitoramento estatístico** e, em Actions, o workflow *Atualização mensal dos indicadores* (dia 15, 09h17 UTC), que passa a recalcular o monitoramento a cada ciclo.
 
 ## Reprodução do ciclo mensal
 
-O agendamento usa `python atualizar.py --avaliar --publicar-local`. Cada ciclo gera e valida os dados, reproduz o experimento interanual e publica os dados somente após sucesso. O workflow guarda o snapshot de entrada, evidências de aquisição, resultados, parâmetros e os arquivos necessários ao cálculo em um artifact de auditoria por execução. O commit automático contém somente `dados/`; CSVs de avaliação, caches e evidências não entram no Git.
+O agendamento usa `python atualizar.py --avaliar --publicar-local`. Cada ciclo gera e valida os dados, recalcula o monitoramento mensal e publica os dados somente após sucesso. O workflow guarda o snapshot de entrada, evidências de aquisição, resultados, parâmetros e os arquivos necessários ao cálculo em um artifact de auditoria por execução. O commit automático contém somente `dados/`; CSVs de avaliação, caches e evidências não entram no Git.
 
 A retenção do artifact é de 90 dias. Para manter a evidência durante todo o TCC e comparar revisões entre meses, arquive os artifacts antes de expirarem em um armazenamento persistente. Os commits de dados preservam as versões publicadas, mas não substituem o arquivo dos retornos originais das fontes.
 
@@ -161,4 +189,8 @@ A retenção do artifact é de 90 dias. Para manter a evidência durante todo o 
 TCC_DADOS_DIR=/caminho/do/snapshot/dados python -m experimentos.monitoramento --saida /caminho/da/reproducao
 ```
 
-O manifesto registra anos da referência, parâmetros efetivamente aplicados, períodos, semente, versões das bibliotecas e hashes das entradas e do código de cálculo. Para reproduzir um protocolo alterado, use os argumentos e a versão de código correspondentes ao manifesto. A data de geração do manifesto muda em cada execução; os CSVs devem coincidir quando entradas, protocolo e ambiente forem os mesmos.
+O manifesto registra anos da referência, parâmetros efetivamente aplicados, períodos, versões das bibliotecas e hashes das entradas e do código de cálculo. Para reproduzir um protocolo alterado, use os argumentos e a versão de código correspondentes ao manifesto. A data de geração do manifesto muda em cada execução; os CSVs devem coincidir quando entradas, protocolo e ambiente forem os mesmos.
+
+## Continuidade no Codex
+
+O prompt integral está em [docs/PROMPT_MESTRE_SAD.md](docs/PROMPT_MESTRE_SAD.md); as instruções permanentes, em [AGENTS.md](AGENTS.md). A skill pessoal `sad-tcc` retoma o protocolo a partir da pasta corrente. Consulte [docs/SETUP_CODEX.md](docs/SETUP_CODEX.md) para os caminhos, o ambiente e os limites de autorização. Nenhuma publicação ou remoção de versões foi realizada nesta auditoria.

@@ -10,6 +10,8 @@ from painel.vistas.monitoramento import mostrar_monitoramento
 from painel.vistas.mapa import mapa_html
 from painel.vistas.meios import mostrar_meios
 from painel.vistas.piramide import mostrar_piramide
+from functools import partial
+from painel.relatorio import relatorio_aba,desenho_linha,desenho_barras_comparadas,desenho_barras_h
 from dominio.dados import carregar,recortar,medidas,agrupado,INDICADORES,IDADES,meses_disponiveis,cobertura_completa,serie_historica,comparacao_mensal
 
 st.set_page_config(page_title='Observatório de mortalidade | ES',page_icon='📊',layout='wide')
@@ -29,6 +31,17 @@ CORES_SEXO = {'Masculino':'#2878B5','Feminino':'#D45479','Ignorado':'#8A9099'}
 ORDEM_SEXO = ['Masculino','Feminino','Ignorado']
 def fmt_razao(v):
     return fmt(Decimal(str(v)).quantize(Decimal('0.01'),rounding=ROUND_HALF_UP),2) if pd.notna(v) else 'Não definida'
+def tabela_pdf(df):
+    """Tabela com números no padrão brasileiro para os relatórios em PDF."""
+    t=df.copy()
+    for c in t.columns:
+        if pd.api.types.is_numeric_dtype(t[c]):
+            casas=2 if any(k in str(c) for k in ('Taxa','Razão','%')) else 0
+            t[c]=[fmt(float(v),casas) if pd.notna(v) else '—' for v in t[c]]
+    return t
+def botao_pdf(aba,blocos,arquivo):
+    """Relatório da aba gerado apenas quando o usuário clica no botão."""
+    st.download_button('Baixar relatório desta aba (PDF)',data=partial(relatorio_aba,aba,dict(contexto_pdf),list(blocos)),file_name=arquivo,mime='application/pdf',on_click='ignore',icon=':material/picture_as_pdf:',help='Resumo dos filtros, indicadores-síntese, gráficos e tabelas desta aba.')
 
 with st.sidebar:
     st.title('Observatório • ES')
@@ -43,7 +56,7 @@ with st.sidebar:
         st.form_submit_button('Atualizar',type='primary',width='stretch')
     st.caption('Escolha os filtros e clique em Atualizar para aplicá-los ao painel. Sem seleção municipal = todo o Espírito Santo.')
     st.caption('Regiões de saúde: PDR 2024, classificação fixa para comparar todos os anos.')
-    st.info(meta['nota'])
+    st.info('Resultados baseados nos registros disponíveis. Dados recentes podem apresentar atraso de investigação e consolidação; toda a série está sujeita a revisão.')
     st.caption('Numeradores conforme as fichas de qualificação do PES-ES (CID-10).' if meta.get('definicao_cid') else 'Atenção: base extraída com a definição anterior de CID; reprocessar a série.')
 cobertura=meses_disponiveis(f,ano)
 meses_quadrimestres={m for q in quadrimestres for m in range((q-1)*4+1,q*4+1)}
@@ -81,12 +94,12 @@ fonte=meta.get('populacao',{}).get(str(ano),{})
 if fonte.get('provisorio'):
     st.info(f"Denominador provisório: população de {fonte['ano_fonte']} aplicada a {ano}, mantida constante, sem projeção.")
 extracao=meta.get('extracoes',{}).get(str(ano),{})
-if extracao:
-    st.caption('Extração: '+str(extracao.get('data',''))+' · Fonte: SIM/SESA-ES · Sujeita a revisão.')
+st.caption('Fonte: SIM/SESA-ES. A cobertura informada descreve a disponibilidade dos registros e não comprova completude epidemiológica.')
 a,b,c=st.columns(3)
 a.metric('Óbitos no período',fmt(n),f'{n-na:+d} versus {ano-1}' if anterior else None,delta_color='inverse')
 b.metric('Taxa por 100 mil',fmt(taxa,2),f'{fmt(delta,1)}% sobre o ano anterior' if delta is not None else None,delta_color='inverse')
 c.metric('População anual de referência',fmt(den))
+contexto_pdf=dict(indicador=indicador,base=str(extracao.get('data','')) or None,linhas=[f'{ano} · {periodo} · '+(', '.join(municipios) if municipios else 'Espírito Santo · 78 municípios'),'Sexo: '+('Feminino' if INDICADORES[indicador]['sexo']=='Feminino' else sexo_filtro)+' · meses analisados: '+', '.join(nomes_meses_completos[m-1] for m in meses)+'.','Taxa = óbitos do período ÷ população anual elegível × 100 mil, sem anualização. Fonte: SIM/SESA-ES; populações: Ministério da Saúde. Registros sujeitos a revisão.'],destaques=[('Óbitos no período',fmt(n),f'{n-na:+d} versus {ano-1}' if anterior else ''),('Taxa por 100 mil',fmt(taxa,2),f'{fmt(delta,1)}% sobre o ano anterior' if delta is not None else ''),('População anual de referência',fmt(den),'')])
 st.caption('O denominador é anual, filtrado pelo município e pelo público do indicador. Taxas de períodos menores que um ano não são anualizadas. A variação compara os mesmos meses do ano anterior.')
 tabs=st.tabs(['Evolução temporal','Distribuição territorial','Perfil demográfico','Monitoramento estatístico','Dados e metodologia'])
 with tabs[0]:
@@ -118,6 +131,7 @@ with tabs[0]:
         nn,dd,tt=medidas(nf,np,ano,recorte)
         quad.append({'Quadrimestre':f'{q+1}º','Meses selecionados':', '.join(map(str,recorte)),'Óbitos':nn,'Taxa por 100 mil':tt,'Cobertura do recorte':'Meses disponíveis' if nn is not None else 'Indisponível ou incompleto'})
     st.dataframe(pd.DataFrame(quad),hide_index=True,width='stretch',column_config={'Taxa por 100 mil':st.column_config.NumberColumn(format='%.2f')})
+    botao_pdf('Evolução temporal',[('grafico',f'Série anual · {met} no mesmo período ({periodo})',desenho_linha(serie,'Ano',met,met),.2,'Mesmos meses em todos os anos; anos sem cobertura completa aparecem como lacunas.'),('tabela','Série anual',tabela_pdf(serie[['Ano','Óbitos','População','Taxa por 100 mil']])),('grafico',f'{ano-1} × {ano} por mês · {met}',desenho_barras_comparadas(eixo,{str(ano-1):anterior_m[met].tolist(),str(ano):atual_m[met].tolist()},met),.2),('tabela','Quadrimestres do ano selecionado',tabela_pdf(pd.DataFrame(quad)))],'evolucao_temporal.pdf')
 with tabs[1]:
     st.subheader('Onde se concentram os óbitos e as maiores taxas?')
     territorial=agrupado(nf,np,ano,meses,['cod_mun_res']).merge(g,on='cod_mun_res',how='left')
@@ -143,6 +157,7 @@ with tabs[1]:
         else: st.info('Sem óbitos no recorte: frequência relativa não definida.')
     st.caption('Óbitos da região ÷ óbitos do indicador no recorte × 100. Respeita ano, meses, municípios e sexo. A participação descreve a distribuição dos óbitos, não o risco de morrer. PDR 2024 aplicado a toda a série.')
     st.dataframe(territorial[['no_municipio','Óbitos','População','Taxa por 100 mil']].sort_values(ordem,ascending=False),hide_index=True,width='stretch',column_config={'Taxa por 100 mil':st.column_config.NumberColumn(format='%.2f')})
+    botao_pdf('Distribuição territorial',[('grafico',f'Municípios com maior valor de {ordem.lower()} (15 primeiros)',desenho_barras_h(top['no_municipio'].tolist(),top[ordem].tolist(),ordem,2 if ordem=='Taxa por 100 mil' else 0),.32),('tabela','Participação dos óbitos por região de saúde',tabela_pdf(regional)),('tabela','Municípios do recorte',tabela_pdf(territorial[['no_municipio','Óbitos','População','Taxa por 100 mil']].sort_values(ordem,ascending=False).rename(columns={'no_municipio':'Município'})))],'distribuicao_territorial.pdf')
 with tabs[2]:
     st.subheader('Como os óbitos se distribuem por idade e sexo?')
     faixa_total = ('15 a 29 anos' if INDICADORES[indicador]['sexo'] is None else 'mulheres de 10 a 59 anos') if INDICADORES[indicador]['idades'] else 'todas as idades'
@@ -153,6 +168,7 @@ with tabs[2]:
     resumo['Frequência relativa (%)']=resumo['Óbitos']/n*100 if n else float('nan')
     setores=resumo[resumo['Óbitos'].gt(0)].copy()
     resumo=pd.concat([resumo,pd.DataFrame([{'Faixa etária':f'TOTAL · {faixa_total}','Óbitos':n,'População':den,'Taxa por 100 mil':taxa,'Frequência relativa (%)':100.0 if n else float('nan')}])],ignore_index=True)
+    blocos_perfil=[('tabela','Distribuição dos óbitos por faixa etária',tabela_pdf(resumo))]
     altura_resumo=max(450,38+35*len(resumo))
     tabela_col,setores_col=st.columns([1.25,1],gap='large')
     with tabela_col:
@@ -174,6 +190,8 @@ with tabs[2]:
     dem=agrupado(ef,ep,ano,meses,['faixa_etaria','sexo'])
     metdem=st.radio('Medida demográfica',['Óbitos','Taxa por 100 mil'],horizontal=True)
     dem['Rótulo']=rotulos(dem[metdem],metdem)
+    _pv=dem.pivot_table(index='faixa_etaria',columns='sexo',values=metdem,aggfunc='sum').reindex([x for x in IDADES if x in set(dem.faixa_etaria)])
+    blocos_perfil.append(('grafico',f'{metdem} por faixa etária e sexo',desenho_barras_comparadas([str(x) for x in _pv.index],{s:_pv[s].tolist() for s in ORDEM_SEXO if s in _pv.columns},metdem),.22))
     st.plotly_chart(px.bar(dem,x='faixa_etaria',y=metdem,text='Rótulo',color='sexo',color_discrete_map=CORES_SEXO,barmode='group',category_orders={'faixa_etaria':IDADES,'sexo':ORDEM_SEXO},labels={'faixa_etaria':'Faixa etária','sexo':'Sexo'},hover_data=['Óbitos','População']).update_traces(textposition='outside',cliponaxis=False,textfont={'size':10}).update_layout(height=500),width='stretch')
     st.caption('As faixas têm amplitudes diferentes. Idade ou sexo ignorado não possui denominador correspondente e, portanto, não recebe taxa.')
     mostrar_piramide(nf,indicador,ano,meses,idades,sexo_filtro,meta['anos_disponiveis'])
@@ -199,6 +217,7 @@ with tabs[2]:
             razoes=pd.concat([razoes,pd.DataFrame([{'Faixa etária':'Total das faixas selecionadas','Masculino':total_m,'Feminino':total_f,'Razão M/F':total_m/total_f if total_f else float('nan')}])],ignore_index=True)
             razoes['Razão M/F']=razoes['Razão M/F'].apply(fmt_razao)
             st.dataframe(razoes[['Faixa etária','Masculino','Feminino','Razão M/F']],hide_index=True,width='stretch',height=38+35*len(razoes)+8,row_height=35)
+            blocos_perfil.append(('tabela','Razão entre os sexos nos óbitos',razoes[['Faixa etária','Masculino','Feminino','Razão M/F']].astype(str)))
             st.caption('Razão = óbitos masculinos ÷ óbitos femininos da mesma faixa etária. O total divide a soma dos óbitos masculinos pela soma dos femininos nas faixas selecionadas; não soma nem tira a média das razões. Com todas as faixas selecionadas, corresponde ao total do indicador no recorte. 7 = sete óbitos masculinos para cada feminino; 0,50 = um masculino para cada dois femininos. 1 indica igualdade entre contagens. Respeita ano, meses, municípios e as faixas etárias da análise. Sexo ignorado excluído. Sem óbitos femininos, inclusive 0/0, a razão não é definida. Não é uma razão de taxas ou uma comparação de risco.')
     mostrar_meios(indicador,ano,meses,codigos,sexo_filtro,n)
     st.subheader('Distribuição dos óbitos por raça/cor')
@@ -208,7 +227,7 @@ with tabs[2]:
         def carregar_raca(versao_raca):
             return pd.read_csv(arquivo_raca,dtype={'cod_mun_res':str})
         rcmeta=json.loads((DADOS/'raca_cor_meta.json').read_text())
-        st.caption('Fonte: SIM/SESA-ES · Extração de raça/cor: '+rcmeta['extraido_utc'][:10]+' · Sujeita a revisão.')
+        st.caption('Fonte: SIM/SESA-ES · Raça/cor registrada na fonte, sujeita a atrasos, investigação e revisão.')
         rc=carregar_raca(arquivo_raca.stat().st_mtime_ns)
         rc=rc[rc.indicador.eq(indicador)&rc.ano.eq(ano)&rc.mes.isin(meses)&rc.cod_mun_res.isin(codigos)]
         if sexo_filtro!='Todos': rc=rc[rc.sexo.eq(sexo_filtro)]
@@ -217,7 +236,7 @@ with tabs[2]:
         else:
             rct=rc.groupby('raca_cor',as_index=False).Obitos.sum().rename(columns={'raca_cor':'Raça/cor','Obitos':'Óbitos'})
             totalrc=int(rct['Óbitos'].sum());rct['Frequência relativa (%)']=rct['Óbitos']/totalrc*100 if totalrc else float('nan')
-            if totalrc!=n: st.warning(f'Esta extração de raça/cor soma {totalrc} óbitos; a base anterior do indicador soma {n}. Há divergência entre as bases, registrada na auditoria. As proporções abaixo usam o total desta extração.')
+            if totalrc!=n: st.warning(f'Esta extração de raça/cor soma {totalrc} óbitos; a base principal do indicador soma {n}. Há divergência entre as bases, registrada na auditoria. As proporções abaixo usam o total desta extração.')
             residual=int(rct.loc[rct['Raça/cor'].eq('Sem classificação disponível na tabulação'),'Óbitos'].sum())
             if residual: st.info(f'{residual} óbito(s) não aparecem nas sete categorias de raça/cor tabuladas pela fonte. A diferença para o total sem filtro racial é exibida separadamente, sem atribuir raça/cor.')
             figrc=px.bar(rct.sort_values('Óbitos'),y='Raça/cor',x='Óbitos',orientation='h',text='Óbitos',hover_data=['Frequência relativa (%)'],color_discrete_sequence=['#126c83']).update_layout(height=460,margin={'r':70})
@@ -225,6 +244,7 @@ with tabs[2]:
             tabela_raca,setores_raca=st.columns([1.1,1],gap='large')
             with tabela_raca:
                 st.dataframe(rct,hide_index=True,width='stretch',height=360,column_config={'Frequência relativa (%)':st.column_config.NumberColumn(format='%.1f%%')})
+                blocos_perfil.append(('tabela','Distribuição dos óbitos por raça/cor',tabela_pdf(rct)))
             with setores_raca:
                 st.markdown('**Participação por raça/cor nos óbitos**')
                 if totalrc:
@@ -239,12 +259,13 @@ with tabs[2]:
             st.caption('Raça/cor registrada no SIM/SESA-ES. Frequência relativa sobre todos os óbitos do indicador nesta extração, incluindo Não informado, Ignorado e o residual sem classificação na tabulação. O residual é calculado por diferença, não é uma categoria racial atribuída. Respeita ano, meses, municípios e sexo; mantém todas as idades elegíveis do indicador. Não se calcula taxa por raça/cor sem população correspondente.')
     else:
         st.info('Extração de raça/cor em preparação; nenhum valor ausente foi convertido em zero.')
+    botao_pdf('Perfil demográfico',blocos_perfil,'perfil_demografico.pdf')
 with tabs[-2]:
-    mostrar_monitoramento(nf,np,g,meta,ano,meses,indicador=indicador,sexo_filtro=sexo_filtro)
+    mostrar_monitoramento(f,p,g,meta,ano,indicador=indicador,sexo_filtro=sexo_filtro,municipios=municipios)
 with tabs[-1]:
     st.subheader('Definições e disponibilidade')
     st.write('Fonte dos arquivos locais: SIM/DATASUS e base populacional utilizada no ETL do TCC. Recorte por município de residência no Espírito Santo.')
-    st.warning(meta['nota'])
+    st.warning('Os resultados refletem os dados disponíveis na consulta. Registros podem ser incorporados ou retificados nas atualizações seguintes; meses indisponíveis não são zeros.')
     definicao_cid=meta.get('definicao_cid')
     if definicao_cid:
         st.markdown('**Numeradores (CID-10, causa básica):** homicídios/agressões '+definicao_cid['codigos']['Homicídio']+'; suicídio '+definicao_cid['codigos']['Suicídio']+'. Fonte: '+definicao_cid['fonte']+'.')
@@ -255,7 +276,9 @@ with tabs[-1]:
     st.markdown('Regiões: [PDR 2024 — SESA](https://saude.es.gov.br/GrupodeArquivos/plano-diretor-de-regionalizacao_pdr-es-2024). A classificação dos municípios do PDR 2024 é fixa em toda a série, para comparabilidade territorial.')
     st.write('As populações não são somadas entre meses. Os indicadores de homicídio de jovens e mulheres podem se sobrepor: não some seus totais. A disponibilidade desta cópia não comprova a completude de toda a fonte administrativa.')
     st.write('Esta versão usa arquivos locais e não executa automaticamente o ETL. Atualização do aplicativo e atualização dos dados são processos distintos.')
+    st.write('Monitoramento estatístico: taxa mensal por 100 mil, gráficos de controle X–AM e EWMA, com fase I de referência e fase II de monitoramento com início e extensão configuráveis, sem sobreposição, e leitura quadrimestral com os mesmos parâmetros. A referência (fase I) e os parâmetros ficam registrados no config.toml, para que a vigilância possa reproduzir e ajustar o protocolo.')
     st.download_button('Baixar comparação mensal (CSV)',comparativo.to_csv(index=False,sep=';',decimal=',').encode('utf-8-sig'),'comparacao_mensal.csv','text/csv')
     st.download_button('Baixar série analisada (CSV)',serie.to_csv(index=False,sep=';',decimal=',').encode('utf-8-sig'),'serie_indicador.csv','text/csv')
     st.download_button('Baixar comparação municipal (CSV)',territorial[['no_municipio','Óbitos','População','Taxa por 100 mil']].to_csv(index=False,sep=';',decimal=',').encode('utf-8-sig'),'municipios_indicador.csv','text/csv')
+    botao_pdf('Dados e metodologia',[('secao','Definições'),('texto','Numeradores (CID-10, causa básica): '+(('homicídios/agressões '+definicao_cid['codigos']['Homicídio']+'; suicídio '+definicao_cid['codigos']['Suicídio']+'. Fonte: '+definicao_cid['fonte']+'.') if definicao_cid else 'definição anterior de CID; reprocessar a série.')),('texto','Taxa = óbitos do período ÷ população anual elegível × 100.000. Cada registro da tabela fato representa município, mês, causa, faixa etária e sexo; a granularidade mensal permite compor os quadrimestres. As populações não são somadas entre meses e os indicadores de homicídio de jovens e de mulheres podem se sobrepor.'),('texto','Monitoramento estatístico: gráficos de controle X–AM e EWMA aplicados à taxa mensal, com fase I de referência e fase II de monitoramento com início e extensão configuráveis, sem sobreposição, e leitura quadrimestral com os mesmos parâmetros. A referência e os parâmetros ficam registrados no config.toml.'),('texto',str(meta['nota'])),('tabela','Série analisada (mesmos meses em todos os anos)',tabela_pdf(serie[['Ano','Óbitos','População','Taxa por 100 mil']]))],'dados_e_metodologia.pdf')
     st.caption('Protótipo acadêmico · Daniel Breda Bigossi · UFES. Os resultados descrevem os registros disponíveis e não estabelecem relações causais.')

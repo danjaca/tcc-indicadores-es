@@ -4,3 +4,27 @@ anos_reprocessamento = 2
 motor = "requests"
 intervalo_segundos = 3.0
 permitir_populacao_anterior = true
+
+# Protocolo fixado antes da análise. Não selecionar janelas pela significância.
+[monitoramento]
+protocolo = "graficos_controle_mensal_v3"
+lambda_ewma = 0.1
+largura_ewma = 2.701       # referência teórica ARL0 ≈ 370 com limites assintóticos e parâmetros conhecidos
+largura_x = 3.0
+alfa = 0.05               # diagnóstico dos pressupostos; não determina a janela
+# Convenção operacional: não certifica completude; registros antigos também podem ser revisados.
+dias_consolidacao = 60
+exclusao_automatica = false # exclusões por causa especial precisam de investigação e documentação
+max_exclusao = 0.20
+defasagens_ljung_box = [1, 12]
+meses_minimos_fase1 = 24    # usado apenas na regra exploratória legada, fora do protocolo v3
+meses_padrao_fase1 = 48    # fixa; 64 meses são avaliados na sensibilidade, sem preferência por valores-p
+meses_fase2 = 12           # fase II começa no mês imediatamente posterior à fase I
+
+# Opcional: [primeiro mês, último mês] AAAA-MM por indicador.
+# Sem registro, usam-se os 48 meses anteriores ao ano do último mês disponível.
+# Ao registrar outro período, justificar a escolha antes de examinar os sinais.
+[monitoramento.fase1]
+
+# Exclusões documentadas por causa especial, sempre dentro da fase I.
+[monitoramento.exclusoes]
