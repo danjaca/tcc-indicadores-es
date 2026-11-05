@@ -1,3 +1,5 @@
+> Histórico da auditoria anterior. A revisão atual de 5 de novembro de 2026 está em [REVISAO_FINAL_20261105.md](REVISAO_FINAL_20261105.md), com protocolo v4, ajuste por dias e verificações complementares. Os resultados e estados de publicação abaixo pertencem às etapas identificadas.
+
 # Auditoria e consolidação do SAD de mortalidade do Espírito Santo
 
 Entrega local de 30 de outubro de 2026. O código, a configuração, a interface e a redação foram alinhados ao objetivo central: desenvolver e verificar funcionalmente o SAD. Significância estatística não foi adotada como critério de sucesso. O prompt completo foi lido e arquivado em [PROMPT_MESTRE_SAD.md](PROMPT_MESTRE_SAD.md).

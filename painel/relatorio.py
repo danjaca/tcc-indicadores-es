@@ -184,6 +184,8 @@ class Documento:
         for bloco in str(texto).split('\n'):
             linhas += textwrap.wrap(bloco, largura) or ['']
         altura_linha = .0142 * tamanho / 8
+        if len(linhas) <= 15:
+            self._reservar(altura_linha * len(linhas) + .007)
         while linhas:
             self._reservar(altura_linha * min(len(linhas), 2) + .004)
             cabe = max(1, int((self._y - .05) / altura_linha))
@@ -323,7 +325,7 @@ def desenho_serie(r: mon.Resultado):
         ax.axvspan(p0, p1, color='#e2e8f0', alpha=.8, lw=0, label='Fase I (referência)')
         _consolidacao(ax, r.fase_ii, TAXA)
         ax.yaxis.set_major_formatter(_virgula(_casas(s[TAXA])))
-        ax.set_ylabel('Taxa mensal por 100 mil')
+        ax.set_ylabel('Taxa ajustada por 100 mil' if r.configuracao.get('escala_taxa') == 'ajustada_30_4375' else 'Taxa mensal por 100 mil')
         ax.xaxis.set_major_locator(mdates.YearLocator())
         ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
         _legenda(fig, [ax], rect)
@@ -349,7 +351,7 @@ def desenho_fase1_iteracao(r: mon.Resultado, k: int):
             ax1.axhline(valor, color=VERMELHO if estilo == '--' else CINZA_ESCURO, ls=estilo, lw=.8)
         ax1.set_title(f"(a) X · LIC = {fmt(lim['LIC X'], 3)}; LM = {fmt(lim['μ0'], 3)}; LSC = {fmt(lim['LSC X'], 3)}",
                       fontsize=7)
-        ax1.set_ylabel('Taxa mensal')
+        ax1.set_ylabel('Taxa mensal ajustada' if r.configuracao.get('escala_taxa') == 'ajustada_30_4375' else 'Taxa mensal')
         ax2.plot(cons['Período'], cons['AM'], 'o-', color=CINZA_ESCURO, ms=2.2, lw=.7)
         if cons['Sinal AM'].any():
             ax2.scatter(cons.loc[cons['Sinal AM'], 'Período'], cons.loc[cons['Sinal AM'], 'AM'], s=34,
@@ -429,7 +431,7 @@ def desenho_fase2(r: mon.Resultado, lam: float, largura_ewma: float):
                         label='Excluído na fase I')
         if not f2.empty:
             ax1.plot(f2['Período'], f2[TAXA], 'o-', color=AZUL, ms=2.6, lw=1, label='Fase II')
-            _sinais(ax1, f2['Período'], f2[TAXA], f2['Sinal X'])
+            _sinais(ax1, f2['Período'], f2[TAXA], f2['Sinal X'].where(~f2['Em consolidação'], ''))
             _consolidacao(ax1, f2, TAXA)
         for valor, estilo in ((p.lsc_x, '--'), (p.mu0, '-'), (p.lic_x, '--')):
             ax1.axhline(valor, color=VERMELHO if estilo == '--' else CINZA_ESCURO, ls=estilo, lw=.8)
@@ -439,7 +441,8 @@ def desenho_fase2(r: mon.Resultado, lam: float, largura_ewma: float):
         ax2.plot(f1['Período'][controle], f1['AM'][controle], 'o-', color=CINZA, ms=2, lw=.6)
         if not f2.empty:
             ax2.plot(f2['Período'], f2['AM'], 'o-', color=AZUL, ms=2.4, lw=.9)
-            _sinais(ax2, f2['Período'], f2['AM'], f2['Sinal AM'])
+            _sinais(ax2, f2['Período'], f2['AM'], f2['Sinal AM'].where(~f2['Em consolidação'], ''))
+            _consolidacao(ax2, f2, 'AM')
         ax2.axhline(p.lsc_am, color=VERMELHO, ls='--', lw=.8)
         ax2.axhline(p.am_media, color=CINZA_ESCURO, lw=.8)
         ax2.set_title(f'(b) Amplitude móvel (AM) · LM = {fmt(p.am_media, 3)}; LSC = {fmt(p.lsc_am, 3)}', fontsize=7)
@@ -449,7 +452,7 @@ def desenho_fase2(r: mon.Resultado, lam: float, largura_ewma: float):
             ax3.plot(f2['Período'], f2['EWMA'], 'o-', color=AZUL, ms=2.6, lw=1)
             ax3.plot(f2['Período'], f2['LSC EWMA'], '--', color=VERMELHO, lw=.8)
             ax3.plot(f2['Período'], f2['LIC EWMA'], '--', color=VERMELHO, lw=.8)
-            _sinais(ax3, f2['Período'], f2['EWMA'], f2['Sinal EWMA'])
+            _sinais(ax3, f2['Período'], f2['EWMA'], f2['Sinal EWMA'].where(~f2['Em consolidação'], ''))
             _consolidacao(ax3, f2, 'EWMA')
         ax3.axhline(p.mu0, color=CINZA_ESCURO, lw=.8)
         ax3.set_title(f'(c) EWMA (λ = {fmt(lam, 2)}; L = {fmt(largura_ewma, 3)})', fontsize=7)
@@ -546,9 +549,10 @@ def tabela_sinais(f2: pd.DataFrame) -> pd.DataFrame:
         'Taxa': [fmt(v, 3) for v in f2[TAXA]], 'AM': [fmt(v, 3) for v in f2['AM']],
         'EWMA': [fmt(v, 3) for v in f2['EWMA']],
         'Limites EWMA': [f'{fmt(a, 3)} – {fmt(b, 3)}' for a, b in zip(f2['LIC EWMA'], f2['LSC EWMA'])],
-        'Sinal X': f2['Sinal X'].replace('', '—').to_numpy(), 'Sinal AM': f2['Sinal AM'].replace('', '—').to_numpy(),
-        'Sinal EWMA': f2['Sinal EWMA'].replace('', '—').to_numpy(),
-        'Situação': np.where(f2['Em consolidação'], 'Em consolidação', 'Consolidado')})
+        'Sinal X': f2['Sinal X'].replace('', '—').where(~f2['Em consolidação'], 'Suspenso').to_numpy(),
+        'Sinal AM': f2['Sinal AM'].replace('', '—').where(~f2['Em consolidação'], 'Suspenso').to_numpy(),
+        'Sinal EWMA': f2['Sinal EWMA'].replace('', '—').where(~f2['Em consolidação'], 'Suspenso').to_numpy(),
+        'Situação': np.where(f2['Em consolidação'], 'Em consolidação', 'Fora da cautela')})
 
 
 def tabela_quadrimestral(q: pd.DataFrame) -> pd.DataFrame:
@@ -558,7 +562,8 @@ def tabela_quadrimestral(q: pd.DataFrame) -> pd.DataFrame:
         'Taxa': [fmt(v, 2) for v in q[TAXA]], 'Esperado': [fmt(v, 2) for v in q['Esperado (m·μ0)']],
         'Limites': [f'{fmt(a, 2)} – {fmt(b, 2)}' for a, b in zip(q['LIC'], q['LSC'])],
         'Obs./esp.': [fmt(v, 2) for v in q['Razão observado/esperado']],
-        'Sinal': q['Sinal'].fillna('').replace('', '—').to_numpy(),
+        'Sinal': q['Sinal'].fillna('').replace('', '—').where(
+            q['Completo'] & q['Meses em consolidação'].eq(0), 'Suspenso').to_numpy(),
         'Situação': [('Completo' if c else 'Parcial') + (f'; {m} mês(es) em consolidação' if m else '')
                      for c, m in zip(q['Completo'], q['Meses em consolidação'])]})
 
@@ -575,13 +580,14 @@ def relatorio_monitoramento(r: mon.Resultado, contexto: dict, proto: dict, arl: 
                     f"{contexto['indicador']} · {contexto['territorio']}", _rodape(contexto.get('base')),
                     guardar_paginas)
     p, f2 = r.params, r.fase_ii
+    ajustada = r.configuracao.get('escala_taxa') == 'ajustada_30_4375'
     consolidados = f2[~f2['Em consolidação']] if not f2.empty else f2
     inicio_f2 = mon.rotulo_mes(f2['Período'].min()) if not f2.empty else '—'
     fim_f2 = mon.rotulo_mes(f2['Período'].max()) if not f2.empty else '—'
     destaques = []
     if not consolidados.empty:
         u = consolidados.iloc[-1]
-        destaques = [('Último mês consolidado', mon.rotulo_mes(u['Período']), f"{fmt(u['Óbitos'], 0)} óbitos"),
+        destaques = [('Último mês fora da cautela', mon.rotulo_mes(u['Período']), f"{fmt(u['Óbitos'], 0)} óbitos"),
                      ('Taxa no mês (por 100 mil)', fmt(u[TAXA], 3),
                       f"{fmt((u[TAXA] / p.mu0 - 1) * 100, 1)}% em relação a μ0"),
                      ('Gráfico X no mês', u['Sinal X'] or 'Sem sinal', f'limites {fmt(p.lic_x, 3)} – {fmt(p.lsc_x, 3)}'),
@@ -596,11 +602,16 @@ def relatorio_monitoramento(r: mon.Resultado, contexto: dict, proto: dict, arl: 
         f"Configuração: {proto['modo']} · λ = {fmt(proto['lam'], 2)}; L do EWMA = {fmt(proto['le'], 3)}; "
         f"L do gráfico X = {fmt(proto['lx'], 1)}; consolidação = {proto['dias']} dias; exclusão automática: "
         f"{'sim' if proto['automatico'] else 'não'}.",
-    ], destaques)
+    ] + (['Escala dos gráficos mensais: taxa oficial × 30,4375/dias do mês. Leitura quadrimestral na escala oficial.']
+         if ajustada else []), destaques)
     doc.paragrafo(f'Aplicabilidade ao recorte: {situacao[0]}. {situacao[1]}')
+    temporal = r.pressupostos['Teste'].str.startswith(('Cox', 'Ljung')) & r.pressupostos['Valor-p'].lt(r.configuracao['alfa'])
+    if temporal.any():
+        doc.paragrafo('Os diagnósticos indicam tendência ou dependência temporal na referência. Os limites descrevem '
+                      'o histórico; sinais não distinguem continuidade da trajetória de mudança adicional.', tamanho=7.2)
     if not p.estavel:
         doc.paragrafo('Há sinais X/AM na fase I. Os limites são exploratórios e exigem investigação da estabilidade da referência.')
-    doc.grafico(desenho_fase2(r, proto['lam'], proto['le']), .4,
+    doc.grafico(desenho_fase2(r, proto['lam'], proto['le']), .34 if ajustada else .36,
                 'Resumo · gráficos X, AM e EWMA (fase I sombreada)')
     doc.quebra()
     doc.grafico(desenho_serie(r), .17, 'Série mensal da taxa por 100 mil (sem anualização)')
@@ -612,10 +623,12 @@ def relatorio_monitoramento(r: mon.Resultado, contexto: dict, proto: dict, arl: 
         doc.tabela(tabela_quadrimestral(q[q['Ano'] == q['Ano'].max()]), 'Leitura quadrimestral do ano monitorado',
                    larguras=[.05, .12, .14, .08, .07, .08, .12, .08, .08, .18],
                    nota='A taxa do quadrimestre é a soma das taxas mensais; limites m·μ0 ± L·√m·σ0. '
-                        'Quadrimestres com meses em consolidação são provisórios.')
+                        'Sinalização suspensa em períodos parciais ou com meses em consolidação, mesmo fora dos limites. '
+                        'No acumulado parcial, m é o número de meses disponíveis.')
     doc.paragrafo('Sinais estatísticos indicam afastamento do comportamento esperado e orientam a investigação '
                   '(qualidade do registro, revisões da base e contexto territorial); não estabelecem causas. '
-                  'Meses no prazo de cautela são provisórios. Ultrapassar o prazo não comprova completude; registros antigos também podem ser revistos.',
+                  'Meses no prazo de cautela aparecem de forma neutra, com sinais suspensos. Ultrapassar o prazo não comprova completude; '
+                  'a investigação e a classificação da causa básica podem levar a revisões posteriores.',
                   tamanho=7, cor=CINZA_ESCURO, italico=True)
 
     doc.quebra()
@@ -655,13 +668,17 @@ def relatorio_monitoramento(r: mon.Resultado, contexto: dict, proto: dict, arl: 
 
     doc.secao('Fase II · monitoramento mensal', minimo=.62)
     doc.grafico(desenho_fase2(r, proto['lam'], proto['le']), .5, 'Gráficos X, AM e EWMA (fase I sombreada)',
-                nota='Triângulos: sinais de aumento (vermelho) ou de redução (azul); círculos roxos: meses em '
-                     'consolidação; X laranja: meses excluídos na fase I.')
+                nota='Triângulos: sinais de aumento (vermelho) ou de redução (azul) somente fora da cautela; círculos roxos: '
+                     'meses em consolidação, com sinalização suspensa; X laranja: meses excluídos na fase I.')
     if not f2.empty:
         doc.tabela(tabela_sinais(f2), 'Sinais e limites por mês',
                    larguras=[.08, .06, .07, .07, .07, .13, .1, .1, .1, .13])
     if not q.empty:
         doc.secao('Leitura quadrimestral')
+        if ajustada:
+            po = r.configuracao['parametros_quadrimestrais_oficiais']
+            doc.paragrafo(f'Escala oficial, com parâmetros próprios: μ0 = {fmt(po["mu0"], 4)} e '
+                          f'σ0 = {fmt(po["sigma0"], 4)}. Não são os parâmetros dos gráficos mensais ajustados por dias.')
         doc.grafico(desenho_quadrimestral(q), .17, 'Quadrimestres isolados: observado, esperado e limites')
         doc.tabela(tabela_quadrimestral(q), 'Quadrimestres isolados e acumulados no ano',
                    larguras=[.05, .12, .14, .08, .07, .08, .12, .08, .08, .18])
@@ -674,7 +691,8 @@ def relatorio_monitoramento(r: mon.Resultado, contexto: dict, proto: dict, arl: 
         ('Gráfico AM: LM e LSC', f"{fmt(d['am_media'], 4)} e {fmt(d['lsc_am'], 4)}"),
         ('EWMA', f"λ = {fmt(proto['lam'], 2)}; L = {fmt(proto['le'], 3)}"),
         ('Meses excluídos', ', '.join(list(d['excluidos']) + list(d['manuais'])) or 'Nenhum'),
-        ('Iterações e estabilidade', f"{d['iteracoes']} · {'estável' if d['estavel'] else 'instável'}"),
+        ('Iterações e sinais X/AM', f"{d['iteracoes']} · {'sem sinais X/AM' if d['estavel'] else 'com sinais X/AM'}"),
+        ('Escala da taxa mensal', 'Ajustada para 30,4375 dias' if ajustada else 'Oficial, sem anualização'),
         ('Configuração', proto['modo'])], columns=['Parâmetro', 'Valor'])
     doc.tabela(parametros, 'Parâmetros estimados na referência', larguras=[.38, .62])
     doc.tabela(pd.DataFrame({'Deslocamento (σ0)': [fmt(v, 1) for v in arl.iloc[:, 0]],
@@ -682,12 +700,84 @@ def relatorio_monitoramento(r: mon.Resultado, contexto: dict, proto: dict, arl: 
                              'Leitura quadrimestral': [fmt(v, 1) for v in arl.iloc[:, 2]],
                              'EWMA': [fmt(v, 1) for v in arl.iloc[:, 3]]}),
                'ARL teórico com parâmetros conhecidos e EWMA assintótico (meses)')
-    doc.paragrafo('Não rejeitar H₀ não demonstra equivalência ou ausência de alteração. Os testes de pressupostos são exploratórios, sem correção de multiplicidade. O ARL teórico pressupõe normalidade, independência e parâmetros conhecidos; o EWMA aplicado usa limites de partida. A configuração completa está no JSON exportado pelo painel.')
+    doc.paragrafo('Não rejeitar H₀ não demonstra equivalência ou ausência de alteração. Os testes são exploratórios, sem correção de multiplicidade. '
+                  'Cox–Stuart usa o teste binomial bilateral exato; janelas curtas podem não detectar violações moderadas. '
+                  'Tendência pode contribuir para a autocorrelação e a baixa frequência do periodograma. '
+                  'O ARL teórico pressupõe normalidade, independência e parâmetros conhecidos; o EWMA aplicado usa limites de partida. '
+                  'Estimação, tendência e dependência podem alterar o desempenho efetivo dos nove gráficos nos três indicadores. '
+                  f'A probabilidade marginal nominal de ultrapassagem de AM é {fmt(mon.probabilidade_sinal_am() * 100, 2)}% por ponto; '
+                  'ela não é seu ARL, pois amplitudes consecutivas são dependentes.')
     doc.paragrafo('Para reproduzir este recorte, use o JSON exportado pelo painel: selecione os municípios e o sexo '
                   'registrados e aplique as entradas de cálculo à mesma base identificada por hash. O comando '
                   'python -m experimentos.monitoramento --figuras reproduz a avaliação estadual dos três indicadores '
                   'com todos os sexos elegíveis e os parâmetros do config.toml. A metodologia está descrita no documento '
                   'docs/MONITORAMENTO.md.', tamanho=7.2)
+    doc.secao('Diagnósticos complementares', minimo=.45)
+    x = r.referencia[TAXA].to_numpy(dtype=float)
+    try:
+        estat, lag, valor_p = mon.kpss(x, tendencia=True)
+        p_texto = '≤ 0,01' if valor_p <= .01 else '≥ 0,10' if valor_p >= .10 else fmt(valor_p, 4)
+        doc.paragrafo(f'KPSS com constante e tendência: estatística = {fmt(estat, 4)}; {lag} defasagens; valor-p {p_texto}. '
+                      'H₀: estacionariedade em torno de tendência determinística. A especificação é compatível com o ADF '
+                      'e não demonstra média constante. O valor-p é interpolado e limitado à tabela entre 0,01 e 0,10.')
+        residuos = mon.avaliar_residuos_tendencia(x, r.configuracao['alfa'],
+                                                tuple(r.configuracao['defasagens_ljung_box']))
+        doc.tabela(pd.DataFrame({'Teste': residuos['Teste'], 'Estatística': [fmt(v, 4) for v in residuos['Estatística']],
+                                 'Valor-p': [fmt(v, 4) for v in residuos['Valor-p']], 'Decisão': residuos['Decisão']}),
+                   'Diagnósticos após retirada de tendência linear', larguras=[.42, .18, .16, .24],
+                   nota='Ajuste OLS e diagnóstico usam a mesma amostra; valores-p aproximados, sem correção de multiplicidade. '
+                        'Estes resultados não validam um modelo e não substituem os limites principais.')
+    except ValueError as erro:
+        doc.paragrafo(f'Diagnósticos complementares indisponíveis: {erro}')
+    try:
+        poisson = mon.comparar_poisson(r.referencia)
+        doc.tabela(pd.DataFrame({'Medida': list(poisson), 'Valor': [fmt(v, 4) for v in poisson.values()]}),
+                   'Dispersão das taxas e referência Poisson', larguras=[.5, .5],
+                   nota='Comparação de taxa constante com exposição populacional de cada mês. Não comprova Poisson ou '
+                        'sobredispersão e não corrige tendência, dependência ou número de dias.')
+    except ValueError as erro:
+        doc.paragrafo(f'Comparação Poisson indisponível: {erro}')
+    calendario = mon.sensibilidade_calendario(r.serie, r.fase_i['Período'].min(), r.fase_i['Período'].max(),
+                                              proto.get('fim2', f2['Período'].max() if not f2.empty else None),
+                                              lam=proto['lam'], largura_ewma=proto['le'], largura=proto['lx'],
+                                              excluir=r.fase_i.loc[r.fase_i['Situação fase I'].eq('Excluído pela vigilância'), 'Período'].tolist(),
+                                              data_base=r.configuracao['data_base'], dias_consolidacao=proto['dias'],
+                                              metodo_cox=r.configuracao['metodo_cox'],
+                                              alfa=r.configuracao['alfa'],
+                                              max_exclusao=r.configuracao['max_exclusao'],
+                                              defasagens_lb=tuple(r.configuracao['defasagens_ljung_box']))
+    doc.tabela(calendario[['Série', 'μ0', 'σ0', 'Sinais X', 'Sinais AM', 'Sinais EWMA']].map(
+        lambda v: fmt(v, 4) if isinstance(v, (float, np.floating)) else v),
+        'Sensibilidade ao número de dias do mês', larguras=[.3, .14, .14, .14, .14, .14],
+        nota='Taxa ajustada = taxa oficial × 30,4375/dias do mês. Mesmas fases e parâmetros; exclusão automática desativada '
+             'em ambos os cenários; sinais apenas fora da cautela. Não altera taxas oficiais, gráficos principais ou quadrimestres.')
+    if contexto.get('diagnostico_causas'):
+        qualidade = pd.DataFrame(contexto['diagnostico_causas'])
+        ano_qualidade = int(qualidade['Ano'].max())
+        doc.secao('Qualidade dos registros: causas inespecíficas')
+        doc.paragrafo('Contagens estaduais nas mesmas idades e sexo do indicador, sem restringir a causa ao seu numerador. '
+                      'Y22–Y24 é subconjunto de Y10–Y34 e já integra homicídios. R99 não identifica por si só uma causa externa. '
+                      'Variações agregadas orientam a investigação; não comprovam reclassificação, atraso ou completude.')
+        doc.tabela(qualidade[qualidade['Ano'].eq(ano_qualidade)].assign(Ano=str(ano_qualidade)),
+                   f'Contagens mensais de {ano_qualidade}',
+                   nota='Consulta complementar independente da extração principal. As contagens auxiliares não são somadas aos indicadores. '
+                        'O CSV do painel inclui os demais anos disponíveis para comparação entre os mesmos meses.')
+    historico = contexto.get('historico_sessao', [])
+    if historico:
+        doc.secao('Histórico das configurações nesta sessão')
+        doc.paragrafo('Este registro inclui as configurações calculadas nesta sessão, sem selecionar apenas as que sinalizam. '
+                      'A sessão é temporária e não constitui um registro permanente das análises de todos os usuários. '
+                      'O JSON exportado contém as entradas completas e os hashes de dados e código de cada registro.')
+        linhas = []
+        for item in historico:
+            cfg = item['configuracao']
+            entrada = cfg['entrada']
+            linhas.append({'Nº': item['execucao'], 'Instante UTC': item['instante_utc'][:19].replace('T', ' '),
+                           'Indicador / território': f"{cfg['indicador']} / {cfg['territorio']}",
+                           'Fase I': f"{entrada['inicio_fase1']} a {entrada['fim_fase1']}",
+                           'λ / L EWMA': f"{fmt(entrada['lam'], 2)} / {fmt(entrada['largura_ewma'], 3)}",
+                           'Análise': cfg['tipo']})
+        doc.tabela(pd.DataFrame(linhas), 'Configurações calculadas na sessão', larguras=[.05, .16, .27, .19, .1, .23])
     pdf = doc.finalizar()
     return (pdf, doc.paginas) if guardar_paginas else pdf
 

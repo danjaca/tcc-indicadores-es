@@ -136,7 +136,19 @@ with tabs[1]:
     st.subheader('Onde se concentram os óbitos e as maiores taxas?')
     territorial=agrupado(nf,np,ano,meses,['cod_mun_res']).merge(g,on='cod_mun_res',how='left')
     ordem=st.radio('Ordenar municípios por',['Óbitos','Taxa por 100 mil'],horizontal=True)
-    top=territorial.sort_values(ordem,ascending=False).head(15).sort_values(ordem)
+    minimo_ranking=0
+    if ordem=='Taxa por 100 mil':
+        minimo_ranking=st.number_input('Mínimo de óbitos no ranking por taxa',min_value=0,value=5,step=1,key='ranking_minimo',
+                                       help='Filtro descritivo para reduzir a presença de taxas extremas baseadas em poucos eventos. Não valida diferenças entre municípios.')
+    ranking=territorial[territorial['Óbitos'].ge(minimo_ranking)]
+    top=ranking.sort_values(ordem,ascending=False).head(15).sort_values(ordem)
+    nota_ranking=(f'Ranking por taxa restrito a municípios com pelo menos {minimo_ranking} óbitos no recorte. '
+                  'O corte é descritivo e configurável; não assegura precisão nem identifica áreas de risco. '
+                  'Mapa e tabela completa mantêm todos os municípios. Poucos eventos podem gerar taxas extremas em populações pequenas.'
+                  if ordem=='Taxa por 100 mil' else 'Ranking por número de óbitos; as taxas e populações acompanham os valores.')
+    st.caption(nota_ranking)
+    if top.empty:
+        st.info('Nenhum município atende ao mínimo de óbitos selecionado para o ranking. A tabela completa permanece disponível.')
     top['Rótulo']=rotulos(top[ordem],ordem)
     st.plotly_chart(px.bar(top,x=ordem,y='no_municipio',orientation='h',text='Rótulo',hover_data=['Óbitos','População','Taxa por 100 mil'],labels={'no_municipio':'Município'},color_discrete_sequence=['#126c83']).update_traces(textposition='outside',cliponaxis=False).update_layout(margin={'r':90}),width='stretch')
     st.subheader('Mapa municipal do Espírito Santo')
@@ -157,7 +169,7 @@ with tabs[1]:
         else: st.info('Sem óbitos no recorte: frequência relativa não definida.')
     st.caption('Óbitos da região ÷ óbitos do indicador no recorte × 100. Respeita ano, meses, municípios e sexo. A participação descreve a distribuição dos óbitos, não o risco de morrer. PDR 2024 aplicado a toda a série.')
     st.dataframe(territorial[['no_municipio','Óbitos','População','Taxa por 100 mil']].sort_values(ordem,ascending=False),hide_index=True,width='stretch',column_config={'Taxa por 100 mil':st.column_config.NumberColumn(format='%.2f')})
-    botao_pdf('Distribuição territorial',[('grafico',f'Municípios com maior valor de {ordem.lower()} (15 primeiros)',desenho_barras_h(top['no_municipio'].tolist(),top[ordem].tolist(),ordem,2 if ordem=='Taxa por 100 mil' else 0),.32),('tabela','Participação dos óbitos por região de saúde',tabela_pdf(regional)),('tabela','Municípios do recorte',tabela_pdf(territorial[['no_municipio','Óbitos','População','Taxa por 100 mil']].sort_values(ordem,ascending=False).rename(columns={'no_municipio':'Município'})))],'distribuicao_territorial.pdf')
+    botao_pdf('Distribuição territorial',[('grafico',f'Municípios com maior valor de {ordem.lower()} (até 15 primeiros)',desenho_barras_h(top['no_municipio'].tolist(),top[ordem].tolist(),ordem,2 if ordem=='Taxa por 100 mil' else 0),.32,nota_ranking),('tabela','Participação dos óbitos por região de saúde',tabela_pdf(regional)),('tabela','Municípios do recorte',tabela_pdf(territorial[['no_municipio','Óbitos','População','Taxa por 100 mil']].sort_values(ordem,ascending=False).rename(columns={'no_municipio':'Município'})))],'distribuicao_territorial.pdf')
 with tabs[2]:
     st.subheader('Como os óbitos se distribuem por idade e sexo?')
     faixa_total = ('15 a 29 anos' if INDICADORES[indicador]['sexo'] is None else 'mulheres de 10 a 59 anos') if INDICADORES[indicador]['idades'] else 'todas as idades'

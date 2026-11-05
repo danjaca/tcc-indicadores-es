@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+import hashlib
 from zipfile import ZipFile
 import pandas as pd
 
@@ -68,3 +69,23 @@ def comparacao_mensal(f,p,ano,meses):
             n,d,t=medidas(f,p,y,[mes])
             linhas.append({'Ano':y,'Mês':mes,'Óbitos':n,'População':d,'Taxa por 100 mil':t})
     return pd.DataFrame(linhas)
+
+
+def diagnostico_causas(indicador: str) -> tuple[pd.DataFrame, str]:
+    """Contagens auxiliares estaduais; indisponibilidade nunca vira zero."""
+    arquivo, metadados = DADOS / 'diagnostico_causas.csv', DADOS / 'diagnostico_causas_meta.json'
+    meta = json.loads(metadados.read_text(encoding='utf-8'))
+    if meta.get('status') != 'disponivel':
+        raise ValueError('A consulta de causas inespecíficas está indisponível ou precisa de atualização.')
+    if (hashlib.sha256(arquivo.read_bytes()).hexdigest() != meta.get('sha256_csv') or
+            hashlib.sha256((DADOS / 'dataset.zip').read_bytes()).hexdigest() != meta.get('sha256_dataset_principal')):
+        raise ValueError('O diagnóstico não corresponde à versão da base em uso.')
+    dados = pd.read_csv(arquivo)
+    dados = dados[dados['Recorte'].eq(indicador)].copy()
+    if dados.empty or not dados.groupby(['Ano', 'Mês'])['CID'].nunique().eq(26).all():
+        raise ValueError('Cobertura incompleta dos códigos diagnósticos neste recorte.')
+    tabela = dados[['Ano', 'Mês']].drop_duplicates().sort_values(['Ano', 'Mês']).set_index(['Ano', 'Mês'])
+    for nome, codigos in [('Y10–Y34', [f'Y{i}' for i in range(10, 35)]),
+                          ('Y22–Y24 (subconjunto)', ['Y22', 'Y23', 'Y24']), ('R99', ['R99'])]:
+        tabela[nome] = dados.loc[dados['CID'].isin(codigos)].groupby(['Ano', 'Mês'])['Óbitos'].sum()
+    return tabela.reset_index(), meta.get('nota', '')

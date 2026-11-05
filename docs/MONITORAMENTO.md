@@ -1,6 +1,6 @@
 # Monitoramento estatístico mensal dos indicadores
 
-O protocolo `graficos_controle_mensal_v3` implementa X–AM e EWMA sobre taxas mensais de mortalidade. A contribuição central do TCC é o SAD e sua validação funcional. Sinais e valores-p são resultados da aplicação, não critérios de sucesso do sistema.
+O protocolo `graficos_controle_mensal_v4` implementa X–AM e EWMA sobre taxas mensais de mortalidade. A contribuição central do TCC é o SAD e sua validação funcional. Sinais e valores-p são resultados da aplicação, não critérios de sucesso do sistema.
 
 ## Referência metodológica e alcance da validação
 
@@ -32,7 +32,7 @@ O nível estadual é a aplicação principal. As categorias de aplicabilidade te
 
 Os parâmetros vêm de `[monitoramento]` em `config.toml`. Sem referência explícita em `[monitoramento.fase1]`, a fase I fixa termina em dezembro do ano anterior ao último ano disponível. A falta de cobertura interrompe o cálculo, sem reduzir silenciosamente a janela. A interface permite ajustar o início mensal da fase II e a referência precedente; a configuração escolhida deve ser documentada antes de interpretar sinais.
 
-A atualização não troca automaticamente a referência em função de valores-p. Alterações permanentes precisam ser justificadas e registradas no protocolo. `sugerir_fase1` é mantida somente por compatibilidade com a avaliação exploratória legada; seus resultados não definem o protocolo v3.
+A atualização não troca automaticamente a referência em função de valores-p. Alterações permanentes precisam ser justificadas e registradas no protocolo. `sugerir_fase1` é mantida somente por compatibilidade com a avaliação exploratória legada; seus resultados não definem o protocolo atual.
 
 ## Fase I e pressupostos
 
@@ -43,7 +43,7 @@ Os diagnósticos usam a série completa da referência, antes das exclusões:
 - Lilliefors: hipótese de distribuição normal; não rejeitar não prova normalidade.
 - Ljung–Box: autocorrelações nulas até as defasagens avaliadas; não rejeitar não prova independência.
 - Dickey–Fuller aumentado: raiz unitária no modelo com constante e tendência; rejeição não comprova média constante nem ausência de tendência determinística.
-- Cox–Stuart: tendência, comparando primeiro e último terço; aproximação normal, conforme a reprodução de Barros.
+- Cox–Stuart: tendência, comparando primeiro e último terço; teste binomial bilateral exato sobre pares não empatados. A aproximação normal é usada explicitamente apenas na reprodução numérica de Barros.
 - Fisher: componente periódico dominante no periodograma sob ruído branco; não é um teste exclusivo de sazonalidade anual. Dependência e tendência limitam sua interpretação.
 - FAC/FACP e Q-Q: diagnósticos visuais complementares.
 
@@ -63,7 +63,7 @@ Os parâmetros ficam congelados. A fase II começa no mês imediatamente posteri
 | AM | `abs(x_t − x_(t−1))` | zero e `3,267·AM̄` |
 | EWMA | `z_t = λ·x_t + (1−λ)·z_(t−1)`, com `z_0 = μ0` | `μ0 ± L·σ0·sqrt(λ/(2−λ)·[1−(1−λ)^(2t)])` |
 
-A primeira amplitude usa o último mês da fase I somente se os meses forem adjacentes. Uma lacuna na fase II interrompe a amplitude e reinicia o EWMA em μ0; meses ausentes continuam ausentes. Meses recentes recebem marca de consolidação e ficam fora das contagens resumidas de sinais interpretáveis. Seus sinais brutos podem aparecer para transparência; não devem ser interpretados como mudança confirmada. Sem data da base, o prazo não pode ser verificado: a ausência de marca não certifica consolidação, e o uso operacional exige conferir os metadados.
+A primeira amplitude usa o último mês da fase I somente se os meses forem adjacentes. Uma lacuna na fase II interrompe a amplitude e reinicia o EWMA em μ0; meses ausentes continuam ausentes. Meses recentes recebem marca de consolidação e ficam fora das contagens resumidas de sinais interpretáveis. Os sinais brutos são preservados nos CSV técnicos; gráficos e tabelas da interface/PDF exibem os meses de forma neutra, com sinalização suspensa. Sem data da base, o prazo não pode ser verificado: a ausência de marca não certifica consolidação, e o uso operacional exige conferir os metadados.
 
 Um sinal orienta investigação da qualidade dos registros e do contexto. Não identifica causas, não mede efeito causal de políticas e não autoriza afirmar ausência de problema quando nenhum gráfico sinaliza.
 
@@ -101,6 +101,26 @@ O resumo do relatório PDF apresenta os gráficos X, AM e EWMA com a referência
 
 A atualização automatizada executa a análise sobre um lote isolado antes da publicação local. Falhas estatísticas ou de integridade não autorizam alterar os dados para satisfazer testes. A reextração e a publicação externa não fazem parte da verificação local do cálculo.
 
-### Aproximação de Cox–Stuart em janelas curtas
+### Cox–Stuart exato e complementos exploratórios
 
-A implementação preserva a aproximação normal sem correção de continuidade da rotina reproduzida de Barros e compara primeiro e último terço. Em 24 meses existem no máximo oito pares não empatados; a aproximação pode ser imprecisa. Por exemplo, um ou sete pares crescentes entre oito produzem p aproximado de 0,0339, enquanto a cauda binomial bilateral exata é 0,0703125. Essa diferença pode mudar a decisão nominal a 5%. Não se recalibraram janelas ou resultados para obter uma decisão; a análise mantém o método explicitado e reconhece sua limitação. Uma validação inferencial futura deve predefinir a alternativa exata ou justificar a aproximação antes de interpretar os testes.
+O protocolo v4 usa `metodo_cox = "exato"`. A distribuição binomial bilateral evita a aproximação normal em poucos pares; não corrige dependência entre sinais nem assegura poder para detectar violações moderadas. A versão normal permanece identificada na replicação de Barros, preservando a comparação com os números publicados. Os seis diagnósticos principais não receberam ajuste de multiplicidade: não rejeitar suas hipóteses não demonstra validade da referência. Tendência pode contribuir para Ljung–Box e para componentes de baixa frequência no periodograma.
+
+Os complementos separados incluem KPSS com constante e tendência, Bartlett e defasagem curta, e diagnósticos nos resíduos de tendência linear OLS na mesma amostra. Valores-p do KPSS são tabelados/interpolados e censurados em 0,01 e 0,10; valores-p dos resíduos são aproximados, exploratórios e sem correção de multiplicidade. Não recalibram os gráficos principais. A comparação da dispersão com Poisson considera a exposição populacional de cada mês, sem constituir teste formal de sobredispersão.
+
+### Escala ajustada pelo número de dias
+
+A opção `Ajustar monitoramento pelo número de dias do mês` aplica `taxa oficial × 30,4375 / dias do mês` à referência e à fase II, incluindo fevereiro bissexto. `ajustar_calendario` retorna cópia e preserva `Taxa oficial por 100 mil`, óbitos e população; é idempotente. Os gráficos mensais e seus limites são recalculados na escala identificada. A leitura quadrimestral permanece oficial e conserva seus próprios parâmetros, registrados no JSON/PDF.
+
+Para reproduzir a opção ativa: calcular `r_oficial = analisar(serie_original, **entrada)`; calcular `r = analisar(ajustar_calendario(serie_original), **entrada)`; usar `r.quadrimestral = r_oficial.quadrimestral` e registrar os parâmetros oficiais. O manifesto identifica a transformação e as duas escalas. A sensibilidade de calendário compara as duas escalas com fases/parâmetros iguais e exclusão automática desligada em ambas; não substitui o indicador do PES nem escolhe a escala pelos sinais.
+
+### Frequência nominal e histórico das escolhas
+
+A probabilidade marginal nominal do AM é cerca de 0,9166% por ponto sob normais independentes e desvio conhecido; amplitudes consecutivas são dependentes, e seu inverso não é ARL. A estimação dos parâmetros, a dependência temporal e o uso dos nove gráficos nos três indicadores afastam o desempenho efetivo da referência nominal próxima de 370 do X isolado e do EWMA assintótico. Não há ARL conjunta validada.
+
+O JSON/PDF inclui a sequência das configurações calculadas na sessão, com entradas completas, hashes e instante UTC. Reruns consecutivos idênticos não duplicam a entrada. O registro é temporário no Streamlit Cloud e deve ser exportado; não garante capturar análises de outras sessões ou todos os usuários.
+
+### Qualidade das causas e versões dos dados
+
+`python -m etl.diagnostico_causas --anos 2022 2023 2024 2025 2026 --saida dados --evidencias var/etl/qualidade_causas` consulta Y10–Y34 e R99 em três recortes estaduais. O painel só apresenta o complemento quando os hashes correspondem à base atual e o estado é disponível. Os recortes populacionais não são novos indicadores; Y22–Y24 já integra homicídios e não deve ser somado novamente. R99 não identifica por si só uma causa externa. Variações agregadas não demonstram reclassificação individual ou sua contribuição às taxas.
+
+A rotina mensal atualiza os anos reprocessados e preserva os demais com proveniência por ano. Falha auxiliar não invalida a base principal já validada: preserva o CSV anterior e marca indisponibilidade/obsolescência. `etl.revisoes` cataloga snapshots e separa diferenças de cobertura, numerador e população. Lotes, cópias anteriores e artefatos remotos são preservados; a retenção remota é limitada e uma única versão não permite estimar completude.

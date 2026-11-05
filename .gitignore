@@ -15,5 +15,6 @@ envio/
 # Acervo acadêmico e evidências locais, preservados fora da implantação.
 /*.docx
 /docs/*.docx
+/docs/*.pdf
 /docs/auditoria/
 /resultados_monitoramento/

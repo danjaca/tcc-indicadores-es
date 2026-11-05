@@ -1,0 +1,8063 @@
+{
+  "status": "disponivel",
+  "fonte": "http://tabnet.saude.es.gov.br/cgi/deftohtm.exe?tabnet/SIM/SIM2006/sim2006.def",
+  "anos": [
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "consultado_utc": "2026-11-05T04:04:20.553049+00:00",
+  "escala": "Espírito Santo, município de residência; agregação estadual",
+  "codigos": [
+    "Y10",
+    "Y11",
+    "Y12",
+    "Y13",
+    "Y14",
+    "Y15",
+    "Y16",
+    "Y17",
+    "Y18",
+    "Y19",
+    "Y20",
+    "Y21",
+    "Y22",
+    "Y23",
+    "Y24",
+    "Y25",
+    "Y26",
+    "Y27",
+    "Y28",
+    "Y29",
+    "Y30",
+    "Y31",
+    "Y32",
+    "Y33",
+    "Y34",
+    "R99"
+  ],
+  "grupos": {
+    "Y10–Y34": [
+      "Y10",
+      "Y11",
+      "Y12",
+      "Y13",
+      "Y14",
+      "Y15",
+      "Y16",
+      "Y17",
+      "Y18",
+      "Y19",
+      "Y20",
+      "Y21",
+      "Y22",
+      "Y23",
+      "Y24",
+      "Y25",
+      "Y26",
+      "Y27",
+      "Y28",
+      "Y29",
+      "Y30",
+      "Y31",
+      "Y32",
+      "Y33",
+      "Y34"
+    ],
+    "Y10–Y21 e Y25–Y34": [
+      "Y10",
+      "Y11",
+      "Y12",
+      "Y13",
+      "Y14",
+      "Y15",
+      "Y16",
+      "Y17",
+      "Y18",
+      "Y19",
+      "Y20",
+      "Y21",
+      "Y25",
+      "Y26",
+      "Y27",
+      "Y28",
+      "Y29",
+      "Y30",
+      "Y31",
+      "Y32",
+      "Y33",
+      "Y34"
+    ],
+    "Y22–Y24": [
+      "Y22",
+      "Y23",
+      "Y24"
+    ],
+    "R99": [
+      "R99"
+    ]
+  },
+  "recortes": {
+    "Suicídio geral": {
+      "idades": "Todas, inclusive ignorada",
+      "sexo": "Todos, inclusive ignorado"
+    },
+    "Homicídios — jovens de 15 a 29 anos": {
+      "idades": [
+        "15 a 19 anos",
+        "20 a 29 anos"
+      ],
+      "sexo": "Todos, inclusive ignorado"
+    },
+    "Homicídios — mulheres de 10 a 59 anos": {
+      "idades": [
+        "10 a 14 anos",
+        "15 a 19 anos",
+        "20 a 29 anos",
+        "30 a 39 anos",
+        "40 a 49 anos",
+        "50 a 59 anos"
+      ],
+      "sexo": "Feminino"
+    }
+  },
+  "cobertura": {
+    "2022": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2023": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2024": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2025": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "2026": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "respostas": [
+    {
+      "id": 1,
+      "metodo": "GET",
+      "url": "http://tabnet.saude.es.gov.br/cgi/deftohtm.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": null,
+      "consultado_utc": "2026-11-05T04:04:20.554149+00:00",
+      "status_http": 200,
+      "arquivo": "01_resposta.html",
+      "sha256": "4e4c77dec788788c1d44ce2a06341349d649ae181dc656f59da71aabfa707a88"
+    },
+    {
+      "id": 2,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Município_Resid"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does22.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:04:26.169946+00:00",
+      "status_http": 200,
+      "arquivo": "02_resposta.html",
+      "sha256": "468d206da245c27d9193f56a4ef48d50ee421e7a96189c749c48f403abe72445"
+    },
+    {
+      "id": 3,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does22.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:04:29.489823+00:00",
+      "status_http": 200,
+      "arquivo": "03_resposta.html",
+      "sha256": "c878bd5b6b4076655f5c42b02dc955a1593289924e021943dccf949b4857c4c4"
+    },
+    {
+      "id": 4,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does22.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "8",
+          "9",
+          "10"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:04:33.325145+00:00",
+      "status_http": 200,
+      "arquivo": "04_resposta.html",
+      "sha256": "741297aaf052045d46ceec573e58fba92f440a9ff0a1c517319dfda7ae5e115f"
+    },
+    {
+      "id": 5,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does22.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "2"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:04:37.131810+00:00",
+      "status_http": 200,
+      "arquivo": "05_resposta.html",
+      "sha256": "57707a821fdd091f37bbe9d0c8c26e6ad71b00d0ae619e54f6db77fa553bc14c"
+    },
+    {
+      "id": 6,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Município_Resid"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does23.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:04:40.956683+00:00",
+      "status_http": 200,
+      "arquivo": "06_resposta.html",
+      "sha256": "9fdd9cbb6842f2720f5e09670af2b2f02f2b8a22434cb70d6cccd2cdbe29541f"
+    },
+    {
+      "id": 7,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does23.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:04:44.267804+00:00",
+      "status_http": 200,
+      "arquivo": "07_resposta.html",
+      "sha256": "70d2d365d7038e8657d6ae5ccaf93f23a7e18a593a73076d19038d8bc6067a85"
+    },
+    {
+      "id": 8,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does23.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "8",
+          "9",
+          "10"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:04:48.081808+00:00",
+      "status_http": 200,
+      "arquivo": "08_resposta.html",
+      "sha256": "b34f4cffa2aa81025bcaa1ba07bfc6418743f143d42d9a576ca44b0b95dd4e3e"
+    },
+    {
+      "id": 9,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does23.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "2"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:04:51.851097+00:00",
+      "status_http": 200,
+      "arquivo": "09_resposta.html",
+      "sha256": "a693dc7616ce73dd0efebd14997dfbffc15fbd7b531b639d4fb3beba91a9490f"
+    },
+    {
+      "id": 10,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Município_Resid"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does24.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:04:55.620049+00:00",
+      "status_http": 200,
+      "arquivo": "10_resposta.html",
+      "sha256": "258c547cc9830121825b98d8c4f1439f34dc2054774d4b05df778af1f3a2ee57"
+    },
+    {
+      "id": 11,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does24.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:04:58.941885+00:00",
+      "status_http": 200,
+      "arquivo": "11_resposta.html",
+      "sha256": "06109c7f2d98aad42d98469fc6a57d2bfbcd6ab9f638d8c11b7e9f5486d070a6"
+    },
+    {
+      "id": 12,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does24.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "8",
+          "9",
+          "10"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:05:02.757678+00:00",
+      "status_http": 200,
+      "arquivo": "12_resposta.html",
+      "sha256": "853dffd312f1d8d873ad0028648ac89cad6cc08b966c97bd934ebf7ffe4c0886"
+    },
+    {
+      "id": 13,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does24.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "2"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:05:06.472554+00:00",
+      "status_http": 200,
+      "arquivo": "13_resposta.html",
+      "sha256": "86542e248757a8946ec2dc32ffa1dfa22030137a130ac017c22f075286db18ec"
+    },
+    {
+      "id": 14,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Município_Resid"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does25.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:05:10.288638+00:00",
+      "status_http": 200,
+      "arquivo": "14_resposta.html",
+      "sha256": "b5e5fdd0e0a7a7d7c8f73357c15f02978267bb58d2dc807f43aa203485af6e14"
+    },
+    {
+      "id": 15,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does25.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:05:13.603481+00:00",
+      "status_http": 200,
+      "arquivo": "15_resposta.html",
+      "sha256": "ea241f3952201cdece6215afe7fdfa01d24afc8bf8e8946b028f14fafb041f25"
+    },
+    {
+      "id": 16,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does25.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "8",
+          "9",
+          "10"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:05:17.402836+00:00",
+      "status_http": 200,
+      "arquivo": "16_resposta.html",
+      "sha256": "5cf4a9d242640d5a28391228f5086421f3f2375e22d9dca10352bbb12c6690b4"
+    },
+    {
+      "id": 17,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does25.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "2"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:05:21.050528+00:00",
+      "status_http": 200,
+      "arquivo": "17_resposta.html",
+      "sha256": "ba6d4dccd32271a29bcafc4f997aff8edd5ea3979c3b2621395c436655ccceab"
+    },
+    {
+      "id": 18,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Município_Resid"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does26.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:05:24.773088+00:00",
+      "status_http": 200,
+      "arquivo": "18_resposta.html",
+      "sha256": "9d18621976e8b55e08dc14ac7d508e7192ff2f5a4a0a2c05cfc2ca6ba41fed09"
+    },
+    {
+      "id": 19,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does26.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:05:28.060325+00:00",
+      "status_http": 200,
+      "arquivo": "19_resposta.html",
+      "sha256": "00870abe1b8d773c0ec01a9b73dee603447452a151a1b7e01b8bb54bb69c4b01"
+    },
+    {
+      "id": 20,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does26.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "8",
+          "9",
+          "10"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:05:31.803205+00:00",
+      "status_http": 200,
+      "arquivo": "20_resposta.html",
+      "sha256": "fbbfc3315cd8b14e351bff1af3eb9bbc7e55b48ef7f4cc4aaec6a034e4310b72"
+    },
+    {
+      "id": 21,
+      "metodo": "POST",
+      "url": "http://tabnet.saude.es.gov.br/cgi/tabcgi.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": {
+        "Linha": [
+          "Causas_3_Dígitos"
+        ],
+        "Coluna": [
+          "Mês_do_Óbito"
+        ],
+        "Incremento": [
+          "Óbito"
+        ],
+        "Arquivos": [
+          "does26.dbf"
+        ],
+        "SMês_do_Óbito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_OMS/OPS": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Tábua-Vida": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_1infancia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_6_Faixas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_(n_capta_<_1_dia)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFaixa_Etária_det": [
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16"
+        ],
+        "SFx.Etár.Infant.1": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFx.Etár.Infant.2": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe_F.etária": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SIdade_Mãe": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Vivos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFilhos_Mortos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSemanas_Gestação": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SGravidez": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Parto": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SÓbito/Parto_": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SPeso_ao_nascer": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSexo": [
+          "2"
+        ],
+        "SMunicípio_Resid": [
+          "1",
+          "3",
+          "2",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78"
+        ],
+        "SMunicípio_Ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_Resid": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstado_ocorr": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2011/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2011": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR11/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2020": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2020/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Resid_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_Ocorr_PDR2024": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_res": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SReg_PDR2024/Mun_ocor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SEstabelecim_Saude": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SInstrução": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SRaça/Cor": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAssist_Médica": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SLocal_Ocorrência": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Mortalidade_Prematura": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Grupos_Garbage": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(1)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(2)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(3)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(4)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(5)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(6)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(7)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(8)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(9)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(10)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(11)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(12)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(13)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(14)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(15)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(16)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(17)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(18)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(19)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSubcategorias_(20)": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Capítulos": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Lista_BR": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_3_Dígitos": [
+          "1872",
+          "1873",
+          "1874",
+          "1875",
+          "1876",
+          "1877",
+          "1878",
+          "1879",
+          "1880",
+          "1881",
+          "1882",
+          "1883",
+          "1884",
+          "1885",
+          "1886",
+          "1887",
+          "1888",
+          "1889",
+          "1890",
+          "1891",
+          "1892",
+          "1893",
+          "1894",
+          "1895",
+          "1896",
+          "1385"
+        ],
+        "SCausas_Maternas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Externas": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Notificav": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evitáveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCausas_Evit._<1a": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SImunopreviniveis": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNot_Compulsoria": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SD_Isquem_Coração": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcid_Transito": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SHomicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SSuicidios": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNeoplasias": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SExame_Complement": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SCirurgia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SNecrópsia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAtestante": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "STipo_Violencia": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SAcidente_Trabalho": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupacao": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Grande_Grupo": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcup_Subgrupo_3d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOc_Subgrupo_Princ": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SOcupac_Familia_4d": [
+          "TODAS_AS_CATEGORIAS__"
+        ],
+        "SFonte_Informação": [
+          "TODAS_AS_CATEGORIAS__"
+        ]
+      },
+      "consultado_utc": "2026-11-05T04:05:35.521546+00:00",
+      "status_http": 200,
+      "arquivo": "21_resposta.html",
+      "sha256": "2d410f69c29cff7b024b84907bca2c1bfb608fd0235e8a951f469da1d812a069"
+    },
+    {
+      "id": 22,
+      "metodo": "GET",
+      "url": "http://tabnet.saude.es.gov.br/cgi/deftohtm.exe?tabnet/SIM/SIM2006/sim2006.def",
+      "selecao": null,
+      "consultado_utc": "2026-11-05T04:05:36.294640+00:00",
+      "status_http": 200,
+      "arquivo": "22_resposta.html",
+      "sha256": "4e4c77dec788788c1d44ce2a06341349d649ae181dc656f59da71aabfa707a88"
+    }
+  ],
+  "sha256_dataset_principal": "671c47f5bd4643ddf6802da7c6732b06de6631f6218ad313775b571a60951518",
+  "revisao_principal": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)",
+  "nota": "Consulta complementar independente da extração do pacote principal. Y22–Y24 já integram os numeradores de homicídios e não são somados novamente. R99 não identifica por si só uma causa externa; não há filtro de atestante IML. Variações agregadas não demonstram reclassificação individual, atraso ou completude.",
+  "revisao_inicio": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)",
+  "revisao_fim": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)",
+  "sha256_csv": "c34315fb6adb5a622a3466e99f5a6a73d5611c33561dcef6127f346a10f352d2",
+  "linhas": 4446,
+  "requisicoes_http": 22,
+  "sha256_codigo_coleta": {
+    "etl/diagnostico_causas.py": "f612396bdac93fe6c105ba149d1e97bce86623dd126be85b1086db01cd7fcfea",
+    "etl/extrair_meios_cid.py": "753e55b159cac3f47205e614797f91e7411737e8bbbb3e4657a7eafb19e71edb",
+    "etl/nucleo_tabnet.py": "71794a55f9348a1927cf5fcf65af9f1009b128dd58ccca102bd871b5905b3c31",
+    "etl/definicao_cid.py": "bc500baeab019f5c0ddda202d560418eb5b6f1b0fb18dd72649c3450d56e2fd8",
+    "dominio/dados.py": "470d3f66c9b5c2e5c63039bc8dabf702e9bb37c07e381bb61ef60ce8c9f18015",
+    "configuracao.py": "b448ec7c36ce4194a88416677f870c6171881ebe5b45109e2b5085e4a6e081dd"
+  }
+}

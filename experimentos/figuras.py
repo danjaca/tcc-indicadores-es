@@ -59,8 +59,10 @@ def _meses(ax, intervalo=6):
         lambda v, _: f"{mon.MESES[mdates.num2date(v).month - 1]}/{str(mdates.num2date(v).year)[2:]}"))
 
 
-def _sinais(ax, datas, valores, rotulos):
+def _sinais(ax, datas, valores, rotulos, recentes=None):
     datas, valores, rotulos = np.asarray(datas), np.asarray(valores, dtype=float), np.asarray(rotulos)
+    if recentes is not None:
+        rotulos = np.where(np.asarray(recentes, dtype=bool), '', rotulos)
     for alvo, cor, marca, nome in (('Aumento', VERMELHO, '^', 'Sinal de aumento'),
                                    ('Redução', AZUL_SINAL, 'v', 'Sinal de redução'),
                                    ('Variabilidade', VERMELHO, '^', 'Sinal de variabilidade')):
@@ -152,7 +154,7 @@ def graficos_controle(destino: Path, ind: str, r: mon.Resultado) -> None:
     ax1.plot(f2['Período'], f2[TAXA], 'o-', color=AZUL, ms=3.2, lw=1.1, label='Fase II (monitoramento)')
     for valor, estilo, nome in ((p.lsc_x, '--', 'LSC / LIC'), (p.mu0, '-', 'LM (μ0)'), (p.lic_x, '--', None)):
         ax1.axhline(valor, color=VERMELHO if estilo == '--' else CINZA_ESCURO, ls=estilo, lw=.9, label=nome)
-    _sinais(ax1, f2['Período'], f2[TAXA], f2['Sinal X'])
+    _sinais(ax1, f2['Período'], f2[TAXA], f2['Sinal X'], recentes=f2['Em consolidação'])
     _consolidacao(ax1, f2, TAXA)
     ax1.set_ylabel('Taxa mensal\npor 100 mil')
     ax1.set_title('(a) Medidas individuais (X)', loc='left')
@@ -161,7 +163,8 @@ def graficos_controle(destino: Path, ind: str, r: mon.Resultado) -> None:
     ax2.plot(f2['Período'], f2['AM'], 'o-', color=AZUL, ms=2.8, lw=1)
     ax2.axhline(p.lsc_am, color=VERMELHO, ls='--', lw=.9)
     ax2.axhline(p.am_media, color=CINZA_ESCURO, lw=.9)
-    _sinais(ax2, f2['Período'], f2['AM'], f2['Sinal AM'])
+    _sinais(ax2, f2['Período'], f2['AM'], f2['Sinal AM'], recentes=f2['Em consolidação'])
+    _consolidacao(ax2, f2, 'AM')
     ax2.set_ylabel('Amplitude\nmóvel')
     ax2.set_title('(b) Amplitude móvel (AM)', loc='left')
     # (c) EWMA
@@ -172,7 +175,7 @@ def graficos_controle(destino: Path, ind: str, r: mon.Resultado) -> None:
     ax3.plot(f2['Período'], f2['LSC EWMA'], '--', color=VERMELHO, lw=.9)
     ax3.plot(f2['Período'], f2['LIC EWMA'], '--', color=VERMELHO, lw=.9)
     ax3.axhline(p.mu0, color=CINZA_ESCURO, lw=.9)
-    _sinais(ax3, f2['Período'], f2['EWMA'], f2['Sinal EWMA'])
+    _sinais(ax3, f2['Período'], f2['EWMA'], f2['Sinal EWMA'], recentes=f2['Em consolidação'])
     _consolidacao(ax3, f2, 'EWMA')
     ax3.set_ylabel('EWMA')
     ax3.set_title(f'(c) EWMA (λ = {r.configuracao["lam"]:g}; L = {r.configuracao["largura_ewma"]:g})'.replace('.', ','),
@@ -256,7 +259,7 @@ def retrospectiva_suicidio(destino: Path, r: mon.Resultado) -> None:
     ax.plot(e1['Período'], e1['LSC EWMA'], '--', color=VERMELHO, lw=.7, alpha=.5)
     ax.plot(e1['Período'], e1['LIC EWMA'], '--', color=VERMELHO, lw=.7, alpha=.5)
     ax.axhline(p.mu0, color=CINZA_ESCURO, lw=.9)
-    _sinais(ax, f2['Período'], f2['EWMA'], f2['Sinal EWMA'])
+    _sinais(ax, f2['Período'], f2['EWMA'], f2['Sinal EWMA'], recentes=f2['Em consolidação'])
     _consolidacao(ax, f2, 'EWMA')
     ax.set_ylabel('EWMA da taxa\nmensal por 100 mil')
     ax.yaxis.set_major_formatter(_virgula(2))
@@ -276,7 +279,7 @@ def barros(destino: Path, r: mon.Resultado) -> None:
     ax.plot(f2['Período'], f2[TAXA], 'o-', color=AZUL, ms=3, lw=1, label='Fase II (jan.–jun./2021)')
     ax.axhline(p.lsc_x, color=VERMELHO, ls='--', lw=.9); ax.axhline(p.lic_x, color=VERMELHO, ls='--', lw=.9)
     ax.axhline(p.mu0, color=CINZA_ESCURO, lw=.9)
-    _sinais(ax, f2['Período'], f2[TAXA], f2['Sinal X'])
+    _sinais(ax, f2['Período'], f2[TAXA], f2['Sinal X'], recentes=f2['Em consolidação'])
     ax.set_ylabel('Taxa (X)')
     ax.yaxis.set_major_formatter(_virgula(0))
     _meses(ax, 6)

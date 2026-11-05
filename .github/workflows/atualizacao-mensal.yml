@@ -49,6 +49,11 @@ jobs:
             var/etl/lotes/*/execucao.json
             var/etl/lotes/*/monitoramento/
             var/etl/lotes/*/dados/
+            var/etl/lotes/*/dados_anteriores/
+            var/etl/lotes/*/snapshot.json
+            var/etl/lotes/*/revisoes_mensais.csv
+            var/etl/lotes/*/qualidade_causas/
+            var/etl/catalogo_snapshots.json
             var/etl/evidencias/
             var/etl/populacao_bruta/
             var/etl/geografia/meta.json
@@ -60,6 +65,8 @@ jobs:
             dominio/dados.py
             configuracao.py
             etl/definicao_cid.py
+            etl/revisoes.py
+            etl/diagnostico_causas.py
             config.toml
             requirements-lock.txt
             var/etl/exportacoes/*/manifesto.json

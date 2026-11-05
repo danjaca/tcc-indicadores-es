@@ -31,6 +31,7 @@ import numpy as np
 import pandas as pd
 
 TAXA = 'Taxa por 100 mil'
+TAXA_OFICIAL = 'Taxa oficial por 100 mil'
 D2 = 1.128   # constante d2 para amplitude móvel de duas observações
 D3 = 0.0     # constante D3 (n = 2)
 D4 = 3.267   # constante D4 (n = 2)
@@ -67,6 +68,24 @@ def serie_mensal(f: pd.DataFrame, p: pd.DataFrame) -> pd.DataFrame:
     })
     s[TAXA] = s['Óbitos'] / s['População'] * 100000
     return s.sort_values('Período').reset_index(drop=True)
+
+
+def ajustar_calendario(serie: pd.DataFrame) -> pd.DataFrame:
+    """Cópia com taxa para mês de 30,4375 dias, preservando a taxa oficial.
+
+    O cálculo parte sempre da coluna oficial, inclusive em chamadas repetidas.
+    Óbitos e população não mudam; somas da taxa ajustada não são taxas oficiais.
+    """
+    s = serie.copy()
+    periodos = pd.to_datetime(s['Período'])
+    oficial = s[TAXA_OFICIAL] if TAXA_OFICIAL in s else s[TAXA]
+    valores = np.asarray(oficial, dtype=float)
+    if periodos.isna().any() or not (np.isfinite(valores) & (valores >= 0)).all():
+        raise ValueError('O ajuste de calendário exige meses válidos e taxas finitas não negativas.')
+    s[TAXA_OFICIAL] = oficial
+    s['Fator calendário'] = 30.4375 / periodos.dt.days_in_month
+    s[TAXA] = s[TAXA_OFICIAL] * s['Fator calendário']
+    return s
 
 
 def rotulo_mes(periodo) -> str:
@@ -257,14 +276,18 @@ def dickey_fuller_aumentado(x, defasagens: int | None = None) -> tuple[float, in
     return estatistica, int(defasagens), p
 
 
-def cox_stuart(x) -> tuple[int, int, float]:
+def cox_stuart(x, metodo: str = 'exato') -> tuple[int, int, float]:
     """Teste de Cox e Stuart (1955) para tendência.
 
-    Compara o primeiro e o último terço da série, com aproximação normal, como
-    na rotina utilizada por Barros (2021). Retorna (pares não empatados, pares
-    crescentes, valor-p bilateral).
+    Compara primeiro e último terço, descartando empates. O padrão é o teste
+    binomial bilateral exato, sob sinais independentes equiprováveis. O modo
+    ``normal`` preserva a reprodução publicada de Barros (2021).
     """
     x = np.asarray(x, dtype=float)
+    if metodo not in ('exato', 'normal'):
+        raise ValueError('O método de Cox–Stuart deve ser exato ou normal.')
+    if x.ndim != 1 or not np.isfinite(x).all():
+        raise ValueError('Cox–Stuart exige uma série unidimensional finita.')
     terco = len(x) // 3
     if terco < 3:
         raise ValueError('Série curta para o teste de Cox–Stuart.')
@@ -273,8 +296,77 @@ def cox_stuart(x) -> tuple[int, int, float]:
     positivos = int(np.sum(diferencas > 0))
     if n == 0:
         return 0, 0, 1.0
+    if metodo == 'exato':
+        cauda = sum(math.comb(n, k) for k in range(min(positivos, n - positivos) + 1)) / 2**n
+        return n, positivos, min(1.0, 2 * cauda)
     z = (positivos - n / 2) / math.sqrt(n / 4)
     return n, positivos, float(2 * (1 - normal_cdf(abs(z))))
+
+
+def kpss(x, tendencia: bool = True, defasagens: int | None = None) -> tuple[float, int, float]:
+    """KPSS complementar, com constante+tendência (padrão) ou somente constante.
+
+    Usa variância de longo prazo com Bartlett e defasagem curta de tseries::
+    kpss.test. O valor-p é interpolado na tabela de Kwiatkowski et al. (1992),
+    limitado a [0,01; 0,10]: valores nas bordas indicam ≤0,01 ou ≥0,10.
+    H0 com tendência: estacionariedade em torno de tendência determinística,
+    especificação compatível com o ADF empregado, sem afirmar média constante.
+    """
+    x = np.asarray(x, dtype=float)
+    n = x.size
+    if x.ndim != 1 or n < 8 or not np.isfinite(x).all():
+        raise ValueError('KPSS exige pelo menos oito observações finitas.')
+    if defasagens is None:
+        defasagens = math.trunc(4 * (n / 100) ** .25)
+    if not isinstance(defasagens, (int, np.integer)) or not 0 <= defasagens < n:
+        raise ValueError('A defasagem do KPSS deve ser inteira em [0, n).')
+    t = np.arange(n, dtype=float)
+    matriz = np.column_stack((np.ones(n), t)) if tendencia else np.ones((n, 1))
+    ajuste = matriz @ np.linalg.lstsq(matriz, x, rcond=None)[0]
+    residuos = x - ajuste
+    if float(residuos @ residuos) <= np.finfo(float).eps * float(x @ x):
+        raise ValueError('Ajuste perfeito ou dispersão nula: KPSS não avaliável.')
+    s2 = float(residuos @ residuos) / n
+    for lag in range(1, defasagens + 1):
+        s2 += 2 * (1 - lag / (defasagens + 1)) * float(residuos[lag:] @ residuos[:-lag]) / n
+    if s2 <= 0:
+        raise ValueError('Variância de longo prazo não positiva no KPSS.')
+    estatistica = float(np.sum(np.cumsum(residuos) ** 2) / n**2 / s2)
+    criticos = [.119, .146, .176, .216] if tendencia else [.347, .463, .574, .739]
+    p = float(np.interp(estatistica, criticos, [.10, .05, .025, .01]))
+    return estatistica, int(defasagens), p
+
+
+def avaliar_residuos_tendencia(x, alfa: float = ALFA, defasagens_lb=(1, 12)) -> pd.DataFrame:
+    """Diagnósticos exploratórios após retirar tendência linear por OLS.
+
+    Ajuste e diagnóstico usam a mesma amostra. Os valores-p são aproximações
+    descritivas; não validam um modelo nem substituem os limites principais.
+    """
+    x = np.asarray(x, dtype=float)
+    if x.ndim != 1 or len(x) < 12 or not np.isfinite(x).all() or not 0 < alfa < 1:
+        raise ValueError('Informe uma série finita com pelo menos 12 meses e alfa em (0, 1).')
+    t = np.arange(len(x), dtype=float)
+    matriz = np.column_stack((np.ones(len(x)), t))
+    beta = np.linalg.lstsq(matriz, x, rcond=None)[0]
+    residuos = x - matriz @ beta
+    if float(residuos @ residuos) <= np.finfo(float).eps * float(x @ x):
+        raise ValueError('Ajuste perfeito ou dispersão nula: resíduos não avaliáveis.')
+    d, p = lilliefors(residuos)
+    linhas = [{'Teste': 'Lilliefors', 'Estatística': d, 'Valor-p': p, 'Detalhe': ''}]
+    for lag in defasagens_lb:
+        if len(x) > lag + 2:
+            q, _, p = ljung_box(residuos, lag)
+            nome = 'Ljung–Box (defasagem 1)' if lag == 1 else f'Ljung–Box (defasagens 1 a {lag})'
+            linhas.append({'Teste': nome, 'Estatística': q, 'Valor-p': p, 'Detalhe': f'{lag} defasagens'})
+    g, p, periodo = fisher_sazonalidade(residuos)
+    linhas.append({'Teste': 'Fisher (periodograma)', 'Estatística': g, 'Valor-p': p,
+                   'Detalhe': f'período dominante ≈ {periodo:.1f} meses'})
+    tabela = pd.DataFrame(linhas)
+    tabela['Decisão'] = np.where(tabela['Valor-p'] < alfa, 'Rejeita H0', 'Não rejeita H0')
+    tabela['Inclinação por mês'] = float(beta[1])
+    tabela['Contexto'] = 'Resíduos OLS; diagnósticos exploratórios, sem correção por multiplicidade'
+    return tabela
 
 
 def fisher_sazonalidade(x) -> tuple[float, float, float]:
@@ -300,7 +392,8 @@ def fisher_sazonalidade(x) -> tuple[float, float, float]:
     return g, float(min(max(p, 0.0), 1.0)), float(periodo)
 
 
-def avaliar_pressupostos(x, alfa: float = ALFA, defasagens_lb: tuple = (1, 12)) -> pd.DataFrame:
+def avaliar_pressupostos(x, alfa: float = ALFA, defasagens_lb: tuple = (1, 12),
+                         metodo_cox: str = 'exato') -> pd.DataFrame:
     """Tabela de pressupostos da fase I, na ordem adotada por Barros (2021)."""
     x = np.asarray(x, dtype=float)
     linhas = []
@@ -323,11 +416,12 @@ def avaliar_pressupostos(x, alfa: float = ALFA, defasagens_lb: tuple = (1, 12)) 
     registrar('Dickey–Fuller aumentado', 'A série possui raiz unitária (não estacionária)', est, p,
               'Raiz unitária rejeitada no modelo com tendência', 'Raiz unitária não rejeitada',
               f'{k} defasagens; constante e tendência; não comprova média constante')
-    n, pos, p = cox_stuart(x)
+    n, pos, p = cox_stuart(x, metodo=metodo_cox)
     registrar('Cox–Stuart', 'Não existe tendência', float(pos), p,
               'Evidência de tendência', 'Tendência não detectada',
-              f'{pos} de {n} pares crescentes (primeiro × último terço); valor-p por aproximação normal '
-              'sem correção de continuidade, com precisão limitada em poucos pares')
+              f'{pos} de {n} pares crescentes (primeiro × último terço); ' +
+              ('binomial bilateral exato; pressupõe sinais independentes' if metodo_cox == 'exato' else
+               'aproximação normal sem correção de continuidade, para reprodução histórica'))
     g, p, periodo = fisher_sazonalidade(x)
     registrar('Fisher (periodograma)', 'Não há componente periódico dominante sob ruído branco', g, p,
               'Evidência de componente periódico', 'Componente periódico não detectado',
@@ -340,7 +434,7 @@ def avaliar_pressupostos(x, alfa: float = ALFA, defasagens_lb: tuple = (1, 12)) 
 # ---------------------------------------------------------------------------
 @dataclass(frozen=True)
 class Parametros:
-    """Parâmetros do processo em controle estimados na fase I."""
+    """Parâmetros estimados da referência, condicionais aos seus pressupostos."""
     inicio: str
     fim: str
     n_inicial: int
@@ -549,6 +643,8 @@ def quadrimestres(fase_ii: pd.DataFrame, params: Parametros, largura: float = 3.
                 completo = m == len(recorte)
                 recentes = int(sub['Em consolidação'].sum()) if 'Em consolidação' in sub else 0
                 sinal = ('Aumento' if taxa > lsc else 'Redução' if taxa < lic else '') if completo and not recentes else ''
+                situacao = ('Suspensa: período parcial' if not completo else 'Suspensa: consolidação' if recentes else
+                            'Sinal calculado' if sinal else 'Sem sinal')
                 linhas.append({
                     'Ano': int(ano), 'Quadrimestre': f'{q}º', 'Leitura': tipo,
                     'Meses': f'{MESES[min(disponiveis) - 1]}–{MESES[max(disponiveis) - 1]}',
@@ -557,6 +653,7 @@ def quadrimestres(fase_ii: pd.DataFrame, params: Parametros, largura: float = 3.
                     TAXA: taxa, 'Esperado (m·μ0)': esperado, 'LIC': lic, 'LSC': lsc,
                     'Razão observado/esperado': taxa / esperado if esperado else float('nan'),
                     'Sinal': sinal,
+                    'Situação da sinalização': situacao,
                     'Meses em consolidação': recentes,
                     'Meses com sinal (X, AM ou EWMA)': int(((sub['Sinal X'] != '') | (sub['Sinal AM'] != '') |
                                                            (sub['Sinal EWMA'] != '')).sum()),
@@ -570,6 +667,41 @@ def quadrimestres(fase_ii: pd.DataFrame, params: Parametros, largura: float = 3.
 def arl_shewhart(deslocamento: float = 0.0, largura: float = 3.0) -> float:
     p = 1 - float(normal_cdf(largura - deslocamento)) + float(normal_cdf(-largura - deslocamento))
     return 1 / p
+
+
+def probabilidade_sinal_am() -> float:
+    """Probabilidade marginal nominal do AM sob normais iid e σ conhecido.
+
+    AM/σ ~ |N(0,2)| e LSC/σ = D4·D2. Amplitudes consecutivas são
+    dependentes; o inverso desta probabilidade não é o ARL do gráfico AM.
+    """
+    return float(2 * normal_cdf(-D4 * D2 / math.sqrt(2)))
+
+
+def comparar_poisson(referencia: pd.DataFrame) -> dict:
+    """Dispersão observada versus Poisson de taxa constante, sem ajuste de modelo.
+
+    Com E(O_t)=μ·P_t/100000, Var(100000·O_t/P_t)=μ·100000/P_t.
+    A média dessas variâncias respeita as populações anuais efetivas. Tendência,
+    dependência e exposição por dias não são corrigidas por esta comparação.
+    """
+    populacao = referencia['População'].to_numpy(dtype=float)
+    coluna_taxa = TAXA_OFICIAL if TAXA_OFICIAL in referencia else TAXA
+    taxas = referencia[coluna_taxa].to_numpy(dtype=float)
+    obitos = referencia['Óbitos'].to_numpy(dtype=float)
+    if len(taxas) < 2 or not (np.isfinite(populacao) & (populacao > 0) & np.isfinite(taxas)
+                              & (taxas >= 0) & np.isfinite(obitos) & (obitos >= 0)).all():
+        raise ValueError('A comparação Poisson exige populações positivas e contagens/taxas não negativas válidas.')
+    mu = float(taxas.mean())
+    esperado = math.sqrt(float(np.mean(mu * 100000 / populacao)))
+    sigma_am = float(np.abs(np.diff(taxas)).mean()) / D2
+    return {'Óbitos por mês (média)': float(obitos.mean()), 'Taxa média': mu,
+            'σ por AM': sigma_am, 'DP amostral das taxas': float(taxas.std(ddof=1)),
+            'DP esperado sob Poisson': esperado,
+            'Razão σ AM / DP Poisson': sigma_am / esperado if esperado else float('nan'),
+            'Razão variância amostral / Poisson': float(taxas.var(ddof=1)) / esperado**2 if esperado else float('nan'),
+            'Interpretação': 'Taxa oficial, sem ajuste por dias; comparação exploratória que não comprova '
+                             'Poisson, sobredispersão ou estabilidade'}
 
 
 def arl_ewma(lam: float, largura: float, deslocamento: float = 0.0, estados: int = 301) -> float:
@@ -654,7 +786,7 @@ def iteracao_fase1(r: 'Resultado', k: int) -> dict:
 def analisar(serie: pd.DataFrame, inicio_fase1, fim_fase1, fim_fase2=None, lam: float = .1,
              largura_ewma: float = 2.701, largura: float = 3.0, excluir=(), automatico: bool = False,
              data_base=None, dias_consolidacao: int = 60, defasagens_lb=(1, 12),
-             alfa: float = ALFA, max_exclusao: float = .2) -> Resultado:
+             alfa: float = ALFA, max_exclusao: float = .2, metodo_cox: str = 'exato') -> Resultado:
     """Executa o protocolo completo (fases I e II e leitura quadrimestral)."""
     inicio_fase1, fim_fase1 = mes(inicio_fase1), mes(fim_fase1)
     if fim_fase1 < inicio_fase1:
@@ -697,7 +829,8 @@ def analisar(serie: pd.DataFrame, inicio_fase1, fim_fase1, fim_fase2=None, lam: 
         anterior = float(referencia[TAXA].iloc[-1])
     fase_ii = fase2(posterior, params, lam, largura_ewma, data_base, dias_consolidacao, anterior=anterior)
     quad = quadrimestres(fase_ii, params, largura)
-    pressupostos = avaliar_pressupostos(referencia[TAXA].to_numpy(dtype=float), alfa=alfa, defasagens_lb=defasagens_lb)
+    pressupostos = avaliar_pressupostos(referencia[TAXA].to_numpy(dtype=float), alfa=alfa,
+                                        defasagens_lb=defasagens_lb, metodo_cox=metodo_cox)
     configuracao = dict(
         protocolo=PROTOCOLO,
         inicio_fase1=rotulo_mes(inicio_fase1), fim_fase1=rotulo_mes(fim_fase1),
@@ -708,8 +841,10 @@ def analisar(serie: pd.DataFrame, inicio_fase1, fim_fase1, fim_fase2=None, lam: 
         arl0_x=arl_shewhart(0, largura), arl0_ewma=arl_ewma(lam, largura_ewma),
         exclusao_automatica=automatico, exclusoes_vigilancia=[rotulo_mes(v) for v in excluir],
         data_base=str(pd.Timestamp(data_base).date()) if data_base is not None else None,
-        dias_consolidacao=dias_consolidacao, defasagens_ljung_box=list(defasagens_lb),
-        alfa=alfa, max_exclusao=max_exclusao, d2=D2, d4=D4,
+        dias_consolidacao=dias_consolidacao, sinais_recentes='não interpretados',
+        defasagens_ljung_box=list(defasagens_lb),
+        alfa=alfa, max_exclusao=max_exclusao, metodo_cox=metodo_cox, d2=D2, d4=D4,
+        probabilidade_marginal_am=probabilidade_sinal_am(),
         arl_hipoteses='Normalidade, independência e parâmetros conhecidos; EWMA com limites assintóticos fixos')
     return Resultado(serie=s, referencia=referencia, descritivas=descritivas(referencia[TAXA]),
                      pressupostos=pressupostos, params=params, fase_i=tab1, iteracoes=hist,
@@ -739,9 +874,9 @@ def data_atualizacao(meta: dict, ano: int | None = None):
 # ---------------------------------------------------------------------------
 # Protocolo configurável (config.toml) e regra de escolha da fase I
 # ---------------------------------------------------------------------------
-PROTOCOLO = 'graficos_controle_mensal_v3'
+PROTOCOLO = 'graficos_controle_mensal_v4'
 PROTOCOLO_PADRAO = dict(
-    protocolo=PROTOCOLO, lambda_ewma=.1, largura_ewma=2.701, largura_x=3.0,
+    protocolo=PROTOCOLO, lambda_ewma=.1, largura_ewma=2.701, largura_x=3.0, metodo_cox='exato',
     alfa=ALFA, dias_consolidacao=60, exclusao_automatica=False, max_exclusao=.2,
     defasagens_ljung_box=[1, 12], meses_minimos_fase1=24, meses_padrao_fase1=48, meses_fase2=12,
     fase1={}, exclusoes={})
@@ -760,6 +895,8 @@ def ler_protocolo(caminho) -> dict:
     cfg['justificativas'] = dict(cfg.get('justificativas') or {})
     if cfg['protocolo'] != PROTOCOLO:
         raise ValueError(f'Protocolo incompatível; esta versão aplica {PROTOCOLO}.')
+    if cfg['metodo_cox'] not in ('exato', 'normal'):
+        raise ValueError('metodo_cox deve ser exato ou normal.')
     for chave in ('meses_minimos_fase1', 'meses_padrao_fase1', 'meses_fase2', 'dias_consolidacao'):
         if type(cfg[chave]) is not int:
             raise ValueError(f'{chave} deve ser um número inteiro.')
@@ -884,4 +1021,36 @@ def sensibilidade(serie: pd.DataFrame, fim_fase1, fim_fase2=None, janelas=(24, 3
                        'Exclusões': ', '.join(r.params.excluidos + r.params.manuais),
                        'Meses fase II disponíveis': len(f2), 'Meses fase II consolidados': len(consolidados),
                        **sinais, **{f'{l["Teste"]} (p)': l['Valor-p'] for _, l in r.pressupostos.iterrows()}})
+    return pd.DataFrame(linhas)
+
+
+def sensibilidade_calendario(serie: pd.DataFrame, inicio_fase1, fim_fase1, fim_fase2=None,
+                             **parametros_analisar) -> pd.DataFrame:
+    """Compara taxas originais e ajustadas por 30,4375/dias do mês.
+
+    Mantém fases, filtros e parâmetros iguais e desativa exclusão automática.
+    A entrada não muda; taxas e quadrimestres oficiais não são substituídos.
+    São contados somente sinais em meses fora da cautela operacional.
+    """
+    opcoes = dict(parametros_analisar, automatico=False)
+    oficial = serie.copy()
+    if TAXA_OFICIAL in oficial:
+        oficial[TAXA] = oficial[TAXA_OFICIAL]
+    linhas = []
+    for nome, ajustar in [('Taxa oficial', False), ('Ajustada por dias (30,4375)', True)]:
+        s = ajustar_calendario(oficial) if ajustar else oficial.copy()
+        r = analisar(s, inicio_fase1, fim_fase1, fim_fase2, **opcoes)
+        f2 = r.fase_ii
+        avaliados = f2.loc[~f2['Em consolidação']] if not f2.empty else f2
+        linha = {'Série': nome, 'μ0': r.params.mu0, 'σ0': r.params.sigma0,
+                 'LIC X': r.params.lic_x, 'LSC X': r.params.lsc_x, 'LSC AM': r.params.lsc_am,
+                 'Meses fora da cautela': len(avaliados), 'Exclusão automática': False,
+                 'Início fase I': r.params.inicio, 'Fim fase I': r.params.fim,
+                 'Início fase II': r.configuracao['inicio_fase2'],
+                 'Fim fase II planejado': r.configuracao['fim_fase2_planejado']}
+        for grafico in ('X', 'AM', 'EWMA'):
+            sinais = avaliados.loc[avaliados[f'Sinal {grafico}'] != ''] if not avaliados.empty else avaliados
+            linha[f'Sinais {grafico}'] = len(sinais)
+            linha[f'Meses com sinal {grafico}'] = ', '.join(rotulo_mes(v) for v in sinais['Período'])
+        linhas.append(linha)
     return pd.DataFrame(linhas)

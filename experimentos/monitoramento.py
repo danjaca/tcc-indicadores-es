@@ -29,7 +29,7 @@ import numpy as np
 import pandas as pd
 
 from configuracao import DADOS, RAIZ
-from dominio.dados import carregar, recortar, INDICADORES
+from dominio.dados import carregar, recortar, INDICADORES, diagnostico_causas
 from dominio import monitoramento as mon
 from dominio.monitoramento import TAXA
 
@@ -75,7 +75,7 @@ def verificar_barros(saida: Path) -> pd.DataFrame:
     """Reproduz os resultados de Barros (2021) e compara com os valores publicados."""
     s = serie_barros()
     r = mon.analisar(s, '2017-01-01', '2020-12-01', lam=.1, largura_ewma=2.701,
-                     defasagens_lb=(1,), automatico=True)
+                     defasagens_lb=(1,), automatico=True, metodo_cox='normal')
     d = r.descritivas
     p = r.pressupostos.set_index('Teste')['Valor-p']
     it = r.iteracoes
@@ -138,6 +138,7 @@ def executar(saida: Path, figuras: bool = False) -> dict:
     cfg = mon.ler_protocolo(RAIZ / 'config.toml')
     lam, le, lx = float(cfg['lambda_ewma']), float(cfg['largura_ewma']), float(cfg['largura_x'])
     dias, lags = int(cfg['dias_consolidacao']), tuple(cfg['defasagens_ljung_box'])
+    metodo_cox = cfg['metodo_cox']
     f, p, g, meta = carregar()
     base = mon.data_atualizacao(meta)
     regioes = pd.read_csv(DADOS / 'regioes_pdr2024.csv', dtype={'cod_mun_res': str})
@@ -164,7 +165,7 @@ def executar(saida: Path, figuras: bool = False) -> dict:
         r = mon.analisar(s, mon.mes(inicio), mon.mes(fim), fim2, lam=lam, largura_ewma=le, largura=lx,
                          excluir=excluir, automatico=bool(cfg['exclusao_automatica']), data_base=base,
                          dias_consolidacao=dias, defasagens_lb=lags,
-                         alfa=float(cfg['alfa']), max_exclusao=float(cfg['max_exclusao']))
+                         alfa=float(cfg['alfa']), max_exclusao=float(cfg['max_exclusao']), metodo_cox=metodo_cox)
         resultados[indicador] = r
         ctx = {'Indicador': indicador}
         press.append(r.pressupostos.assign(**ctx))
@@ -186,9 +187,54 @@ def executar(saida: Path, figuras: bool = False) -> dict:
         tab = mon.sensibilidade(s, fim, fim2, lam=lam, largura_ewma=le, largura=lx, data_base=base,
                                 dias_consolidacao=dias, defasagens_lb=lags, alfa=float(cfg['alfa']),
                                 max_exclusao=float(cfg['max_exclusao']), automatico=bool(cfg['exclusao_automatica']),
-                                excluir=cfg['exclusoes'].get(indicador, []))
+                                excluir=cfg['exclusoes'].get(indicador, []), metodo_cox=metodo_cox)
         janelas.append(tab.assign(Indicador=indicador))
     pd.concat(janelas, ignore_index=True).to_csv(saida / 'sensibilidade_fase1.csv', index=False)
+
+    # Complementos exploratórios: não selecionam a referência nem alteram os indicadores oficiais.
+    tab_kpss, residuos, poisson, calendario, longas, complementar = [], [], [], [], [], []
+    for indicador, r in resultados.items():
+        inicio, fim, fim2 = periodos[indicador]
+        estat, lag, valor_p = mon.kpss(r.referencia[TAXA])
+        tab_kpss.append({'Indicador': indicador, 'Teste': 'KPSS (constante e tendência)',
+                         'Hipótese nula (H0)': 'Estacionariedade em torno de tendência determinística',
+                         'Estatística': estat, 'Defasagens Bartlett': lag, 'Valor-p tabelado': valor_p,
+                         'Leitura do valor-p': '≤ 0,01' if valor_p == .01 else '≥ 0,10' if valor_p == .10 else 'Interpolado',
+                         'Decisão': 'Rejeita H0' if valor_p < float(cfg['alfa']) else 'Não rejeita H0',
+                         'Nota': 'Complementar ao ADF com constante e tendência; valor-p limitado à tabela'})
+        residuos.append(mon.avaliar_residuos_tendencia(r.referencia[TAXA], float(cfg['alfa']), lags)
+                         .assign(Indicador=indicador))
+        poisson.append({'Indicador': indicador, **mon.comparar_poisson(r.referencia)})
+        opcoes = dict(lam=lam, largura_ewma=le, largura=lx, data_base=base, dias_consolidacao=dias,
+                       defasagens_lb=lags, alfa=float(cfg['alfa']), max_exclusao=float(cfg['max_exclusao']),
+                       metodo_cox=metodo_cox, excluir=cfg['exclusoes'].get(indicador, []))
+        calendario.append(mon.sensibilidade_calendario(serie_estado[indicador], inicio, fim, fim2, **opcoes)
+                           .assign(Indicador=indicador))
+        longas.append(mon.sensibilidade(serie_estado[indicador], fim, fim2, janelas=(72, 96, 120),
+                                        automatico=bool(cfg['exclusao_automatica']), **opcoes).assign(Indicador=indicador))
+        sinais1 = r.ewma_fase_i.loc[r.ewma_fase_i['Sinal EWMA'] != '']
+        ano_anterior = mon.mes(fim).year
+        s = serie_estado[indicador]
+        antes = s.loc[s['Ano'] == ano_anterior]
+        avaliados = r.fase_ii.loc[~r.fase_ii['Em consolidação']]
+        meses_iguais = antes.loc[antes['Mês'].isin(avaliados['Mês'])]
+        complementar.append({'Indicador': indicador, 'Ano anterior': ano_anterior,
+                              'Média mensal ano anterior completo': float(antes[TAXA].mean()),
+                              'Média mensal mesmos meses ano anterior': float(meses_iguais[TAXA].mean()),
+                              'Média mensal fase II fora cautela': float(avaliados[TAXA].mean()),
+                              'Meses fase II fora cautela': ', '.join(mon.rotulo_mes(v) for v in avaliados['Período']),
+                              'Sinais EWMA fase I': len(sinais1),
+                              'Meses com sinais EWMA fase I': ', '.join(mon.rotulo_mes(v) for v in sinais1['Período']),
+                              'Sinais EWMA últimos 6 meses fase I': ', '.join(mon.rotulo_mes(v) for v in
+                                  sinais1.loc[sinais1['Período'] >= mon.mes(fim) - pd.DateOffset(months=5), 'Período']),
+                              'Probabilidade marginal AM': mon.probabilidade_sinal_am(),
+                              'Nota': 'Comparações descritivas; prazo operacional não comprova completude ou mudança adicional'})
+    pd.DataFrame(tab_kpss).to_csv(saida / 'kpss_complementar.csv', index=False)
+    pd.concat(residuos, ignore_index=True).to_csv(saida / 'diagnosticos_residuos_tendencia.csv', index=False)
+    pd.DataFrame(poisson).to_csv(saida / 'comparacao_poisson.csv', index=False)
+    pd.concat(calendario, ignore_index=True).to_csv(saida / 'sensibilidade_calendario.csv', index=False)
+    pd.concat(longas, ignore_index=True).to_csv(saida / 'sensibilidade_janelas_longas.csv', index=False)
+    pd.DataFrame(complementar).to_csv(saida / 'resumo_complementar.csv', index=False)
 
     # Viabilidade regional
     viabilidade = []
@@ -200,7 +246,7 @@ def executar(saida: Path, figuras: bool = False) -> dict:
             r = mon.analisar(s, mon.mes(inicio), mon.mes(fim), fim2, lam=lam, largura_ewma=le, largura=lx, data_base=base,
                              dias_consolidacao=dias, defasagens_lb=lags, alfa=float(cfg['alfa']),
                              max_exclusao=float(cfg['max_exclusao']), automatico=bool(cfg['exclusao_automatica']),
-                             excluir=[mon.mes(v) for v in cfg['exclusoes'].get(indicador, [])])
+                             excluir=[mon.mes(v) for v in cfg['exclusoes'].get(indicador, [])], metodo_cox=metodo_cox)
             pv = r.pressupostos.set_index('Teste')['Valor-p']
             viabilidade.append({'Indicador': indicador, 'Região de saúde': regiao,
                                 'Óbitos por mês (média fase I)': float(r.referencia['Óbitos'].mean()),
@@ -223,7 +269,7 @@ def executar(saida: Path, figuras: bool = False) -> dict:
     s_hom = mon.serie_mensal(nf, npop)
     r_greve = mon.analisar(s_hom, '2016-01-01', '2019-12-01', '2020-12-01', lam=lam, largura_ewma=le, largura=lx,
                            data_base=base, dias_consolidacao=dias, defasagens_lb=lags, automatico=True,
-                           alfa=float(cfg['alfa']), max_exclusao=float(cfg['max_exclusao']))
+                           alfa=float(cfg['alfa']), max_exclusao=float(cfg['max_exclusao']), metodo_cox=metodo_cox)
     r_greve.iteracoes.to_csv(saida / 'retrospectiva_homicidio_2016_2019_iteracoes.csv', index=False)
     r_greve.pressupostos.to_csv(saida / 'retrospectiva_homicidio_2016_2019_pressupostos.csv', index=False)
     retro['evento_conhecido'] = {
@@ -249,7 +295,7 @@ def executar(saida: Path, figuras: bool = False) -> dict:
                               alfa=float(cfg['alfa']), max_exclusao=float(cfg['max_exclusao']),
                               automatico=bool(cfg['exclusao_automatica']),
                               excluir=[mon.mes(v) for v in cfg['exclusoes'].get(indicador, [])
-                                       if regra['inicio'] <= mon.mes(v) <= regra['fim']])
+                                       if regra['inicio'] <= mon.mes(v) <= regra['fim']], metodo_cox=metodo_cox)
             f2r = rr.fase_ii
             cons = f2r[~f2r['Em consolidação']]
             qr = rr.quadrimestral
@@ -303,6 +349,11 @@ def executar(saida: Path, figuras: bool = False) -> dict:
             consol = r.fase_ii.loc[r.fase_ii['Em consolidação'], 'Período'] if not r.fase_ii.empty else []
             contexto = dict(indicador=indicador, territorio='Espírito Santo', granularidade='Estadual', sexo='Todos',
                             base=f'{pd.Timestamp(base):%d/%m/%Y}', consolidacao=', '.join(mon.rotulo_mes(v) for v in consol))
+            try:
+                causas, nota_causas = diagnostico_causas(indicador)
+                contexto.update(diagnostico_causas=causas.to_dict('records'), nota_causas=nota_causas)
+            except (OSError, ValueError, KeyError):
+                contexto['diagnostico_causas'] = []
             proto = dict(modo='Protocolo do TCC (config.toml)', lam=lam, le=le, lx=lx, dias=dias,
                          automatico=bool(cfg['exclusao_automatica']), justificativa='')
             media = float(r.referencia['Óbitos'].mean())
@@ -315,17 +366,22 @@ def executar(saida: Path, figuras: bool = False) -> dict:
     fontes = ['experimentos/monitoramento.py', 'experimentos/figuras.py', 'experimentos/dados_barros2021.csv',
               'dominio/monitoramento.py', 'dominio/dados.py', 'painel/relatorio.py', 'configuracao.py',
               'config.toml', 'etl/definicao_cid.py', 'requirements-lock.txt']
-    entradas = ['dataset.zip', 'regioes_pdr2024.csv', 'pdr_meta.json']
+    entradas = ['dataset.zip', 'regioes_pdr2024.csv', 'pdr_meta.json',
+                'diagnostico_causas.csv', 'diagnostico_causas_meta.json']
     manifesto = dict(
         protocolo=cfg['protocolo'], unidade_temporal='mês', gerado_utc=datetime.now(timezone.utc).isoformat(),
         referencia={k: [v[0], v[1]] for k, v in periodos.items()},
         fase2={k: [f"{mon.mes(v[1]) + pd.DateOffset(months=1):%Y-%m}", f'{v[2]:%Y-%m}'] for k, v in periodos.items()},
         exclusoes=cfg['exclusoes'],
         parametros=dict(lambda_ewma=lam, largura_ewma=le, largura_x=lx, alfa=cfg['alfa'],
+                        metodo_cox=metodo_cox, probabilidade_marginal_am=mon.probabilidade_sinal_am(),
                         dias_consolidacao=dias, defasagens_ljung_box=list(lags),
                         exclusao_automatica=cfg['exclusao_automatica'], max_exclusao=cfg['max_exclusao'],
                         meses_fase2=meses_f2, meses_padrao_fase1=padrao,
                         janelas_sensibilidade=[24, 36, 48, 64], selecao_por_significancia=False,
+                        complementos_exploratorios=['KPSS com tendência e Bartlett curto', 'Resíduos de tendência OLS',
+                                                   'Dispersão Poisson', 'Calendário 30,4375/dias',
+                                                   'Janelas de 72, 96 e 120 meses'],
                         arl_hipoteses='Normalidade, independência e parâmetros conhecidos; EWMA com limites assintóticos fixos'),
         data_base=str(base), sha256_dataset=_sha(DADOS / 'dataset.zip'),
         sha256_codigo={n: _sha(RAIZ / n) for n in fontes if (RAIZ / n).exists()},
@@ -353,16 +409,17 @@ def boletim(saida: Path, resultados: dict, base, cfg: dict) -> None:
                    f'μ0 = {r.params.mu0:.3f} e σ0 = {r.params.sigma0:.3f} por 100 mil por mês.', '',
                    '| Mês | Óbitos | Taxa | X | AM | EWMA | Situação |', '|---|---:|---:|---|---|---|---|']
         for _, l in f2.tail(6).iterrows():
-            linhas.append(f"| {mon.rotulo_mes(l['Período'])} | {int(l['Óbitos'])} | {l[TAXA]:.3f} | {l['Sinal X'] or '—'} | "
-                          f"{l['Sinal AM'] or '—'} | {l['Sinal EWMA'] or '—'} | "
-                          f"{'Em consolidação' if l['Em consolidação'] else 'Consolidado'} |")
+            sinais = ['Suspenso'] * 3 if l['Em consolidação'] else [l[f'Sinal {c}'] or '—' for c in ('X', 'AM', 'EWMA')]
+            linhas.append(f"| {mon.rotulo_mes(l['Período'])} | {int(l['Óbitos'])} | {l[TAXA]:.3f} | {sinais[0]} | "
+                          f"{sinais[1]} | {sinais[2]} | "
+                          f"{'Em consolidação' if l['Em consolidação'] else 'Fora da cautela'} |")
         q = r.quadrimestral
         if not q.empty:
             linhas += ['', '| Ano | Quadrimestre | Leitura | Meses | Taxa | Esperado | Limites | Sinal |',
                        '|---|---|---|---|---:|---:|---|---|']
             for _, l in q.tail(6).iterrows():
                 linhas.append(f"| {l['Ano']} | {l['Quadrimestre']} | {l['Leitura']} | {l['Meses']} | {l[TAXA]:.2f} | "
-                              f"{l['Esperado (m·μ0)']:.2f} | {l['LIC']:.2f}–{l['LSC']:.2f} | {l['Sinal'] or '—'} |")
+                              f"{l['Esperado (m·μ0)']:.2f} | {l['LIC']:.2f}–{l['LSC']:.2f} | {l['Sinal'] or l['Situação da sinalização']} |")
         linhas.append('')
     linhas.append('Sinais indicam afastamento do comportamento esperado e devem ser investigados; não estabelecem causas.')
     (saida / 'boletim.md').write_text('\n'.join(linhas), encoding='utf-8')

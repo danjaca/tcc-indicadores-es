@@ -1,6 +1,6 @@
 # Sistema de apoio à decisão para indicadores de mortalidade do Espírito Santo
 
-Projeto de Daniel Breda Bigossi, Engenharia de Produção, UFES. A aplicação consulta dados locais e o processo de atualização é executado separadamente. Esta versão incorpora o monitoramento estatístico **mensal** dos indicadores pela metodologia de gráficos de controle (X–AM e EWMA; Montgomery, 2016), com fases I e II parametrizáveis, referência principal fixa de 48 meses, sensibilidade de 24/36/48/64 meses, leitura quadrimestral e relatórios em PDF em todas as abas. A validação funcional do SAD independe de significância estatística. Consulte a entrega atual em [docs/RELATORIO_AUDITORIA.md](docs/RELATORIO_AUDITORIA.md).
+Projeto de Daniel Breda Bigossi, Engenharia de Produção, UFES. A aplicação consulta dados locais e o processo de atualização é executado separadamente. Esta versão incorpora o monitoramento estatístico **mensal** dos indicadores pela metodologia de gráficos de controle (X–AM e EWMA; Montgomery, 2016), com fases I e II parametrizáveis, referência principal fixa de 48 meses, sensibilidade de 24/36/48/64 meses, leitura quadrimestral e relatórios em PDF em todas as abas. A validação funcional do SAD independe de significância estatística. Consulte a lista atual de alterações e verificações em [docs/REVISAO_FINAL_20261105.md](docs/REVISAO_FINAL_20261105.md); o histórico anterior permanece em [docs/RELATORIO_AUDITORIA.md](docs/RELATORIO_AUDITORIA.md).
 
 **Atualizar todos os dados e gerar os resultados em outro computador:** siga [COMO_ATUALIZAR.md](COMO_ATUALIZAR.md) (`python pipeline_completo.py`).
 
@@ -155,7 +155,7 @@ Foram excluídos da distribuição caches, logs locais, respostas temporárias d
 
 ## Monitoramento estatístico
 
-A aba **Monitoramento estatístico** aplica X–AM e EWMA às taxas mensais. O protocolo v3 usa uma referência fixa de 48 meses anteriores ao ano monitorado, sem escolher a extensão pelos valores-p e sem exclusão automática. Os testes são diagnósticos exploratórios: Lilliefors, Ljung–Box, Dickey–Fuller aumentado, Cox–Stuart e Fisher, acompanhados de FAC/FACP. A reprodução numérica da série de Barros (2021) verifica cálculos; não transfere automaticamente a adequação estatística ou a definição epidemiológica ao Espírito Santo.
+A aba **Monitoramento estatístico** aplica X–AM e EWMA às taxas mensais. O protocolo v4 usa uma referência fixa de 48 meses anteriores ao ano monitorado, sem escolher a extensão pelos valores-p e sem exclusão automática. Os testes são diagnósticos exploratórios: Lilliefors, Ljung–Box, Dickey–Fuller aumentado, Cox–Stuart e Fisher, acompanhados de FAC/FACP. A reprodução numérica da série de Barros (2021) verifica cálculos; não transfere automaticamente a adequação estatística ou a definição epidemiológica ao Espírito Santo.
 
 - **Ajuste pela vigilância**: primeiro mês da fase II, extensão da fase I (24, 36, 48, 64 ou outra a partir de 24 meses), horizonte de 1 a 36 meses, λ, L do EWMA, largura do X, prazo de cautela e exclusões justificadas. O fim da fase I é o mês anterior ao início da fase II. Falta de cobertura impede o cálculo, sem encurtar a janela silenciosamente.
 - **Sensibilidade**: todas as referências de 24/36/48/64 meses usam a mesma fase II e os mesmos parâmetros. Inclui limites, diagnósticos, exclusões e sinais fora do prazo de cautela. Exporta CSV e configuração completa em JSON; não escolhe um cenário pelos resultados.
@@ -194,3 +194,5 @@ O manifesto registra anos da referência, parâmetros efetivamente aplicados, pe
 ## Continuidade no Codex
 
 O prompt integral está em [docs/PROMPT_MESTRE_SAD.md](docs/PROMPT_MESTRE_SAD.md); as instruções permanentes, em [AGENTS.md](AGENTS.md). A skill pessoal `sad-tcc` retoma o protocolo a partir da pasta corrente. Consulte [docs/SETUP_CODEX.md](docs/SETUP_CODEX.md) para os caminhos, o ambiente e os limites de autorização. Nenhuma publicação ou remoção de versões foi realizada nesta auditoria.
+
+A opção de monitoramento ajustado por dias reestima os gráficos mensais com taxa × 30,4375/dias do mês, preservando taxa e leitura quadrimestral oficiais. O painel também oferece Cox–Stuart exato, KPSS/resíduos/Poisson complementares, registro das configurações da sessão e diagnóstico estadual de causas inespecíficas. O ranking por taxa permite mínimo configurável de óbitos, sem retirar municípios da tabela completa. Consulte [MONITORAMENTO.md](docs/MONITORAMENTO.md) para hipóteses e reprodução.

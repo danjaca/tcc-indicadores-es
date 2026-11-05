@@ -5,6 +5,8 @@ from zoneinfo import ZoneInfo
 import argparse,hashlib,json,os,shutil,subprocess,sys,tomllib,uuid
 from configuracao import RAIZ,ESTADO,DADOS
 from etl.definicao_cid import ID_DEFINICAO_CID
+from etl.revisoes import registrar_ciclo
+from etl.nucleo_tabnet import URL,write_json
 from concurrent.futures import ThreadPoolExecutor
 
 def intervalo(hoje,cfg,inicio=None,fim=None):
@@ -82,6 +84,25 @@ def main():
                     run('-m','etl.'+module,'--inicio',str(a),'--fim',str(a),*force)
         run('-m','etl.validar','--anos',*[str(a) for a in anos])
         report['status']='validado'
+        anos_diagnostico=[a for a in anos if a>=2022]
+        if not (destino/'diagnostico_causas.csv').exists():
+            anos_diagnostico=list(range(2022,hoje.year+1))
+        if anos_diagnostico:
+            try:
+                run('-m','etl.diagnostico_causas','--anos',*[str(a) for a in anos_diagnostico],
+                    '--saida',str(destino),'--evidencias',str(lote/'qualidade_causas'))
+                report['diagnostico_causas']={'status':'disponivel','anos_consultados':anos_diagnostico}
+            except subprocess.CalledProcessError:
+                arq=destino/'diagnostico_causas_meta.json'
+                try:camada=json.loads(arq.read_text())
+                except (FileNotFoundError,json.JSONDecodeError):camada={}
+                camada.update(status='obsoleto' if (destino/'diagnostico_causas.csv').exists() else 'indisponivel',
+                              fonte=camada.get('fonte',URL),
+                              ultima_tentativa_utc=datetime.now(ZoneInfo('UTC')).isoformat(),
+                              erro=camada.get('erro','Processo diagnóstico não concluído; contagens anteriores preservadas.'))
+                write_json(arq,camada)
+                report['diagnostico_causas']={'status':'indisponivel_ou_obsoleto',
+                    'nota':'Falha complementar não altera contagens principais; consulte diagnostico_causas_meta.json.'}
         if args.avaliar:
             resultado=lote/'monitoramento'
             run('-m','experimentos.monitoramento','--saida',str(resultado))
@@ -91,8 +112,9 @@ def main():
             report['monitoramento']={'pasta':str(resultado),'sha256_dataset':manifesto['sha256_dataset'],
                                      'referencia':manifesto['referencia'],'parametros':manifesto['parametros']}
 
+        backup=lote/'dados_anteriores';shutil.copytree(DADOS,backup)
+        report['snapshots']=registrar_ciclo(lote,ESTADO)
         if args.publicar_local:
-            backup=lote/'dados_anteriores';shutil.copytree(DADOS,backup)
             try:
                 for file in destino.iterdir():
                     if file.is_file():

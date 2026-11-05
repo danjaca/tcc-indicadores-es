@@ -53,6 +53,8 @@ python -m streamlit run app.py
 
 ## Observações
 
-- Os meses dentro do prazo de cautela configurado (padrão de 60 dias após o fim do mês, em relação à atualização da fonte) aparecem como "em consolidação". Trata-se de convenção operacional, não de prazo legal que assegure registro ou completude. Seus sinais são provisórios, e o histórico também pode ser revisto.
+- Os meses dentro do prazo de cautela configurado (padrão de 60 dias após o fim do mês, em relação à atualização da fonte) aparecem como "em consolidação". Trata-se de convenção operacional, não de prazo legal que assegure registro ou completude. Sua sinalização aparece suspensa e neutra na interface/PDF; os cálculos brutos são preservados e o histórico também pode ser revisto.
 - Com `[monitoramento.fase1]` vazio, a referência padrão usa os 48 meses anteriores ao ano do último mês disponível. Períodos registrados explicitamente permanecem fixos até revisão responsável. Confira as fases, a cobertura e o manifesto a cada ciclo; não altere a referência apenas para mudar os sinais.
 - Para um painel no Streamlit Community Cloud com código e protocolo já sincronizados, publique a pasta `dados/` validada no repositório (ou aguardar a rotina mensal do GitHub Actions, que executa o mesmo processo no dia 15).
+
+A atualização também consulta causas inespecíficas nos anos reprocessados e cataloga snapshots/diferenças. O complemento possui estado disponível, obsoleto ou indisponível; falha não transforma ausência em zero nem bloqueia a base principal já validada. Preserve o artifact de auditoria e o histórico Git para acompanhar revisões: os 90 dias de retenção do serviço não são um arquivo permanente.
