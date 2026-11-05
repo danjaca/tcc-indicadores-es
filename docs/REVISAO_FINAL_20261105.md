@@ -4,7 +4,7 @@ Este registro relaciona as recomendações do plano de revisão de 18 páginas �
 
 O documento acadêmico final é [TCC_Daniel_Breda_Bigossi_Final_ABNT.docx](TCC_Daniel_Breda_Bigossi_Final_ABNT.docx). A cópia anterior foi preservada em `auditoria/revisao_20261105/TCC_antes_revisao_20261105.docx`, com hashes de entrada. A revisão do texto usa a voz do autor, as fontes originais e os resultados reproduzidos; o material de revisão externa não foi convertido em referência bibliográfica do TCC.
 
-Este relatório distingue **implementação**, **verificação computacional**, **interpretação estatística** e **validação operacional**. Não declara adequação dos limites apenas porque o programa executou. A suíte global resultou em **104 passed, 113 warnings in 44.55s**. A cópia isolada dos 26 arquivos preparados para publicação e dos demais arquivos rastreados também passou nos 104 testes (113 avisos; 44,72 s). A versão acadêmica tem 72 páginas, 87 referências, 20 objetos de imagem (incluindo equações) e 22 tabelas de estrutura (incluindo listas e quadros). Os 75 localizadores das listas e do sumário foram conferidos contra o PDF final. O código funcional foi publicado e verificado no Streamlit, com remoto GitHub confirmado no commit `3bd6ca88a5f3fe2fbffee91a75179d097a42925e`. O download real do PDF ajustado confirmou oito páginas e X/AM/EWMA na capa; detalhes estão em [PUBLICACAO.md](PUBLICACAO.md).
+Este relatório distingue **implementação**, **verificação computacional**, **interpretação estatística** e **validação operacional**. Não declara adequação dos limites apenas porque o programa executou. A suíte global resultou em **104 passed, 113 warnings in 44.55s**. A cópia isolada dos 26 arquivos preparados para publicação e dos demais arquivos rastreados também passou nos 104 testes (113 avisos; 44,72 s). A versão acadêmica tem 71 páginas, 87 referências, 20 objetos de imagem (incluindo equações) e 22 tabelas de estrutura (incluindo listas e quadros). Os 75 localizadores das listas e do sumário foram conferidos contra o PDF final. O código funcional foi publicado e verificado no Streamlit, com remoto GitHub confirmado no commit `3bd6ca88a5f3fe2fbffee91a75179d097a42925e`. O download real do PDF ajustado confirmou oito páginas e X/AM/EWMA na capa; detalhes estão em [PUBLICACAO.md](PUBLICACAO.md).
 
 ## Evidências e localizadores
 
@@ -207,10 +207,12 @@ Os 27 arquivos do projeto relacionados abaixo foram modificados ou acrescentados
 Entregáveis acadêmicos locais:
 
 - `docs/TCC_Daniel_Breda_Bigossi_Final_ABNT.docx`: trabalho revisado, versões no Quadro 2 e em 3.6, referências e apêndices atualizados.
-- `docs/TCC_Daniel_Breda_Bigossi_Final_ABNT.pdf`: renderização correspondente de 72 páginas, com 75 localizadores conferidos.
+- `docs/TCC_Daniel_Breda_Bigossi_Final_ABNT.pdf`: renderização correspondente de 71 páginas, com 75 localizadores conferidos.
 - `docs/auditoria/revisao_20261105/manifesto_entrega_academica.json`: hashes dos entregáveis, contagem de páginas e da estrutura.
 - `docs/auditoria/revisao_20261105/consolidar_tcc.py`, `atualizar_localizadores.py` e `alteracoes_textuais.json`: integração e rastreabilidade editorial.
 - `docs/auditoria/revisao_20261105/resultados_definitivos/`: tabelas, figuras, três relatórios e manifesto da execução final; os resultados anteriores foram preservados.
 - `docs/auditoria/revisao_20261105/monitoramento_cloud_ajustado.pdf`, `verificacao_cloud_pdf.json` e `streamlit_publicado_ajuste_calendario.png`: evidência da aplicação publicada.
 
 Os originais de entrada e a versão revisada anterior não foram sobrescritos. A modificação preexistente de `resultados_monitoramento/manifesto.json` permaneceu local e não entrou na publicação. Nenhum dado principal foi excluído ou alterado.
+
+A inspeção final de paginação manteve a Tabela 5 completa em uma página e retirou a quebra manual antes de 4.5 que deixava duas linhas isoladas. O espaçamento dos apêndices A–C foi uniformizado em 1,5 e as alíneas receberam recuo. A renderização definitiva tem 71 páginas; os 75 localizadores foram verificados novamente após esses ajustes.
