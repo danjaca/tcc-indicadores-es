@@ -4,7 +4,7 @@ Este registro relaciona as recomendações do plano de revisão de 18 páginas �
 
 O documento acadêmico final é [TCC_Daniel_Breda_Bigossi_Final_ABNT.docx](TCC_Daniel_Breda_Bigossi_Final_ABNT.docx). A cópia anterior foi preservada em `auditoria/revisao_20261105/TCC_antes_revisao_20261105.docx`, com hashes de entrada. A revisão do texto usa a voz do autor, as fontes originais e os resultados reproduzidos; o material de revisão externa não foi convertido em referência bibliográfica do TCC.
 
-Este relatório distingue **implementação**, **verificação computacional**, **interpretação estatística** e **validação operacional**. Não declara adequação dos limites apenas porque o programa executou. A suíte global resultou em **104 passed, 113 warnings in 44.55s**. A cópia isolada dos 26 arquivos preparados para publicação e dos demais arquivos rastreados também passou nos 104 testes (113 avisos; 44,72 s). A versão acadêmica tem 71 páginas, 87 referências, 20 objetos de imagem (incluindo equações) e 22 tabelas de estrutura (incluindo listas e quadros). Os 75 localizadores das listas e do sumário foram conferidos contra o PDF final. O estado remoto de publicação será registrado após a conferência no serviço.
+Este relatório distingue **implementação**, **verificação computacional**, **interpretação estatística** e **validação operacional**. Não declara adequação dos limites apenas porque o programa executou. A suíte global resultou em **104 passed, 113 warnings in 44.55s**. A cópia isolada dos 26 arquivos preparados para publicação e dos demais arquivos rastreados também passou nos 104 testes (113 avisos; 44,72 s). A versão acadêmica tem 72 páginas, 87 referências, 20 objetos de imagem (incluindo equações) e 22 tabelas de estrutura (incluindo listas e quadros). Os 75 localizadores das listas e do sumário foram conferidos contra o PDF final. O código funcional foi publicado e verificado no Streamlit, com remoto GitHub confirmado no commit `3bd6ca88a5f3fe2fbffee91a75179d097a42925e`. O download real do PDF ajustado confirmou oito páginas e X/AM/EWMA na capa; detalhes estão em [PUBLICACAO.md](PUBLICACAO.md).
 
 ## Evidências e localizadores
 
@@ -158,14 +158,59 @@ Permanecem fora do que foi demonstrado nesta revisão:
 - avaliação da utilidade com profissionais, impacto sobre decisões ou mortalidade e mensuração do ganho de tempo;
 - certificação de um release populacional mais recente quando os metadados não o identificam;
 - data, membros adicionais e assinaturas da folha de aprovação, dependentes da confirmação do autor/instituição;
-- verificação do estado remoto de publicação/atualização, a registrar após a conferência do serviço.
+- execução de um novo ciclo completo de extração: o workflow foi preservado e está ativo, mas não foi disparado nesta revisão.
 
-Os três relatórios PDF de monitoramento em `resultados_definitivos/relatorios/` foram renderizados independentemente com Poppler e tiveram suas 24 páginas inspecionadas visualmente. Cada capa contém X, AM e EWMA; tabelas, complementos e rodapés permanecem legíveis, sem sobreposição observada. As leituras quadrimestrais explicam a suspensão em períodos parciais ou com meses recentes. A comparação por calendário está identificada separadamente e mantém os parâmetros e quadrimestres oficiais nestes relatórios do protocolo principal. Essa conferência não substitui a inspeção do DOCX nem afirma verificação visual de todos os recortes possíveis do painel.
+Os três relatórios PDF de monitoramento em `resultados_definitivos/relatorios/` foram renderizados independentemente com Poppler e tiveram suas 24 páginas inspecionadas visualmente. Cada capa contém X, AM e EWMA; tabelas, complementos e rodapés permanecem legíveis, sem sobreposição observada. As leituras quadrimestrais explicam a suspensão em períodos parciais ou com meses recentes. A comparação por calendário está identificada separadamente e mantém os parâmetros e quadrimestres oficiais nestes relatórios do protocolo principal. O DOCX foi renderizado e os ajustes visuais foram verificados em suas páginas, incluindo resumos, listas, fontes, notas, tabelas, equações, figuras e apêndices. Não se afirma verificação visual de todos os recortes possíveis do painel.
 
-A implementação evita exclusões ou mudanças de janela para eliminar sinais. Os originais, resultados legados e evidências foram preservados. A publicação autorizada e o fechamento do documento terão seus estados finais registrados separadamente, após a verificação correspondente.
+A implementação evita exclusões ou mudanças de janela para eliminar sinais. Os originais, resultados legados e evidências foram preservados. O código funcional foi publicado e conferido no Streamlit; o documento acadêmico entregue foi renderizado após os ajustes, com paginação e localizadores conferidos. A folha de aprovação continua preparada para data, membros ainda não confirmados e assinaturas.
 
 ## Versões do ambiente e conferências de entrega
 
 O Quadro 2 e a seção 3.6 registram as versões verificadas com `importlib.metadata` e no `requirements-lock.txt`: Python 3.12.8; pandas 2.2.3; NumPy 2.5.3; Streamlit 1.63.0; Plotly 6.9.0; Matplotlib 3.11.2; Selenium 4.50.0; requests 2.34.2; BeautifulSoup 4.15.0; lxml 6.1.3; dbfread 2.0.7; geopandas 1.2.0; shapely 2.1.2; pytest 8.4.2. SQLite 3.49.1 foi conferido na biblioteca padrão. São versões do ambiente da validação; serviços hospedados não recebem número de versão inventado. O painel usa `requirements.txt`, e a atualização automatizada usa o lock. Não foi acrescentada dependência.
 
 A execução final dos experimentos em `resultados_definitivos/` terminou com a maior diferença de 0,0099047 na reprodução numérica de Barros. Os 104 testes de entrega e os 104 da cópia isolada passaram. `pip check` não encontrou dependências quebradas; a validação da base conciliou os 11 anos, 78 municípios e 724.464 linhas, sem alterar o pacote principal. Os avisos de depreciação não foram tratados como falhas ou omitidos dos logs. A correção de formatação do ano no PDF mantém 2026 sem separador e preserva separadores em quantidades.
+
+## Lista de arquivos modificados e entregáveis
+
+Os 27 arquivos do projeto relacionados abaixo foram modificados ou acrescentados nesta revisão e publicados. Os documentos acadêmicos e as evidências detalhadas permanecem no acervo local.
+
+| Arquivo | Alteração principal |
+|---|---|
+| `.github/workflows/atualizacao-mensal.yml` | Preservação dos snapshots, diferenças e consulta auxiliar nos artifacts; agendamento preservado. |
+| `.gitignore` | PDFs acadêmicos locais excluídos da implantação, junto aos DOCX. |
+| `app.py` | Mínimo de óbitos configurável no ranking por taxa, sem retirar municípios da tabela/mapa. |
+| `atualizar.py` | Integração não destrutiva do diagnóstico auxiliar e do catálogo de versões. |
+| `config.toml` | Protocolo v4 e Cox exato explícitos. |
+| `dominio/dados.py` | Carregamento auxiliar com conferência de status, hashes e cobertura. |
+| `dominio/monitoramento.py` | Cox exato, KPSS, resíduos, Poisson descritivo, ajuste idempotente de calendário e motivo de suspensão. |
+| `etl/diagnostico_causas.py` | Consulta independente, conciliação, cobertura, atualização incremental e metadados auxiliares. |
+| `etl/revisoes.py` | Catálogo de snapshots e diferenças entre versões com compatibilidade de definição/cobertura. |
+| `experimentos/monitoramento.py` | Execução e arquivos complementares reproduzíveis, manifestos e relatórios atualizados. |
+| `experimentos/figuras.py` | Representação neutra dos meses recentes. |
+| `painel/vistas/monitoramento.py` | Opção ativa de calendário; diagnósticos, sensibilidade, dados auxiliares, histórico da sessão, JSON e apresentação dos sinais. |
+| `painel/relatorio.py` | Três gráficos na capa; escalas e parâmetros separados; complementos; sinais suspensos; fluxo dos parágrafos e ano sem separador. |
+| `dados/diagnostico_causas.csv` | 4.446 linhas agregadas da consulta auxiliar, sem substituir a base principal. |
+| `dados/diagnostico_causas_meta.json` | Procedência, seleções, status, cobertura e hashes da consulta. |
+| `tests/test_atualizacao.py` | Regressões da atualização auxiliar e do catálogo. |
+| `tests/test_monitoramento.py` | Métodos e diagnósticos adicionais, exatidão e limites dos cálculos. |
+| `tests/test_diagnostico_causas.py` | Cobertura, conciliação, atualização incremental e falhas da consulta auxiliar. |
+| `tests/test_revisoes.py` | Catálogo e revisões, incluindo definição e cobertura incompatíveis. |
+| `tests/test_revisao_calendario.py` | Calendário bissexto/idempotência, gráficos ativos, quadrimestre oficial, reprodução JSON e PDF de produção equivalente. |
+| `tests/test_revisao_vigilancia.py` | Neutralização visual, sinais brutos preservados, razões de suspensão, histórico, ranking, qualidade e fluxo do PDF. |
+| `README.md` | Recursos novos e acesso à revisão completa. |
+| `COMO_ATUALIZAR.md` | Atualização auxiliar, snapshots, retenção e cuidado com meses recentes. |
+| `docs/MONITORAMENTO.md` | Parâmetros, métodos, escalas, complementos, limites e reprodução. |
+| `docs/RELATORIO_AUDITORIA.md` | Identificação do relatório anterior como histórico e ponte para esta revisão. |
+| `docs/REVISAO_FINAL_20261105.md` | Matriz completa de recomendações, verificações, resultados, arquivos e pendências. |
+| `docs/PUBLICACAO.md` | Registro separado da publicação e da verificação real no Streamlit. |
+
+Entregáveis acadêmicos locais:
+
+- `docs/TCC_Daniel_Breda_Bigossi_Final_ABNT.docx`: trabalho revisado, versões no Quadro 2 e em 3.6, referências e apêndices atualizados.
+- `docs/TCC_Daniel_Breda_Bigossi_Final_ABNT.pdf`: renderização correspondente de 72 páginas, com 75 localizadores conferidos.
+- `docs/auditoria/revisao_20261105/manifesto_entrega_academica.json`: hashes dos entregáveis, contagem de páginas e da estrutura.
+- `docs/auditoria/revisao_20261105/consolidar_tcc.py`, `atualizar_localizadores.py` e `alteracoes_textuais.json`: integração e rastreabilidade editorial.
+- `docs/auditoria/revisao_20261105/resultados_definitivos/`: tabelas, figuras, três relatórios e manifesto da execução final; os resultados anteriores foram preservados.
+- `docs/auditoria/revisao_20261105/monitoramento_cloud_ajustado.pdf`, `verificacao_cloud_pdf.json` e `streamlit_publicado_ajuste_calendario.png`: evidência da aplicação publicada.
+
+Os originais de entrada e a versão revisada anterior não foram sobrescritos. A modificação preexistente de `resultados_monitoramento/manifesto.json` permaneceu local e não entrou na publicação. Nenhum dado principal foi excluído ou alterado.
