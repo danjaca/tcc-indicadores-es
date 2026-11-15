@@ -571,7 +571,7 @@
       "ano": 2025,
       "indicador": "Suicídio geral",
       "sexo": "Masculino",
-      "total": 243,
+      "total": 245,
       "cids_positivos": 15,
       "diferenca_base_principal": 0,
       "celulas_divergentes": 0
@@ -580,7 +580,7 @@
       "ano": 2025,
       "indicador": "Suicídio geral",
       "sexo": "Feminino",
-      "total": 85,
+      "total": 86,
       "cids_positivos": 13,
       "diferenca_base_principal": 0,
       "celulas_divergentes": 0
@@ -598,7 +598,7 @@
       "ano": 2025,
       "indicador": "Homicídios — jovens de 15 a 29 anos",
       "sexo": "Masculino",
-      "total": 386,
+      "total": 390,
       "cids_positivos": 12,
       "diferenca_base_principal": 0,
       "celulas_divergentes": 0
@@ -634,7 +634,7 @@
       "ano": 2026,
       "indicador": "Suicídio geral",
       "sexo": "Masculino",
-      "total": 133,
+      "total": 168,
       "cids_positivos": 13,
       "diferenca_base_principal": 0,
       "celulas_divergentes": 0
@@ -643,7 +643,7 @@
       "ano": 2026,
       "indicador": "Suicídio geral",
       "sexo": "Feminino",
-      "total": 50,
+      "total": 52,
       "cids_positivos": 11,
       "diferenca_base_principal": 0,
       "celulas_divergentes": 0
@@ -661,7 +661,7 @@
       "ano": 2026,
       "indicador": "Homicídios — jovens de 15 a 29 anos",
       "sexo": "Masculino",
-      "total": 196,
+      "total": 214,
       "cids_positivos": 12,
       "diferenca_base_principal": 0,
       "celulas_divergentes": 0
@@ -670,7 +670,7 @@
       "ano": 2026,
       "indicador": "Homicídios — jovens de 15 a 29 anos",
       "sexo": "Feminino",
-      "total": 19,
+      "total": 22,
       "cids_positivos": 5,
       "diferenca_base_principal": 0,
       "celulas_divergentes": 0
@@ -688,7 +688,7 @@
       "ano": 2026,
       "indicador": "Homicídios — mulheres de 10 a 59 anos",
       "sexo": "Feminino",
-      "total": 53,
+      "total": 60,
       "cids_positivos": 7,
       "diferenca_base_principal": 0,
       "celulas_divergentes": 0
@@ -704,7 +704,8 @@
       6,
       7,
       8,
-      9
+      9,
+      10
     ],
     "2025": [
       1,
@@ -848,8 +849,8 @@
     ]
   },
   "fonte": "http://tabnet.saude.es.gov.br/cgi/deftohtm.exe?tabnet/SIM/SIM2006/sim2006.def",
-  "extraido_utc": "2026-10-15T14:45:56.930289+00:00",
-  "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)",
+  "extraido_utc": "2026-11-15T16:56:12.756824+00:00",
+  "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)",
   "dimensao_cid": [
     {
       "cid": "X85",

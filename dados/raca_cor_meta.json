@@ -171,11 +171,12 @@
       6,
       7,
       8,
-      9
+      9,
+      10
     ]
   },
   "fonte": "http://tabnet.saude.es.gov.br/cgi/deftohtm.exe?tabnet/SIM/SIM2006/sim2006.def",
-  "extraido_utc": "2026-10-15T14:33:50.348601+00:00",
+  "extraido_utc": "2026-11-15T16:43:53.707351+00:00",
   "anos": [
     2016,
     2017,
@@ -1533,8 +1534,8 @@
       "ano": 2025,
       "indicador": "Suicídio geral",
       "sexo": "Masculino",
-      "total": 243,
-      "total_categorias_fonte": 238,
+      "total": 245,
+      "total_categorias_fonte": 240,
       "sem_classificacao_tabulacao": 5,
       "meses": [
         1,
@@ -1552,14 +1553,14 @@
       ],
       "celulas_divergentes_base_anterior": 0,
       "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     },
     {
       "ano": 2025,
       "indicador": "Suicídio geral",
       "sexo": "Feminino",
-      "total": 85,
-      "total_categorias_fonte": 84,
+      "total": 86,
+      "total_categorias_fonte": 85,
       "sem_classificacao_tabulacao": 1,
       "meses": [
         1,
@@ -1577,7 +1578,7 @@
       ],
       "celulas_divergentes_base_anterior": 0,
       "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     },
     {
       "ano": 2025,
@@ -1589,14 +1590,14 @@
       "meses": [],
       "celulas_divergentes_base_anterior": 0,
       "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     },
     {
       "ano": 2025,
       "indicador": "Homicídios — jovens de 15 a 29 anos",
       "sexo": "Masculino",
-      "total": 386,
-      "total_categorias_fonte": 383,
+      "total": 390,
+      "total_categorias_fonte": 387,
       "sem_classificacao_tabulacao": 3,
       "meses": [
         1,
@@ -1614,7 +1615,7 @@
       ],
       "celulas_divergentes_base_anterior": 0,
       "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     },
     {
       "ano": 2025,
@@ -1638,7 +1639,7 @@
       ],
       "celulas_divergentes_base_anterior": 0,
       "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     },
     {
       "ano": 2025,
@@ -1652,7 +1653,7 @@
       ],
       "celulas_divergentes_base_anterior": 0,
       "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     },
     {
       "ano": 2025,
@@ -1677,14 +1678,14 @@
       ],
       "celulas_divergentes_base_anterior": 0,
       "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     },
     {
       "ano": 2026,
       "indicador": "Suicídio geral",
       "sexo": "Masculino",
-      "total": 133,
-      "total_categorias_fonte": 133,
+      "total": 168,
+      "total_categorias_fonte": 168,
       "sem_classificacao_tabulacao": 0,
       "meses": [
         1,
@@ -1695,18 +1696,19 @@
         6,
         7,
         8,
-        9
+        9,
+        10
       ],
       "celulas_divergentes_base_anterior": 0,
       "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     },
     {
       "ano": 2026,
       "indicador": "Suicídio geral",
       "sexo": "Feminino",
-      "total": 50,
-      "total_categorias_fonte": 50,
+      "total": 52,
+      "total_categorias_fonte": 52,
       "sem_classificacao_tabulacao": 0,
       "meses": [
         1,
@@ -1721,7 +1723,7 @@
       ],
       "celulas_divergentes_base_anterior": 0,
       "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     },
     {
       "ano": 2026,
@@ -1733,14 +1735,37 @@
       "meses": [],
       "celulas_divergentes_base_anterior": 0,
       "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     },
     {
       "ano": 2026,
       "indicador": "Homicídios — jovens de 15 a 29 anos",
       "sexo": "Masculino",
-      "total": 196,
-      "total_categorias_fonte": 196,
+      "total": 214,
+      "total_categorias_fonte": 214,
+      "sem_classificacao_tabulacao": 0,
+      "meses": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "celulas_divergentes_base_anterior": 0,
+      "diferenca_obitos": 0,
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+    },
+    {
+      "ano": 2026,
+      "indicador": "Homicídios — jovens de 15 a 29 anos",
+      "sexo": "Feminino",
+      "total": 22,
+      "total_categorias_fonte": 22,
       "sem_classificacao_tabulacao": 0,
       "meses": [
         1,
@@ -1755,28 +1780,7 @@
       ],
       "celulas_divergentes_base_anterior": 0,
       "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
-    },
-    {
-      "ano": 2026,
-      "indicador": "Homicídios — jovens de 15 a 29 anos",
-      "sexo": "Feminino",
-      "total": 19,
-      "total_categorias_fonte": 19,
-      "sem_classificacao_tabulacao": 0,
-      "meses": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8
-      ],
-      "celulas_divergentes_base_anterior": 0,
-      "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     },
     {
       "ano": 2026,
@@ -1788,14 +1792,14 @@
       "meses": [],
       "celulas_divergentes_base_anterior": 0,
       "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     },
     {
       "ano": 2026,
       "indicador": "Homicídios — mulheres de 10 a 59 anos",
       "sexo": "Feminino",
-      "total": 53,
-      "total_categorias_fonte": 53,
+      "total": 60,
+      "total_categorias_fonte": 60,
       "sem_classificacao_tabulacao": 0,
       "meses": [
         1,
@@ -1810,7 +1814,7 @@
       ],
       "celulas_divergentes_base_anterior": 0,
       "diferenca_obitos": 0,
-      "revisao": "Última Atualização em: 09/10/2026. Observação: Banco atualizado até o dia 09/10/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
+      "revisao": "Última Atualização em: 05/11/2026. Observação: Banco atualizado até o dia 05/11/2026. Dados referentes a 2025 e 2026 sujeitos a revisão. Fonte: Sistema de Informações de Mortalidade (SIM)"
     }
   ],
   "grao": [
